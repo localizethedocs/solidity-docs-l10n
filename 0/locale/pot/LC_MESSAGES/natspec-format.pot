@@ -1,0 +1,458 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity 0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../natspec-format.rst:5
+msgid "NatSpec Format"
+msgstr ""
+
+#: ../../../natspec-format.rst:7
+msgid ""
+"Solidity contracts can use a special form of comments to provide rich "
+"documentation for functions, return variables and more. This special form is "
+"named the Ethereum Natural Language Specification Format (NatSpec)."
+msgstr ""
+
+#: ../../../natspec-format.rst:13
+msgid ""
+"NatSpec was inspired by `Doxygen <https://en.wikipedia.org/wiki/Doxygen>`_. "
+"While it uses Doxygen-style comments and tags, there is no intention to keep "
+"strict compatibility with Doxygen. Please carefully examine the supported "
+"tags listed below."
+msgstr ""
+
+#: ../../../natspec-format.rst:18
+msgid ""
+"This documentation is segmented into developer-focused messages and end-user-"
+"facing messages. These messages may be shown to the end user (the human) at "
+"the time that they will interact with the contract (i.e. sign a transaction)."
+msgstr ""
+
+#: ../../../natspec-format.rst:22
+msgid ""
+"It is recommended that Solidity contracts are fully annotated using NatSpec "
+"for all public interfaces (everything in the ABI)."
+msgstr ""
+
+#: ../../../natspec-format.rst:25
+msgid ""
+"NatSpec includes the formatting for comments that the smart contract author "
+"will use, and which are understood by the Solidity compiler. Also detailed "
+"below is output of the Solidity compiler, which extracts these comments into "
+"a machine-readable format."
+msgstr ""
+
+#: ../../../natspec-format.rst:30
+msgid ""
+"NatSpec may also include annotations used by third-party tools. These are "
+"most likely accomplished via the ``@custom:<name>`` tag, and a good use case "
+"is analysis and verification tools."
+msgstr ""
+
+#: ../../../natspec-format.rst:37
+msgid "Documentation Example"
+msgstr ""
+
+#: ../../../natspec-format.rst:39
+msgid ""
+"Documentation is inserted above each ``contract``, ``interface``, "
+"``library``, ``function``, ``enum``, ``enum`` value and ``event`` using the "
+"Doxygen notation format. A ``public`` state variable is equivalent to a "
+"``function`` for the purposes of NatSpec."
+msgstr ""
+
+#: ../../../natspec-format.rst:44
+msgid ""
+"For Solidity you may choose ``///`` for single or multi-line comments, or ``/"
+"**`` and ending with ``*/``."
+msgstr ""
+
+#: ../../../natspec-format.rst:47
+msgid ""
+"For Vyper, use ``\"\"\"`` indented to the inner contents with bare comments. "
+"See the `Vyper documentation <https://docs.vyperlang.org/en/latest/natspec."
+"html>`__."
+msgstr ""
+
+#: ../../../natspec-format.rst:51
+msgid ""
+"The following example shows a contract and a function using all available "
+"tags."
+msgstr ""
+
+#: ../../../natspec-format.rst:55
+msgid ""
+"The Solidity compiler only interprets tags if they are external or public. "
+"You are welcome to use similar comments for your internal and private "
+"functions, but those will not be parsed."
+msgstr ""
+
+#: ../../../natspec-format.rst:59
+msgid "This may change in the future."
+msgstr ""
+
+#: ../../../natspec-format.rst:61
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.2 < 0.9.0;\n"
+"\n"
+"/// @title A simulator for trees\n"
+"/// @author Larry A. Gardner\n"
+"/// @notice You can use this contract for only the most basic simulation\n"
+"/// @dev All function calls are currently implemented without side effects\n"
+"/// @custom:experimental This is an experimental contract.\n"
+"contract Tree {\n"
+"    /// @notice Calculate tree age in years, rounded up, for live trees\n"
+"    /// @dev The Alexandr N. Tetearing algorithm could increase precision\n"
+"    /// @param rings The number of rings from dendrochronological sample\n"
+"    /// @return Age in years, rounded up for partial years\n"
+"    /// @return Name of the tree\n"
+"    function age(uint256 rings) external virtual pure returns (uint256, "
+"string memory) {\n"
+"        return (rings + 1, \"tree\");\n"
+"    }\n"
+"\n"
+"    /// @notice Returns the amount of leaves the tree has.\n"
+"    /// @dev Returns only a fixed number.\n"
+"    function leaves() external virtual pure returns(uint256) {\n"
+"        return 2;\n"
+"    }\n"
+"}\n"
+"\n"
+"contract Plant {\n"
+"    function leaves() external virtual pure returns(uint256) {\n"
+"        return 3;\n"
+"    }\n"
+"}\n"
+"\n"
+"contract KumquatTree is Tree, Plant {\n"
+"    function age(uint256 rings) external override pure returns (uint256, "
+"string memory) {\n"
+"        return (rings + 2, \"Kumquat\");\n"
+"    }\n"
+"\n"
+"    /// Return the amount of leaves that this specific kind of tree has\n"
+"    /// @inheritdoc Tree\n"
+"    function leaves() external override(Tree, Plant) pure returns(uint256) "
+"{\n"
+"        return 3;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../natspec-format.rst:109
+msgid "Tags"
+msgstr ""
+
+#: ../../../natspec-format.rst:111
+msgid ""
+"All tags are optional. The following table explains the purpose of each "
+"NatSpec tag and where it may be used. As a special case, if no tags are used "
+"then the Solidity compiler will interpret a ``///`` or ``/**`` comment in "
+"the same way as if it were tagged with ``@notice``."
+msgstr ""
+
+#: ../../../natspec-format.rst:117
+msgid "Tag"
+msgstr ""
+
+#: ../../../natspec-format.rst:117
+msgid "Context"
+msgstr ""
+
+#: ../../../natspec-format.rst:119
+msgid "``@title``"
+msgstr ""
+
+#: ../../../natspec-format.rst:119
+msgid "A title that should describe the contract/interface"
+msgstr ""
+
+#: ../../../natspec-format.rst:119 ../../../natspec-format.rst:120
+msgid "contract, library, interface, struct, enum, enum values"
+msgstr ""
+
+#: ../../../natspec-format.rst:120
+msgid "``@author``"
+msgstr ""
+
+#: ../../../natspec-format.rst:120
+msgid "The name of the author"
+msgstr ""
+
+#: ../../../natspec-format.rst:121
+msgid "``@notice``"
+msgstr ""
+
+#: ../../../natspec-format.rst:121
+msgid "Explain to an end user what this does"
+msgstr ""
+
+#: ../../../natspec-format.rst:121
+msgid ""
+"contract, library, interface, function, public state variable, event, "
+"struct, enum, enum values error"
+msgstr ""
+
+#: ../../../natspec-format.rst:122
+msgid "``@dev``"
+msgstr ""
+
+#: ../../../natspec-format.rst:122
+msgid "Explain to a developer any extra details"
+msgstr ""
+
+#: ../../../natspec-format.rst:122
+msgid ""
+"contract, library, interface, function, state variable, event, struct, enum, "
+"enum values, error"
+msgstr ""
+
+#: ../../../natspec-format.rst:123
+msgid "``@param``"
+msgstr ""
+
+#: ../../../natspec-format.rst:123
+msgid ""
+"Documents a parameter just like in Doxygen (must be followed by parameter "
+"name)"
+msgstr ""
+
+#: ../../../natspec-format.rst:123
+msgid "function, event, enum values, error"
+msgstr ""
+
+#: ../../../natspec-format.rst:124
+msgid "``@return``"
+msgstr ""
+
+#: ../../../natspec-format.rst:124
+msgid "Documents the return variables of a contract's function"
+msgstr ""
+
+#: ../../../natspec-format.rst:124 ../../../natspec-format.rst:125
+msgid "function, enum, enum values, public state variable"
+msgstr ""
+
+#: ../../../natspec-format.rst:125
+msgid "``@inheritdoc``"
+msgstr ""
+
+#: ../../../natspec-format.rst:125
+msgid ""
+"Copies all missing tags from the base function (must be followed by the "
+"contract name)"
+msgstr ""
+
+#: ../../../natspec-format.rst:126
+msgid "``@custom:...``"
+msgstr ""
+
+#: ../../../natspec-format.rst:126
+msgid "Custom tag, semantics is application-defined"
+msgstr ""
+
+#: ../../../natspec-format.rst:126
+msgid "everywhere"
+msgstr ""
+
+#: ../../../natspec-format.rst:129
+msgid ""
+"If your function returns multiple values, like ``(int quotient, int "
+"remainder)`` then use multiple ``@return`` statements in the same format as "
+"the ``@param`` statements."
+msgstr ""
+
+#: ../../../natspec-format.rst:132
+msgid ""
+"Custom tags start with ``@custom:`` and must be followed by one or more "
+"lowercase letters or hyphens. It cannot start with a hyphen however. They "
+"can be used everywhere and are part of the developer documentation."
+msgstr ""
+
+#: ../../../natspec-format.rst:138
+msgid "Dynamic expressions"
+msgstr ""
+
+#: ../../../natspec-format.rst:140
+msgid ""
+"The Solidity compiler will pass through NatSpec documentation from your "
+"Solidity source code to the JSON output as described in this guide. The "
+"consumer of this JSON output, for example the end-user client software, may "
+"present this to the end-user directly or it may apply some pre-processing."
+msgstr ""
+
+#: ../../../natspec-format.rst:144
+msgid "For example, some client software will render:"
+msgstr ""
+
+#: ../../../natspec-format.rst:146
+msgid "/// @notice This function will multiply `a` by 7"
+msgstr ""
+
+#: ../../../natspec-format.rst:150
+msgid "to the end-user as:"
+msgstr ""
+
+#: ../../../natspec-format.rst:152
+msgid "This function will multiply 10 by 7"
+msgstr ""
+
+#: ../../../natspec-format.rst:156
+msgid ""
+"if a function is being called and the input ``a`` is assigned a value of 10."
+msgstr ""
+
+#: ../../../natspec-format.rst:161
+msgid "Inheritance Notes"
+msgstr ""
+
+#: ../../../natspec-format.rst:163
+msgid ""
+"Functions without NatSpec will automatically inherit the documentation of "
+"their base function. Exceptions to this are:"
+msgstr ""
+
+#: ../../../natspec-format.rst:166
+msgid "When the parameter names are different."
+msgstr ""
+
+#: ../../../natspec-format.rst:167
+msgid "When there is more than one base function."
+msgstr ""
+
+#: ../../../natspec-format.rst:168
+msgid ""
+"When there is an explicit ``@inheritdoc`` tag which specifies which contract "
+"should be used to inherit."
+msgstr ""
+
+#: ../../../natspec-format.rst:173
+msgid "Documentation Output"
+msgstr ""
+
+#: ../../../natspec-format.rst:175
+msgid ""
+"When parsed by the compiler, documentation such as the one from the above "
+"example will produce two different JSON files. One is meant to be consumed "
+"by the end user as a notice when a function is executed and the other to be "
+"used by the developer."
+msgstr ""
+
+#: ../../../natspec-format.rst:180
+msgid ""
+"If the above contract is saved as ``ex1.sol`` then you can generate the "
+"documentation using:"
+msgstr ""
+
+#: ../../../natspec-format.rst:183
+msgid "solc --userdoc --devdoc ex1.sol"
+msgstr ""
+
+#: ../../../natspec-format.rst:187
+msgid "And the output is below."
+msgstr ""
+
+#: ../../../natspec-format.rst:190
+msgid ""
+"Starting Solidity version 0.6.11 the NatSpec output also contains a "
+"``version`` and a ``kind`` field. Currently the ``version`` is set to ``1`` "
+"and ``kind`` must be one of ``user`` or ``dev``. In the future it is "
+"possible that new versions will be introduced, deprecating older ones."
+msgstr ""
+
+#: ../../../natspec-format.rst:197
+msgid "User Documentation"
+msgstr ""
+
+#: ../../../natspec-format.rst:199
+msgid ""
+"The above documentation will produce the following user documentation JSON "
+"file as output for the ``Tree`` contract:"
+msgstr ""
+
+#: ../../../natspec-format.rst:202
+msgid ""
+"{\n"
+"  \"version\" : 1,\n"
+"  \"kind\" : \"user\",\n"
+"  \"methods\" :\n"
+"  {\n"
+"    \"age(uint256)\" :\n"
+"    {\n"
+"      \"notice\" : \"Calculate tree age in years, rounded up, for live "
+"trees\"\n"
+"    },\n"
+"    \"leaves()\" :\n"
+"    {\n"
+"        \"notice\" : \"Returns the amount of leaves the tree has.\"\n"
+"    }\n"
+"  },\n"
+"  \"notice\" : \"You can use this contract for only the most basic "
+"simulation\"\n"
+"}"
+msgstr ""
+
+#: ../../../natspec-format.rst:221
+msgid ""
+"Note that the key by which to find the methods is the function's canonical "
+"signature as defined in the :ref:`Contract ABI <abi_function_selector>` and "
+"not simply the function's name."
+msgstr ""
+
+#: ../../../natspec-format.rst:229
+msgid "Developer Documentation"
+msgstr ""
+
+#: ../../../natspec-format.rst:231
+msgid ""
+"Apart from the user documentation file, a developer documentation JSON file "
+"should also be produced and should look like this:"
+msgstr ""
+
+#: ../../../natspec-format.rst:234
+msgid ""
+"{\n"
+"  \"version\" : 1,\n"
+"  \"kind\" : \"dev\",\n"
+"  \"author\" : \"Larry A. Gardner\",\n"
+"  \"details\" : \"All function calls are currently implemented without side "
+"effects\",\n"
+"  \"custom:experimental\" : \"This is an experimental contract.\",\n"
+"  \"methods\" :\n"
+"  {\n"
+"    \"age(uint256)\" :\n"
+"    {\n"
+"      \"details\" : \"The Alexandr N. Tetearing algorithm could increase "
+"precision\",\n"
+"      \"params\" :\n"
+"      {\n"
+"        \"rings\" : \"The number of rings from dendrochronological sample\"\n"
+"      },\n"
+"      \"returns\" : {\n"
+"        \"_0\" : \"Age in years, rounded up for partial years\",\n"
+"        \"_1\" : \"Name of the tree\"\n"
+"      }\n"
+"    },\n"
+"    \"leaves()\" :\n"
+"    {\n"
+"        \"details\" : \"Returns only a fixed number.\"\n"
+"    }\n"
+"  },\n"
+"  \"title\" : \"A simulator for trees\"\n"
+"}"
+msgstr ""
