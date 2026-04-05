@@ -1,0 +1,37 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../internals/layout_in_calldata.rst:6
+msgid "Layout of Call Data"
+msgstr ""
+
+#: ../../../internals/layout_in_calldata.rst:8
+msgid ""
+"The input data for a function call is assumed to be in the format defined by "
+"the :ref:`ABI specification <ABI>`. Among others, the ABI specification "
+"requires arguments to be padded to multiples of 32 bytes. The internal "
+"function calls use a different convention."
+msgstr ""
+
+#: ../../../internals/layout_in_calldata.rst:12
+msgid ""
+"Arguments for the constructor of a contract are directly appended at the end "
+"of the contract's code, also in ABI encoding. The constructor will access "
+"them through a hard-coded offset, and not by using the ``codesize`` opcode, "
+"since this of course changes when appending data to the code."
+msgstr ""
