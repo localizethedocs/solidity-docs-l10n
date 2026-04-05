@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../internals/variable_cleanup.rst:5
+msgid "Cleaning Up Variables"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:7
+msgid ""
+"Ultimately, all values in the EVM are stored in 256 bit words. Thus, in some "
+"cases, when the type of a value has less than 256 bits, it is necessary to "
+"clean the remaining bits. The Solidity compiler is designed to do such "
+"cleaning before any operations that might be adversely affected by the "
+"potential garbage in the remaining bits. For example, before writing a value "
+"to  memory, the remaining bits need to be cleared because the memory "
+"contents can be used for computing hashes or sent as the data of a message "
+"call.  Similarly, before storing a value in the storage, the remaining bits "
+"need to be cleaned because otherwise the garbled value can be observed."
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:18
+msgid ""
+"Note that access via inline assembly is not considered such an operation: If "
+"you use inline assembly to access Solidity variables shorter than 256 bits, "
+"the compiler does not guarantee that the value is properly cleaned up."
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:23
+msgid ""
+"Moreover, we do not clean the bits if the immediately following operation is "
+"not affected.  For instance, since any non-zero value is considered ``true`` "
+"by ``JUMPI`` instruction, we do not clean the boolean values before they are "
+"used as the condition for ``JUMPI``."
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:29
+msgid ""
+"In addition to the design principle above, the Solidity compiler cleans "
+"input data when it is loaded onto the stack."
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:32
+msgid ""
+"The following table describes the cleaning rules applied to different types, "
+"where ``higher bits`` refers to the remaining bits in case the type has less "
+"than 256 bits."
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:36
+msgid "Type"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:36
+msgid "Valid Values"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:36
+msgid "Cleanup of Invalid Values"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:38
+msgid "enum of n members"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:38
+msgid "0 until n - 1"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:38
+msgid "throws exception"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:41
+msgid "bool"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:41
+msgid "0 or 1"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:41
+msgid "results in 1"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:43
+msgid "signed integers"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:43
+msgid "higher bits set to the sign bit"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:43
+msgid ""
+"currently silently signextends to a valid value, i.e. all higher bits are "
+"set to the sign bit; may throw an exception in the future"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:50
+msgid "unsigned integers"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:50
+msgid "higher bits zeroed"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:50
+msgid ""
+"currently silently masks to a valid value, i.e. all higher bits are set to "
+"zero; may throw an exception in the future"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:57
+msgid ""
+"Note that valid and invalid values are dependent on their type size. "
+"Consider ``uint8``, the unsigned 8-bit type, which has the following valid "
+"values:"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:60
+msgid ""
+"0000...0000 0000 0000\n"
+"0000...0000 0000 0001\n"
+"0000...0000 0000 0010\n"
+"....\n"
+"0000...0000 1111 1111"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:68
+msgid "Any invalid value will have the higher bits set to zero:"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:70
+msgid ""
+"0101...1101 0010 1010   invalid value\n"
+"0000...0000 0010 1010   cleaned value"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:75
+msgid "For ``int8``, the signed 8-bit type, the valid values are:"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:77
+#: ../../../internals/variable_cleanup.rst:99
+msgid "Negative"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:79
+msgid ""
+"1111...1111 1111 1111\n"
+"1111...1111 1111 1110\n"
+"....\n"
+"1111...1111 1000 0000"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:86
+#: ../../../internals/variable_cleanup.rst:106
+msgid "Positive"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:88
+msgid ""
+"0000...0000 0000 0000\n"
+"0000...0000 0000 0001\n"
+"0000...0000 0000 0010\n"
+"....\n"
+"0000...0000 0111 1111"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:96
+msgid ""
+"The compiler will ``signextend`` the sign bit, which is 1 for negative and 0 "
+"for positive values, overwriting the higher bits:"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:101
+msgid ""
+"0010...1010 1111 1111   invalid value\n"
+"1111...1111 1111 1111   cleaned value"
+msgstr ""
+
+#: ../../../internals/variable_cleanup.rst:108
+msgid ""
+"1101...0101 0000 0100   invalid value\n"
+"0000...0000 0000 0100   cleaned value"
+msgstr ""

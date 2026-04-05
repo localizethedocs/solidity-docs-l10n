@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../language-influences.rst:3
+msgid "Language Influences"
+msgstr ""
+
+#: ../../../language-influences.rst:5
+msgid ""
+"Solidity is a `curly-bracket language <https://en.wikipedia.org/wiki/"
+"List_of_programming_languages_by_type#Curly_bracket_languages>`_ that has "
+"been influenced and inspired by several well-known programming languages."
+msgstr ""
+
+#: ../../../language-influences.rst:8
+msgid ""
+"Solidity is most profoundly influenced by C++, but also borrowed concepts "
+"from languages like Python, JavaScript, and others."
+msgstr ""
+
+#: ../../../language-influences.rst:11
+msgid ""
+"The influence from C++ can be seen in the syntax for variable declarations, "
+"for loops, the concept of overloading functions, implicit and explicit type "
+"conversions and many other details."
+msgstr ""
+
+#: ../../../language-influences.rst:14
+msgid ""
+"In the early days of the language, Solidity used to be partly influenced by "
+"JavaScript. This was due to function-level scoping of variables and the use "
+"of the keyword ``var``. The JavaScript influence was reduced starting from "
+"version 0.4.0. Now, the main remaining similarity to JavaScript is that "
+"functions are defined using the keyword ``function``. Solidity also supports "
+"import syntax and semantics that are similar to those available in "
+"JavaScript. Besides those points, Solidity looks like most other curly-"
+"bracket languages and has no major JavaScript influence anymore."
+msgstr ""
+
+#: ../../../language-influences.rst:22
+msgid ""
+"Another influence to Solidity was Python. Solidity's modifiers were added "
+"trying to model Python's decorators with a much more restricted "
+"functionality. Furthermore, multiple inheritance, C3 linearization, and the "
+"``super`` keyword are taken from Python as well as the general assignment "
+"and copy semantics of value and reference types."
+msgstr ""
