@@ -1,0 +1,26 @@
+{% extends "!layout.html" %}
+
+{% block scripts %}
+    <script>
+        window.NAV_LINKS = {
+            blog: "{{ _('Blog') }}",
+            documentation: "{{ _('Documentation') }}",
+            use_cases: "{{ _('Use cases') }}",
+            contribute: "{{ _('Contribute') }}",
+            about: "{{ _('About') }}",
+            forum: "{{ _('Forum') }}"
+        };
+    </script>
+    {{ super() }}
+{% endblock %}
+
+{% block menu %}
+    {{ super() }}
+    <ul>
+        <li>
+            {% trans pathto_genindex = pathto('genindex') -%}
+            <a href="{{ pathto_genindex }}">Keyword Index</a>
+            {%- endtrans %}
+        </li>
+    </ul>
+{% endblock %}
