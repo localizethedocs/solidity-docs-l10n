@@ -1,0 +1,1629 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../smtchecker.rst:5
+msgid "SMTChecker and Formal Verification"
+msgstr ""
+
+#: ../../../smtchecker.rst:7
+msgid ""
+"Using formal verification it is possible to perform an automated "
+"mathematical proof that your source code fulfills a certain formal "
+"specification. The specification is still formal (just as the source code), "
+"but usually much simpler."
+msgstr ""
+
+#: ../../../smtchecker.rst:12
+msgid ""
+"Note that formal verification itself can only help you understand the "
+"difference between what you did (the specification) and how you did it (the "
+"actual implementation). You still need to check whether the specification is "
+"what you wanted and that you did not miss any unintended effects of it."
+msgstr ""
+
+#: ../../../smtchecker.rst:17
+msgid ""
+"Solidity implements a formal verification approach based on `SMT "
+"(Satisfiability Modulo Theories) <https://en.wikipedia.org/wiki/"
+"Satisfiability_modulo_theories>`_ and `Horn <https://en.wikipedia.org/wiki/"
+"Horn-satisfiability>`_ solving. The SMTChecker module automatically tries to "
+"prove that the code satisfies the specification given by ``require`` and "
+"``assert`` statements. That is, it considers ``require`` statements as "
+"assumptions and tries to prove that the conditions inside ``assert`` "
+"statements are always true.  If an assertion failure is found, a "
+"counterexample may be given to the user showing how the assertion can be "
+"violated. If no warning is given by the SMTChecker for a property, it means "
+"that the property is safe."
+msgstr ""
+
+#: ../../../smtchecker.rst:28
+msgid ""
+"The other verification targets that the SMTChecker checks at compile time "
+"are:"
+msgstr ""
+
+#: ../../../smtchecker.rst:30
+msgid "Arithmetic underflow and overflow."
+msgstr ""
+
+#: ../../../smtchecker.rst:31
+msgid "Division by zero."
+msgstr ""
+
+#: ../../../smtchecker.rst:32
+msgid "Trivial conditions and unreachable code."
+msgstr ""
+
+#: ../../../smtchecker.rst:33
+msgid "Popping an empty array."
+msgstr ""
+
+#: ../../../smtchecker.rst:34
+msgid "Out of bounds index access."
+msgstr ""
+
+#: ../../../smtchecker.rst:35
+msgid "Insufficient funds for a transfer."
+msgstr ""
+
+#: ../../../smtchecker.rst:37
+msgid ""
+"All the targets above are automatically checked by default if all engines "
+"are enabled, except underflow and overflow for Solidity >=0.8.7."
+msgstr ""
+
+#: ../../../smtchecker.rst:40
+msgid "The potential warnings that the SMTChecker reports are:"
+msgstr ""
+
+#: ../../../smtchecker.rst:42
+msgid ""
+"``<failing  property> happens here.``. This means that the SMTChecker proved "
+"that a certain property fails. A counterexample may be given, however in "
+"complex situations it may also not show a counterexample. This result may "
+"also be a false positive in certain cases, when the SMT encoding adds "
+"abstractions for Solidity code that is either hard or impossible to express."
+msgstr ""
+
+#: ../../../smtchecker.rst:43
+msgid ""
+"``<failing property> might happen here``. This means that the solver could "
+"not prove either case within the given timeout. Since the result is unknown, "
+"the SMTChecker reports the potential failure for soundness. This may be "
+"solved by increasing the query timeout, but the problem might also simply be "
+"too hard for the engine to solve."
+msgstr ""
+
+#: ../../../smtchecker.rst:45
+msgid ""
+"To enable the SMTChecker, you must select :ref:`which engine should "
+"run<smtchecker_engines>`, where the default is no engine. Selecting the "
+"engine enables the SMTChecker on all files."
+msgstr ""
+
+#: ../../../smtchecker.rst:50
+msgid ""
+"Prior to Solidity 0.8.4, the default way to enable the SMTChecker was via "
+"``pragma experimental SMTChecker;`` and only the contracts containing the "
+"pragma would be analyzed. That pragma has been deprecated, and although it "
+"still enables the SMTChecker for backwards compatibility, it will be removed "
+"in Solidity 0.9.0. Note also that now using the pragma even in a single file "
+"enables the SMTChecker for all files."
+msgstr ""
+
+#: ../../../smtchecker.rst:59
+msgid ""
+"The lack of warnings for a verification target represents an undisputed "
+"mathematical proof of correctness, assuming no bugs in the SMTChecker and "
+"the underlying solver. Keep in mind that these problems are *very hard* and "
+"sometimes *impossible* to solve automatically in the general case.  "
+"Therefore, several properties might not be solved or might lead to false "
+"positives for large contracts. Every proven property should be seen as an "
+"important achievement. For advanced users, see :ref:`SMTChecker Tuning "
+"<smtchecker_options>` to learn a few options that might help proving more "
+"complex properties."
+msgstr ""
+
+#: ../../../smtchecker.rst:71
+msgid "Tutorial"
+msgstr ""
+
+#: ../../../smtchecker.rst:74
+msgid "Overflow"
+msgstr ""
+
+#: ../../../smtchecker.rst:76
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Overflow {\n"
+"    uint immutable x;\n"
+"    uint immutable y;\n"
+"\n"
+"    function add(uint x_, uint y_) internal pure returns (uint) {\n"
+"        return x_ + y_;\n"
+"    }\n"
+"\n"
+"    constructor(uint x_, uint y_) {\n"
+"        (x, y) = (x_, y_);\n"
+"    }\n"
+"\n"
+"    function stateAdd() public view returns (uint) {\n"
+"        return add(x, y);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:98
+msgid ""
+"The contract above shows an overflow check example. The SMTChecker does not "
+"check underflow and overflow by default for Solidity >=0.8.7, so we need to "
+"use the command-line option ``--model-checker-targets \"underflow,"
+"overflow\"`` or the JSON option ``settings.modelChecker.targets = "
+"[\"underflow\", \"overflow\"]``. See :ref:`this section for targets "
+"configuration<smtchecker_targets>`. Here, it reports the following:"
+msgstr ""
+
+#: ../../../smtchecker.rst:105
+msgid ""
+"Warning: CHC: Overflow (resulting value larger than 2**256 - 1) happens "
+"here.\n"
+"Counterexample:\n"
+"x = 1, y = "
+"115792089237316195423570985008687907853269984665640564039457584007913129639935\n"
+" = 0\n"
+"\n"
+"Transaction trace:\n"
+"Overflow.constructor(1, "
+"115792089237316195423570985008687907853269984665640564039457584007913129639935)\n"
+"State: x = 1, y = "
+"115792089237316195423570985008687907853269984665640564039457584007913129639935\n"
+"Overflow.stateAdd()\n"
+"    Overflow.add(1, "
+"115792089237316195423570985008687907853269984665640564039457584007913129639935) "
+"-- internal call\n"
+" --> o.sol:9:20:\n"
+"  |\n"
+"9 |             return x_ + y_;\n"
+"  |                    ^^^^^^^"
+msgstr ""
+
+#: ../../../smtchecker.rst:122
+msgid ""
+"If we add ``require`` statements that filter out overflow cases, the "
+"SMTChecker proves that no overflow is reachable (by not reporting warnings):"
+msgstr ""
+
+#: ../../../smtchecker.rst:125
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Overflow {\n"
+"    uint immutable x;\n"
+"    uint immutable y;\n"
+"\n"
+"    function add(uint x_, uint y_) internal pure returns (uint) {\n"
+"        return x_ + y_;\n"
+"    }\n"
+"\n"
+"    constructor(uint x_, uint y_) {\n"
+"        (x, y) = (x_, y_);\n"
+"    }\n"
+"\n"
+"    function stateAdd() public view returns (uint) {\n"
+"        require(x < type(uint128).max);\n"
+"        require(y < type(uint128).max);\n"
+"        return add(x, y);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:151
+msgid "Assert"
+msgstr ""
+
+#: ../../../smtchecker.rst:153
+msgid ""
+"An assertion represents an invariant in your code: a property that must be "
+"true *for all transactions, including all input and storage values*, "
+"otherwise there is a bug."
+msgstr ""
+
+#: ../../../smtchecker.rst:156
+msgid ""
+"The code below defines a function ``f`` that guarantees no overflow. "
+"Function ``inv`` defines the specification that ``f`` is monotonically "
+"increasing: for every possible pair ``(a, b)``, if ``b > a`` then ``f(b) > "
+"f(a)``. Since ``f`` is indeed monotonically increasing, the SMTChecker "
+"proves that our property is correct. You are encouraged to play with the "
+"property and the function definition to see what results come out!"
+msgstr ""
+
+#: ../../../smtchecker.rst:163
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Monotonic {\n"
+"    function f(uint x) internal pure returns (uint) {\n"
+"        require(x < type(uint128).max);\n"
+"        return x * 42;\n"
+"    }\n"
+"\n"
+"    function inv(uint a, uint b) public pure {\n"
+"        require(b > a);\n"
+"        assert(f(b) > f(a));\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:180
+msgid ""
+"We can also add assertions inside loops to verify more complicated "
+"properties. The following code searches for the maximum element of an "
+"unrestricted array of numbers, and asserts the property that the found "
+"element must be greater or equal every element in the array."
+msgstr ""
+
+#: ../../../smtchecker.rst:185
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Max {\n"
+"    function max(uint[] memory a) public pure returns (uint) {\n"
+"        uint m = 0;\n"
+"        for (uint i = 0; i < a.length; ++i)\n"
+"            if (a[i] > m)\n"
+"                m = a[i];\n"
+"\n"
+"        for (uint i = 0; i < a.length; ++i)\n"
+"            assert(m >= a[i]);\n"
+"\n"
+"        return m;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:204
+msgid ""
+"Note that in this example the SMTChecker will automatically try to prove "
+"three properties:"
+msgstr ""
+
+#: ../../../smtchecker.rst:206
+msgid "``++i`` in the first loop does not overflow."
+msgstr ""
+
+#: ../../../smtchecker.rst:207
+msgid "``++i`` in the second loop does not overflow."
+msgstr ""
+
+#: ../../../smtchecker.rst:208
+msgid "The assertion is always true."
+msgstr ""
+
+#: ../../../smtchecker.rst:212
+msgid ""
+"The properties involve loops, which makes it *much much* harder than the "
+"previous examples, so beware of loops!"
+msgstr ""
+
+#: ../../../smtchecker.rst:215
+msgid ""
+"All the properties are correctly proven safe. Feel free to change the "
+"properties and/or add restrictions on the array to see different results. "
+"For example, changing the code to"
+msgstr ""
+
+#: ../../../smtchecker.rst:219
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Max {\n"
+"    function max(uint[] memory a) public pure returns (uint) {\n"
+"        require(a.length >= 5);\n"
+"        uint m = 0;\n"
+"        for (uint i = 0; i < a.length; ++i)\n"
+"            if (a[i] > m)\n"
+"                m = a[i];\n"
+"\n"
+"        for (uint i = 0; i < a.length; ++i)\n"
+"            assert(m > a[i]);\n"
+"\n"
+"        return m;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:239
+msgid "gives us:"
+msgstr ""
+
+#: ../../../smtchecker.rst:241
+msgid ""
+"Warning: CHC: Assertion violation happens here.\n"
+"Counterexample:\n"
+"\n"
+"a = [0, 0, 0, 0, 0]\n"
+" = 0\n"
+"\n"
+"Transaction trace:\n"
+"Test.constructor()\n"
+"Test.max([0, 0, 0, 0, 0])\n"
+"  --> max.sol:14:4:\n"
+"   |\n"
+"14 |            assert(m > a[i]);"
+msgstr ""
+
+#: ../../../smtchecker.rst:258
+msgid "State Properties"
+msgstr ""
+
+#: ../../../smtchecker.rst:260
+msgid ""
+"So far the examples only demonstrated the use of the SMTChecker over pure "
+"code, proving properties about specific operations or algorithms. A common "
+"type of properties in smart contracts are properties that involve the state "
+"of the contract. Multiple transactions might be needed to make an assertion "
+"fail for such a property."
+msgstr ""
+
+#: ../../../smtchecker.rst:266
+msgid ""
+"As an example, consider a 2D grid where both axis have coordinates in the "
+"range (-2^127, 2^127 - 1). Let us place a robot at position (0, 0). The "
+"robot can only move diagonally, one step at a time, and cannot move outside "
+"the grid. The robot's state machine can be represented by the smart contract "
+"below."
+msgstr ""
+
+#: ../../../smtchecker.rst:271
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Robot {\n"
+"    int x = 0;\n"
+"    int y = 0;\n"
+"\n"
+"    modifier wall {\n"
+"        require(x > type(int128).min && x < type(int128).max);\n"
+"        require(y > type(int128).min && y < type(int128).max);\n"
+"        _;\n"
+"    }\n"
+"\n"
+"    function moveLeftUp() wall public {\n"
+"        --x;\n"
+"        ++y;\n"
+"    }\n"
+"\n"
+"    function moveLeftDown() wall public {\n"
+"        --x;\n"
+"        --y;\n"
+"    }\n"
+"\n"
+"    function moveRightUp() wall public {\n"
+"        ++x;\n"
+"        ++y;\n"
+"    }\n"
+"\n"
+"    function moveRightDown() wall public {\n"
+"        ++x;\n"
+"        --y;\n"
+"    }\n"
+"\n"
+"    function inv() public view {\n"
+"        assert((x + y) % 2 == 0);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:311
+msgid ""
+"Function ``inv`` represents an invariant of the state machine that ``x + y`` "
+"must be even. The SMTChecker manages to prove that regardless how many "
+"commands we give the robot, even if infinitely many, the invariant can "
+"*never* fail. The interested reader may want to prove that fact manually as "
+"well.  Hint: this invariant is inductive."
+msgstr ""
+
+#: ../../../smtchecker.rst:318
+msgid ""
+"We can also trick the SMTChecker into giving us a path to a certain position "
+"we think might be reachable.  We can add the property that (2, 4) is *not* "
+"reachable, by adding the following function."
+msgstr ""
+
+#: ../../../smtchecker.rst:322
+msgid ""
+"function reach_2_4() public view {\n"
+"    assert(!(x == 2 && y == 4));\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:328
+msgid ""
+"This property is false, and while proving that the property is false, the "
+"SMTChecker tells us exactly *how* to reach (2, 4):"
+msgstr ""
+
+#: ../../../smtchecker.rst:331
+msgid ""
+"Warning: CHC: Assertion violation happens here.\n"
+"Counterexample:\n"
+"x = 2, y = 4\n"
+"\n"
+"Transaction trace:\n"
+"Robot.constructor()\n"
+"State: x = 0, y = 0\n"
+"Robot.moveLeftUp()\n"
+"State: x = (- 1), y = 1\n"
+"Robot.moveRightUp()\n"
+"State: x = 0, y = 2\n"
+"Robot.moveRightUp()\n"
+"State: x = 1, y = 3\n"
+"Robot.moveRightUp()\n"
+"State: x = 2, y = 4\n"
+"Robot.reach_2_4()\n"
+"  --> r.sol:35:4:\n"
+"   |\n"
+"35 |            assert(!(x == 2 && y == 4));\n"
+"   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+msgstr ""
+
+#: ../../../smtchecker.rst:354
+msgid ""
+"Note that the path above is not necessarily deterministic, as there are "
+"other paths that could reach (2, 4). The choice of which path is shown might "
+"change depending on the used solver, its version, or just randomly."
+msgstr ""
+
+#: ../../../smtchecker.rst:359
+msgid "External Calls and Reentrancy"
+msgstr ""
+
+#: ../../../smtchecker.rst:361
+msgid ""
+"Every external call is treated as a call to unknown code by the SMTChecker. "
+"The reasoning behind that is that even if the code of the called contract is "
+"available at compile time, there is no guarantee that the deployed contract "
+"will indeed be the same as the contract where the interface came from at "
+"compile time."
+msgstr ""
+
+#: ../../../smtchecker.rst:367
+msgid ""
+"In some cases, it is possible to automatically infer properties over state "
+"variables that are still true even if the externally called code can do "
+"anything, including reenter the caller contract."
+msgstr ""
+
+#: ../../../smtchecker.rst:371
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"interface Unknown {\n"
+"    function run() external;\n"
+"}\n"
+"\n"
+"contract Mutex {\n"
+"    uint x;\n"
+"    bool lock;\n"
+"\n"
+"    Unknown immutable unknown;\n"
+"\n"
+"    constructor(Unknown u) {\n"
+"        require(address(u) != address(0));\n"
+"        unknown = u;\n"
+"    }\n"
+"\n"
+"    modifier mutex {\n"
+"        require(!lock);\n"
+"        lock = true;\n"
+"        _;\n"
+"        lock = false;\n"
+"    }\n"
+"\n"
+"    function set(uint x_) mutex public {\n"
+"        x = x_;\n"
+"    }\n"
+"\n"
+"    function run() mutex public {\n"
+"        uint xPre = x;\n"
+"        unknown.run();\n"
+"        assert(xPre == x);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:409
+msgid ""
+"The example above shows a contract that uses a mutex flag to forbid "
+"reentrancy. The solver is able to infer that when ``unknown.run()`` is "
+"called, the contract is already \"locked\", so it would not be possible to "
+"change the value of ``x``, regardless of what the unknown called code does."
+msgstr ""
+
+#: ../../../smtchecker.rst:414
+msgid ""
+"If we \"forget\" to use the ``mutex`` modifier on function ``set``, the "
+"SMTChecker is able to synthesize the behavior of the externally called code "
+"so that the assertion fails:"
+msgstr ""
+
+#: ../../../smtchecker.rst:418
+msgid ""
+"Warning: CHC: Assertion violation happens here.\n"
+"Counterexample:\n"
+"x = 1, lock = true, unknown = 1\n"
+"\n"
+"Transaction trace:\n"
+"Mutex.constructor(1)\n"
+"State: x = 0, lock = false, unknown = 1\n"
+"Mutex.run()\n"
+"    unknown.run() -- untrusted external call, synthesized as:\n"
+"        Mutex.set(1) -- reentrant call\n"
+"  --> m.sol:32:3:\n"
+"   |\n"
+"32 |                assert(xPre == x);\n"
+"   |                ^^^^^^^^^^^^^^^^^"
+msgstr ""
+
+#: ../../../smtchecker.rst:440
+msgid "SMTChecker Options and Tuning"
+msgstr ""
+
+#: ../../../smtchecker.rst:443
+msgid "Timeout"
+msgstr ""
+
+#: ../../../smtchecker.rst:445
+msgid ""
+"The SMTChecker uses a hardcoded resource limit (``rlimit``) chosen per "
+"solver, which is not precisely related to time. We chose the ``rlimit`` "
+"option as the default because it gives more determinism guarantees than time "
+"inside the solver."
+msgstr ""
+
+#: ../../../smtchecker.rst:449
+msgid ""
+"This options translates roughly to \"a few seconds timeout\" per query. Of "
+"course many properties are very complex and need a lot of time to be solved, "
+"where determinism does not matter. If the SMTChecker does not manage to "
+"solve the contract properties with the default ``rlimit``, a timeout can be "
+"given in milliseconds via the CLI option ``--model-checker-timeout <time>`` "
+"or the JSON option ``settings.modelChecker.timeout=<time>``, where 0 means "
+"no timeout."
+msgstr ""
+
+#: ../../../smtchecker.rst:458
+msgid "Verification Targets"
+msgstr ""
+
+#: ../../../smtchecker.rst:460
+msgid ""
+"The types of verification targets created by the SMTChecker can also be "
+"customized via the CLI option ``--model-checker-target <targets>`` or the "
+"JSON option ``settings.modelChecker.targets=<targets>``. In the CLI case, "
+"``<targets>`` is a no-space-comma-separated list of one or more verification "
+"targets, and an array of one or more targets as strings in the JSON input. "
+"The keywords that represent the targets are:"
+msgstr ""
+
+#: ../../../smtchecker.rst:468
+msgid "Assertions: ``assert``."
+msgstr ""
+
+#: ../../../smtchecker.rst:469
+msgid "Arithmetic underflow: ``underflow``."
+msgstr ""
+
+#: ../../../smtchecker.rst:470
+msgid "Arithmetic overflow: ``overflow``."
+msgstr ""
+
+#: ../../../smtchecker.rst:471
+msgid "Division by zero: ``divByZero``."
+msgstr ""
+
+#: ../../../smtchecker.rst:472
+msgid "Trivial conditions and unreachable code: ``constantCondition``."
+msgstr ""
+
+#: ../../../smtchecker.rst:473
+msgid "Popping an empty array: ``popEmptyArray``."
+msgstr ""
+
+#: ../../../smtchecker.rst:474
+msgid "Out of bounds array/fixed bytes index access: ``outOfBounds``."
+msgstr ""
+
+#: ../../../smtchecker.rst:475
+msgid "Insufficient funds for a transfer: ``balance``."
+msgstr ""
+
+#: ../../../smtchecker.rst:476
+msgid "All of the above: ``default`` (CLI only)."
+msgstr ""
+
+#: ../../../smtchecker.rst:478
+msgid ""
+"A common subset of targets might be, for example: ``--model-checker-targets "
+"assert,overflow``."
+msgstr ""
+
+#: ../../../smtchecker.rst:481
+msgid ""
+"All targets are checked by default, except underflow and overflow for "
+"Solidity >=0.8.7."
+msgstr ""
+
+#: ../../../smtchecker.rst:483
+msgid ""
+"There is no precise heuristic on how and when to split verification targets, "
+"but it can be useful especially when dealing with large contracts."
+msgstr ""
+
+#: ../../../smtchecker.rst:487
+msgid "Proved Targets"
+msgstr ""
+
+#: ../../../smtchecker.rst:489
+msgid ""
+"If there are any proved targets, the SMTChecker issues one warning per "
+"engine stating how many targets were proved. If the user wishes to see all "
+"the specific proved targets, the CLI option ``--model-checker-show-proved-"
+"safe`` and the JSON option ``settings.modelChecker.showProvedSafe = true`` "
+"can be used."
+msgstr ""
+
+#: ../../../smtchecker.rst:495
+msgid "Unproved Targets"
+msgstr ""
+
+#: ../../../smtchecker.rst:497
+msgid ""
+"If there are any unproved targets, the SMTChecker issues one warning stating "
+"how many unproved targets there are. If the user wishes to see all the "
+"specific unproved targets, the CLI option ``--model-checker-show-unproved`` "
+"and the JSON option ``settings.modelChecker.showUnproved = true`` can be "
+"used."
+msgstr ""
+
+#: ../../../smtchecker.rst:503
+msgid "Unsupported Language Features"
+msgstr ""
+
+#: ../../../smtchecker.rst:505
+msgid ""
+"Certain Solidity language features are not completely supported by the SMT "
+"encoding that the SMTChecker applies, for example assembly blocks. The "
+"unsupported construct is abstracted via overapproximation to preserve "
+"soundness, meaning any properties reported safe are safe even though this "
+"feature is unsupported. However such abstraction may cause false positives "
+"when the target properties depend on the precise behavior of the unsupported "
+"feature. If the encoder encounters such cases it will by default report a "
+"generic warning stating how many unsupported features it has seen. If the "
+"user wishes to see all the specific unsupported features, the CLI option ``--"
+"model-checker-show-unsupported`` and the JSON option ``settings.modelChecker."
+"showUnsupported = true`` can be used, where their default value is ``false``."
+msgstr ""
+
+#: ../../../smtchecker.rst:520
+msgid "Verified Contracts"
+msgstr ""
+
+#: ../../../smtchecker.rst:522
+msgid ""
+"By default all the deployable contracts in the given sources are analyzed "
+"separately as the one that will be deployed. This means that if a contract "
+"has many direct and indirect inheritance parents, all of them will be "
+"analyzed on their own, even though only the most derived will be accessed "
+"directly on the blockchain. This causes an unnecessary burden on the "
+"SMTChecker and the solver.  To aid cases like this, users can specify which "
+"contracts should be analyzed as the deployed one. The parent contracts are "
+"of course still analyzed, but only in the context of the most derived "
+"contract, reducing the complexity of the encoding and generated queries. "
+"Note that abstract contracts are by default not analyzed as the most derived "
+"by the SMTChecker."
+msgstr ""
+
+#: ../../../smtchecker.rst:533
+msgid ""
+"The chosen contracts can be given via a comma-separated list (whitespace is "
+"not allowed) of <source>:<contract> pairs in the CLI: ``--model-checker-"
+"contracts \"<source1.sol:contract1>,<source2.sol:contract2>,<source2.sol:"
+"contract3>\"``, and via the object ``settings.modelChecker.contracts`` in "
+"the :ref:`JSON input<compiler-api>`, which has the following form:"
+msgstr ""
+
+#: ../../../smtchecker.rst:539
+msgid ""
+"\"contracts\": {\n"
+"    \"source1.sol\": [\"contract1\"],\n"
+"    \"source2.sol\": [\"contract2\", \"contract3\"]\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:547
+msgid "Trusted External Calls"
+msgstr ""
+
+#: ../../../smtchecker.rst:549
+msgid ""
+"By default, the SMTChecker does not assume that compile-time available code "
+"is the same as the runtime code for external calls. Take the following "
+"contracts as an example:"
+msgstr ""
+
+#: ../../../smtchecker.rst:553
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Ext {\n"
+"    uint public x;\n"
+"    function setX(uint _x) public { x = _x; }\n"
+"}\n"
+"contract MyContract {\n"
+"    function callExt(Ext _e) public {\n"
+"        _e.setX(42);\n"
+"        assert(_e.x() == 42);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:569
+msgid ""
+"When ``MyContract.callExt`` is called, an address is given as the argument. "
+"At deployment time, we cannot know for sure that address ``_e`` actually "
+"contains a deployment of contract ``Ext``. Therefore, the SMTChecker will "
+"warn that the assertion above can be violated, which is true, if ``_e`` "
+"contains another contract than ``Ext``."
+msgstr ""
+
+#: ../../../smtchecker.rst:575
+msgid ""
+"However, it can be useful to treat these external calls as trusted, for "
+"example, to test that different implementations of an interface conform to "
+"the same property. This means assuming that address ``_e`` indeed was "
+"deployed as contract ``Ext``. This mode can be enabled via the CLI option "
+"``--model-checker-ext-calls=trusted`` or the JSON field ``settings."
+"modelChecker.extCalls: \"trusted\"``."
+msgstr ""
+
+#: ../../../smtchecker.rst:581
+msgid ""
+"Please be aware that enabling this mode can make the SMTChecker analysis "
+"much more computationally costly."
+msgstr ""
+
+#: ../../../smtchecker.rst:584
+msgid ""
+"An important part of this mode is that it is applied to contract types and "
+"high level external calls to contracts, and not low level calls such as "
+"``call`` and ``delegatecall``. The storage of an address is stored per "
+"contract type, and the SMTChecker assumes that an externally called contract "
+"has the type of the caller expression.  Therefore, casting an ``address`` or "
+"a contract to different contract types will yield different storage values "
+"and can give unsound results if the assumptions are inconsistent, such as "
+"the example below:"
+msgstr ""
+
+#: ../../../smtchecker.rst:592
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract D {\n"
+"    constructor(uint _x) { x = _x; }\n"
+"    uint public x;\n"
+"    function setX(uint _x) public { x = _x; }\n"
+"}\n"
+"\n"
+"contract E {\n"
+"    constructor() { x = 2; }\n"
+"    uint public x;\n"
+"    function setX(uint _x) public { x = _x; }\n"
+"}\n"
+"\n"
+"contract C {\n"
+"    function f() public {\n"
+"        address d = address(new D(42));\n"
+"\n"
+"        // `d` was deployed as `D`, so its `x` should be 42 now.\n"
+"        assert(D(d).x() == 42); // should hold\n"
+"        assert(D(d).x() == 43); // should fail\n"
+"\n"
+"        // E and D have the same interface, so the following\n"
+"        // call would also work at runtime.\n"
+"        // However, the change to `E(d)` is not reflected in `D(d)`.\n"
+"        E(d).setX(1024);\n"
+"\n"
+"        // Reading from `D(d)` now will show old values.\n"
+"        // The assertion below should fail at runtime,\n"
+"        // but succeeds in this mode's analysis (unsound).\n"
+"        assert(D(d).x() == 42);\n"
+"        // The assertion below should succeed at runtime,\n"
+"        // but fails in this mode's analysis (false positive).\n"
+"        assert(D(d).x() == 1024);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:632
+msgid ""
+"Due to the above, make sure that the trusted external calls to a certain "
+"variable of ``address`` or ``contract`` type always have the same caller "
+"expression type."
+msgstr ""
+
+#: ../../../smtchecker.rst:636
+msgid ""
+"It is also helpful to cast the called contract's variable as the type of the "
+"most derived type in case of inheritance."
+msgstr ""
+
+#: ../../../smtchecker.rst:639
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"interface Token {\n"
+"    function balanceOf(address _a) external view returns (uint);\n"
+"    function transfer(address _to, uint _amt) external;\n"
+"}\n"
+"\n"
+"contract TokenCorrect is Token {\n"
+"    mapping (address => uint) balance;\n"
+"    constructor(address _a, uint _b) {\n"
+"        balance[_a] = _b;\n"
+"    }\n"
+"    function balanceOf(address _a) public view override returns (uint) {\n"
+"        return balance[_a];\n"
+"    }\n"
+"    function transfer(address _to, uint _amt) public override {\n"
+"        require(balance[msg.sender] >= _amt);\n"
+"        balance[msg.sender] -= _amt;\n"
+"        balance[_to] += _amt;\n"
+"    }\n"
+"}\n"
+"\n"
+"contract Test {\n"
+"    function property_transfer(address _token, address _to, uint _amt) "
+"public {\n"
+"        require(_to != address(this));\n"
+"\n"
+"        TokenCorrect t = TokenCorrect(_token);\n"
+"\n"
+"        uint xPre = t.balanceOf(address(this));\n"
+"        require(xPre >= _amt);\n"
+"        uint yPre = t.balanceOf(_to);\n"
+"\n"
+"        t.transfer(_to, _amt);\n"
+"        uint xPost = t.balanceOf(address(this));\n"
+"        uint yPost = t.balanceOf(_to);\n"
+"\n"
+"        assert(xPost == xPre - _amt);\n"
+"        assert(yPost == yPre + _amt);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:683
+msgid ""
+"Note that in function ``property_transfer``, the external calls are "
+"performed on variable ``t``."
+msgstr ""
+
+#: ../../../smtchecker.rst:686
+msgid ""
+"Another caveat of this mode are calls to state variables of contract type "
+"outside the analyzed contract. In the code below, even though ``B`` deploys "
+"``A``, it is also possible for the address stored in ``B.a`` to be called by "
+"anyone outside of ``B`` in between transactions to ``B`` itself. To reflect "
+"the possible changes to ``B.a``, the encoding allows an unbounded number of "
+"calls to be made to ``B.a`` externally. The encoding will keep track of ``B."
+"a``'s storage, therefore assertion (2) should hold. However, currently the "
+"encoding allows such calls to be made from ``B`` conceptually, therefore "
+"assertion (3) fails.  Making the encoding stronger logically is an extension "
+"of the trusted mode and is under development. Note that the encoding does "
+"not keep track of storage for ``address`` variables, therefore if ``B.a`` "
+"had type ``address`` the encoding would assume that its storage does not "
+"change in between transactions to ``B``."
+msgstr ""
+
+#: ../../../smtchecker.rst:700
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract A {\n"
+"    uint public x;\n"
+"    address immutable public owner;\n"
+"    constructor() {\n"
+"        owner = msg.sender;\n"
+"    }\n"
+"    function setX(uint _x) public {\n"
+"        require(msg.sender == owner);\n"
+"        x = _x;\n"
+"    }\n"
+"}\n"
+"\n"
+"contract B {\n"
+"    A a;\n"
+"    constructor() {\n"
+"        a = new A();\n"
+"        assert(a.x() == 0); // (1) should hold\n"
+"    }\n"
+"    function g() public view {\n"
+"        assert(a.owner() == address(this)); // (2) should hold\n"
+"        assert(a.x() == 0); // (3) should hold, but fails due to a false "
+"positive\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:730
+msgid "Reported Inferred Inductive Invariants"
+msgstr ""
+
+#: ../../../smtchecker.rst:732
+msgid ""
+"For properties that were proved safe with the CHC engine, the SMTChecker can "
+"retrieve inductive invariants that were inferred by the Horn solver as part "
+"of the proof. Currently only two types of invariants can be reported to the "
+"user:"
+msgstr ""
+
+#: ../../../smtchecker.rst:737
+msgid ""
+"Contract Invariants: these are properties over the contract's state "
+"variables that are true before and after every possible transaction that the "
+"contract may ever run. For example, ``x >= y``, where ``x`` and ``y`` are a "
+"contract's state variables."
+msgstr ""
+
+#: ../../../smtchecker.rst:739
+msgid ""
+"Reentrancy Properties: they represent the behavior of the contract in the "
+"presence of external calls to unknown code. These properties can express a "
+"relation between the value of the state variables before and after the "
+"external call, where the external call is free to do anything, including "
+"making reentrant calls to the analyzed contract. Primed variables represent "
+"the state variables' values after said external call. Example: ``lock -> x = "
+"x'``."
+msgstr ""
+
+#: ../../../smtchecker.rst:743
+msgid ""
+"The user can choose the type of invariants to be reported using the CLI "
+"option ``--model-checker-invariants \"contract,reentrancy\"`` or as an array "
+"in the field ``settings.modelChecker.invariants`` in the :ref:`JSON "
+"input<compiler-api>`. By default the SMTChecker does not report invariants."
+msgstr ""
+
+#: ../../../smtchecker.rst:747
+msgid "Division and Modulo With Slack Variables"
+msgstr ""
+
+#: ../../../smtchecker.rst:749
+msgid ""
+"Spacer, the default Horn solver used by the SMTChecker, often dislikes "
+"division and modulo operations inside Horn rules. Because of that, by "
+"default the Solidity division and modulo operations are encoded using the "
+"constraint ``a = b * d + m`` where ``d = a / b`` and ``m = a % b``. However, "
+"other solvers, such as Eldarica, prefer the syntactically precise "
+"operations. The command-line flag ``--model-checker-div-mod-no-slacks`` and "
+"the JSON option ``settings.modelChecker.divModNoSlacks`` can be used to "
+"toggle the encoding depending on the used solver preferences."
+msgstr ""
+
+#: ../../../smtchecker.rst:759
+msgid "Natspec Function Abstraction"
+msgstr ""
+
+#: ../../../smtchecker.rst:761
+msgid ""
+"Certain functions including common math methods such as ``pow`` and ``sqrt`` "
+"may be too complex to be analyzed in a fully automated way. These functions "
+"can be annotated with Natspec tags that indicate to the SMTChecker that "
+"these functions should be abstracted. This means that the body of the "
+"function is not used, and when called, the function will:"
+msgstr ""
+
+#: ../../../smtchecker.rst:767
+msgid ""
+"Return a nondeterministic value, and either keep the state variables "
+"unchanged if the abstracted function is view/pure, or also set the state "
+"variables to nondeterministic values otherwise. This can be used via the "
+"annotation ``/// @custom:smtchecker abstract-function-nondet``."
+msgstr ""
+
+#: ../../../smtchecker.rst:768
+msgid ""
+"Act as an uninterpreted function. This means that the semantics of the "
+"function (given by the body) are ignored, and the only property this "
+"function has is that given the same input it guarantees the same output. "
+"This is currently under development and will be available via the annotation "
+"``/// @custom:smtchecker abstract-function-uf``."
+msgstr ""
+
+#: ../../../smtchecker.rst:773
+msgid "Model Checking Engines"
+msgstr ""
+
+#: ../../../smtchecker.rst:775
+msgid ""
+"The SMTChecker module implements two different reasoning engines, a Bounded "
+"Model Checker (BMC) and a system of Constrained Horn Clauses (CHC).  Both "
+"engines are currently under development, and have different characteristics. "
+"The engines are independent and every property warning states from which "
+"engine it came. Note that all the examples above with counterexamples were "
+"reported by CHC, the more powerful engine."
+msgstr ""
+
+#: ../../../smtchecker.rst:782
+msgid ""
+"By default both engines are used, where CHC runs first, and every property "
+"that was not proven is passed over to BMC. You can choose a specific engine "
+"via the CLI option ``--model-checker-engine {all,bmc,chc,none}`` or the JSON "
+"option ``settings.modelChecker.engine={all,bmc,chc,none}``."
+msgstr ""
+
+#: ../../../smtchecker.rst:788
+msgid "Bounded Model Checker (BMC)"
+msgstr ""
+
+#: ../../../smtchecker.rst:790
+msgid ""
+"The BMC engine analyzes functions in isolation, that is, it does not take "
+"the overall behavior of the contract over multiple transactions into account "
+"when analyzing each function.  Loops are also ignored in this engine at the "
+"moment. Internal function calls are inlined as long as they are not "
+"recursive, directly or indirectly. External function calls are inlined if "
+"possible. Knowledge that is potentially affected by reentrancy is erased."
+msgstr ""
+
+#: ../../../smtchecker.rst:797
+msgid ""
+"The characteristics above make BMC prone to reporting false positives, but "
+"it is also lightweight and should be able to quickly find small local bugs."
+msgstr ""
+
+#: ../../../smtchecker.rst:801
+msgid "Constrained Horn Clauses (CHC)"
+msgstr ""
+
+#: ../../../smtchecker.rst:803
+msgid ""
+"A contract's Control Flow Graph (CFG) is modelled as a system of Horn "
+"clauses, where the life cycle of the contract is represented by a loop that "
+"can visit every public/external function non-deterministically. This way, "
+"the behavior of the entire contract over an unbounded number of transactions "
+"is taken into account when analyzing any function. Loops are fully supported "
+"by this engine. Internal function calls are supported, and external function "
+"calls assume the called code is unknown and can do anything."
+msgstr ""
+
+#: ../../../smtchecker.rst:811
+msgid ""
+"The CHC engine is much more powerful than BMC in terms of what it can prove, "
+"and might require more computing resources."
+msgstr ""
+
+#: ../../../smtchecker.rst:815
+msgid "SMT and Horn solvers"
+msgstr ""
+
+#: ../../../smtchecker.rst:817
+msgid ""
+"The two engines detailed above use automated theorem provers as their "
+"logical backends.  BMC uses an SMT solver, whereas CHC uses a Horn solver. "
+"Often the same tool can act as both, as seen in `z3 <https://github.com/"
+"Z3Prover/z3>`_, which is primarily an SMT solver and makes `Spacer <https://"
+"spacer.bitbucket.io/>`_ available as a Horn solver, and `Eldarica <https://"
+"github.com/uuverifiers/eldarica>`_ which does both."
+msgstr ""
+
+#: ../../../smtchecker.rst:824
+msgid ""
+"The user can choose which solvers should be used, if available, via the CLI "
+"option ``--model-checker-solvers {all,cvc5,eld,smtlib2,z3}`` or the JSON "
+"option ``settings.modelChecker.solvers=[smtlib2,z3]``, where:"
+msgstr ""
+
+#: ../../../smtchecker.rst:828
+msgid ""
+"``cvc5`` is used via its binary which must be installed in the system. Only "
+"BMC uses ``cvc5``."
+msgstr ""
+
+#: ../../../smtchecker.rst:829
+msgid ""
+"``eld`` is used via its binary which must be installed in the system. Only "
+"CHC uses ``eld``, and only if ``z3`` is not enabled."
+msgstr ""
+
+#: ../../../smtchecker.rst:830
+msgid ""
+"``smtlib2`` outputs SMT/Horn queries in the `smtlib2 <http://smtlib.cs.uiowa."
+"edu/>`_ format. These can be used together with the compiler's `callback "
+"mechanism <https://github.com/argotorg/solc-js>`_ so that any solver binary "
+"from the system can be employed to synchronously return the results of the "
+"queries to the compiler. This can be used by both BMC and CHC depending on "
+"which solvers are called."
+msgstr ""
+
+#: ../../../smtchecker.rst:834
+msgid ""
+"``z3`` is available statically in ``soljson.js`` (from Solidity 0.6.9), that "
+"is, the JavaScript binary of the compiler. Otherwise it is used via its "
+"binary which must be installed in the system."
+msgstr ""
+
+#: ../../../smtchecker.rst:837
+msgid ""
+"z3 version 4.8.16 broke ABI compatibility with previous versions and cannot "
+"be used with solc <=0.8.13. If you are using z3 >=4.8.16 please use solc "
+">=0.8.14, and conversely, only use older z3 with older solc releases. We "
+"also recommend using the latest z3 release which is what SMTChecker also "
+"does."
+msgstr ""
+
+#: ../../../smtchecker.rst:842
+msgid ""
+"Since both BMC and CHC use ``z3``, and ``z3`` is available in a greater "
+"variety of environments, including in the browser, most users will almost "
+"never need to be concerned about this option. More advanced users might "
+"apply this option to try alternative solvers on more complex problems."
+msgstr ""
+
+#: ../../../smtchecker.rst:847
+msgid ""
+"Please note that certain combinations of chosen engine and solver will lead "
+"to the SMTChecker doing nothing, for example choosing CHC and ``cvc5``."
+msgstr ""
+
+#: ../../../smtchecker.rst:852
+msgid "Abstraction and False Positives"
+msgstr ""
+
+#: ../../../smtchecker.rst:854
+msgid ""
+"The SMTChecker implements abstractions in an incomplete and sound way: If a "
+"bug is reported, it might be a false positive introduced by abstractions "
+"(due to erasing knowledge or using a non-precise type). If it determines "
+"that a verification target is safe, it is indeed safe, that is, there are no "
+"false negatives (unless there is a bug in the SMTChecker)."
+msgstr ""
+
+#: ../../../smtchecker.rst:860
+msgid ""
+"If a target cannot be proven you can try to help the solver by using the "
+"tuning options in the previous section. If you are sure of a false positive, "
+"adding ``require`` statements in the code with more information may also "
+"give some more power to the solver."
+msgstr ""
+
+#: ../../../smtchecker.rst:866
+msgid "SMT Encoding and Types"
+msgstr ""
+
+#: ../../../smtchecker.rst:868
+msgid ""
+"The SMTChecker encoding tries to be as precise as possible, mapping Solidity "
+"types and expressions to their closest `SMT-LIB <http://smtlib.cs.uiowa.edu/"
+">`_ representation, as shown in the table below."
+msgstr ""
+
+#: ../../../smtchecker.rst:873
+msgid "Solidity type"
+msgstr ""
+
+#: ../../../smtchecker.rst:873
+msgid "SMT sort"
+msgstr ""
+
+#: ../../../smtchecker.rst:873
+msgid "Theories"
+msgstr ""
+
+#: ../../../smtchecker.rst:875
+msgid "Boolean"
+msgstr ""
+
+#: ../../../smtchecker.rst:875
+msgid "Bool"
+msgstr ""
+
+#: ../../../smtchecker.rst:877
+msgid "intN, uintN, address, bytesN, enum, contract"
+msgstr ""
+
+#: ../../../smtchecker.rst:877 ../../../smtchecker.rst:885
+msgid "Integer"
+msgstr ""
+
+#: ../../../smtchecker.rst:877
+msgid "LIA, NIA"
+msgstr ""
+
+#: ../../../smtchecker.rst:880
+msgid "array, mapping, bytes, string"
+msgstr ""
+
+#: ../../../smtchecker.rst:880
+msgid "Tuple (Array elements, Integer length)"
+msgstr ""
+
+#: ../../../smtchecker.rst:880
+msgid "Datatypes, Arrays, LIA"
+msgstr ""
+
+#: ../../../smtchecker.rst:883
+msgid "struct"
+msgstr ""
+
+#: ../../../smtchecker.rst:883
+msgid "Tuple"
+msgstr ""
+
+#: ../../../smtchecker.rst:883
+msgid "Datatypes"
+msgstr ""
+
+#: ../../../smtchecker.rst:885
+msgid "other types"
+msgstr ""
+
+#: ../../../smtchecker.rst:885
+msgid "LIA"
+msgstr ""
+
+#: ../../../smtchecker.rst:888
+msgid ""
+"Types that are not yet supported are abstracted by a single 256-bit unsigned "
+"integer, where their unsupported operations are ignored."
+msgstr ""
+
+#: ../../../smtchecker.rst:891
+msgid ""
+"For more details on how the SMT encoding works internally, see the paper "
+"`SMT-based Verification of Solidity Smart Contracts <https://github.com/"
+"chriseth/solidity_isola/blob/master/main.pdf>`_."
+msgstr ""
+
+#: ../../../smtchecker.rst:895
+msgid "Function Calls"
+msgstr ""
+
+#: ../../../smtchecker.rst:897
+msgid ""
+"In the BMC engine, function calls to the same contract (or base contracts) "
+"are inlined when possible, that is, when their implementation is available.  "
+"Calls to functions in other contracts are not inlined even if their code is "
+"available, since we cannot guarantee that the actual deployed code is the "
+"same."
+msgstr ""
+
+#: ../../../smtchecker.rst:902
+msgid ""
+"The CHC engine creates nonlinear Horn clauses that use summaries of the "
+"called functions to support internal function calls. External function calls "
+"are treated as calls to unknown code, including potential reentrant calls."
+msgstr ""
+
+#: ../../../smtchecker.rst:906
+msgid ""
+"Complex pure functions are abstracted by an uninterpreted function (UF) over "
+"the arguments."
+msgstr ""
+
+#: ../../../smtchecker.rst:910
+msgid "Functions"
+msgstr ""
+
+#: ../../../smtchecker.rst:910
+msgid "BMC/CHC behavior"
+msgstr ""
+
+#: ../../../smtchecker.rst:912
+msgid "``assert``"
+msgstr ""
+
+#: ../../../smtchecker.rst:912
+msgid "Verification target."
+msgstr ""
+
+#: ../../../smtchecker.rst:914
+msgid "``require``"
+msgstr ""
+
+#: ../../../smtchecker.rst:914
+msgid "Assumption."
+msgstr ""
+
+#: ../../../smtchecker.rst:916
+msgid "internal call"
+msgstr ""
+
+#: ../../../smtchecker.rst:916
+msgid "BMC: Inline function call. CHC: Function summaries."
+msgstr ""
+
+#: ../../../smtchecker.rst:919
+msgid "external call to known code"
+msgstr ""
+
+#: ../../../smtchecker.rst:919
+msgid ""
+"BMC: Inline function call or erase knowledge about state variables and local "
+"storage references. CHC: Assume called code is unknown. Try to infer "
+"invariants that hold after the call returns."
+msgstr ""
+
+#: ../../../smtchecker.rst:926
+msgid "Storage array push/pop"
+msgstr ""
+
+#: ../../../smtchecker.rst:926
+msgid "Supported precisely. Checks whether it is popping an empty array."
+msgstr ""
+
+#: ../../../smtchecker.rst:930
+msgid "ABI functions"
+msgstr ""
+
+#: ../../../smtchecker.rst:930 ../../../smtchecker.rst:934
+msgid "Abstracted with UF."
+msgstr ""
+
+#: ../../../smtchecker.rst:932
+msgid "``addmod``, ``mulmod``"
+msgstr ""
+
+#: ../../../smtchecker.rst:932
+msgid "Supported precisely."
+msgstr ""
+
+#: ../../../smtchecker.rst:934
+msgid ""
+"``gasleft``, ``blobhash``, ``blockhash``, ``keccak256``, ``ecrecover``, "
+"``ripemd160``"
+msgstr ""
+
+#: ../../../smtchecker.rst:938
+msgid "pure functions without implementation (external or complex)"
+msgstr ""
+
+#: ../../../smtchecker.rst:938
+msgid "Abstracted with UF"
+msgstr ""
+
+#: ../../../smtchecker.rst:942
+msgid "external functions without implementation"
+msgstr ""
+
+#: ../../../smtchecker.rst:942
+msgid ""
+"BMC: Erase state knowledge and assume result is nondeterministic. CHC: "
+"Nondeterministic summary. Try to infer invariants that hold after the call "
+"returns."
+msgstr ""
+
+#: ../../../smtchecker.rst:948
+msgid "transfer"
+msgstr ""
+
+#: ../../../smtchecker.rst:948
+msgid ""
+"BMC: Checks whether the contract's balance is sufficient. CHC: does not yet "
+"perform the check."
+msgstr ""
+
+#: ../../../smtchecker.rst:952
+msgid "others"
+msgstr ""
+
+#: ../../../smtchecker.rst:952
+msgid "Currently unsupported"
+msgstr ""
+
+#: ../../../smtchecker.rst:955
+msgid ""
+"Using abstraction means loss of precise knowledge, but in many cases it does "
+"not mean loss of proving power."
+msgstr ""
+
+#: ../../../smtchecker.rst:958
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Recover\n"
+"{\n"
+"    function f(\n"
+"        bytes32 hash,\n"
+"        uint8 v1, uint8 v2,\n"
+"        bytes32 r1, bytes32 r2,\n"
+"        bytes32 s1, bytes32 s2\n"
+"    ) public pure returns (address) {\n"
+"        address a1 = ecrecover(hash, v1, r1, s1);\n"
+"        require(v1 == v2);\n"
+"        require(r1 == r2);\n"
+"        require(s1 == s2);\n"
+"        address a2 = ecrecover(hash, v2, r2, s2);\n"
+"        assert(a1 == a2);\n"
+"        return a1;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:981
+msgid ""
+"In the example above, the SMTChecker is not expressive enough to actually "
+"compute ``ecrecover``, but by modelling the function calls as uninterpreted "
+"functions we know that the return value is the same when called on "
+"equivalent parameters. This is enough to prove that the assertion above is "
+"always true."
+msgstr ""
+
+#: ../../../smtchecker.rst:986
+msgid ""
+"Abstracting a function call with an UF can be done for functions known to be "
+"deterministic, and can be easily done for pure functions.  It is however "
+"difficult to do this with general external functions, since they might "
+"depend on state variables."
+msgstr ""
+
+#: ../../../smtchecker.rst:992
+msgid "Reference Types and Aliasing"
+msgstr ""
+
+#: ../../../smtchecker.rst:994
+msgid ""
+"Solidity implements aliasing for reference types with the same :ref:`data "
+"location<data-location>`. That means one variable may be modified through a "
+"reference to the same data area. The SMTChecker does not keep track of which "
+"references refer to the same data. This implies that whenever a local "
+"reference or state variable of reference type is assigned, all knowledge "
+"regarding variables of the same type and data location is erased. If the "
+"type is nested, the knowledge removal also includes all the prefix base "
+"types."
+msgstr ""
+
+#: ../../../smtchecker.rst:1005
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.0;\n"
+"\n"
+"contract Aliasing\n"
+"{\n"
+"    uint[] array1;\n"
+"    uint[][] array2;\n"
+"    function f(\n"
+"        uint[] memory a,\n"
+"        uint[] memory b,\n"
+"        uint[][] memory c,\n"
+"        uint[] storage d\n"
+"    ) internal {\n"
+"        array1[0] = 42;\n"
+"        a[0] = 2;\n"
+"        c[0][0] = 2;\n"
+"        b[0] = 1;\n"
+"        // Erasing knowledge about memory references should not\n"
+"        // erase knowledge about state variables.\n"
+"        assert(array1[0] == 42);\n"
+"        // However, an assignment to a storage reference will erase\n"
+"        // storage knowledge accordingly.\n"
+"        d[0] = 2;\n"
+"        // Fails as false positive because of the assignment above.\n"
+"        assert(array1[0] == 42);\n"
+"        // Fails because `a == b` is possible.\n"
+"        assert(a[0] == 2);\n"
+"        // Fails because `c[i] == b` is possible.\n"
+"        assert(c[0][0] == 2);\n"
+"        assert(d[0] == 2);\n"
+"        assert(b[0] == 1);\n"
+"    }\n"
+"    function g(\n"
+"        uint[] memory a,\n"
+"        uint[] memory b,\n"
+"        uint[][] memory c,\n"
+"        uint x\n"
+"    ) public {\n"
+"        f(a, b, c, array2[x]);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../smtchecker.rst:1049
+msgid ""
+"After the assignment to ``b[0]``, we need to clear knowledge about ``a`` "
+"since it has the same type (``uint[]``) and data location (memory).  We also "
+"need to clear knowledge about ``c``, since its base type is also a "
+"``uint[]`` located in memory. This implies that some ``c[i]`` could refer to "
+"the same data as ``b`` or ``a``."
+msgstr ""
+
+#: ../../../smtchecker.rst:1055
+msgid ""
+"Notice that we do not clear knowledge about ``array`` and ``d`` because they "
+"are located in storage, even though they also have type ``uint[]``.  "
+"However, if ``d`` was assigned, we would need to clear knowledge about "
+"``array`` and vice-versa."
+msgstr ""
+
+#: ../../../smtchecker.rst:1061
+msgid "Contract Balance"
+msgstr ""
+
+#: ../../../smtchecker.rst:1063
+msgid ""
+"A contract may be deployed with funds sent to it, if ``msg.value`` > 0 in "
+"the deployment transaction. However, the contract's address may already have "
+"funds before deployment, which are kept by the contract. Therefore, the "
+"SMTChecker assumes that ``address(this).balance >= msg.value`` in the "
+"constructor in order to be consistent with the EVM rules. The contract's "
+"balance may also increase without triggering any calls to the contract, if"
+msgstr ""
+
+#: ../../../smtchecker.rst:1072
+msgid ""
+"``selfdestruct`` is executed by another contract with the analyzed contract "
+"as the target of the remaining funds,"
+msgstr ""
+
+#: ../../../smtchecker.rst:1074
+msgid "the contract is the coinbase (i.e., ``block.coinbase``) of some block."
+msgstr ""
+
+#: ../../../smtchecker.rst:1076
+msgid ""
+"To model this properly, the SMTChecker assumes that at every new transaction "
+"the contract's balance may grow by at least ``msg.value``."
+msgstr ""
+
+#: ../../../smtchecker.rst:1081
+msgid "Real World Assumptions"
+msgstr ""
+
+#: ../../../smtchecker.rst:1083
+msgid ""
+"Some scenarios can be expressed in Solidity and the EVM, but are expected to "
+"never occur in practice. One of such cases is the length of a dynamic "
+"storage array overflowing during a push: If the ``push`` operation is "
+"applied to an array of length 2^256 - 1, its length silently overflows. "
+"However, this is unlikely to happen in practice, since the operations "
+"required to grow the array to that point would take billions of years to "
+"execute. Another similar assumption taken by the SMTChecker is that an "
+"address' balance can never overflow."
+msgstr ""
+
+#: ../../../smtchecker.rst:1093
+msgid ""
+"A similar idea was presented in `EIP-1985 <https://eips.ethereum.org/EIPS/"
+"eip-1985>`_."
+msgstr ""

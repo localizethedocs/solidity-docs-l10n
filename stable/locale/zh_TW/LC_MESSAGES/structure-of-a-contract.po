@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../structure-of-a-contract.rst:7
+msgid "Structure of a Contract"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:9
+msgid ""
+"Contracts in Solidity are similar to classes in object-oriented languages. "
+"Each contract can contain declarations of :ref:`structure-state-variables`, :"
+"ref:`structure-functions`, :ref:`structure-function-modifiers`, :ref:"
+"`structure-events`, :ref:`structure-errors`, :ref:`structure-struct-types` "
+"and :ref:`structure-enum-types`. Furthermore, contracts can inherit from "
+"other contracts."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:14
+msgid ""
+"There are also special kinds of contracts called :ref:`libraries<libraries>` "
+"and :ref:`interfaces<interfaces>`."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:16
+msgid ""
+"The section about :ref:`contracts<contracts>` contains more details than "
+"this section, which serves to provide a quick overview."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:22
+msgid "State Variables"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:24
+msgid ""
+"State variables are variables whose values are either permanently stored in "
+"contract storage or, alternatively, temporarily stored in transient storage "
+"which is cleaned at the end of each transaction. See :ref:`data locations "
+"<locations>` for more details."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:29
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract SimpleStorage {\n"
+"    uint storedData; // State variable\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:39
+msgid ""
+"See the :ref:`types` section for valid state variable types and :ref:"
+"`visibility-and-getters` for possible choices for visibility."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:46
+msgid "Functions"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:48
+msgid ""
+"Functions are the executable units of code. Functions are usually defined "
+"inside a contract, but they can also be defined outside of contracts."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:52
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.1 <0.9.0;\n"
+"\n"
+"contract SimpleAuction {\n"
+"    function bid() public payable { // Function\n"
+"        // ...\n"
+"    }\n"
+"}\n"
+"\n"
+"// Helper function defined outside of a contract\n"
+"function helper(uint x) pure returns (uint) {\n"
+"    return x * 2;\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:68
+msgid ""
+":ref:`function-calls` can happen internally or externally and have different "
+"levels of :ref:`visibility<visibility-and-getters>` towards other "
+"contracts. :ref:`Functions<functions>` accept :ref:`parameters and return "
+"variables<function-parameters-return-variables>` to pass parameters and "
+"values between them."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:76
+msgid "Function Modifiers"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:78
+msgid ""
+"Function modifiers can be used to amend the semantics of functions in a "
+"declarative way (see :ref:`modifiers` in the contracts section)."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:81
+msgid ""
+"Overloading, that is, having the same modifier name with different "
+"parameters, is not possible."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:84
+msgid ""
+"Like functions, modifiers can be :ref:`overridden <modifier-overriding>`."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:86
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.22 <0.9.0;\n"
+"\n"
+"contract Purchase {\n"
+"    address public seller;\n"
+"\n"
+"    modifier onlySeller() { // Modifier\n"
+"        require(\n"
+"            msg.sender == seller,\n"
+"            \"Only seller can call this.\"\n"
+"        );\n"
+"        _;\n"
+"    }\n"
+"\n"
+"    function abort() public view onlySeller { // Modifier usage\n"
+"        // ...\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:110
+msgid "Events"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:112
+msgid "Events are convenience interfaces with the EVM logging facilities."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:114
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity ^0.8.22;\n"
+"\n"
+"event HighestBidIncreased(address bidder, uint amount); // Event\n"
+"\n"
+"contract SimpleAuction {\n"
+"    function bid() public payable {\n"
+"        // ...\n"
+"        emit HighestBidIncreased(msg.sender, msg.value); // Triggering "
+"event\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:128
+msgid ""
+"See :ref:`events` in contracts section for information on how events are "
+"declared and can be used from within a dapp."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:134
+msgid "Errors"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:136
+msgid ""
+"Errors allow you to define descriptive names and data for failure "
+"situations. Errors can be used in :ref:`revert statements <revert-"
+"statement>`. In comparison to string descriptions, errors are much cheaper "
+"and allow you to encode additional data. You can use NatSpec to describe the "
+"error to the user."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:142
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity ^0.8.4;\n"
+"\n"
+"/// Not enough funds for transfer. Requested `requested`,\n"
+"/// but only `available` available.\n"
+"error NotEnoughFunds(uint requested, uint available);\n"
+"\n"
+"contract Token {\n"
+"    mapping(address => uint) balances;\n"
+"    function transfer(address to, uint amount) public {\n"
+"        uint balance = balances[msg.sender];\n"
+"        if (balance < amount)\n"
+"            revert NotEnoughFunds(amount, balance);\n"
+"        balances[msg.sender] -= amount;\n"
+"        balances[to] += amount;\n"
+"        // ...\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:163
+msgid "See :ref:`errors` in the contracts section for more information."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:168
+msgid "Struct Types"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:170
+msgid ""
+"Structs are custom defined types that can group several variables (see :ref:"
+"`structs` in types section)."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:173
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract Ballot {\n"
+"    struct Voter { // Struct\n"
+"        uint weight;\n"
+"        bool voted;\n"
+"        address delegate;\n"
+"        uint vote;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:190
+msgid "Enum Types"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:192
+msgid ""
+"Enums can be used to create custom types with a finite set of 'constant "
+"values' (see :ref:`enums` in types section)."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:195
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract Purchase {\n"
+"    enum State { Created, Locked, Inactive } // Enum\n"
+"}"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "contract"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "state variable"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "function"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "event"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "struct"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "enum"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:1
+msgid "modifier"
+msgstr ""
