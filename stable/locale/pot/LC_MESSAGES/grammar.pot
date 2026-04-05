@@ -1,0 +1,567 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../grammar.rst:3
+msgid "Language Grammar"
+msgstr ""
+
+#: ../../../Solidity is a statically typed, contract-oriented, high-level
+#: language for implementing smart contracts on the Ethereum platform.:3
+msgid ""
+"Solidity is a statically typed, contract-oriented, high-level language for "
+"implementing smart contracts on the Ethereum platform."
+msgstr ""
+
+#: ../../../On top level, Solidity allows pragmas, import directives, and:10
+msgid ""
+"On top level, Solidity allows pragmas, import directives, and definitions of "
+"contracts, interfaces, libraries, structs, enums and constants."
+msgstr ""
+
+#: ../../../(e.g. a contract or struct) an array type.:-1 ../../../(including
+#: opening and closing parentheses).:-1 ../../../A break statement. Only
+#: allowed inside for, while do-while loops.:-1 continue curly-braced block of
+#: statements. Opens its own scope.:-1 full hex string literal that consists
+#: either one several consecutive strings.:-1 quoted unicode list parameters,
+#: such as function arguments return values.:-1 revert The contained expression
+#: needs to refer error.:-1 try be external call creation.:-1 ../../../An emit
+#: event.:-1 inline denotes statically sized the common type expressions.:-1
+#: ../../../Besides regular non-keyword Identifiers, some keywords like 'from'
+#: 'error' can also used identifiers.:-1 ../../../Can occur within contracts
+#: libraries at file level.:-1 optionally supply base constructor arguments.:-1
+#: ../../../Comma-separated double-quoted strings flags.:-1 ../../../Definition
+#: struct. Can top-level source unit contract, library interface.:-1 user
+#: defined value type. enum. event. in contracts, interfaces.:-1 special
+#: fallback function.:-1 receive ../../../For statement with optional init,
+#: condition post-loop part.:-1 ../../../If multiple variables are declared,
+#: only is valid initial value.:-1 else ../../../Import directives import
+#: identifiers from different files.:-1 ../../../List aliases for symbols
+#: imported.:-1 ../../../May contain empty fields.:-1 ../../../Note specifying
+#: internal public visibility deprecated.:-1 ../../../Number literals decimal
+#: hexadecimal numbers unit.:-1 ../../../Only elementary types viable mapping
+#: keys.:-1 ../../../Operators users implement `using for`.:-1
+#: ../../../Parameter ../../../Path ../../../Qualified name.:-1 ../../../The
+#: given comma separated map named catch clause statement.:-1 declaration
+#: constant variable.:-1 struct member.:-1 single state default mutability
+#: 'non-payable' assumed if no specified.:-1 ../../../Top-level definition
+#: contract.:-1 library.:-1 ../../../Visibility functions types.:-1 ../../../a
+#: complete has given.:-1 tuple, primary (i.e. identifier, name).:-1 variable
+#: declaration.:-1 ../../../allowed assembly block.:-1 ../../../and may not
+#: fallback, nor non-constant variables.:-1 ../../../but placeholder body which
+#: modifier applied.:-1 ../../../declared ../../../definitions interfaces,
+#: libraries, structs, enums constants.:-1 ../../../e.g. interfaces have
+#: unimplemented, i.e. ../../../leave statements bodies.:-1
+#: ../../../multi-assignments require on right-hand side.:-1 ../../../one more
+#: non-default cases followed by default-case.:-1 ../../../paths containing
+#: dots declarations outside
+msgid ""
+".. syntax:autogrammar:: SolidityParser.g4    :root-rule: SolidityParser."
+"sourceUnit    :undocumented:    :cc-to-dash:"
+msgstr ""
+
+#: ../../../Import directives import identifiers from different files.:33
+msgid "Import directives import identifiers from different files."
+msgstr ""
+
+#: ../../../Path of a file to be imported.:45
+msgid "Path of a file to be imported."
+msgstr ""
+
+#: ../../../List of aliases for symbols to be imported.:49
+msgid "List of aliases for symbols to be imported."
+msgstr ""
+
+#: ../../../Top-level definition of a contract.:54
+msgid "Top-level definition of a contract."
+msgstr ""
+
+#: ../../../Top-level definition of an interface.:66
+msgid "Top-level definition of an interface."
+msgstr ""
+
+#: ../../../Top-level definition of a library.:73
+msgid "Top-level definition of a library."
+msgstr ""
+
+#: ../../../Inheritance specifier for contracts and interfaces.:82
+msgid ""
+"Inheritance specifier for contracts and interfaces. Can optionally supply "
+"base constructor arguments."
+msgstr ""
+
+#: ../../../Declarations that can be used in contracts, interfaces and
+#: libraries.:88
+msgid "Declarations that can be used in contracts, interfaces and libraries."
+msgstr ""
+
+#: ../../../Note that interfaces and libraries may not contain constructors,
+#: state variables:90
+msgid ""
+"Note that interfaces and libraries may not contain constructors, interfaces "
+"may not contain state variables and libraries may not contain fallback, "
+"receive functions nor non-constant state variables."
+msgstr ""
+
+#: ../../../Arguments when calling a function or similar callable object.:109
+msgid ""
+"Arguments when calling a function or a similar callable object. The "
+"arguments are either given as comma separated list or as map of named "
+"arguments."
+msgstr ""
+
+#: ../../../Qualified name.:114
+msgid "Qualified name."
+msgstr ""
+
+#: ../../../Call to a modifier. If the modifier takes no arguments, argument
+#: list can be skipped entirely:119
+msgid ""
+"Call to a modifier. If the modifier takes no arguments, the argument list "
+"can be skipped entirely (including opening and closing parentheses)."
+msgstr ""
+
+#: ../../../Visibility for functions and function types.:124
+msgid "Visibility for functions and function types."
+msgstr ""
+
+#: ../../../A list of parameters, such as function arguments or return
+#: values.:128
+msgid "A list of parameters, such as function arguments or return values."
+msgstr ""
+
+#: ../../../Definition of a constructor.:134
+msgid ""
+"Definition of a constructor. Must always supply an implementation. Note that "
+"specifying internal or public visibility is deprecated."
+msgstr ""
+
+#: ../../../State mutability for function types.:151
+msgid ""
+"State mutability for function types. The default mutability 'non-payable' is "
+"assumed if no mutability is specified."
+msgstr ""
+
+#: ../../../An override specifier used for functions, modifiers or state
+#: variables.:156
+msgid ""
+"An override specifier used for functions, modifiers or state variables. In "
+"cases where there are ambiguous declarations in several base contracts being "
+"overridden, a complete list of base contracts has to be given."
+msgstr ""
+
+#: ../../../The definition of contract, library, interface or free
+#: functions.:162
+msgid ""
+"The definition of contract, library, interface or free functions. Depending "
+"on the context in which the function is defined, further restrictions may "
+"apply, e.g. functions in interfaces have to be unimplemented, i.e. may not "
+"contain a body block."
+msgstr ""
+
+#: ../../../The definition of a modifier.:187
+msgid ""
+"The definition of a modifier. Note that within the body block of a modifier, "
+"the underscore cannot be used as identifier, but is used as placeholder "
+"statement for the body of a function to which the modifier is applied."
+msgstr ""
+
+#: ../../../Definition of the special fallback function.:206
+msgid "Definition of the special fallback function."
+msgstr ""
+
+#: ../../../Definition of the special receive function.:229
+msgid "Definition of the special receive function."
+msgstr ""
+
+#: ../../../Definition of a struct. Can occur at top-level within source unit
+#: or contract, library interface.:250
+msgid ""
+"Definition of a struct. Can occur at top-level within a source unit or "
+"within a contract, library or interface."
+msgstr ""
+
+#: ../../../The declaration of a named struct member.:254
+msgid "The declaration of a named struct member."
+msgstr ""
+
+#: ../../../Definition of an enum. Can occur at top-level within a source unit
+#: or contract, library interface.:258
+msgid ""
+"Definition of an enum. Can occur at top-level within a source unit or within "
+"a contract, library or interface."
+msgstr ""
+
+#: ../../../Definition of a user defined value type. Can occur at top-level
+#: within source unit or contract, library interface.:262
+msgid ""
+"Definition of a user defined value type. Can occur at top-level within a "
+"source unit or within a contract, library or interface."
+msgstr ""
+
+#: ../../../The declaration of a state variable.:268
+msgid "The declaration of a state variable."
+msgstr ""
+
+#: ../../../The declaration of a constant variable.:288
+msgid "The declaration of a constant variable."
+msgstr ""
+
+#: ../../../Parameter of an event.:299
+msgid "Parameter of an event."
+msgstr ""
+
+#: ../../../Definition of an event. Can occur in contracts, libraries or
+#: interfaces.:303
+msgid ""
+"Definition of an event. Can occur in contracts, libraries or interfaces."
+msgstr ""
+
+#: ../../../Parameter of an error.:312
+msgid "Parameter of an error."
+msgstr ""
+
+#: ../../../Definition of an error.:316
+msgid "Definition of an error."
+msgstr ""
+
+#: ../../../Operators that users are allowed to implement for some types with
+#: `using for`.:324
+msgid ""
+"Operators that users are allowed to implement for some types with `using "
+"for`."
+msgstr ""
+
+#: ../../../Using directive to attach library functions and free types.:344
+msgid ""
+"Using directive to attach library functions and free functions to types. Can "
+"occur within contracts and libraries and at the file level."
+msgstr ""
+
+#: ../../../A type name can be an elementary type, a function mapping
+#: user-defined type:356
+msgid ""
+"A type name can be an elementary type, a function type, a mapping type, a "
+"user-defined type (e.g. a contract or struct) or an array type."
+msgstr ""
+
+#: ../../../The declaration of a single variable.:372
+msgid "The declaration of a single variable."
+msgstr ""
+
+#: ../../../Complex expression.:378
+msgid ""
+"Complex expression. Can be an index access, an index range access, a member "
+"access, a function call (with optional function call options), a type "
+"conversion, an unary or binary expression, a comparison or assignment, a "
+"ternary expression, a new-expression (i.e. a contract creation or the "
+"allocation of a dynamic memory array), a tuple, an inline array or a primary "
+"expression (i.e. an identifier, literal or type name)."
+msgstr ""
+
+#: ../../../An inline array expression denotes a statically sized of the common
+#: type contained expressions.:422
+msgid ""
+"An inline array expression denotes a statically sized array of the common "
+"type of the contained expressions."
+msgstr ""
+
+#: ../../../Besides regular non-keyword Identifiers, some keywords like 'from'
+#: and 'error' can also be used as identifiers.:427
+msgid ""
+"Besides regular non-keyword Identifiers, some keywords like 'from' and "
+"'error' can also be used as identifiers."
+msgstr ""
+
+#: ../../../A full string literal consists of either one or several consecutive
+#: quoted strings.:437
+msgid ""
+"A full string literal consists of either one or several consecutive quoted "
+"strings."
+msgstr ""
+
+#: ../../../A full hex string literal that consists of either one or several
+#: consecutive strings.:441
+msgid ""
+"A full hex string literal that consists of either one or several consecutive "
+"hex strings."
+msgstr ""
+
+#: ../../../A full unicode string literal that consists of either one or
+#: several consecutive strings.:445
+msgid ""
+"A full unicode string literal that consists of either one or several "
+"consecutive unicode strings."
+msgstr ""
+
+#: ../../../Number literals can be decimal or hexadecimal numbers with an
+#: optional unit.:450
+msgid ""
+"Number literals can be decimal or hexadecimal numbers with an optional unit."
+msgstr ""
+
+#: ../../../A curly-braced block of statements. Opens its own scope.:455
+msgid "A curly-braced block of statements. Opens its own scope."
+msgstr ""
+
+#: ../../../If statement with optional else part.:481
+msgid "If statement with optional else part."
+msgstr ""
+
+#: ../../../For statement with optional init, condition and post-loop part.:485
+msgid "For statement with optional init, condition and post-loop part."
+msgstr ""
+
+#: ../../../A continue statement. Only allowed inside for, while or do-while
+#: loops.:491
+msgid "A continue statement. Only allowed inside for, while or do-while loops."
+msgstr ""
+
+#: ../../../A break statement. Only allowed inside for, while or do-while
+#: loops.:495
+msgid "A break statement. Only allowed inside for, while or do-while loops."
+msgstr ""
+
+#: ../../../A try statement. The contained expression needs to be an external
+#: function call or a contract creation.:499
+msgid ""
+"A try statement. The contained expression needs to be an external function "
+"call or a contract creation."
+msgstr ""
+
+#: ../../../The catch clause of a try statement.:503
+msgid "The catch clause of a try statement."
+msgstr ""
+
+#: ../../../An emit statement. The contained expression needs to refer an
+#: event.:509
+msgid "An emit statement. The contained expression needs to refer to an event."
+msgstr ""
+
+#: ../../../A revert statement. The contained expression needs to refer an
+#: error.:513
+msgid ""
+"A revert statement. The contained expression needs to refer to an error."
+msgstr ""
+
+#: ../../../An inline assembly block.:517
+msgid ""
+"An inline assembly block. The contents of an inline assembly block use a "
+"separate scanner/lexer, i.e. the set of keywords and allowed identifiers is "
+"different inside an inline assembly block."
+msgstr ""
+
+#: ../../../Assembly flags.:524
+msgid "Assembly flags. Comma-separated list of double-quoted strings as flags."
+msgstr ""
+
+#: ../../../A tuple of variable names to be used in declarations.:532
+msgid ""
+"A tuple of variable names to be used in variable declarations. May contain "
+"empty fields."
+msgstr ""
+
+#: ../../../A variable declaration statement.:541
+msgid ""
+"A variable declaration statement. A single variable may be declared without "
+"initial value, whereas a tuple of variables can only be declared with "
+"initial value."
+msgstr ""
+
+#: ../../../Only elementary types or user defined are viable as mapping
+#: keys.:550
+msgid "Only elementary types or user defined types are viable as mapping keys."
+msgstr ""
+
+#: ../../../A Yul statement within an inline assembly block.:555
+msgid ""
+"A Yul statement within an inline assembly block. continue and break "
+"statements are only valid within for loops. leave statements are only valid "
+"within function bodies."
+msgstr ""
+
+#: ../../../The declaration of one or more Yul variables with optional initial
+#: value.:575
+msgid ""
+"The declaration of one or more Yul variables with optional initial value. If "
+"multiple variables are declared, only a function call is a valid initial "
+"value."
+msgstr ""
+
+#: ../../../Any expression can be assigned to a single Yul variable,
+#: whereas:583
+msgid ""
+"Any expression can be assigned to a single Yul variable, whereas multi-"
+"assignments require a function call on the right-hand side."
+msgstr ""
+
+#: ../../../A Yul switch statement can consist of only a default-case
+#: (deprecated) or:595
+msgid ""
+"A Yul switch statement can consist of only a default-case (deprecated) or "
+"one or more non-default cases optionally followed by a default-case."
+msgstr ""
+
+#: ../../../While only identifiers without dots can be declared within inline
+#: assembly,:612
+msgid ""
+"While only identifiers without dots can be declared within inline assembly, "
+"paths containing dots can refer to declarations outside the inline assembly "
+"block."
+msgstr ""
+
+#: ../../../A call to a function with return values can only occur as
+#: right-hand side of an assignment or:617
+msgid ""
+"A call to a function with return values can only occur as right-hand side of "
+"an assignment or a variable declaration."
+msgstr ""
+
+#: ../../../Bytes types of fixed length.:40
+msgid "Bytes types of fixed length."
+msgstr ""
+
+#: ../../../A non-empty quoted string literal restricted to printable
+#: characters.:-1 single allowing arbitrary unicode ../../../An empty
+#: literal:-1 ../../../Any character except double quote or back slash.:-1
+#: ../../../Builtin functions in the EVM Yul dialect.:-1 ../../../Bytes types
+#: of fixed length.:-1 ../../../Decimal literals may be zero any sequence
+#: decimal digits without leading zeroes.:-1 ../../../Hex consist a prefix and
+#: one more hexadecimal digits.:-1 numbers an number hex that delimited by
+#: underscores.:-1 strings need even grouped using ../../../If contain point,
+#: has point type.:-1 ../../../Unit denomination for numbers.:-1 ../../../as
+#: well as four digit escapes \\uXXXX two escape sequences \\xXX are
+#: allowed.:-1 ../../../consisting identifiers with dots.:-1 ../../../int is
+#: alias int256.:-1 ../../../may additionally after first symbol.:-1
+#: ../../../uint uint256.:-1 ../../../unescaped double-quotes single-quotes,
+#: respectively.:-1
+msgid ""
+".. syntax:autogrammar:: SolidityLexer.g4    :root-rule: SolidityParser."
+"sourceUnit    :fragments:    :cc-to-dash:"
+msgstr ""
+
+#: ../../../Unit denomination for numbers.:66
+msgid "Unit denomination for numbers."
+msgstr ""
+
+#: ../../../Sized signed integer types.:80
+msgid "Sized signed integer types. int is an alias of int256."
+msgstr ""
+
+#: ../../../Sized unsigned integer types.:99
+msgid "Sized unsigned integer types. uint is an alias of uint256."
+msgstr ""
+
+#: ../../../A non-empty quoted string literal restricted to printable
+#: characters.:170
+msgid "A non-empty quoted string literal restricted to printable characters."
+msgstr ""
+
+#: ../../../An empty string literal:174
+msgid "An empty string literal"
+msgstr ""
+
+#: ../../../Any printable character except single quote or back slash.:185
+msgid "Any printable character except single quote or back slash."
+msgstr ""
+
+#: ../../../Any printable character except double quote or back slash.:189
+msgid "Any printable character except double quote or back slash."
+msgstr ""
+
+#: ../../../Escape sequence.:193
+msgid ""
+"Escape sequence. Apart from common single character escape sequences, line "
+"breaks can be escaped as well as four hex digit unicode escapes \\\\uXXXX "
+"and two digit hex escape sequences \\\\xXX are allowed."
+msgstr ""
+
+#: ../../../A single quoted string literal allowing arbitrary unicode
+#: characters.:204
+msgid "A single quoted string literal allowing arbitrary unicode characters."
+msgstr ""
+
+#: ../../../Hex strings need to consist of an even number hex digits that may
+#: be grouped using underscores.:214
+msgid ""
+"Hex strings need to consist of an even number of hex digits that may be "
+"grouped using underscores."
+msgstr ""
+
+#: ../../../Hex numbers consist of a prefix and an arbitrary number hex digits
+#: that may be delimited by underscores.:218
+msgid ""
+"Hex numbers consist of a prefix and an arbitrary number of hex digits that "
+"may be delimited by underscores."
+msgstr ""
+
+#: ../../../A decimal number literal consists of digits that may be delimited
+#: by underscores and:237
+msgid ""
+"A decimal number literal consists of decimal digits that may be delimited by "
+"underscores and an optional positive or negative exponent. If the digits "
+"contain a decimal point, the literal has fixed point type."
+msgstr ""
+
+#: ../../../An identifier in solidity has to start with a letter, dollar-sign
+#: or an underscore and:253
+msgid ""
+"An identifier in solidity has to start with a letter, a dollar-sign or an "
+"underscore and may additionally contain numbers after the first symbol."
+msgstr ""
+
+#: ../../../Builtin functions in the EVM Yul dialect.:299
+msgid "Builtin functions in the EVM Yul dialect."
+msgstr ""
+
+#: ../../../Yul identifiers consist of letters, dollar signs, underscores and
+#: numbers, but may not start with a number.:324
+msgid ""
+"Yul identifiers consist of letters, dollar signs, underscores and numbers, "
+"but may not start with a number. In inline assembly there cannot be dots in "
+"user-defined identifiers. Instead see yulPath for expressions consisting of "
+"identifiers with dots."
+msgstr ""
+
+#: ../../../Hex literals in Yul consist of a prefix and one or more hexadecimal
+#: digits.:334
+msgid ""
+"Hex literals in Yul consist of a prefix and one or more hexadecimal digits."
+msgstr ""
+
+#: ../../../Decimal literals in Yul may be zero or any sequence of decimal
+#: digits without leading zeroes.:338
+msgid ""
+"Decimal literals in Yul may be zero or any sequence of decimal digits "
+"without leading zeroes."
+msgstr ""
+
+#: ../../../String literals in Yul consist of one or more double-quoted
+#: single-quoted strings:342
+msgid ""
+"String literals in Yul consist of one or more double-quoted or single-quoted "
+"strings that may contain escape sequences and printable characters except "
+"unescaped line breaks or unescaped double-quotes or single-quotes, "
+"respectively."
+msgstr ""
+
+#: ../../../Pragma token. Can contain any kind of symbol except a
+#: semicolon.:359
+msgid ""
+"Pragma token. Can contain any kind of symbol except a semicolon. Note that "
+"currently the solidity parser only allows a subset of this."
+msgstr ""
