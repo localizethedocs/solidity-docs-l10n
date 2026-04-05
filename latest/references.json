@@ -13,22 +13,22 @@
     },
     "zh_CN" : 
     {
-      "branch" : "",
+      "branch" : "develop",
       "commit" : 
       {
-        "date" : "",
-        "hash" : "",
-        "title" : ""
+        "date" : "2026-04-02 12:36:28 +0200",
+        "hash" : "449363e7254da40c5a854877b4e83317687f9a0d",
+        "title" : "Merge pull request #16571 from argotorg/ssa-unify-jumpi-handling"
       }
     },
     "zh_TW" : 
     {
-      "branch" : "",
+      "branch" : "develop",
       "commit" : 
       {
-        "date" : "",
-        "hash" : "",
-        "title" : ""
+        "date" : "2026-04-02 12:36:28 +0200",
+        "hash" : "449363e7254da40c5a854877b4e83317687f9a0d",
+        "title" : "Merge pull request #16571 from argotorg/ssa-unify-jumpi-handling"
       }
     }
   },

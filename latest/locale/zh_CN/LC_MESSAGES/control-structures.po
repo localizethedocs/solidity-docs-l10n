@@ -1,0 +1,1468 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../control-structures.rst:3
+msgid "Expressions and Control Structures"
+msgstr ""
+
+#: ../../../control-structures.rst:11
+msgid "Control Structures"
+msgstr ""
+
+#: ../../../control-structures.rst:13
+msgid ""
+"Most of the control structures known from curly-braces languages are "
+"available in Solidity:"
+msgstr ""
+
+#: ../../../control-structures.rst:15
+msgid ""
+"There is: ``if``, ``else``, ``while``, ``do``, ``for``, ``break``, "
+"``continue``, ``return``, with the usual semantics known from C or "
+"JavaScript."
+msgstr ""
+
+#: ../../../control-structures.rst:18
+msgid ""
+"Solidity also supports exception handling in the form of ``try``/``catch``-"
+"statements, but only for :ref:`external function calls <external-function-"
+"calls>` and contract creation calls. Errors can be created using the :ref:"
+"`revert statement <revert-statement>`."
+msgstr ""
+
+#: ../../../control-structures.rst:22
+msgid ""
+"Parentheses can *not* be omitted for conditionals, but curly braces can be "
+"omitted around single-statement bodies."
+msgstr ""
+
+#: ../../../control-structures.rst:25
+msgid ""
+"Note that there is no type conversion from non-boolean to boolean types as "
+"there is in C and JavaScript, so ``if (1) { ... }`` is *not* valid Solidity."
+msgstr ""
+
+#: ../../../control-structures.rst:34
+msgid "Function Calls"
+msgstr ""
+
+#: ../../../control-structures.rst:39
+msgid "Internal Function Calls"
+msgstr ""
+
+#: ../../../control-structures.rst:41
+msgid ""
+"Functions of the current contract can be called directly (\"internally\"), "
+"also recursively, as seen in this nonsensical example:"
+msgstr ""
+
+#: ../../../control-structures.rst:44
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.22 <0.9.0;\n"
+"\n"
+"// This will report a warning\n"
+"contract C {\n"
+"    function g(uint a) public pure returns (uint ret) { return a + f(); }\n"
+"    function f() internal pure returns (uint ret) { return g(7) + f(); }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:55
+msgid ""
+"These function calls are translated into simple jumps inside the EVM. This "
+"has the effect that the current memory is not cleared, i.e. passing memory "
+"references to internally-called functions is very efficient. Only functions "
+"of the same contract instance can be called internally."
+msgstr ""
+
+#: ../../../control-structures.rst:60
+msgid ""
+"You should still avoid excessive recursion, as every internal function call "
+"uses up at least one stack slot and there are only 1024 slots available."
+msgstr ""
+
+#: ../../../control-structures.rst:66
+msgid "External Function Calls"
+msgstr ""
+
+#: ../../../control-structures.rst:68
+msgid ""
+"Functions can also be called using the ``this.g(8);`` and ``c.g(2);`` "
+"notation, where ``c`` is a contract instance and ``g`` is a function "
+"belonging to ``c``. Calling the function ``g`` via either way results in it "
+"being called \"externally\", using a message call and not directly via "
+"jumps. Please note that function calls on ``this`` cannot be used in the "
+"constructor, as the actual contract has not been created yet."
+msgstr ""
+
+#: ../../../control-structures.rst:75
+msgid ""
+"Functions of other contracts have to be called externally. For an external "
+"call, all function arguments have to be copied to memory."
+msgstr ""
+
+#: ../../../control-structures.rst:79
+msgid ""
+"A function call from one contract to another does not create its own "
+"transaction, it is a message call as part of the overall transaction."
+msgstr ""
+
+#: ../../../control-structures.rst:82
+msgid ""
+"When calling functions of other contracts, you can specify the amount of Wei "
+"or gas sent with the call with the special options ``{value: 10, gas: 10000}"
+"``. Note that it is discouraged to specify gas values explicitly, since the "
+"gas costs of opcodes can change in the future. Any Wei you send to the "
+"contract is added to the total balance of that contract:"
+msgstr ""
+
+#: ../../../control-structures.rst:88
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.6.2 <0.9.0;\n"
+"\n"
+"contract InfoFeed {\n"
+"    function info() public payable returns (uint ret) { return 42; }\n"
+"}\n"
+"\n"
+"contract Consumer {\n"
+"    InfoFeed feed;\n"
+"    function setFeed(InfoFeed addr) public { feed = addr; }\n"
+"    function callFeed() public { feed.info{value: 10, gas: 800}(); }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:103
+msgid ""
+"You need to use the modifier ``payable`` with the ``info`` function because "
+"otherwise, the ``value`` option would not be available."
+msgstr ""
+
+#: ../../../control-structures.rst:107
+msgid ""
+"Be careful that ``feed.info{value: 10, gas: 800}`` only locally sets the "
+"``value`` and amount of ``gas`` sent with the function call, and the "
+"parentheses at the end perform the actual call. So ``feed.info{value: 10, "
+"gas: 800}`` does not call the function and the ``value`` and ``gas`` "
+"settings are lost, only ``feed.info{value: 10, gas: 800}()`` performs the "
+"function call."
+msgstr ""
+
+#: ../../../control-structures.rst:115
+msgid ""
+"Due to the fact that the EVM considers a call to a non-existing contract to "
+"always succeed, Solidity uses the ``extcodesize`` opcode to check that the "
+"contract that is about to be called actually exists (it contains code) and "
+"causes an exception if it does not. This check is skipped if the return data "
+"will be decoded after the call and thus the ABI decoder will catch the case "
+"of a non-existing contract."
+msgstr ""
+
+#: ../../../control-structures.rst:122
+msgid ""
+"This check is not performed in case of :ref:`low-level calls "
+"<address_related>` which operate on addresses rather than contract instances."
+msgstr ""
+
+#: ../../../control-structures.rst:126
+msgid ""
+"Be careful when using high-level calls to :ref:`precompiled contracts "
+"<precompiledContracts>`, since the compiler considers them non-existing "
+"according to the above logic even though they execute code and can return "
+"data."
+msgstr ""
+
+#: ../../../control-structures.rst:132
+msgid ""
+"Since the version 0.8.10, the compiler does not check ``extcodesize`` on "
+"high-level external calls if return data is expected, because an empty code "
+"will be unable to return data, and the ABI decoder will revert. As a "
+"consequence, this allows high-level external calls to precompiled contracts, "
+"since they can return data despite having no code associated with their "
+"addresses."
+msgstr ""
+
+#: ../../../control-structures.rst:139
+msgid ""
+"Read about :ref:`precompiled contracts <precompiledContracts>` and :ref:`low-"
+"level calls <address_related>` for more information."
+msgstr ""
+
+#: ../../../control-structures.rst:143
+msgid ""
+"Function calls also cause exceptions if the called contract itself throws an "
+"exception or goes out of gas."
+msgstr ""
+
+#: ../../../control-structures.rst:147
+msgid ""
+"Any interaction with another contract imposes a potential danger, especially "
+"if the source code of the contract is not known in advance. The current "
+"contract hands over control to the called contract and that may potentially "
+"do just about anything. Even if the called contract inherits from a known "
+"parent contract, the inheriting contract is only required to have a correct "
+"interface. The implementation of the contract, however, can be completely "
+"arbitrary and thus, pose a danger. In addition, be prepared in case it calls "
+"into other contracts of your system or even back into the calling contract "
+"before the first call returns. This means that the called contract can "
+"change state variables of the calling contract via its functions. Write your "
+"functions in a way that, for example, calls to external functions happen "
+"after any changes to state variables in your contract so your contract is "
+"not vulnerable to a reentrancy exploit."
+msgstr ""
+
+#: ../../../control-structures.rst:162
+msgid ""
+"Before Solidity 0.6.2, the recommended way to specify the value and gas was "
+"to use ``f.value(x).gas(g)()``. This was deprecated in Solidity 0.6.2 and is "
+"no longer possible since Solidity 0.7.0."
+msgstr ""
+
+#: ../../../control-structures.rst:167
+msgid "Function Calls with Named Parameters"
+msgstr ""
+
+#: ../../../control-structures.rst:169
+msgid ""
+"Function call arguments can be given by name, in any order, if they are "
+"enclosed in ``{ }`` as can be seen in the following example. The argument "
+"list has to coincide by name with the list of parameters from the function "
+"declaration, but can be in arbitrary order."
+msgstr ""
+
+#: ../../../control-structures.rst:174
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract C {\n"
+"    mapping(uint => uint) data;\n"
+"\n"
+"    function f() public {\n"
+"        set({value: 2, key: 3});\n"
+"    }\n"
+"\n"
+"    function set(uint key, uint value) public {\n"
+"        data[key] = value;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:192
+msgid "Omitted Names in Function Definitions"
+msgstr ""
+
+#: ../../../control-structures.rst:194
+msgid ""
+"The names of parameters and return values in the function declaration can be "
+"omitted. Those items with omitted names will still be present on the stack, "
+"but they are inaccessible by name. An omitted return value name can still "
+"return a value to the caller by use of the ``return`` statement."
+msgstr ""
+
+#: ../../../control-structures.rst:199
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.22 <0.9.0;\n"
+"\n"
+"contract C {\n"
+"    // omitted name for parameter\n"
+"    function func(uint k, uint) public pure returns(uint) {\n"
+"        return k;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:217
+msgid "Creating Contracts via ``new``"
+msgstr ""
+
+#: ../../../control-structures.rst:219
+msgid ""
+"A contract can create other contracts using the ``new`` keyword. The full "
+"code of the contract being created has to be known when the creating "
+"contract is compiled so recursive creation-dependencies are not possible."
+msgstr ""
+
+#: ../../../control-structures.rst:223
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"contract D {\n"
+"    uint public x;\n"
+"    constructor(uint a) payable {\n"
+"        x = a;\n"
+"    }\n"
+"}\n"
+"\n"
+"contract C {\n"
+"    D d = new D(4); // will be executed as part of C's constructor\n"
+"\n"
+"    function createD(uint arg) public {\n"
+"        D newD = new D(arg);\n"
+"        newD.x();\n"
+"    }\n"
+"\n"
+"    function createAndEndowD(uint arg, uint amount) public payable {\n"
+"        // Send ether along with the creation\n"
+"        D newD = new D{value: amount}(arg);\n"
+"        newD.x();\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:249
+msgid ""
+"As seen in the example, it is possible to send Ether while creating an "
+"instance of ``D`` using the ``value`` option, but it is not possible to "
+"limit the amount of gas. If the creation fails (due to out-of-stack, not "
+"enough balance or other problems), an exception is thrown."
+msgstr ""
+
+#: ../../../control-structures.rst:258
+msgid "Salted contract creations / create2"
+msgstr ""
+
+#: ../../../control-structures.rst:260
+msgid ""
+"When creating a contract, the address of the contract is computed from the "
+"address of the creating contract and a counter that is increased with each "
+"contract creation."
+msgstr ""
+
+#: ../../../control-structures.rst:264
+msgid ""
+"If you specify the option ``salt`` (a bytes32 value), then contract creation "
+"will use a different mechanism to come up with the address of the new "
+"contract:"
+msgstr ""
+
+#: ../../../control-structures.rst:267
+msgid ""
+"It will compute the address from the address of the creating contract, the "
+"given salt value, the (creation) bytecode of the created contract and the "
+"constructor arguments."
+msgstr ""
+
+#: ../../../control-structures.rst:271
+msgid ""
+"In particular, the counter (\"nonce\") is not used. This allows for more "
+"flexibility in creating contracts: You are able to derive the address of the "
+"new contract before it is created. Furthermore, you can rely on this address "
+"also in case the creating contracts creates other contracts in the meantime."
+msgstr ""
+
+#: ../../../control-structures.rst:277
+msgid ""
+"The main use-case here is contracts that act as judges for off-chain "
+"interactions, which only need to be created if there is a dispute."
+msgstr ""
+
+#: ../../../control-structures.rst:280
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"contract D {\n"
+"    uint public x;\n"
+"    constructor(uint a) {\n"
+"        x = a;\n"
+"    }\n"
+"}\n"
+"\n"
+"contract C {\n"
+"    function createDSalted(bytes32 salt, uint arg) public {\n"
+"        // This complicated expression just tells you how the address\n"
+"        // can be pre-computed. It is just there for illustration.\n"
+"        // You actually only need ``new D{salt: salt}(arg)``.\n"
+"        address predictedAddress = address(uint160(uint(keccak256(abi."
+"encodePacked(\n"
+"            bytes1(0xff),\n"
+"            address(this),\n"
+"            salt,\n"
+"            keccak256(abi.encodePacked(\n"
+"                type(D).creationCode,\n"
+"                abi.encode(arg)\n"
+"            ))\n"
+"        )))));\n"
+"\n"
+"        D d = new D{salt: salt}(arg);\n"
+"        require(address(d) == predictedAddress);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:312
+msgid ""
+"There are some peculiarities in relation to salted creation. A contract can "
+"be re-created at the same address after having been destroyed. Yet, it is "
+"possible for that newly created contract to have a different deployed "
+"bytecode even though the creation bytecode has been the same (which is a "
+"requirement because otherwise the address would change). This is due to the "
+"fact that the constructor can query external state that might have changed "
+"between the two creations and incorporate that into the deployed bytecode "
+"before it is stored."
+msgstr ""
+
+#: ../../../control-structures.rst:322
+msgid "Order of Evaluation of Expressions"
+msgstr ""
+
+#: ../../../control-structures.rst:324
+msgid ""
+"The evaluation order of expressions is not specified (more formally, the "
+"order in which the children of one node in the expression tree are evaluated "
+"is not specified, but they are of course evaluated before the node itself). "
+"It is only guaranteed that statements are executed in order and short-"
+"circuiting for boolean expressions is done."
+msgstr ""
+
+#: ../../../control-structures.rst:333
+msgid "Assignment"
+msgstr ""
+
+#: ../../../control-structures.rst:338
+msgid "Destructuring Assignments and Returning Multiple Values"
+msgstr ""
+
+#: ../../../control-structures.rst:340
+msgid ""
+"Solidity internally allows tuple types, i.e. a list of objects of "
+"potentially different types whose number is a constant at compile-time. "
+"Those tuples can be used to return multiple values at the same time. These "
+"can then either be assigned to newly declared variables or to pre-existing "
+"variables (or LValues in general)."
+msgstr ""
+
+#: ../../../control-structures.rst:346
+msgid ""
+"Tuples are not proper types in Solidity, they can only be used to form "
+"syntactic groupings of expressions."
+msgstr ""
+
+#: ../../../control-structures.rst:349
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.5.0 <0.9.0;\n"
+"\n"
+"contract C {\n"
+"    uint index;\n"
+"\n"
+"    function f() public pure returns (uint, bool, uint) {\n"
+"        return (7, true, 2);\n"
+"    }\n"
+"\n"
+"    function g() public {\n"
+"        // Variables declared with type and assigned from the returned "
+"tuple,\n"
+"        // not all elements have to be specified (but the number must "
+"match).\n"
+"        (uint x, , uint y) = f();\n"
+"        // Common trick to swap values -- does not work for non-value "
+"storage types.\n"
+"        (x, y) = (y, x);\n"
+"        // Components can be left out (also for variable declarations).\n"
+"        (index, , ) = f(); // Sets the index to 7\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:372
+msgid ""
+"It is not possible to mix variable declarations and non-declaration "
+"assignments, i.e. the following is not valid: ``(x, uint y) = (1, 2);``"
+msgstr ""
+
+#: ../../../control-structures.rst:376
+msgid ""
+"Prior to version 0.5.0 it was possible to assign to tuples of smaller size, "
+"either filling up on the left or on the right side (which ever was empty). "
+"This is now disallowed, so both sides have to have the same number of "
+"components."
+msgstr ""
+
+#: ../../../control-structures.rst:381
+msgid ""
+"Be careful when assigning to multiple variables at the same time when "
+"reference types are involved, because it could lead to unexpected copying "
+"behavior."
+msgstr ""
+
+#: ../../../control-structures.rst:386
+msgid "Complications for Arrays and Structs"
+msgstr ""
+
+#: ../../../control-structures.rst:388
+msgid ""
+"The semantics of assignments are more complicated for non-value types like "
+"arrays and structs, including ``bytes`` and ``string``, see :ref:`Data "
+"location and assignment behavior <data-location-assignment>` for details."
+msgstr ""
+
+#: ../../../control-structures.rst:391
+msgid ""
+"In the example below the call to ``g(x)`` has no effect on ``x`` because it "
+"creates an independent copy of the storage value in memory. However, "
+"``h(x)`` successfully modifies ``x`` because only a reference and not a copy "
+"is passed."
+msgstr ""
+
+#: ../../../control-structures.rst:395
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.22 <0.9.0;\n"
+"\n"
+"contract C {\n"
+"    uint[20] x;\n"
+"\n"
+"    function f() public {\n"
+"        g(x);\n"
+"        h(x);\n"
+"    }\n"
+"\n"
+"    function g(uint[20] memory y) internal pure {\n"
+"        y[2] = 3;\n"
+"    }\n"
+"\n"
+"    function h(uint[20] storage y) internal {\n"
+"        y[3] = 4;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:422
+msgid "Scoping and Declarations"
+msgstr ""
+
+#: ../../../control-structures.rst:424
+msgid ""
+"A variable which is declared will have an initial default value whose byte-"
+"representation is all zeros. The \"default values\" of variables are the "
+"typical \"zero-state\" of whatever the type is. For example, the default "
+"value for a ``bool`` is ``false``. The default value for the ``uint`` or "
+"``int`` types is ``0``. For statically-sized arrays and ``bytes1`` to "
+"``bytes32``, each individual element will be initialized to the default "
+"value corresponding to its type. For dynamically-sized arrays, ``bytes`` and "
+"``string``, the default value is an empty array or string. For the ``enum`` "
+"type, the default value is its first member."
+msgstr ""
+
+#: ../../../control-structures.rst:436
+msgid ""
+"Scoping in Solidity follows the widespread scoping rules of C99 (and many "
+"other languages): Variables are visible from the point right after their "
+"declaration until the end of the smallest ``{ }``-block that contains the "
+"declaration. As an exception to this rule, variables declared in the "
+"initialization part of a for-loop are only visible until the end of the for-"
+"loop."
+msgstr ""
+
+#: ../../../control-structures.rst:442
+msgid ""
+"Variables that are parameter-like (function parameters, modifier parameters, "
+"catch parameters, ...) are visible inside the code block that follows - the "
+"body of the function/modifier for a function and modifier parameter and the "
+"catch block for a catch parameter."
+msgstr ""
+
+#: ../../../control-structures.rst:447
+msgid ""
+"Variables and other items declared outside of a code block, for example "
+"functions, contracts, user-defined types, etc., are visible even before they "
+"were declared. This means you can use state variables before they are "
+"declared and call functions recursively."
+msgstr ""
+
+#: ../../../control-structures.rst:451
+msgid ""
+"As a consequence, the following examples will compile without warnings, "
+"since the two variables have the same name but disjoint scopes."
+msgstr ""
+
+#: ../../../control-structures.rst:454
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.5.0 <0.9.0;\n"
+"contract C {\n"
+"    function minimalScoping() pure public {\n"
+"        {\n"
+"            uint same;\n"
+"            same = 1;\n"
+"        }\n"
+"\n"
+"        {\n"
+"            uint same;\n"
+"            same = 3;\n"
+"        }\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:472
+msgid ""
+"As a special example of the C99 scoping rules, note that in the following, "
+"the first assignment to ``x`` will actually assign the outer and not the "
+"inner variable. In any case, you will get a warning about the outer variable "
+"being shadowed."
+msgstr ""
+
+#: ../../../control-structures.rst:476
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.5.0 <0.9.0;\n"
+"// This will report a warning\n"
+"contract C {\n"
+"    function f() pure public returns (uint) {\n"
+"        uint x = 1;\n"
+"        {\n"
+"            x = 2; // this will assign to the outer variable\n"
+"            uint x;\n"
+"        }\n"
+"        return x; // x has value 2\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:493
+msgid ""
+"Before version 0.5.0 Solidity followed the same scoping rules as JavaScript, "
+"that is, a variable declared anywhere within a function would be in scope "
+"for the entire function, regardless where it was declared. The following "
+"example shows a code snippet that used to compile but leads to an error "
+"starting from version 0.5.0."
+msgstr ""
+
+#: ../../../control-structures.rst:498
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.5.0 <0.9.0;\n"
+"// This will not compile\n"
+"contract C {\n"
+"    function f() pure public returns (uint) {\n"
+"        x = 2;\n"
+"        uint x;\n"
+"        return x;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:516
+msgid "Checked or Unchecked Arithmetic"
+msgstr ""
+
+#: ../../../control-structures.rst:518
+msgid ""
+"An overflow or underflow is the situation where the resulting value of an "
+"arithmetic operation, when executed on an unrestricted integer, falls "
+"outside the range of the result type."
+msgstr ""
+
+#: ../../../control-structures.rst:521
+msgid ""
+"Prior to Solidity 0.8.0, arithmetic operations would always wrap in case of "
+"under- or overflow leading to widespread use of libraries that introduce "
+"additional checks."
+msgstr ""
+
+#: ../../../control-structures.rst:525
+msgid ""
+"Since Solidity 0.8.0, all arithmetic operations revert on over- and "
+"underflow by default, thus making the use of these libraries unnecessary."
+msgstr ""
+
+#: ../../../control-structures.rst:528
+msgid "To obtain the previous behavior, an ``unchecked`` block can be used:"
+msgstr ""
+
+#: ../../../control-structures.rst:530
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity ^0.8.0;\n"
+"contract C {\n"
+"    function f(uint a, uint b) pure public returns (uint) {\n"
+"        // This subtraction will wrap on underflow.\n"
+"        unchecked { return a - b; }\n"
+"    }\n"
+"    function g(uint a, uint b) pure public returns (uint) {\n"
+"        // This subtraction will revert on underflow.\n"
+"        return a - b;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:545
+msgid ""
+"The call to ``f(2, 3)`` will return ``2**256-1``, while ``g(2, 3)`` will "
+"cause a failing assertion."
+msgstr ""
+
+#: ../../../control-structures.rst:548
+msgid ""
+"The ``unchecked`` block can be used everywhere inside a block, but not as a "
+"replacement for a block. It also cannot be nested."
+msgstr ""
+
+#: ../../../control-structures.rst:551
+msgid ""
+"The setting only affects the statements that are syntactically inside the "
+"block. Functions called from within an ``unchecked`` block do not inherit "
+"the property."
+msgstr ""
+
+#: ../../../control-structures.rst:555
+msgid ""
+"To avoid ambiguity, you cannot use ``_;`` inside an ``unchecked`` block."
+msgstr ""
+
+#: ../../../control-structures.rst:557
+msgid ""
+"The following operators will cause a failing assertion on overflow or "
+"underflow and will wrap without an error if used inside an unchecked block:"
+msgstr ""
+
+#: ../../../control-structures.rst:560
+msgid ""
+"``++``, ``--``, ``+``, binary ``-``, unary ``-``, ``*``, ``/``, ``%``, ``**``"
+msgstr ""
+
+#: ../../../control-structures.rst:562
+msgid "``+=``, ``-=``, ``*=``, ``/=``, ``%=``"
+msgstr ""
+
+#: ../../../control-structures.rst:565
+msgid ""
+"It is not possible to disable the check for division by zero or modulo by "
+"zero using the ``unchecked`` block."
+msgstr ""
+
+#: ../../../control-structures.rst:569
+msgid ""
+"Bitwise operators do not perform overflow or underflow checks. This is "
+"particularly visible when using bitwise shifts (``<<``, ``>>``, ``<<=``, "
+"``>>=``) in place of integer division and multiplication by a power of 2. "
+"For example ``type(uint256).max << 3`` does not revert even though "
+"``type(uint256).max * 8`` would."
+msgstr ""
+
+#: ../../../control-structures.rst:575
+msgid ""
+"The second statement in ``int x = type(int).min; -x;`` will result in an "
+"overflow because the negative range can hold one more value than the "
+"positive range."
+msgstr ""
+
+#: ../../../control-structures.rst:578
+msgid ""
+"Explicit type conversions will always truncate and never cause a failing "
+"assertion with the exception of a conversion from an integer to an enum type."
+msgstr ""
+
+#: ../../../control-structures.rst:586
+msgid "Error handling: Assert, Require, Revert and Exceptions"
+msgstr ""
+
+#: ../../../control-structures.rst:588
+msgid ""
+"Solidity uses state-reverting exceptions to handle errors. Such an exception "
+"undoes all changes made to the state in the current call (and all its sub-"
+"calls) and flags an error to the caller."
+msgstr ""
+
+#: ../../../control-structures.rst:593
+msgid ""
+"When exceptions happen in a sub-call, they \"bubble up\" (i.e., exceptions "
+"are rethrown) automatically unless they are caught in a ``try/catch`` "
+"statement. Exceptions to this rule are ``send`` and the low-level functions "
+"``call``, ``delegatecall`` and ``staticcall``: they return ``false`` as "
+"their first return value in case of an exception instead of \"bubbling up\"."
+msgstr ""
+
+#: ../../../control-structures.rst:601
+msgid ""
+"The low-level functions ``call``, ``delegatecall`` and ``staticcall`` return "
+"``true`` as their first return value if the account called is non-existent, "
+"as part of the design of the EVM. Account existence must be checked prior to "
+"calling if needed."
+msgstr ""
+
+#: ../../../control-structures.rst:606
+msgid ""
+"Exceptions can contain error data that is passed back to the caller in the "
+"form of :ref:`error instances <errors>`. The built-in errors "
+"``Error(string)`` and ``Panic(uint256)`` are used by special functions, as "
+"explained below. ``Error`` is used for \"regular\" error conditions while "
+"``Panic`` is used for errors that should not be present in bug-free code."
+msgstr ""
+
+#: ../../../control-structures.rst:615
+msgid "Panic via ``assert`` and Error via ``require``"
+msgstr ""
+
+#: ../../../control-structures.rst:617
+msgid ""
+"The convenience functions ``assert`` and ``require`` can be used to check "
+"for conditions and throw an exception if the condition is not met."
+msgstr ""
+
+#: ../../../control-structures.rst:620
+msgid ""
+"The ``assert`` function creates an error of type ``Panic(uint256)``. The "
+"same error is created by the compiler in certain situations as listed below."
+msgstr ""
+
+#: ../../../control-structures.rst:623
+msgid ""
+"Assert should only be used to test for internal errors, and to check "
+"invariants. Properly functioning code should never create a Panic, not even "
+"on invalid external input. If this happens, then there is a bug in your "
+"contract which you should fix. Language analysis tools can evaluate your "
+"contract to identify the conditions and function calls which will cause a "
+"Panic."
+msgstr ""
+
+#: ../../../control-structures.rst:631
+msgid ""
+"A Panic exception is generated in the following situations. The error code "
+"supplied with the error data indicates the kind of panic."
+msgstr ""
+
+#: ../../../control-structures.rst:634
+msgid "0x00: Used for generic compiler inserted panics."
+msgstr ""
+
+#: ../../../control-structures.rst:635
+msgid "0x01: If you call ``assert`` with an argument that evaluates to false."
+msgstr ""
+
+#: ../../../control-structures.rst:636
+msgid ""
+"0x11: If an arithmetic operation results in underflow or overflow outside of "
+"an ``unchecked { ... }`` block."
+msgstr ""
+
+#: ../../../control-structures.rst:637
+msgid "0x12; If you divide or modulo by zero (e.g. ``5 / 0`` or ``23 % 0``)."
+msgstr ""
+
+#: ../../../control-structures.rst:638
+msgid ""
+"0x21: If you convert a value that is too big or negative into an enum type."
+msgstr ""
+
+#: ../../../control-structures.rst:639
+msgid "0x22: If you access a storage byte array that is incorrectly encoded."
+msgstr ""
+
+#: ../../../control-structures.rst:640
+msgid "0x31: If you call ``.pop()`` on an empty array."
+msgstr ""
+
+#: ../../../control-structures.rst:641
+msgid ""
+"0x32: If you access an array, ``bytesN`` or an array slice at an out-of-"
+"bounds or negative index (i.e. ``x[i]`` where ``i >= x.length`` or ``i < "
+"0``)."
+msgstr ""
+
+#: ../../../control-structures.rst:642
+msgid ""
+"0x41: If you allocate too much memory or create an array that is too large."
+msgstr ""
+
+#: ../../../control-structures.rst:643
+msgid ""
+"0x51: If you call a zero-initialized variable of internal function type."
+msgstr ""
+
+#: ../../../control-structures.rst:645
+msgid "The ``require`` function provides three overloads:"
+msgstr ""
+
+#: ../../../control-structures.rst:647
+msgid ""
+"``require(bool)`` which will revert without any data (not even an error "
+"selector)."
+msgstr ""
+
+#: ../../../control-structures.rst:648
+msgid "``require(bool, string)`` which will revert with an ``Error(string)``."
+msgstr ""
+
+#: ../../../control-structures.rst:649
+msgid ""
+"``require(bool, error)`` which will revert with the custom, user supplied "
+"error provided as the second argument."
+msgstr ""
+
+#: ../../../control-structures.rst:652
+msgid ""
+"``require`` arguments are evaluated unconditionally, so take special care to "
+"make sure that they are not expressions with unexpected side-effects. For "
+"example, in ``require(condition, CustomError(f()));`` and "
+"``require(condition, f());``, function ``f()`` will be called regardless of "
+"whether the supplied condition is ``true`` or ``false``."
+msgstr ""
+
+#: ../../../control-structures.rst:657
+msgid ""
+"An ``Error(string)`` exception (or an exception without data) is generated "
+"by the compiler in the following situations:"
+msgstr ""
+
+#: ../../../control-structures.rst:660
+msgid "Calling ``require(x)`` where ``x`` evaluates to ``false``."
+msgstr ""
+
+#: ../../../control-structures.rst:661
+msgid "If you use ``revert()`` or ``revert(\"description\")``."
+msgstr ""
+
+#: ../../../control-structures.rst:662
+msgid ""
+"If you perform an external function call targeting a contract that contains "
+"no code."
+msgstr ""
+
+#: ../../../control-structures.rst:663
+msgid ""
+"If your contract receives Ether via a public function without ``payable`` "
+"modifier (including the constructor and the fallback function)."
+msgstr ""
+
+#: ../../../control-structures.rst:665
+msgid "If your contract receives Ether via a public getter function."
+msgstr ""
+
+#: ../../../control-structures.rst:667
+msgid ""
+"For the following cases, the error data from the external call (if provided) "
+"is forwarded. This means that it can either cause an ``Error`` or a "
+"``Panic`` (or whatever else was given):"
+msgstr ""
+
+#: ../../../control-structures.rst:671
+msgid "If a ``.transfer()`` fails."
+msgstr ""
+
+#: ../../../control-structures.rst:672
+msgid ""
+"If you call a function via a message call but it does not finish properly (i."
+"e., it runs out of gas, has no matching function, or throws an exception "
+"itself), except when a low level operation ``call``, ``send``, "
+"``delegatecall``, ``callcode`` or ``staticcall`` is used. The low level "
+"operations never throw exceptions but indicate failures by returning "
+"``false``."
+msgstr ""
+
+#: ../../../control-structures.rst:678
+msgid ""
+"If you create a contract using the ``new`` keyword but the contract "
+"creation :ref:`does not finish properly<creating-contracts>`."
+msgstr ""
+
+#: ../../../control-structures.rst:681
+msgid ""
+"You can optionally provide a message string or a custom error to "
+"``require``, but not to ``assert``."
+msgstr ""
+
+#: ../../../control-structures.rst:684
+msgid ""
+"If you do not provide a string or custom error argument to ``require``, it "
+"will revert with empty error data, not even including the error selector."
+msgstr ""
+
+#: ../../../control-structures.rst:688
+msgid ""
+"The following example shows how you can use ``require`` to check conditions "
+"on inputs and ``assert`` for internal error checking."
+msgstr ""
+
+#: ../../../control-structures.rst:691
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.6.2 <0.9.0;\n"
+"\n"
+"contract Sharer {\n"
+"    function sendHalf(address payable addr) public payable returns (uint "
+"balance) {\n"
+"        require(msg.value % 2 == 0, \"Even value required.\");\n"
+"        uint balanceBeforeTransfer = address(this).balance;\n"
+"        (bool success, ) = addr.call{value: msg.value / 2}(\"\");\n"
+"        require(success);\n"
+"        // Since require will stop execution and revert if success is "
+"false,\n"
+"        // there should be no way for us to still have half of the Ether.\n"
+"        assert(address(this).balance == balanceBeforeTransfer - msg.value / "
+"2);\n"
+"        return address(this).balance;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:710
+msgid ""
+"Internally, Solidity performs a revert operation (instruction ``0xfd``). "
+"This causes the EVM to revert all changes made to the state. The reason for "
+"reverting is that there is no safe way to continue execution, because an "
+"expected effect did not occur. Because we want to keep the atomicity of "
+"transactions, the safest action is to revert all changes and make the whole "
+"transaction (or at least call) without effect."
+msgstr ""
+
+#: ../../../control-structures.rst:718
+msgid ""
+"In both cases, the caller can react on such failures using ``try``/"
+"``catch``, but the changes in the callee will always be reverted."
+msgstr ""
+
+#: ../../../control-structures.rst:723
+msgid ""
+"Panic exceptions used to use the ``invalid`` opcode before Solidity 0.8.0, "
+"which consumed all gas available to the call. Exceptions that use "
+"``require`` used to consume all gas until before the Metropolis release."
+msgstr ""
+
+#: ../../../control-structures.rst:730
+msgid "``revert``"
+msgstr ""
+
+#: ../../../control-structures.rst:732
+msgid ""
+"A direct revert can be triggered using the ``revert`` statement and the "
+"``revert`` function."
+msgstr ""
+
+#: ../../../control-structures.rst:734
+msgid ""
+"The ``revert`` statement takes a custom error as direct argument without "
+"parentheses:"
+msgstr ""
+
+#: ../../../control-structures.rst:736
+msgid "revert CustomError(arg1, arg2);"
+msgstr ""
+
+#: ../../../control-structures.rst:738
+msgid ""
+"For backward-compatibility reasons, there is also the ``revert()`` function, "
+"which uses parentheses and accepts a string:"
+msgstr ""
+
+#: ../../../control-structures.rst:741
+msgid "revert(); revert(\"description\");"
+msgstr ""
+
+#: ../../../control-structures.rst:744
+msgid ""
+"The error data will be passed back to the caller and can be caught there. "
+"Using ``revert()`` causes a revert without any error data while "
+"``revert(\"description\")`` will create an ``Error(string)`` error."
+msgstr ""
+
+#: ../../../control-structures.rst:748
+msgid ""
+"Using a custom error instance will usually be much cheaper than a string "
+"description, because you can use the name of the error to describe it, which "
+"is encoded in only four bytes. A longer description can be supplied via "
+"NatSpec which does not incur any costs."
+msgstr ""
+
+#: ../../../control-structures.rst:753
+msgid ""
+"The following example shows how to use an error string and a custom error "
+"instance together with ``revert`` and the equivalent ``require``:"
+msgstr ""
+
+#: ../../../control-structures.rst:756
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity ^0.8.4;\n"
+"\n"
+"contract VendingMachine {\n"
+"    address owner;\n"
+"    error Unauthorized();\n"
+"    function buy(uint amount) public payable {\n"
+"        if (amount > msg.value / 2 ether)\n"
+"            revert(\"Not enough Ether provided.\");\n"
+"        // Alternative way to do it:\n"
+"        require(\n"
+"            amount <= msg.value / 2 ether,\n"
+"            \"Not enough Ether provided.\"\n"
+"        );\n"
+"        // Perform the purchase.\n"
+"    }\n"
+"    function withdraw() public {\n"
+"        if (msg.sender != owner)\n"
+"            revert Unauthorized();\n"
+"\n"
+"        (bool success, ) = payable(msg.sender).call{value: address(this)."
+"balance}(\"\");\n"
+"        require(success);\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:783
+msgid ""
+"The two ways ``if (!condition) revert(...);`` and ``require(condition, ...);"
+"`` are equivalent as long as the arguments to ``revert`` and ``require`` do "
+"not have side-effects, for example if they are just strings."
+msgstr ""
+
+#: ../../../control-structures.rst:788
+msgid ""
+"The ``require`` function is evaluated just as any other function. This means "
+"that all arguments are evaluated before the function itself is executed. In "
+"particular, in ``require(condition, f())`` the function ``f`` is executed "
+"even if ``condition`` is true."
+msgstr ""
+
+#: ../../../control-structures.rst:793
+msgid ""
+"The provided string is :ref:`abi-encoded <ABI>` as if it were a call to a "
+"function ``Error(string)``. In the above example, ``revert(\"Not enough "
+"Ether provided.\");`` returns the following hexadecimal as error return data:"
+msgstr ""
+
+#: ../../../control-structures.rst:796
+msgid ""
+"0x08c379a0                                                         // "
+"Function selector for Error(string)\n"
+"0x0000000000000000000000000000000000000000000000000000000000000020 // Data "
+"offset\n"
+"0x000000000000000000000000000000000000000000000000000000000000001a // String "
+"length\n"
+"0x4e6f7420656e6f7567682045746865722070726f76696465642e000000000000 // String "
+"data"
+msgstr ""
+
+#: ../../../control-structures.rst:803
+msgid ""
+"The provided message can be retrieved by the caller using ``try``/``catch`` "
+"as shown below."
+msgstr ""
+
+#: ../../../control-structures.rst:806
+msgid ""
+"There used to be a keyword called ``throw`` with the same semantics as "
+"``revert()`` which was deprecated in version 0.4.13 and removed in version "
+"0.5.0."
+msgstr ""
+
+#: ../../../control-structures.rst:813
+msgid "``try``/``catch``"
+msgstr ""
+
+#: ../../../control-structures.rst:815
+msgid ""
+"A failure in an external call can be caught using a try/catch statement, as "
+"follows:"
+msgstr ""
+
+#: ../../../control-structures.rst:817
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.1;\n"
+"\n"
+"interface DataFeed { function getData(address token) external returns (uint "
+"value); }\n"
+"\n"
+"contract FeedConsumer {\n"
+"    DataFeed feed;\n"
+"    uint errorCount;\n"
+"    function rate(address token) public returns (uint value, bool success) "
+"{\n"
+"        // Permanently disable the mechanism if there are\n"
+"        // more than 10 errors.\n"
+"        require(errorCount < 10);\n"
+"        try feed.getData(token) returns (uint v) {\n"
+"            return (v, true);\n"
+"        } catch Error(string memory /*reason*/) {\n"
+"            // This is executed in case\n"
+"            // revert was called inside getData\n"
+"            // and a reason string was provided.\n"
+"            errorCount++;\n"
+"            return (0, false);\n"
+"        } catch Panic(uint /*errorCode*/) {\n"
+"            // This is executed in case of a panic,\n"
+"            // i.e. a serious error like division by zero\n"
+"            // or overflow. The error code can be used\n"
+"            // to determine the kind of error.\n"
+"            errorCount++;\n"
+"            return (0, false);\n"
+"        } catch (bytes memory /*lowLevelData*/) {\n"
+"            // This is executed in case revert() was used.\n"
+"            errorCount++;\n"
+"            return (0, false);\n"
+"        }\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../control-structures.rst:854
+msgid ""
+"The ``try`` keyword has to be followed by an expression representing an "
+"external function call or a contract creation (``new ContractName()``). "
+"Errors inside the expression are not caught (for example if it is a complex "
+"expression that also involves internal function calls), only a revert "
+"happening inside the external call itself. The ``returns`` part (which is "
+"optional) that follows declares return variables matching the types returned "
+"by the external call. In case there was no error, these variables are "
+"assigned and the contract's execution continues inside the first success "
+"block. If the end of the success block is reached, execution continues after "
+"the ``catch`` blocks."
+msgstr ""
+
+#: ../../../control-structures.rst:863
+msgid ""
+"Solidity supports different kinds of catch blocks depending on the type of "
+"error:"
+msgstr ""
+
+#: ../../../control-structures.rst:866
+msgid ""
+"``catch Error(string memory reason) { ... }``: This catch clause is executed "
+"if the error was caused by ``revert(\"reasonString\")`` or ``require(false, "
+"\"reasonString\")`` (or an internal error that causes such an exception)."
+msgstr ""
+
+#: ../../../control-structures.rst:870
+msgid ""
+"``catch Panic(uint errorCode) { ... }``: If the error was caused by a panic, "
+"i.e. by a failing ``assert``, division by zero, invalid array access, "
+"arithmetic overflow and others, this catch clause will be run."
+msgstr ""
+
+#: ../../../control-structures.rst:873
+msgid ""
+"``catch (bytes memory lowLevelData) { ... }``: This clause is executed if "
+"the error signature does not match any other clause, if there was an error "
+"while decoding the error message, or if no error data was provided with the "
+"exception. The declared variable provides access to the low-level error data "
+"in that case."
+msgstr ""
+
+#: ../../../control-structures.rst:879
+msgid ""
+"``catch { ... }``: If you are not interested in the error data, you can just "
+"use ``catch { ... }`` (even as the only catch clause) instead of the "
+"previous clause."
+msgstr ""
+
+#: ../../../control-structures.rst:883
+msgid ""
+"It is planned to support other types of error data in the future. The "
+"strings ``Error`` and ``Panic`` are currently parsed as is and are not "
+"treated as identifiers."
+msgstr ""
+
+#: ../../../control-structures.rst:886
+msgid ""
+"In order to catch all error cases, you have to have at least the clause "
+"``catch { ...}`` or the clause ``catch (bytes memory lowLevelData) { ... }``."
+msgstr ""
+
+#: ../../../control-structures.rst:889
+msgid ""
+"The variables declared in the ``returns`` and the ``catch`` clause are only "
+"in scope in the block that follows."
+msgstr ""
+
+#: ../../../control-structures.rst:894
+msgid ""
+"If an error happens during the decoding of the return data inside a try/"
+"catch-statement, this causes an exception in the currently executing "
+"contract and because of that, it is not caught in the catch clause. If there "
+"is an error during decoding of ``catch Error(string memory reason)`` and "
+"there is a low-level catch clause, this error is caught there."
+msgstr ""
+
+#: ../../../control-structures.rst:902
+msgid ""
+"If execution reaches a catch-block, then the state-changing effects of the "
+"external call have been reverted. If execution reaches the success block, "
+"the effects were not reverted. If the effects have been reverted, then "
+"execution either continues in a catch block or the execution of the try/"
+"catch statement itself reverts (for example due to decoding failures as "
+"noted above or due to not providing a low-level catch clause)."
+msgstr ""
+
+#: ../../../control-structures.rst:911
+msgid ""
+"The reason behind a failed call can be manifold. Do not assume that the "
+"error message is coming directly from the called contract: The error might "
+"have happened deeper down in the call chain and the called contract just "
+"forwarded it. Also, it could be due to an out-of-gas situation and not a "
+"deliberate error condition: The caller always retains at least 1/64th of the "
+"gas in a call and thus even if the called contract goes out of gas, the "
+"caller still has some gas left."
+msgstr ""
+
+#: ../../../control-structures.rst:5
+msgid "parameter"
+msgstr ""
+
+#: ../../../control-structures.rst:5
+msgid "input"
+msgstr ""
+
+#: ../../../control-structures.rst:5
+msgid "output"
+msgstr ""
+
+#: ../../../control-structures.rst:5
+msgid "function parameter"
+msgstr ""
+
+#: ../../../control-structures.rst:5 ../../../control-structures.rst:29
+msgid "function"
+msgstr ""
+
+#: ../../../control-structures.rst:5
+msgid "return variable"
+msgstr ""
+
+#: ../../../control-structures.rst:5
+msgid "variable"
+msgstr ""
+
+#: ../../../control-structures.rst:5 ../../../control-structures.rst:8
+msgid "return"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "if"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "else"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "while"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "do/while"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "for"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "break"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "continue"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "switch"
+msgstr ""
+
+#: ../../../control-structures.rst:8
+msgid "goto"
+msgstr ""
+
+#: ../../../control-structures.rst:29
+msgid "call"
+msgstr ""
+
+#: ../../../control-structures.rst:29
+msgid "internal"
+msgstr ""
+
+#: ../../../control-structures.rst:29
+msgid "external"
+msgstr ""
+
+#: ../../../control-structures.rst:212
+msgid "new"
+msgstr ""
+
+#: ../../../control-structures.rst:212
+msgid "contracts"
+msgstr ""
+
+#: ../../../control-structures.rst:212
+msgid "creating"
+msgstr ""
+
+#: ../../../control-structures.rst:330 ../../../control-structures.rst:335
+msgid "assignment"
+msgstr ""
+
+#: ../../../control-structures.rst:335
+msgid "destructuring"
+msgstr ""
+
+#: ../../../control-structures.rst:417
+msgid "scoping"
+msgstr ""
+
+#: ../../../control-structures.rst:417
+msgid "declarations"
+msgstr ""
+
+#: ../../../control-structures.rst:417
+msgid "default value"
+msgstr ""
+
+#: ../../../control-structures.rst:512
+msgid "safe math"
+msgstr ""
+
+#: ../../../control-structures.rst:512
+msgid "safemath"
+msgstr ""
+
+#: ../../../control-structures.rst:512
+msgid "checked"
+msgstr ""
+
+#: ../../../control-structures.rst:512
+msgid "unchecked"
+msgstr ""
+
+#: ../../../control-structures.rst:581
+msgid "exception"
+msgstr ""
+
+#: ../../../control-structures.rst:581
+msgid "throw"
+msgstr ""
+
+#: ../../../control-structures.rst:581
+msgid "assert"
+msgstr ""
+
+#: ../../../control-structures.rst:581
+msgid "require"
+msgstr ""
+
+#: ../../../control-structures.rst:581
+msgid "revert"
+msgstr ""
+
+#: ../../../control-structures.rst:581
+msgid "errors"
+msgstr ""
