@@ -386,7 +386,7 @@ msgstr ""
 
 #: ../../../yul.rst:225
 msgid "Function Calls"
-msgstr ""
+msgstr "函式呼叫"
 
 #: ../../../yul.rst:227
 msgid ""
@@ -692,6 +692,18 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"{\n"
+"    function power(base, exponent) -> result {\n"
+"        switch exponent\n"
+"        case 0 { result := 1 }\n"
+"        case 1 { result := base }\n"
+"        default {\n"
+"            result := power(mul(base, base), div(exponent, 2))\n"
+"            switch mod(exponent, 2)\n"
+"                case 1 { result := mul(base, result) }\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: ../../../yul.rst:454
 msgid "Specification of Yul"
@@ -924,7 +936,7 @@ msgstr ""
 
 #: ../../../yul.rst:613
 msgid "Formal Specification"
-msgstr ""
+msgstr "正式規格"
 
 #: ../../../yul.rst:615
 msgid ""

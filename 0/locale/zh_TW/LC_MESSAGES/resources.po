@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../resources.rst:3
 msgid "Resources"
-msgstr ""
+msgstr "資源"
 
 #: ../../../resources.rst:6
 msgid "General Resources"

@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../../using-the-compiler.rst:3
 msgid "Using the Compiler"
-msgstr ""
+msgstr "使用編譯器"
 
 #: ../../../using-the-compiler.rst:10
 msgid "Using the Commandline Compiler"
-msgstr ""
+msgstr "使用命令行編譯器"
 
 #: ../../../using-the-compiler.rst:13
 msgid ""
@@ -125,7 +125,7 @@ msgstr ""
 
 #: ../../../using-the-compiler.rst:72
 msgid "Library Linking"
-msgstr ""
+msgstr "程式庫連結"
 
 #: ../../../using-the-compiler.rst:74
 msgid ""

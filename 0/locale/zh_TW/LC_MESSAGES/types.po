@@ -297,15 +297,15 @@ msgstr ""
 
 #: ../../../types/value-types.rst:136
 msgid "``int256(5) % int256(2) == int256(1)``"
-msgstr ""
+msgstr "``int256(5) % int256(2) == int256(1)``"
 
 #: ../../../types/value-types.rst:137
 msgid "``int256(5) % int256(-2) == int256(1)``"
-msgstr ""
+msgstr "``int256(5) % int256(-2) == int256(1)``"
 
 #: ../../../types/value-types.rst:138
 msgid "``int256(-5) % int256(2) == int256(-1)``"
-msgstr ""
+msgstr "``int256(-5) % int256(2) == int256(-1)``"
 
 #: ../../../types/value-types.rst:139
 msgid "``int256(-5) % int256(-2) == int256(-1)``"
@@ -590,7 +590,7 @@ msgstr ""
 
 #: ../../../types/value-types.rst:315
 msgid "Example:"
-msgstr ""
+msgstr "範例："
 
 #: ../../../types/value-types.rst:317
 msgid ""

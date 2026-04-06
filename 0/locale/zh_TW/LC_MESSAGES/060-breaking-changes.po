@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../060-breaking-changes.rst:3
 msgid "Solidity v0.6.0 Breaking Changes"
-msgstr ""
+msgstr "Solidity v0.6.0 重大變更"
 
 #: ../../../060-breaking-changes.rst:5
 msgid ""
@@ -294,7 +294,7 @@ msgstr ""
 
 #: ../../../060-breaking-changes.rst:149
 msgid "How to update your code"
-msgstr ""
+msgstr "如何更新您的程式碼"
 
 #: ../../../060-breaking-changes.rst:151
 msgid ""

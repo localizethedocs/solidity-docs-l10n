@@ -257,7 +257,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:158
 msgid "Function Calls"
-msgstr ""
+msgstr "函式呼叫"
 
 #: ../../../style-guide.rst:162
 msgid ""
@@ -612,7 +612,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:479
 msgid "Control Structures"
-msgstr ""
+msgstr "控制結構"
 
 #: ../../../style-guide.rst:481
 msgid ""

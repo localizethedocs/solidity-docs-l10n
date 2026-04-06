@@ -24,31 +24,31 @@ msgstr ""
 
 #: ../../../_templates/layout.html:6
 msgid "Blog"
-msgstr ""
+msgstr "網誌"
 
 #: ../../../_templates/layout.html:7
 msgid "Documentation"
-msgstr ""
+msgstr "文件"
 
 #: ../../../_templates/layout.html:8
 msgid "Use cases"
-msgstr ""
+msgstr "使用案例"
 
 #: ../../../_templates/layout.html:9
 msgid "Contribute"
-msgstr ""
+msgstr "貢獻"
 
 #: ../../../_templates/layout.html:10
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: ../../../_templates/layout.html:11
 msgid "Forum"
-msgstr ""
+msgstr "論壇"
 
 #: ../../../_templates/layout.html:21
 msgid "<a href=\"%(pathto_genindex)s\">Keyword Index</a>"
-msgstr ""
+msgstr "<a href=\"%(pathto_genindex)s\">關鍵字索引</a>"
 
 #: extension.py:58
 #, python-format

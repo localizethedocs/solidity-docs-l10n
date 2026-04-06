@@ -19,15 +19,15 @@ msgstr ""
 
 #: ../../../index.rst:113
 msgid "Basics"
-msgstr ""
+msgstr "基礎知識"
 
 #: ../../../index.rst:121
 msgid "Language Description"
-msgstr ""
+msgstr "語言描述"
 
 #: ../../../index.rst:135
 msgid "Compiler"
-msgstr ""
+msgstr "編譯器"
 
 #: ../../../index.rst:143
 msgid "Internals"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: ../../../index.rst:176
 msgid "Resources"
-msgstr ""
+msgstr "資源"
 
 #: ../../../index.rst:2
 msgid "Solidity"
@@ -110,7 +110,7 @@ msgstr ""
 
 #: ../../../index.rst:36
 msgid "Getting Started"
-msgstr ""
+msgstr "開始使用"
 
 #: ../../../index.rst:38
 msgid "**1. Understand the Smart Contract Basics**"
@@ -131,15 +131,15 @@ msgstr ""
 
 #: ../../../index.rst:43
 msgid ":ref:`Blockchain Basics <blockchain-basics>`."
-msgstr ""
+msgstr ":ref:`區塊鏈基礎知識 <blockchain-basics>`。"
 
 #: ../../../index.rst:44
 msgid ":ref:`The Ethereum Virtual Machine <the-ethereum-virtual-machine>`."
-msgstr ""
+msgstr ":ref:`以太坊虛擬機 <the-ethereum-virtual-machine>`。"
 
 #: ../../../index.rst:46
 msgid "**2. Get to Know Solidity**"
-msgstr ""
+msgstr "**2. 了解 Solidity**"
 
 #: ../../../index.rst:48
 msgid ""
@@ -150,7 +150,7 @@ msgstr ""
 
 #: ../../../index.rst:51
 msgid "**3. Install the Solidity Compiler**"
-msgstr ""
+msgstr "**3. 安裝 Solidity 編譯器**"
 
 #: ../../../index.rst:53
 msgid ""
@@ -180,7 +180,7 @@ msgstr ""
 
 #: ../../../index.rst:70
 msgid "**4. Learn More**"
-msgstr ""
+msgstr "**4. 了解更多**"
 
 #: ../../../index.rst:72
 msgid ""
@@ -200,7 +200,7 @@ msgstr ""
 
 #: ../../../index.rst:83
 msgid "Translations"
-msgstr ""
+msgstr "翻譯"
 
 #: ../../../index.rst:85
 msgid ""
@@ -217,39 +217,39 @@ msgstr ""
 
 #: ../../../index.rst:92
 msgid "`Chinese <https://docs.soliditylang.org/zh-cn/latest/>`_"
-msgstr ""
+msgstr "`中文 <https://docs.soliditylang.org/zh-cn/latest/>`_"
 
 #: ../../../index.rst:93
 msgid "`French <https://docs.soliditylang.org/fr/latest/>`_"
-msgstr ""
+msgstr "`法文 <https://docs.soliditylang.org/fr/latest/>`_"
 
 #: ../../../index.rst:94
 msgid "`Indonesian <https://github.com/solidity-docs/id-indonesian>`_"
-msgstr ""
+msgstr "`印尼文 <https://github.com/solidity-docs/id-indonesian>`_"
 
 #: ../../../index.rst:95
 msgid "`Japanese <https://github.com/solidity-docs/ja-japanese>`_"
-msgstr ""
+msgstr "`日文 <https://github.com/solidity-docs/ja-japanese>`_"
 
 #: ../../../index.rst:96
 msgid "`Korean <https://github.com/solidity-docs/ko-korean>`_"
-msgstr ""
+msgstr "`韓文 <https://github.com/solidity-docs/ko-korean>`_"
 
 #: ../../../index.rst:97
 msgid "`Persian <https://github.com/solidity-docs/fa-persian>`_"
-msgstr ""
+msgstr "`波斯文 <https://github.com/solidity-docs/fa-persian>`_"
 
 #: ../../../index.rst:98
 msgid "`Russian <https://github.com/solidity-docs/ru-russian>`_"
-msgstr ""
+msgstr "`俄文 <https://github.com/solidity-docs/ru-russian>`_"
 
 #: ../../../index.rst:99
 msgid "`Spanish <https://github.com/solidity-docs/es-spanish>`_"
-msgstr ""
+msgstr "`西班牙文 <https://github.com/solidity-docs/es-spanish>`_"
 
 #: ../../../index.rst:100
 msgid "`Turkish <https://docs.soliditylang.org/tr/latest/>`_"
-msgstr ""
+msgstr "`土耳其文 <https://docs.soliditylang.org/tr/latest/>`_"
 
 #: ../../../index.rst:104
 msgid ""
