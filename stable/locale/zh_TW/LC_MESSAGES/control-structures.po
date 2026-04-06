@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../../control-structures.rst:3
 msgid "Expressions and Control Structures"
-msgstr ""
+msgstr "表達式與控制結構"
 
 #: ../../../control-structures.rst:11
 msgid "Control Structures"
-msgstr ""
+msgstr "控制結構"
 
 #: ../../../control-structures.rst:13
 msgid ""
@@ -60,11 +60,11 @@ msgstr ""
 
 #: ../../../control-structures.rst:34
 msgid "Function Calls"
-msgstr ""
+msgstr "函式呼叫"
 
 #: ../../../control-structures.rst:39
 msgid "Internal Function Calls"
-msgstr ""
+msgstr "內部函式呼叫"
 
 #: ../../../control-structures.rst:41
 msgid ""
@@ -100,7 +100,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:66
 msgid "External Function Calls"
-msgstr ""
+msgstr "外部函式呼叫"
 
 #: ../../../control-structures.rst:68
 msgid ""

@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../brand-guide.rst:3
 msgid "Solidity Brand Guide"
-msgstr ""
+msgstr "Solidity 品牌名稱"
 
 #: ../../../brand-guide.rst:5
 msgid ""
@@ -29,7 +29,7 @@ msgstr ""
 
 #: ../../../brand-guide.rst:9
 msgid "The Solidity Brand"
-msgstr ""
+msgstr "Solidity 品牌"
 
 #: ../../../brand-guide.rst:11
 msgid ""
@@ -52,7 +52,7 @@ msgstr ""
 
 #: ../../../brand-guide.rst:22
 msgid "Solidity Brand Name"
-msgstr ""
+msgstr "Solidity 品牌名稱"
 
 #: ../../../brand-guide.rst:24
 msgid ""

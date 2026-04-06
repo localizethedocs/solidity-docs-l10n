@@ -103,7 +103,7 @@ msgstr ""
 
 #: ../../../ir-breaking-changes.rst:50
 msgid "Initialize state variables."
-msgstr ""
+msgstr "初始化狀態變數。"
 
 #: ../../../ir-breaking-changes.rst:51
 msgid "Run the constructor (if present)."

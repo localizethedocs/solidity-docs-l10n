@@ -1124,7 +1124,7 @@ msgstr ""
 
 #: ../../../internals/optimizer.rst:614
 msgid "Example:"
-msgstr ""
+msgstr "範例："
 
 #: ../../../internals/optimizer.rst:616
 msgid ""
