@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../080-breaking-changes.rst:3
 msgid "Solidity v0.8.0 Breaking Changes"
-msgstr ""
+msgstr "Solidity v0.8.0 重大變更"
 
 #: ../../../080-breaking-changes.rst:5
 msgid ""
@@ -350,7 +350,7 @@ msgstr ""
 
 #: ../../../080-breaking-changes.rst:164
 msgid "How to update your code"
-msgstr ""
+msgstr "如何更新您的程式碼"
 
 #: ../../../080-breaking-changes.rst:166
 msgid ""

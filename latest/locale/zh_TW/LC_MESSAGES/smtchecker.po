@@ -1317,7 +1317,7 @@ msgstr ""
 
 #: ../../../smtchecker.rst:895
 msgid "Function Calls"
-msgstr ""
+msgstr "函式呼叫"
 
 #: ../../../smtchecker.rst:897
 msgid ""

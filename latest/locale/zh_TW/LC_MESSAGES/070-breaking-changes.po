@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../070-breaking-changes.rst:3
 msgid "Solidity v0.7.0 Breaking Changes"
-msgstr ""
+msgstr "Solidity v0.7.0 重大變更"
 
 #: ../../../070-breaking-changes.rst:5
 msgid ""
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../../../070-breaking-changes.rst:96
 msgid "Expressions"
-msgstr ""
+msgstr "表達式"
 
 #: ../../../070-breaking-changes.rst:98
 msgid ""
@@ -212,7 +212,7 @@ msgstr ""
 
 #: ../../../070-breaking-changes.rst:121
 msgid "How to update your code"
-msgstr ""
+msgstr "如何更新您的程式碼"
 
 #: ../../../070-breaking-changes.rst:123
 msgid ""
