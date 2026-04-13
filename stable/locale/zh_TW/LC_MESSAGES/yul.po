@@ -423,7 +423,7 @@ msgstr ""
 
 #: ../../../yul.rst:254
 msgid "Variable Declarations"
-msgstr ""
+msgstr "變數宣告"
 
 #: ../../../yul.rst:256
 msgid ""
@@ -570,7 +570,7 @@ msgstr ""
 
 #: ../../../yul.rst:369
 msgid "Loops"
-msgstr ""
+msgstr "迴圈"
 
 #: ../../../yul.rst:371
 msgid ""
@@ -621,7 +621,7 @@ msgstr ""
 
 #: ../../../yul.rst:407
 msgid "Function Declarations"
-msgstr ""
+msgstr "函式呼叫"
 
 #: ../../../yul.rst:409
 msgid ""
@@ -838,6 +838,9 @@ msgid ""
 "{\n"
 "}"
 msgstr ""
+"for {} true { for {} true {} { break } }\n"
+"{\n"
+"}"
 
 #: ../../../yul.rst:560
 msgid ""
@@ -1175,39 +1178,39 @@ msgstr ""
 
 #: ../../../yul.rst:771
 msgid "add(x, y)"
-msgstr ""
+msgstr "add(x, y)"
 
 #: ../../../yul.rst:771
 msgid "x + y"
-msgstr ""
+msgstr "x + y"
 
 #: ../../../yul.rst:773
 msgid "sub(x, y)"
-msgstr ""
+msgstr "sub(x, y)"
 
 #: ../../../yul.rst:773
 msgid "x - y"
-msgstr ""
+msgstr "x - y"
 
 #: ../../../yul.rst:775
 msgid "mul(x, y)"
-msgstr ""
+msgstr "mul(x, y)"
 
 #: ../../../yul.rst:775
 msgid "x * y"
-msgstr ""
+msgstr "x * y"
 
 #: ../../../yul.rst:777
 msgid "div(x, y)"
-msgstr ""
+msgstr "div(x, y)"
 
 #: ../../../yul.rst:777
 msgid "x / y or 0 if y == 0"
-msgstr ""
+msgstr "x / y or 0 if y == 0"
 
 #: ../../../yul.rst:779
 msgid "sdiv(x, y)"
-msgstr ""
+msgstr "sdiv(x, y)"
 
 #: ../../../yul.rst:779
 msgid "x / y, for signed numbers in two's complement, 0 if y == 0"
@@ -1656,7 +1659,7 @@ msgstr ""
 
 #: ../../../yul.rst:893
 msgid "callcode(g, a, v, in, insize, out, outsize)"
-msgstr ""
+msgstr "callcode(g, a, v, in, insize, out, outsize)"
 
 #: ../../../yul.rst:893
 msgid ""
@@ -1666,7 +1669,7 @@ msgstr ""
 
 #: ../../../yul.rst:897
 msgid "delegatecall(g, a, in, insize, out, outsize)"
-msgstr ""
+msgstr "delegatecall(g, a, in, insize, out, outsize)"
 
 #: ../../../yul.rst:897
 msgid "H"
@@ -1706,7 +1709,7 @@ msgstr ""
 
 #: ../../../yul.rst:909
 msgid "selfdestruct(a)"
-msgstr ""
+msgstr "selfdestruct(a)"
 
 #: ../../../yul.rst:909
 msgid ""
@@ -1715,7 +1718,7 @@ msgstr ""
 
 #: ../../../yul.rst:912
 msgid "invalid()"
-msgstr ""
+msgstr "invalid()"
 
 #: ../../../yul.rst:912
 msgid "end execution with invalid instruction"
@@ -1723,7 +1726,7 @@ msgstr ""
 
 #: ../../../yul.rst:914
 msgid "log0(p, s)"
-msgstr ""
+msgstr "log0(p, s)"
 
 #: ../../../yul.rst:914
 msgid "log data mem[p...(p+s))"
@@ -1807,7 +1810,7 @@ msgstr ""
 
 #: ../../../yul.rst:935
 msgid "blockhash(b)"
-msgstr ""
+msgstr "blockhash(b)"
 
 #: ../../../yul.rst:935
 msgid "hash of block nr b - only for last 256 blocks excluding current"
@@ -1815,7 +1818,7 @@ msgstr ""
 
 #: ../../../yul.rst:937
 msgid "blobhash(i)"
-msgstr ""
+msgstr "blobhash(i)"
 
 #: ../../../yul.rst:937
 msgid "versioned hash of transaction's i-th blob, 0 if blob does not exist"
@@ -1823,7 +1826,7 @@ msgstr ""
 
 #: ../../../yul.rst:940
 msgid "coinbase()"
-msgstr ""
+msgstr "coinbase()"
 
 #: ../../../yul.rst:940
 msgid "current mining beneficiary"
@@ -1831,7 +1834,7 @@ msgstr ""
 
 #: ../../../yul.rst:942
 msgid "timestamp()"
-msgstr ""
+msgstr "timestamp()"
 
 #: ../../../yul.rst:942
 msgid "timestamp of the current block in seconds since the epoch"
@@ -1839,7 +1842,7 @@ msgstr ""
 
 #: ../../../yul.rst:944
 msgid "number()"
-msgstr ""
+msgstr "number()"
 
 #: ../../../yul.rst:944
 msgid "current block number"
@@ -1847,7 +1850,7 @@ msgstr ""
 
 #: ../../../yul.rst:946
 msgid "difficulty()"
-msgstr ""
+msgstr "difficulty()"
 
 #: ../../../yul.rst:946
 msgid "difficulty of the current block (see note below)"
@@ -1855,7 +1858,7 @@ msgstr ""
 
 #: ../../../yul.rst:948
 msgid "prevrandao()"
-msgstr ""
+msgstr "prevrandao()"
 
 #: ../../../yul.rst:948
 msgid "P"
@@ -1867,7 +1870,7 @@ msgstr ""
 
 #: ../../../yul.rst:950
 msgid "gaslimit()"
-msgstr ""
+msgstr "gaslimit()"
 
 #: ../../../yul.rst:950
 msgid "block gas limit of the current block"

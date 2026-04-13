@@ -1343,7 +1343,7 @@ msgstr ""
 
 #: ../../../smtchecker.rst:910
 msgid "Functions"
-msgstr ""
+msgstr "函式"
 
 #: ../../../smtchecker.rst:910
 msgid "BMC/CHC behavior"

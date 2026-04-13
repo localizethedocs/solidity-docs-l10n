@@ -45,7 +45,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:22
 msgid "State Variables"
-msgstr ""
+msgstr "狀態變數"
 
 #: ../../../structure-of-a-contract.rst:24
 msgid ""
@@ -74,13 +74,14 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:46
 msgid "Functions"
-msgstr ""
+msgstr "函式"
 
 #: ../../../structure-of-a-contract.rst:48
 msgid ""
 "Functions are the executable units of code. Functions are usually defined "
 "inside a contract, but they can also be defined outside of contracts."
 msgstr ""
+"函式是程式碼的可執行單元。函式通常定義在合約內部，但也可以定義在合約外部。"
 
 #: ../../../structure-of-a-contract.rst:52
 msgid ""
@@ -247,7 +248,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:190
 msgid "Enum Types"
-msgstr ""
+msgstr "列舉型別"
 
 #: ../../../structure-of-a-contract.rst:192
 msgid ""
