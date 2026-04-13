@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../installing-solidity.rst:7
 msgid "Installing the Solidity Compiler"
-msgstr ""
+msgstr "安裝 Solidity 編譯器"
 
 #: ../../../installing-solidity.rst:10
 msgid "Versioning"
