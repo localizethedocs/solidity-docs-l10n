@@ -1128,7 +1128,7 @@ msgstr ""
 
 #: ../../../contracts/functions.rst:7
 msgid "Functions"
-msgstr ""
+msgstr "函式"
 
 #: ../../../contracts/functions.rst:9
 msgid "Functions can be defined inside and outside of contracts."

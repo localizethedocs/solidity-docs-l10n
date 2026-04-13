@@ -318,7 +318,7 @@ msgstr ""
 
 #: ../../../050-breaking-changes.rst:196
 msgid "Functions"
-msgstr ""
+msgstr "函式"
 
 #: ../../../050-breaking-changes.rst:198
 msgid ""

@@ -688,7 +688,7 @@ msgstr ""
 
 #: ../../../introduction-to-smart-contracts.rst:495
 msgid "Instruction Set"
-msgstr ""
+msgstr "指令集"
 
 #: ../../../introduction-to-smart-contracts.rst:497
 msgid ""
@@ -709,7 +709,7 @@ msgstr ""
 
 #: ../../../introduction-to-smart-contracts.rst:512
 msgid "Message Calls"
-msgstr ""
+msgstr "訊息呼叫"
 
 #: ../../../introduction-to-smart-contracts.rst:514
 msgid ""

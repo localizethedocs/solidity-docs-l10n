@@ -55,6 +55,8 @@ msgid ""
 "contracts. Smart contracts are programs that govern the behavior of accounts "
 "within the Ethereum state."
 msgstr ""
+"Solidity 是一種物件導向的高階語言，用於實作智慧合約。智慧合約是管理以太坊狀態"
+"內帳戶行為的程式。"
 
 #: ../../../index.rst:7
 msgid ""
@@ -65,12 +67,18 @@ msgid ""
 "been inspired by in the :doc:`language influences <language-influences>` "
 "section."
 msgstr ""
+"Solidity 是一種\\ `花括號語言 <https://en.wikipedia.org/wiki/"
+"List_of_programming_languages_by_type#Curly_bracket_languages>`_\\ ，旨在針對"
+"以太坊虛擬機（EVM）進行設計。它受到 C++、Python 和 JavaScript 的影響。您可以"
+"在\\ :doc:`語言影響 <language-influences>`\\ 章節中找到更多關於 Solidity 受到"
+"哪些語言啟發的詳細資訊。"
 
 #: ../../../index.rst:11
 msgid ""
 "Solidity is statically typed, supports inheritance, libraries, and complex "
 "user-defined types, among other features."
 msgstr ""
+"Solidity 是一種靜態型別語言，支援繼承、 程式庫和複雜的使用者定義型別等功能。"
 
 #: ../../../index.rst:13
 msgid ""
@@ -114,7 +122,7 @@ msgstr "開始使用"
 
 #: ../../../index.rst:38
 msgid "**1. Understand the Smart Contract Basics**"
-msgstr ""
+msgstr "**1. 理解智慧合約基礎知識**"
 
 #: ../../../index.rst:40
 msgid ""
@@ -128,6 +136,7 @@ msgid ""
 ":ref:`A simple example smart contract <simple-smart-contract>` written in "
 "Solidity."
 msgstr ""
+"以 Solidity 編寫的\\ :ref:`簡單智慧合約範例 <simple-smart-contract>`\\ 。"
 
 #: ../../../index.rst:43
 msgid ":ref:`Blockchain Basics <blockchain-basics>`."
@@ -208,6 +217,8 @@ msgid ""
 "languages. Note that they have varying degrees of completeness and up-to-"
 "dateness. The English version stands as a reference."
 msgstr ""
+"社群貢獻者協助將此文件翻譯成多種語言。請注意，各語言版本的完整度與即時性不盡"
+"相同，應以英文版本作為參考基準。"
 
 #: ../../../index.rst:89
 msgid ""
@@ -261,7 +272,7 @@ msgstr ""
 
 #: ../../../index.rst:109
 msgid "Contents"
-msgstr ""
+msgstr "目次"
 
 #: ../../../index.rst:111
 msgid ":ref:`Keyword Index <genindex>`, :ref:`Search Page <search>`"

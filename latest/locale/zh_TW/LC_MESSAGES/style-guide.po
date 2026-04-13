@@ -1151,7 +1151,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:965
 msgid "Variable Declarations"
-msgstr ""
+msgstr "變數宣告"
 
 #: ../../../style-guide.rst:967
 msgid ""
@@ -1283,7 +1283,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:1066
 msgid "Functions"
-msgstr ""
+msgstr "函式"
 
 #: ../../../style-guide.rst:1070
 msgid ""
