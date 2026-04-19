@@ -1,4 +1,12 @@
 <div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/solidity-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/solidity-light.svg">
+  <img height="100" src="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/solidity-light.svg">
+</picture>
+</div>
+
+<div align="center">
 <h1 id="localization-of-the-solidity-documentation">Localization of The Solidity Documentation</h1>
 </div>
 
