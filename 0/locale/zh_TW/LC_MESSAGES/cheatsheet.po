@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../cheatsheet.rst:3
 msgid "Cheatsheet"
-msgstr ""
+msgstr "速查表"
 
 #: ../../../cheatsheet.rst:8
 msgid "Order of Precedence of Operators"

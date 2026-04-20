@@ -1167,7 +1167,7 @@ msgstr ""
 
 #: ../../../abi-spec.rst:511
 msgid "Errors"
-msgstr ""
+msgstr "錯誤"
 
 #: ../../../abi-spec.rst:513
 msgid ""

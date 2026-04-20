@@ -147,7 +147,7 @@ msgstr ""
 
 #: ../../../resources.rst:44
 msgid "`Truffle <https://trufflesuite.com/truffle/>`_"
-msgstr ""
+msgstr "`Truffle <https://trufflesuite.com/truffle/>`_"
 
 #: ../../../resources.rst:45
 msgid ""
@@ -159,7 +159,7 @@ msgstr ""
 
 #: ../../../resources.rst:51
 msgid "Editor Integrations"
-msgstr ""
+msgstr "編輯器整合"
 
 #: ../../../resources.rst:53
 msgid "Emacs"
