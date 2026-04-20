@@ -2202,7 +2202,7 @@ msgstr ""
 
 #: cmd/quickstart.py:300
 msgid "Project name"
-msgstr ""
+msgstr "專案名稱"
 
 #: cmd/quickstart.py:302
 msgid "Author name(s)"
@@ -2219,11 +2219,11 @@ msgstr ""
 
 #: cmd/quickstart.py:315
 msgid "Project version"
-msgstr ""
+msgstr "專案版本"
 
 #: cmd/quickstart.py:317
 msgid "Project release"
-msgstr ""
+msgstr "專案發行版"
 
 #: cmd/quickstart.py:323
 msgid ""
@@ -2238,7 +2238,7 @@ msgstr ""
 
 #: cmd/quickstart.py:331
 msgid "Project language"
-msgstr ""
+msgstr "專案語言"
 
 #: cmd/quickstart.py:339
 msgid ""

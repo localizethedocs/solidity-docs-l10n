@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../layout-of-source-files.rst:3
 msgid "Layout of a Solidity Source File"
-msgstr ""
+msgstr "Solidity 來源檔的配置"
 
 #: ../../../layout-of-source-files.rst:5
 msgid ""

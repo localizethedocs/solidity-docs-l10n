@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../../style-guide.rst:5
 msgid "Style Guide"
-msgstr ""
+msgstr "風格指南"
 
 #: ../../../style-guide.rst:9
 msgid "Introduction"
-msgstr ""
+msgstr "介紹"
 
 #: ../../../style-guide.rst:11
 msgid ""
@@ -359,7 +359,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:261
 msgid "Source File Encoding"
-msgstr ""
+msgstr "來源檔編碼"
 
 #: ../../../style-guide.rst:263
 msgid "UTF-8 or ASCII encoding is preferred."
@@ -1251,7 +1251,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:1054 ../../../style-guide.rst:1064
 msgid "Errors"
-msgstr ""
+msgstr "錯誤"
 
 #: ../../../style-guide.rst:1055
 msgid "Interfaces"
