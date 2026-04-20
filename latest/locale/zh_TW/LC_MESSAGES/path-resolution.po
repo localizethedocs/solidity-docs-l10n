@@ -125,7 +125,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:83
 msgid "**Standard JSON**"
-msgstr ""
+msgstr "**標準 JSON**"
 
 #: ../../../path-resolution.rst:85
 msgid ""
@@ -187,6 +187,19 @@ msgid ""
 "\"evm.bytecode\"]}}}\n"
 "}"
 msgstr ""
+"{\n"
+"    \"language\": \"Solidity\",\n"
+"    \"sources\": {\n"
+"        \"/usr/local/dapp-bin/token.sol\": {\n"
+"            \"urls\": [\n"
+"                \"/projects/mytoken.sol\",\n"
+"                \"https://example.com/projects/mytoken.sol\"\n"
+"            ]\n"
+"        }\n"
+"    },\n"
+"    \"settings\": {\"outputSelection\": {\"*\": { \"*\": [\"metadata\", "
+"\"evm.bytecode\"]}}}\n"
+"}"
 
 #: ../../../path-resolution.rst:133
 msgid ""
@@ -204,7 +217,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:141
 msgid "**Standard input**"
-msgstr ""
+msgstr "**標準輸入**"
 
 #: ../../../path-resolution.rst:143
 msgid ""
@@ -271,7 +284,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:183
 msgid "Direct Imports"
-msgstr ""
+msgstr "直接匯入"
 
 #: ../../../path-resolution.rst:185
 msgid ""
@@ -446,7 +459,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:279
 msgid "lib/src/../contract.sol"
-msgstr ""
+msgstr "lib/src/../contract.sol"
 
 #: ../../../path-resolution.rst:279
 msgid ""
@@ -470,7 +483,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:298
 msgid "Base Path and Include Paths"
-msgstr ""
+msgstr "基底路徑與引入路徑"
 
 #: ../../../path-resolution.rst:300
 msgid ""
@@ -678,7 +691,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:431
 msgid "In Standard JSON mode:"
-msgstr ""
+msgstr "在標準 JSON 模式中："
 
 #: ../../../path-resolution.rst:435
 msgid ""
@@ -932,7 +945,7 @@ msgstr ""
 #: ../../../path-resolution.rst:580 ../../../path-resolution.rst:592
 #: ../../../path-resolution.rst:617
 msgid "/project/contract.sol"
-msgstr ""
+msgstr "/project/contract.sol"
 
 #: ../../../path-resolution.rst:580
 msgid "import \"./util.sol\" as util; // source unit name: b/util.sol"
@@ -1094,11 +1107,11 @@ msgstr ""
 
 #: ../../../path-resolution.rst:13
 msgid "virtual filesystem"
-msgstr ""
+msgstr "虛擬檔案系統"
 
 #: ../../../path-resolution.rst:13
 msgid "VFS"
-msgstr ""
+msgstr "VFS"
 
 #: ../../../path-resolution.rst:13
 msgid "source unit name"
@@ -1199,7 +1212,7 @@ msgstr ""
 
 #: ../../../path-resolution.rst:643
 msgid "Remix IDE"
-msgstr ""
+msgstr "Remix IDE"
 
 #: ../../../path-resolution.rst:643
 msgid "file://"

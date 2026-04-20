@@ -847,7 +847,7 @@ msgstr ""
 
 #: ../../../contributing.rst:454
 msgid "Documentation Style Guide"
-msgstr ""
+msgstr "文件風格指南"
 
 #: ../../../contributing.rst:456
 msgid ""

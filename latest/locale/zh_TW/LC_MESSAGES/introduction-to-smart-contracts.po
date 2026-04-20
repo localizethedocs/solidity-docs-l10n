@@ -347,7 +347,7 @@ msgstr ""
 
 #: ../../../introduction-to-smart-contracts.rst:248
 msgid "Blockchain Basics"
-msgstr ""
+msgstr "區塊鏈基礎知識"
 
 #: ../../../introduction-to-smart-contracts.rst:250
 msgid ""
@@ -365,7 +365,7 @@ msgstr ""
 #: ../../../introduction-to-smart-contracts.rst:261
 #: ../../../introduction-to-smart-contracts.rst:364
 msgid "Transactions"
-msgstr ""
+msgstr "交易"
 
 #: ../../../introduction-to-smart-contracts.rst:263
 msgid ""
