@@ -421,7 +421,7 @@ msgstr ""
 
 #: ../../../cheatsheet.rst:63
 msgid "Block and Transaction Properties"
-msgstr ""
+msgstr "區與交易屬性"
 
 #: ../../../cheatsheet.rst:65
 msgid ""
