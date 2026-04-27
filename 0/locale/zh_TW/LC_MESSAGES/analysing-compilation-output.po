@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../analysing-compilation-output.rst:5
 msgid "Analysing the Compiler Output"
-msgstr ""
+msgstr "分析編譯器輸出"
 
 #: ../../../analysing-compilation-output.rst:7
 msgid ""

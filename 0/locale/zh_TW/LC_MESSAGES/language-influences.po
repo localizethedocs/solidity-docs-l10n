@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../language-influences.rst:3
 msgid "Language Influences"
-msgstr ""
+msgstr "語言的影響"
 
 #: ../../../language-influences.rst:5
 msgid ""
@@ -27,12 +27,16 @@ msgid ""
 "List_of_programming_languages_by_type#Curly_bracket_languages>`_ that has "
 "been influenced and inspired by several well-known programming languages."
 msgstr ""
+"Solidity 是一種\\ `花括號語言 <https://en.wikipedia.org/wiki/"
+"List_of_programming_languages_by_type#Curly_bracket_languages>`_\\ ，它受到了"
+"幾種著名程式語言的影響和啟發。"
 
 #: ../../../language-influences.rst:8
 msgid ""
 "Solidity is most profoundly influenced by C++, but also borrowed concepts "
 "from languages like Python, JavaScript, and others."
 msgstr ""
+"Solidity 受 C++ 的影響最為深遠，但也借鑒了 Python、JavaScript 等語言的概念。"
 
 #: ../../../language-influences.rst:11
 msgid ""
@@ -40,6 +44,8 @@ msgid ""
 "for loops, the concept of overloading functions, implicit and explicit type "
 "conversions and many other details."
 msgstr ""
+"C++ 的影響體現在變數宣告的語法、for 迴圈、函數重載的概念、隱式和明確型別轉換"
+"以及許多其他細節。"
 
 #: ../../../language-influences.rst:14
 msgid ""
