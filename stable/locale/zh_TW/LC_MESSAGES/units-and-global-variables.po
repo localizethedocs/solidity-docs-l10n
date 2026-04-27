@@ -114,7 +114,7 @@ msgstr ""
 
 #: ../../../units-and-global-variables.rst:64
 msgid "Special Variables and Functions"
-msgstr ""
+msgstr "特殊變數與函式"
 
 #: ../../../units-and-global-variables.rst:66
 msgid ""
@@ -125,7 +125,7 @@ msgstr ""
 
 #: ../../../units-and-global-variables.rst:74
 msgid "Block and Transaction Properties"
-msgstr ""
+msgstr "區與交易屬性"
 
 #: ../../../units-and-global-variables.rst:76
 msgid ""
