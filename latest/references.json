@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-04-02 12:36:28 +0200",
-      "hash" : "449363e7254da40c5a854877b4e83317687f9a0d",
-      "title" : "Merge pull request #16571 from argotorg/ssa-unify-jumpi-handling"
+      "date" : "2026-05-11 12:17:52 +0200",
+      "hash" : "1a776c9682267e44e5aefe076afc6487c762bcfb",
+      "title" : "Merge pull request #16687 from argotorg/bump-node-js"
     }
   },
   "type" : "branch",
