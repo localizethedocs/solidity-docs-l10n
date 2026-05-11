@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"POT-Creation-Date: 2026-05-11 12:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -81,6 +82,8 @@ msgid ""
 "pragma solidity >=0.4.16 <0.9.0;\n"
 "\n"
 "library GetCode {\n"
+"    // This will report a warning - `at` will be promoted to reserved "
+"keyword\n"
 "    function at(address addr) public view returns (bytes memory code) {\n"
 "        assembly {\n"
 "            // retrieve the size of the code, this needs assembly\n"
@@ -101,13 +104,13 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:66
+#: ../../../assembly.rst:67
 msgid ""
 "Inline assembly is also beneficial in cases where the optimizer fails to "
 "produce efficient code, for example:"
 msgstr ""
 
-#: ../../../assembly.rst:69
+#: ../../../assembly.rst:70
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.4.16 <0.9.0;\n"
@@ -165,22 +168,22 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:123
+#: ../../../assembly.rst:124
 msgid "Access to External Variables, Functions and Libraries"
 msgstr ""
 
-#: ../../../assembly.rst:125
+#: ../../../assembly.rst:126
 msgid ""
 "You can access Solidity variables and other identifiers by using their name."
 msgstr ""
 
-#: ../../../assembly.rst:127
+#: ../../../assembly.rst:128
 msgid ""
 "Local variables of value type are directly usable in inline assembly. They "
 "can both be read and assigned to."
 msgstr ""
 
-#: ../../../assembly.rst:130
+#: ../../../assembly.rst:131
 msgid ""
 "Local variables that refer to memory evaluate to the address of the variable "
 "in memory, not the value itself. Such variables can also be assigned to, but "
@@ -189,7 +192,7 @@ msgid ""
 "ref:`Conventions in Solidity <conventions-in-solidity>`."
 msgstr ""
 
-#: ../../../assembly.rst:135
+#: ../../../assembly.rst:136
 msgid ""
 "Similarly, local variables that refer to statically-sized calldata arrays or "
 "calldata structs evaluate to the address of the variable in calldata, not "
@@ -198,14 +201,14 @@ msgid ""
 "beyond ``calldatasize()``."
 msgstr ""
 
-#: ../../../assembly.rst:140
+#: ../../../assembly.rst:141
 msgid ""
 "For external function pointers the address and the function selector can be "
 "accessed using ``x.address`` and ``x.selector``. The selector consists of "
 "four right-aligned bytes. Both values can be assigned to. For example:"
 msgstr ""
 
-#: ../../../assembly.rst:145
+#: ../../../assembly.rst:146
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.10 <0.9.0;\n"
@@ -222,7 +225,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:161
+#: ../../../assembly.rst:162
 msgid ""
 "For dynamic calldata arrays, you can access their calldata offset (in bytes) "
 "and length (number of elements) using ``x.offset`` and ``x.length``. Both "
@@ -231,7 +234,7 @@ msgid ""
 "within the bounds of ``calldatasize()``."
 msgstr ""
 
-#: ../../../assembly.rst:166
+#: ../../../assembly.rst:167
 msgid ""
 "For local storage variables or state variables (including transient storage) "
 "a single Yul identifier is not sufficient, since they do not necessarily "
@@ -241,7 +244,7 @@ msgid ""
 "offset you use ``x.offset``. Using ``x`` itself will result in an error."
 msgstr ""
 
-#: ../../../assembly.rst:173
+#: ../../../assembly.rst:174
 msgid ""
 "You can also assign to the ``.slot`` part of a local storage variable "
 "pointer. For these (structs, arrays or mappings), the ``.offset`` part is "
@@ -249,11 +252,11 @@ msgid ""
 "part of a state variable, though."
 msgstr ""
 
-#: ../../../assembly.rst:178
+#: ../../../assembly.rst:179
 msgid "Local Solidity variables are available for assignments, for example:"
 msgstr ""
 
-#: ../../../assembly.rst:180
+#: ../../../assembly.rst:181
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.28 <0.9.0;\n"
@@ -273,7 +276,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:201
+#: ../../../assembly.rst:202
 msgid ""
 "If you access variables of a type that spans less than 256 bits (for example "
 "``uint64``, ``address``, or ``bytes16``), you cannot make any assumptions "
@@ -285,14 +288,14 @@ msgid ""
 "{ signextend(<num_bytes_of_x_minus_one>, x) }``"
 msgstr ""
 
-#: ../../../assembly.rst:212
+#: ../../../assembly.rst:213
 msgid ""
 "Since Solidity 0.6.0, the name of an inline assembly variable may not shadow "
 "any declaration visible in the scope of the inline assembly block (including "
 "variable, contract and function declarations)."
 msgstr ""
 
-#: ../../../assembly.rst:216
+#: ../../../assembly.rst:217
 msgid ""
 "Since Solidity 0.7.0, variables and functions declared inside the inline "
 "assembly block may not contain ``.``, but using ``.`` is valid to access "
@@ -300,11 +303,11 @@ msgid ""
 "still valid to use dots if you use Solidity in Yul-only mode."
 msgstr ""
 
-#: ../../../assembly.rst:222
+#: ../../../assembly.rst:223
 msgid "Things to Avoid"
 msgstr ""
 
-#: ../../../assembly.rst:224
+#: ../../../assembly.rst:225
 msgid ""
 "Inline assembly might have a quite high-level look, but it actually is "
 "extremely low-level. Function calls, loops, ifs and switches are converted "
@@ -314,15 +317,15 @@ msgid ""
 "the end of their block is reached."
 msgstr ""
 
-#: ../../../assembly.rst:234
+#: ../../../assembly.rst:235
 msgid "Conventions in Solidity"
 msgstr ""
 
-#: ../../../assembly.rst:239
+#: ../../../assembly.rst:240
 msgid "Values of Typed Variables"
 msgstr ""
 
-#: ../../../assembly.rst:241
+#: ../../../assembly.rst:242
 msgid ""
 "In contrast to EVM assembly, Solidity has types which are narrower than 256 "
 "bits, e.g. ``uint24``. For efficiency, most arithmetic operations ignore the "
@@ -333,11 +336,11 @@ msgid ""
 "higher-order bits first."
 msgstr ""
 
-#: ../../../assembly.rst:253
+#: ../../../assembly.rst:254
 msgid "Memory Management"
 msgstr ""
 
-#: ../../../assembly.rst:255
+#: ../../../assembly.rst:256
 msgid ""
 "Solidity manages memory in the following way. There is a \"free memory "
 "pointer\" at position ``0x40`` in memory. If you want to allocate memory, "
@@ -350,7 +353,7 @@ msgid ""
 "for allocating memory that follows the process outlined above:"
 msgstr ""
 
-#: ../../../assembly.rst:265
+#: ../../../assembly.rst:266
 msgid ""
 "function allocate(length) -> pos {\n"
 "  pos := mload(0x40)\n"
@@ -358,7 +361,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:272
+#: ../../../assembly.rst:273
 msgid ""
 "The first 64 bytes of memory can be used as \"scratch space\" for short-term "
 "allocation. The 32 bytes after the free memory pointer (i.e., starting at "
@@ -367,7 +370,7 @@ msgid ""
 "starts at ``0x80``, which is the initial value of the free memory pointer."
 msgstr ""
 
-#: ../../../assembly.rst:279
+#: ../../../assembly.rst:280
 msgid ""
 "Elements in memory arrays in Solidity always occupy multiples of 32 bytes "
 "(this is even true for ``bytes1[]``, but not for ``bytes`` and ``string``). "
@@ -376,18 +379,18 @@ msgid ""
 "array elements."
 msgstr ""
 
-#: ../../../assembly.rst:285
+#: ../../../assembly.rst:286
 msgid ""
 "Statically-sized memory arrays do not have a length field, but it might be "
 "added later to allow better convertibility between statically and "
 "dynamically-sized arrays; so, do not rely on this."
 msgstr ""
 
-#: ../../../assembly.rst:290
+#: ../../../assembly.rst:291
 msgid "Memory Safety"
 msgstr ""
 
-#: ../../../assembly.rst:292
+#: ../../../assembly.rst:293
 msgid ""
 "Without the use of inline assembly, the compiler can rely on memory to "
 "remain in a well-defined state at all times. This is especially relevant "
@@ -397,7 +400,7 @@ msgid ""
 "optimizations, if it can rely on certain assumptions about memory use."
 msgstr ""
 
-#: ../../../assembly.rst:297
+#: ../../../assembly.rst:298
 msgid ""
 "While we recommend to always respect Solidity's memory model, inline "
 "assembly allows you to use memory in an incompatible way. Therefore, moving "
@@ -406,42 +409,42 @@ msgid ""
 "contains a memory operation or assigns to Solidity variables in memory."
 msgstr ""
 
-#: ../../../assembly.rst:302
+#: ../../../assembly.rst:303
 msgid ""
 "However, you can specifically annotate an assembly block to indicate that it "
 "in fact respects Solidity's memory model as follows:"
 msgstr ""
 
-#: ../../../assembly.rst:305
+#: ../../../assembly.rst:306
 msgid ""
 "assembly (\"memory-safe\") {\n"
 "    ...\n"
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:311
+#: ../../../assembly.rst:312
 msgid ""
 "In particular, a memory-safe assembly block may only access the following "
 "memory ranges:"
 msgstr ""
 
-#: ../../../assembly.rst:313
+#: ../../../assembly.rst:314
 msgid ""
 "Memory allocated by yourself using a mechanism like the ``allocate`` "
 "function described above."
 msgstr ""
 
-#: ../../../assembly.rst:314
+#: ../../../assembly.rst:315
 msgid ""
 "Memory allocated by Solidity, e.g. memory within the bounds of a memory "
 "array you reference."
 msgstr ""
 
-#: ../../../assembly.rst:315
+#: ../../../assembly.rst:316
 msgid "The scratch space between memory offset 0 and 64 mentioned above."
 msgstr ""
 
-#: ../../../assembly.rst:316
+#: ../../../assembly.rst:317
 msgid ""
 "Temporary memory that is located *after* the value of the free memory "
 "pointer at the beginning of the assembly block, i.e. memory that is "
@@ -449,14 +452,14 @@ msgid ""
 "pointer."
 msgstr ""
 
-#: ../../../assembly.rst:319
+#: ../../../assembly.rst:320
 msgid ""
 "Furthermore, if the assembly block assigns to Solidity variables in memory, "
 "you need to assure that accesses to the Solidity variables only access these "
 "memory ranges."
 msgstr ""
 
-#: ../../../assembly.rst:322
+#: ../../../assembly.rst:323
 msgid ""
 "Since this is mainly about the optimizer, these restrictions still need to "
 "be followed, even if the assembly block reverts or terminates. As an "
@@ -464,7 +467,7 @@ msgid ""
 "value of ``returndatasize()`` may exceed the 64 byte scratch space:"
 msgstr ""
 
-#: ../../../assembly.rst:326
+#: ../../../assembly.rst:327
 msgid ""
 "assembly {\n"
 "  returndatacopy(0, 0, returndatasize())\n"
@@ -472,14 +475,14 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:333
+#: ../../../assembly.rst:334
 msgid ""
 "On the other hand, the following code *is* memory safe, because memory "
 "beyond the location pointed to by the free memory pointer can safely be used "
 "as temporary scratch space:"
 msgstr ""
 
-#: ../../../assembly.rst:336
+#: ../../../assembly.rst:337
 msgid ""
 "assembly (\"memory-safe\") {\n"
 "  let p := mload(0x40)\n"
@@ -488,34 +491,34 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:344
+#: ../../../assembly.rst:345
 msgid ""
 "Note that you do not need to update the free memory pointer if there is no "
 "following allocation, but you can only use memory starting from the current "
 "offset given by the free memory pointer."
 msgstr ""
 
-#: ../../../assembly.rst:347
+#: ../../../assembly.rst:348
 msgid ""
 "If the memory operations use a length of zero, it is also fine to just use "
 "any offset (not only if it falls into the scratch space):"
 msgstr ""
 
-#: ../../../assembly.rst:349
+#: ../../../assembly.rst:350
 msgid ""
 "assembly (\"memory-safe\") {\n"
 "  revert(0, 0)\n"
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:355
+#: ../../../assembly.rst:356
 msgid ""
 "Note that not only memory operations in inline assembly itself can be memory-"
 "unsafe, but also assignments to Solidity variables of reference type in "
 "memory. For example the following is not memory-safe:"
 msgstr ""
 
-#: ../../../assembly.rst:358
+#: ../../../assembly.rst:359
 msgid ""
 "bytes memory x;\n"
 "assembly {\n"
@@ -524,14 +527,14 @@ msgid ""
 "x[0x20] = 0x42;"
 msgstr ""
 
-#: ../../../assembly.rst:366
+#: ../../../assembly.rst:367
 msgid ""
 "Inline assembly that neither involves any operations that access memory nor "
 "assigns to any Solidity variables in memory is automatically considered "
 "memory-safe and does not need to be annotated."
 msgstr ""
 
-#: ../../../assembly.rst:370
+#: ../../../assembly.rst:371
 msgid ""
 "It is your responsibility to make sure that the assembly actually satisfies "
 "the memory model. If you annotate an assembly block as memory-safe, but "
@@ -539,14 +542,14 @@ msgid ""
 "undefined behavior that cannot easily be discovered by testing."
 msgstr ""
 
-#: ../../../assembly.rst:374
+#: ../../../assembly.rst:375
 msgid ""
 "In case you are developing a library that is meant to be compatible across "
 "multiple versions of Solidity, you can use a special comment to annotate an "
 "assembly block as memory-safe:"
 msgstr ""
 
-#: ../../../assembly.rst:377
+#: ../../../assembly.rst:378
 msgid ""
 "/// @solidity memory-safe-assembly\n"
 "assembly {\n"
@@ -554,18 +557,18 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../assembly.rst:385
+#: ../../../assembly.rst:386
 msgid ""
 "The ``memory-safe-assembly`` special comment is deprecated and scheduled for "
 "removal. In new code targeting recent compilers, use the assembly block "
 "annotation."
 msgstr ""
 
-#: ../../../assembly.rst:389
+#: ../../../assembly.rst:390
 msgid "Advanced Safe Use of Memory"
 msgstr ""
 
-#: ../../../assembly.rst:391
+#: ../../../assembly.rst:392
 msgid ""
 "Beyond the strict definition of memory-safety given above, there are cases "
 "in which you may want to use more than 64 bytes of scratch space starting at "
@@ -575,7 +578,7 @@ msgid ""
 "following conditions:"
 msgstr ""
 
-#: ../../../assembly.rst:396
+#: ../../../assembly.rst:397
 msgid ""
 "By the end of the assembly block, the free memory pointer at offset ``0x40`` "
 "is restored to a sane value (i.e. it is either restored to its original "
@@ -583,14 +586,14 @@ msgid ""
 "memory word at offset ``0x60`` is restored to a value of zero."
 msgstr ""
 
-#: ../../../assembly.rst:400
+#: ../../../assembly.rst:401
 msgid ""
 "The assembly block terminates, i.e. execution can never return to high-level "
 "Solidity code. This is the case, for example, if your assembly block "
 "unconditionally ends in calling the ``revert`` opcode."
 msgstr ""
 
-#: ../../../assembly.rst:403
+#: ../../../assembly.rst:404
 msgid ""
 "Furthermore, you need to be aware that the default-value of dynamic arrays "
 "in Solidity point to memory offset ``0x60``, so for the duration of "
@@ -614,10 +617,10 @@ msgstr ""
 msgid "evmasm"
 msgstr ""
 
-#: ../../../assembly.rst:120
+#: ../../../assembly.rst:121
 msgid "selector"
 msgstr ""
 
-#: ../../../assembly.rst:120
+#: ../../../assembly.rst:121
 msgid "of a function"
 msgstr ""

@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"POT-Creation-Date: 2026-05-11 12:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1070,11 +1071,12 @@ msgid ""
 "specifier, and can appear at most once. The ``base-slot-expression`` must be "
 "an :ref:`integer literal<rational_literals>` expression that can be "
 "evaluated at compilation time and yields a value in the range of "
-"``uint256``. The use of constants initialized using such expressions is also "
-"allowed."
+"``uint256``. The use of constants initialized using such expressions and "
+"the :ref:`built-in function erc7201<mathematical-and-cryptographic-"
+"functions>` is also allowed."
 msgstr ""
 
-#: ../../../contracts/custom-storage-layout.rst:30
+#: ../../../contracts/custom-storage-layout.rst:31
 msgid ""
 "A custom layout cannot make contract's storage \"wrap around\". If the "
 "selected base slot would push the static variables past the end of storage, "
@@ -1085,7 +1087,7 @@ msgid ""
 "are not known at compilation time."
 msgstr ""
 
-#: ../../../contracts/custom-storage-layout.rst:38
+#: ../../../contracts/custom-storage-layout.rst:39
 msgid ""
 "While there are no other limits placed on the base slot, it is recommended "
 "to avoid locations that are too close to the end of the address space. "
@@ -1094,7 +1096,7 @@ msgid ""
 "inline assembly."
 msgstr ""
 
-#: ../../../contracts/custom-storage-layout.rst:43
+#: ../../../contracts/custom-storage-layout.rst:44
 msgid ""
 "The storage layout can only be specified for the topmost contract of an "
 "inheritance tree, and affects locations of all the storage variables in all "
@@ -1104,20 +1106,20 @@ msgid ""
 "preserves their relative positions, shifting them all by the same amount."
 msgstr ""
 
-#: ../../../contracts/custom-storage-layout.rst:49
+#: ../../../contracts/custom-storage-layout.rst:50
 msgid ""
 "The storage layout cannot be specified for abstract contracts, interfaces "
 "and libraries. Also, it is important to note that it does *not* affect "
 "transient state variables."
 msgstr ""
 
-#: ../../../contracts/custom-storage-layout.rst:52
+#: ../../../contracts/custom-storage-layout.rst:53
 msgid ""
 "For details about storage layout and the effect of the layout specifier on "
 "it see :ref:`layout of storage variables<storage-inplace-encoding>`."
 msgstr ""
 
-#: ../../../contracts/custom-storage-layout.rst:56
+#: ../../../contracts/custom-storage-layout.rst:57
 msgid ""
 "The identifiers ``layout`` and ``at`` are not yet reserved as keywords in "
 "the language. It is strongly recommended to avoid using them since they will "
