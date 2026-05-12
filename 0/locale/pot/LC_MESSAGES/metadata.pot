@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"POT-Creation-Date: 2026-05-11 12:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -183,6 +184,16 @@ msgid ""
 "    \"compilationTarget\": {\n"
 "      \"myDirectory/myFile.sol\": \"MyContract\"\n"
 "    },\n"
+"    // Optional (false if omitted): Indicates whether experimental mode has "
+"been enabled.\n"
+"    // Always matches the value of the `experimental` flag in CBOR "
+"metadata.\n"
+"    // Note that experimental mode being enabled does not necessarily mean "
+"that any\n"
+"    // experimental features were actually used, or if they were, that those "
+"features\n"
+"    // affected the bytecode.\n"
+"    \"experimental\": true,\n"
 "    // Required for Solidity: Addresses for libraries used.\n"
 "    // Note that metadata has a different format for \"libraries\" field "
 "than the standard JSON input.\n"
@@ -223,7 +234,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../metadata.rst:175
+#: ../../../metadata.rst:181
 msgid ""
 "Since the bytecode of the resulting contract contains the metadata hash by "
 "default, any change to the metadata might result in a change of the "
@@ -232,18 +243,18 @@ msgid ""
 "results in different metadata, and different bytecode."
 msgstr ""
 
-#: ../../../metadata.rst:182
+#: ../../../metadata.rst:188
 msgid ""
 "The ABI definition above has no fixed order. It can change with compiler "
 "versions. Starting from Solidity version 0.5.12, though, the array maintains "
 "a certain order."
 msgstr ""
 
-#: ../../../metadata.rst:189
+#: ../../../metadata.rst:195
 msgid "Encoding of the Metadata Hash in the Bytecode"
 msgstr ""
 
-#: ../../../metadata.rst:191
+#: ../../../metadata.rst:197
 msgid ""
 "The compiler currently by default appends the `IPFS hash (in CID v0) "
 "<https://docs.ipfs.tech/concepts/content-addressing/#version-0-v0>`_ of the "
@@ -252,22 +263,24 @@ msgid ""
 "used. Below are all the possible fields:"
 msgstr ""
 
-#: ../../../metadata.rst:197
+#: ../../../metadata.rst:203
 msgid ""
 "{\n"
+"  // Present if \"bytecodeHash\" was \"ipfs\" in compiler settings\n"
 "  \"ipfs\": \"<metadata hash>\",\n"
-"  // If \"bytecodeHash\" was \"bzzr1\" in compiler settings not \"ipfs\" but "
-"\"bzzr1\"\n"
+"  // Present if \"bytecodeHash\" was \"bzzr1\" in compiler settings\n"
 "  \"bzzr1\": \"<metadata hash>\",\n"
 "  // Previous versions were using \"bzzr0\" instead of \"bzzr1\"\n"
 "  \"bzzr0\": \"<metadata hash>\",\n"
-"  // If any experimental features that affect code generation are used\n"
+"  // Present if experimental mode has been enabled either via \"--"
+"experimental\" flag or\n"
+"  // \"settings.experimental\" option in Standard JSON\n"
 "  \"experimental\": true,\n"
 "  \"solc\": \"<compiler version>\"\n"
 "}"
 msgstr ""
 
-#: ../../../metadata.rst:210
+#: ../../../metadata.rst:218
 msgid ""
 "Because we might support other ways to retrieve the metadata file in the "
 "future, this information is stored `CBOR <https://tools.ietf.org/html/"
@@ -276,13 +289,13 @@ msgid ""
 "part of the bytecode can be decoded with a CBOR decoder."
 msgstr ""
 
-#: ../../../metadata.rst:216
+#: ../../../metadata.rst:224
 msgid ""
 "Check the `Metadata Playground <https://playground.sourcify.dev/>`_ to see "
 "it in action."
 msgstr ""
 
-#: ../../../metadata.rst:218
+#: ../../../metadata.rst:226
 msgid ""
 "Whereas release builds of solc use a 3 byte encoding of the version as shown "
 "above (one byte each for major, minor and patch version number), pre-release "
@@ -290,7 +303,7 @@ msgid ""
 "build date."
 msgstr ""
 
-#: ../../../metadata.rst:222
+#: ../../../metadata.rst:230
 msgid ""
 "The commandline flag ``--no-cbor-metadata`` can be used to skip metadata "
 "from getting appended at the end of the deployed bytecode. Equivalently, the "
@@ -298,7 +311,7 @@ msgid ""
 "set to false."
 msgstr ""
 
-#: ../../../metadata.rst:227
+#: ../../../metadata.rst:235
 msgid ""
 "The CBOR mapping can also contain other keys, so it is better to fully "
 "decode the data by looking at the end of the bytecode for the CBOR length, "
@@ -306,11 +319,11 @@ msgid ""
 "or ``0xa2 0x64 'i' 'p' 'f' 's'``."
 msgstr ""
 
-#: ../../../metadata.rst:233
+#: ../../../metadata.rst:241
 msgid "Usage for Automatic Interface Generation and NatSpec"
 msgstr ""
 
-#: ../../../metadata.rst:235
+#: ../../../metadata.rst:243
 msgid ""
 "The metadata is used in the following way: A component that wants to "
 "interact with a contract (e.g. a wallet) retrieves the code of the contract. "
@@ -319,13 +332,13 @@ msgid ""
 "JSON-decoded into a structure like above."
 msgstr ""
 
-#: ../../../metadata.rst:241
+#: ../../../metadata.rst:249
 msgid ""
 "The component can then use the ABI to automatically generate a rudimentary "
 "user interface for the contract."
 msgstr ""
 
-#: ../../../metadata.rst:244
+#: ../../../metadata.rst:252
 msgid ""
 "Furthermore, the wallet can use the NatSpec user documentation to display a "
 "human-readable confirmation message to the user whenever they interact with "
@@ -333,17 +346,17 @@ msgid ""
 "signature."
 msgstr ""
 
-#: ../../../metadata.rst:248
+#: ../../../metadata.rst:256
 msgid ""
 "For additional information, read :doc:`Ethereum Natural Language "
 "Specification (NatSpec) format <natspec-format>`."
 msgstr ""
 
-#: ../../../metadata.rst:251
+#: ../../../metadata.rst:259
 msgid "Usage for Source Code Verification"
 msgstr ""
 
-#: ../../../metadata.rst:253
+#: ../../../metadata.rst:261
 msgid ""
 "If pinned/published, it is possible to retrieve the metadata of the contract "
 "from IPFS/Swarm. The metadata file also contains the URLs or the IPFS hashes "
@@ -351,14 +364,14 @@ msgid ""
 "needed to reproduce a compilation."
 msgstr ""
 
-#: ../../../metadata.rst:257
+#: ../../../metadata.rst:265
 msgid ""
 "With this information it is then possible to verify the source code of a "
 "contract by reproducing the compilation, and comparing the bytecode from the "
 "compilation with the bytecode of the deployed contract."
 msgstr ""
 
-#: ../../../metadata.rst:261
+#: ../../../metadata.rst:269
 msgid ""
 "This automatically verifies the metadata since its hash is part of the "
 "bytecode, as well as the source codes, because their hashes are part of the "
@@ -367,7 +380,7 @@ msgid ""
 "compilation."
 msgstr ""
 
-#: ../../../metadata.rst:266
+#: ../../../metadata.rst:274
 msgid ""
 "`Sourcify <https://sourcify.dev>`_ makes use of this feature for \"full/"
 "perfect verification\", as well as pinning the files publicly on IPFS to be "
