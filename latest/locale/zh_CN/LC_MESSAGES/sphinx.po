@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"POT-Creation-Date: 2026-05-11 11:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,27 +24,27 @@ msgstr ""
 
 #: ../../../_templates/layout.html:6
 msgid "Blog"
-msgstr ""
+msgstr "博客"
 
 #: ../../../_templates/layout.html:7
 msgid "Documentation"
-msgstr ""
+msgstr "文档"
 
 #: ../../../_templates/layout.html:8
 msgid "Use cases"
-msgstr ""
+msgstr "用例"
 
 #: ../../../_templates/layout.html:9
 msgid "Contribute"
-msgstr ""
+msgstr "贡献"
 
 #: ../../../_templates/layout.html:10
 msgid "About"
-msgstr ""
+msgstr "关于我们"
 
 #: ../../../_templates/layout.html:11
 msgid "Forum"
-msgstr ""
+msgstr "论坛"
 
 #: ../../../_templates/layout.html:21
 msgid "<a href=\"%(pathto_genindex)s\">Keyword Index</a>"
@@ -109,11 +109,11 @@ msgstr ""
 #: application.py:346
 #, python-format
 msgid "loading translations [%s]... "
-msgstr ""
+msgstr "翻译正在加载中 [%s]…… "
 
 #: application.py:370 util/display.py:89
 msgid "done"
-msgstr ""
+msgstr "完成"
 
 #: application.py:372
 msgid "not available for built-in messages"
@@ -126,7 +126,7 @@ msgstr ""
 #: application.py:394
 #, python-format
 msgid "failed: %s"
-msgstr ""
+msgstr "失败：%s"
 
 #: application.py:407
 msgid "No builder selected, using default: html"
