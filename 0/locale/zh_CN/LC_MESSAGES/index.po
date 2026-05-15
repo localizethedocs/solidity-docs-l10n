@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 19:04+0000\n"
+"POT-Creation-Date: 2026-05-11 12:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,35 +19,35 @@ msgstr ""
 
 #: ../../../index.rst:113
 msgid "Basics"
-msgstr ""
+msgstr "基础介绍"
 
 #: ../../../index.rst:121
 msgid "Language Description"
-msgstr ""
+msgstr "语言描述"
 
 #: ../../../index.rst:135
 msgid "Compiler"
-msgstr ""
+msgstr "编译器"
 
 #: ../../../index.rst:143
 msgid "Internals"
-msgstr ""
+msgstr "内部说明"
 
 #: ../../../index.rst:156
 msgid "Advisory content"
-msgstr ""
+msgstr "推荐内容"
 
 #: ../../../index.rst:167
 msgid "Additional Material"
-msgstr ""
+msgstr "补充材料"
 
 #: ../../../index.rst:176
 msgid "Resources"
-msgstr ""
+msgstr "资源"
 
 #: ../../../index.rst:2
 msgid "Solidity"
-msgstr ""
+msgstr "Solidity"
 
 #: ../../../index.rst:4
 msgid ""
@@ -55,6 +55,8 @@ msgid ""
 "contracts. Smart contracts are programs that govern the behavior of accounts "
 "within the Ethereum state."
 msgstr ""
+"Solidity是一门为实现智能合约而创建的面向对象的语言。智能合约是管理以太坊内账"
+"户行为的程序。"
 
 #: ../../../index.rst:7
 msgid ""
@@ -65,18 +67,24 @@ msgid ""
 "been inspired by in the :doc:`language influences <language-influences>` "
 "section."
 msgstr ""
+"Solidity是一种面向以太坊虚拟机（EVM）的带花括号的语言<https://en.wikipedia."
+"org/wiki/List_of_programming_languages_by_type#Curly_bracket_languages>。它受"
+"到了C++, Python, 和 JavaScript的影响。你可以在:doc:`语言影响`<language-"
+"influences>部分中找到更多有关 Solidity 受哪些语言启发的细节。"
 
 #: ../../../index.rst:11
 msgid ""
 "Solidity is statically typed, supports inheritance, libraries, and complex "
 "user-defined types, among other features."
 msgstr ""
+"Solidity 是静态类型语言，支持继承，库和复杂的用户自定义的类型以及其他特性。"
 
 #: ../../../index.rst:13
 msgid ""
 "With Solidity, you can create contracts for uses such as voting, "
 "crowdfunding, blind auctions, and multi-signature wallets."
 msgstr ""
+"使用 Solidity，您可以创建用于投票、众筹、盲拍以及多重签名钱包等用途的合约。"
 
 #: ../../../index.rst:15
 msgid ""
@@ -87,6 +95,10 @@ msgid ""
 "features, are introduced regularly. We currently use a 0.y.z version number "
 "`to indicate this fast pace of change <https://semver.org/#spec-item-4>`_."
 msgstr ""
+"当开发智能合约时， 你应该使用最新版本的Solidity。 除某些特殊情况之外，只有最"
+"新版本才会收到 `安全修复`<https://github.com/argotorg/solidity/security/"
+"policy#supported-versions>。 此外，重大的变化以及新功能会定期引入。 目前，我"
+"们使用 0.y.z 版本号`来表明这种快速的变化`<https://semver.org/#spec-item-4>。"
 
 #: ../../../index.rst:23
 msgid ""
@@ -94,6 +106,8 @@ msgid ""
 "breaking changes. Make sure you read :doc:`the full list <080-breaking-"
 "changes>`."
 msgstr ""
+"Solidity最近发布了0.8.x版本，该版本引入了许多重大更新。请务必阅读:doc:`完整列"
+"表`<080-breaking-changes>。"
 
 #: ../../../index.rst:26
 msgid ""
