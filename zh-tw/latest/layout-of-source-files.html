@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-TW" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solidity 來源檔的配置 &mdash; Solidity 0.8.36-develop 說明文件</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams.css?v=207cc276" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams-ext.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/fonts.css?v=da6ff50d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=8a4b722d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom-dark.css?v=1f23c23e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/pygments.css?v=85fccb41" />
+      <link rel="stylesheet" type="text/css" href="_static/css/toggle.css?v=ff7d3256" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="canonical" href="https://projects.localizethedocs.org/solidity-docs-l10n/layout-of-source-files.html" />
+    <script>
+        window.NAV_LINKS = {
+            blog: "網誌",
+            documentation: "文件",
+            use_cases: "使用案例",
+            contribute: "貢獻",
+            about: "關於",
+            forum: "論壇"
+        };
+    </script>
+    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=0ef27e53"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cbf116e0"></script>
+      <script src="_static/js/constants.js?v=6647bbdb"></script>
+      <script src="_static/js/initialize.js?v=a99c897d"></script>
+      <script src="_static/js/toggle.js?v=a5a9aacd"></script>
+    <script src="_static/js/theme.js"></script>
+
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜尋" href="search.html" />
+    <link rel="next" title="合約結構" href="structure-of-a-contract.html" />
+    <link rel="prev" title="安裝 Solidity 編譯器" href="installing-solidity.html" />
+ 
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">基礎知識</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing-solidity.html">安裝 Solidity 編譯器</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Solidity 來源檔的配置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#spdx-license-identifier">SPDX License Identifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pragmas">Pragmas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-pragma">Version Pragma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abi-coder-pragma">ABI Coder Pragma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-pragma">Experimental Pragma</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#abiencoderv2">ABIEncoderV2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smtchecker">SMTChecker</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-other-source-files">Importing other Source Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-and-semantics">Syntax and Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-paths">Import Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">表達式與控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Inline Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">速查表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">語言文法</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using-the-compiler.html">使用編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysing-compilation-output.html">分析編譯器輸出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ir-breaking-changes.html">Solidity IR-based Codegen Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_storage.html">Layout of State Variables in Storage and Transient Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_memory.html">Layout in Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_calldata.html">Layout of Call Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/variable_cleanup.html">Cleaning Up Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/source_mappings.html">Source Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/optimizer.html">The Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Contract Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-spec.html">Contract ABI Specification</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advisory content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">List of Known Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="050-breaking-changes.html">Solidity v0.5.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="060-breaking-changes.html">Solidity v0.6.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="070-breaking-changes.html">Solidity v0.7.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="080-breaking-changes.html">Solidity v0.8.0 重大變更</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="natspec-format.html">NatSpec Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smtchecker.html">SMTChecker and Formal Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yul.html">Yul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="path-resolution.html">Import Path Resolution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language-influences.html">語言的影響</a></li>
+<li class="toctree-l1"><a class="reference internal" href="brand-guide.html">Solidity 品牌名稱</a></li>
+</ul>
+
+    <ul>
+        <li>
+            <a href="genindex.html">關鍵字索引</a>
+        </li>
+    </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Solidity</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Solidity 來源檔的配置</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/layout-of-source-files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="layout-of-a-solidity-source-file">
+<h1>Solidity 來源檔的配置<a class="headerlink" href="#layout-of-a-solidity-source-file" title="連結到這個標頭"></a></h1>
+<p>Source files can contain an arbitrary number of
+<a class="reference internal" href="structure-of-a-contract.html#contract-structure"><span class="std std-ref">contract definitions</span></a>, <a class="reference internal" href="#import">import</a> ,
+<a class="reference internal" href="#pragma"><span class="std std-ref">pragma</span></a> and <a class="reference internal" href="contracts.html#using-for"><span class="std std-ref">using for</span></a> directives and
+<a class="reference internal" href="types.html#structs"><span class="std std-ref">struct</span></a>, <a class="reference internal" href="types.html#enums"><span class="std std-ref">enum</span></a>, <a class="reference internal" href="contracts.html#functions"><span class="std std-ref">function</span></a>, <a class="reference internal" href="contracts.html#errors"><span class="std std-ref">error</span></a>
+and <a class="reference internal" href="contracts.html#constants"><span class="std std-ref">constant variable</span></a> definitions.</p>
+<section id="spdx-license-identifier">
+<span id="index-0"></span><h2>SPDX License Identifier<a class="headerlink" href="#spdx-license-identifier" title="連結到這個標頭"></a></h2>
+<p>Trust in smart contracts can be better established if their source code
+is available. Since making source code available always touches on legal problems
+with regards to copyright, the Solidity compiler encourages the use
+of machine-readable <a class="reference external" href="https://spdx.org">SPDX license identifiers</a>.
+Every source file should start with a comment indicating its license:</p>
+<p><code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">SPDX-License-Identifier:</span> <span class="pre">MIT</span></code></p>
+<p>The compiler does not validate that the license is part of the
+<a class="reference external" href="https://spdx.org/licenses/">list allowed by SPDX</a>, but
+it does include the supplied string in the <a class="reference internal" href="metadata.html#metadata"><span class="std std-ref">bytecode metadata</span></a>.</p>
+<p>If you do not want to specify a license or if the source code is
+not open-source, please use the special value <code class="docutils literal notranslate"><span class="pre">UNLICENSED</span></code>.
+Note that <code class="docutils literal notranslate"><span class="pre">UNLICENSED</span></code> (no usage allowed, not present in SPDX license list)
+is different from <code class="docutils literal notranslate"><span class="pre">UNLICENSE</span></code> (grants all rights to everyone).
+Solidity follows <a class="reference external" href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json#license">the npm recommendation</a>.</p>
+<p>Supplying this comment of course does not free you from other
+obligations related to licensing like having to mention
+a specific license header in each source file or the
+original copyright holder.</p>
+<p>The comment is recognized by the compiler anywhere in the file at the
+file level, but it is recommended to put it at the top of the file.</p>
+<p>More information about how to use SPDX license identifiers
+can be found at the <a class="reference external" href="https://spdx.dev/learn/handling-license-info/#how">SPDX website</a>.</p>
+</section>
+<section id="pragmas">
+<span id="pragma"></span><span id="index-1"></span><h2>Pragmas<a class="headerlink" href="#pragmas" title="連結到這個標頭"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">pragma</span></code> keyword is used to enable certain compiler features
+or checks. A pragma directive is always local to a source file, so
+you have to add the pragma to all your files if you want to enable it
+in your whole project. If you <a class="reference internal" href="#import"><span class="std std-ref">import</span></a> another file, the pragma
+from that file does <em>not</em> automatically apply to the importing file.</p>
+<section id="version-pragma">
+<span id="index-2"></span><span id="id1"></span><h3>Version Pragma<a class="headerlink" href="#version-pragma" title="連結到這個標頭"></a></h3>
+<p>Source files can (and should) be annotated with a version pragma to reject
+compilation with future compiler versions that might introduce incompatible
+changes. We try to keep these to an absolute minimum and
+introduce them in a way that changes in semantics also require changes
+in the syntax, but this is not always possible. Because of this, it is always
+a good idea to read through the changelog at least for releases that contain
+breaking changes. These releases always have versions of the form
+<code class="docutils literal notranslate"><span class="pre">0.x.0</span></code> or <code class="docutils literal notranslate"><span class="pre">x.0.0</span></code>.</p>
+<p>The version pragma is used as follows: <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">solidity</span> <span class="pre">^0.5.2;</span></code></p>
+<p>A source file with the line above does not compile with a compiler earlier than version 0.5.2,
+and it also does not work on a compiler starting from version 0.6.0 (this
+second condition is added by using <code class="docutils literal notranslate"><span class="pre">^</span></code>). Because
+there will be no breaking changes until version <code class="docutils literal notranslate"><span class="pre">0.6.0</span></code>, you can
+be sure that your code compiles the way you intended. The exact version of the
+compiler is not fixed, so that bugfix releases are still possible.</p>
+<p>It is possible to specify more complex rules for the compiler version,
+these follow the same syntax used by <a class="reference external" href="https://docs.npmjs.com/cli/v6/using-npm/semver">npm</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Using the version pragma <em>does not</em> change the version of the compiler.
+It also <em>does not</em> enable or disable features of the compiler. It just
+instructs the compiler to check whether its version matches the one
+required by the pragma. If it does not match, the compiler issues
+an error.</p>
+</div>
+</section>
+<section id="abi-coder-pragma">
+<span id="abi-coder"></span><span id="index-3"></span><h3>ABI Coder Pragma<a class="headerlink" href="#abi-coder-pragma" title="連結到這個標頭"></a></h3>
+<p>By using <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">abicoder</span> <span class="pre">v1</span></code> or <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">abicoder</span> <span class="pre">v2</span></code> you can
+select between the two implementations of the ABI encoder and decoder.</p>
+<p>The new ABI coder (v2) is able to encode and decode arbitrarily nested
+arrays and structs. Apart from supporting more types, it involves more extensive
+validation and safety checks, which may result in higher gas costs, but also heightened
+security.
+It is considered non-experimental as of Solidity 0.6.0 and it is enabled by default starting
+with Solidity 0.8.0. The old ABI coder can still be selected using <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">abicoder</span> <span class="pre">v1;</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The ABI coder v1 is deprecated and scheduled for removal.
+Use ABI coder v2 instead.</p>
+</div>
+<p>The set of types supported by the new encoder is a strict superset of
+the ones supported by the old one. Contracts that use it can interact with ones
+that do not without limitations. The reverse is possible only as long as the
+non-<code class="docutils literal notranslate"><span class="pre">abicoder</span> <span class="pre">v2</span></code> contract does not try to make calls that would require
+decoding types only supported by the new encoder. The compiler can detect this
+and will issue an error. Simply enabling <code class="docutils literal notranslate"><span class="pre">abicoder</span> <span class="pre">v2</span></code> for your contract is
+enough to make the error go away.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>This pragma applies to all the code defined in the file where it is activated,
+regardless of where that code ends up eventually. This means that a contract
+whose source file is selected to compile with ABI coder v1
+can still contain code that uses the new encoder
+by inheriting it from another contract. This is allowed if the new types are only
+used internally and not in external function signatures.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Up to Solidity 0.7.4, it was possible to select the ABI coder v2
+by using <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">experimental</span> <span class="pre">ABIEncoderV2</span></code>, but it was not possible
+to explicitly select coder v1 because it was the default.</p>
+</div>
+</section>
+<section id="experimental-pragma">
+<span id="index-4"></span><span id="id2"></span><h3>Experimental Pragma<a class="headerlink" href="#experimental-pragma" title="連結到這個標頭"></a></h3>
+<p>The second pragma is the experimental pragma. It can be used to enable
+features of the compiler or language that are not yet enabled by default.
+The following experimental pragmas are currently supported:</p>
+<section id="abiencoderv2">
+<span id="index-5"></span><h4>ABIEncoderV2<a class="headerlink" href="#abiencoderv2" title="連結到這個標頭"></a></h4>
+<p>Because the ABI coder v2 is not considered experimental anymore,
+it can be selected via <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">abicoder</span> <span class="pre">v2</span></code> (please see above)
+since Solidity 0.7.4.</p>
+</section>
+<section id="smtchecker">
+<span id="smt-checker"></span><span id="index-6"></span><h4>SMTChecker<a class="headerlink" href="#smtchecker" title="連結到這個標頭"></a></h4>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">experimental</span> <span class="pre">SMTChecker;</span></code>, then you get additional
+<a class="reference internal" href="smtchecker.html#formal-verification"><span class="std std-ref">safety warnings</span></a> which are obtained by querying an
+SMT solver.
+The component does not yet support all features of the Solidity language and
+likely outputs many warnings. In case it reports unsupported features, the
+analysis may not be fully sound.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SMTChecker</span></code> pragma is deprecated and will be removed.
+To enable SMTChecker, simply select <a class="reference internal" href="smtchecker.html#smtchecker-engines"><span class="std std-ref">select an engine</span></a> when invoking the compiler.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="importing-other-source-files">
+<span id="import"></span><span id="index-7"></span><h2>Importing other Source Files<a class="headerlink" href="#importing-other-source-files" title="連結到這個標頭"></a></h2>
+<section id="syntax-and-semantics">
+<h3>Syntax and Semantics<a class="headerlink" href="#syntax-and-semantics" title="連結到這個標頭"></a></h3>
+<p>Solidity supports import statements to help modularise your code that
+are similar to those available in JavaScript
+(from ES6 on). However, Solidity does not support the concept of
+a <a class="reference external" href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#description">default export</a>.</p>
+<p>At a global level, you can use import statements of the following form:</p>
+<p class="remix-link-container"><a class="remix-link reference external" href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.36&amp;code=aW1wb3J0ICJmaWxlbmFtZSI7" target="_blank">open in Remix</a></p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="kt">import</span><span class="w"> </span><span class="s2">&quot;filename&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">filename</span></code> part is called an <em>import path</em>.
+This statement imports all global symbols from &quot;filename&quot; (and symbols imported there) into the
+current global scope (different than in ES6 but backwards-compatible for Solidity).
+This form is not recommended for use, because it unpredictably pollutes the namespace.
+If you add new top-level items inside &quot;filename&quot;, they automatically
+appear in all files that import like this from &quot;filename&quot;. It is better to import specific
+symbols explicitly.</p>
+<p>The following example creates a new global symbol <code class="docutils literal notranslate"><span class="pre">symbolName</span></code> whose members are all
+the global symbols from <code class="docutils literal notranslate"><span class="pre">&quot;filename&quot;</span></code>:</p>
+<p class="remix-link-container"><a class="remix-link reference external" href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.36&amp;code=aW1wb3J0ICogYXMgc3ltYm9sTmFtZSBmcm9tICJmaWxlbmFtZSI7" target="_blank">open in Remix</a></p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="kt">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>as<span class="w"> </span>symbolName<span class="w"> </span>from<span class="w"> </span><span class="s2">&quot;filename&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which results in all global symbols being available in the format <code class="docutils literal notranslate"><span class="pre">symbolName.symbol</span></code>.</p>
+<p>A variant of this syntax that is not part of ES6, but possibly useful is:</p>
+<p class="remix-link-container"><a class="remix-link reference external" href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.36&amp;code=aW1wb3J0ICJmaWxlbmFtZSIgYXMgc3ltYm9sTmFtZTs=" target="_blank">open in Remix</a></p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="kt">import</span><span class="w"> </span><span class="s2">&quot;filename&quot;</span><span class="w"> </span>as<span class="w"> </span>symbolName<span class="p">;</span>
+</pre></div>
+</div>
+<p>which is equivalent to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span> <span class="pre">as</span> <span class="pre">symbolName</span> <span class="pre">from</span> <span class="pre">&quot;filename&quot;;</span></code>.</p>
+<p>If there is a naming collision, you can rename symbols while importing. For example,
+the code below creates new global symbols <code class="docutils literal notranslate"><span class="pre">alias</span></code> and <code class="docutils literal notranslate"><span class="pre">symbol2</span></code> which reference
+<code class="docutils literal notranslate"><span class="pre">symbol1</span></code> and <code class="docutils literal notranslate"><span class="pre">symbol2</span></code> from inside <code class="docutils literal notranslate"><span class="pre">&quot;filename&quot;</span></code>, respectively.</p>
+<p class="remix-link-container"><a class="remix-link reference external" href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.36&amp;code=aW1wb3J0IHtzeW1ib2wxIGFzIGFsaWFzLCBzeW1ib2wyfSBmcm9tICJmaWxlbmFtZSI7" target="_blank">open in Remix</a></p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="kt">import</span><span class="w"> </span><span class="p">{</span>symbol1<span class="w"> </span>as<span class="w"> </span>alias<span class="p">,</span><span class="w"> </span>symbol2<span class="p">}</span><span class="w"> </span>from<span class="w"> </span><span class="s2">&quot;filename&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="import-paths">
+<span id="index-8"></span><h3>Import Paths<a class="headerlink" href="#import-paths" title="連結到這個標頭"></a></h3>
+<p>In order to be able to support reproducible builds on all platforms, the Solidity compiler has to
+abstract away the details of the filesystem where source files are stored.
+For this reason import paths do not refer directly to files in the host filesystem.
+Instead the compiler maintains an internal database (<em>virtual filesystem</em> or <em>VFS</em> for short) where
+each source unit is assigned a unique <em>source unit name</em> which is an opaque and unstructured identifier.
+The import path specified in an import statement is translated into a source unit name and used to
+find the corresponding source unit in this database.</p>
+<p>Using the <a class="reference internal" href="using-the-compiler.html#compiler-api"><span class="std std-ref">Standard JSON</span></a> API it is possible to directly provide the names and
+content of all the source files as a part of the compiler input.
+In this case source unit names are truly arbitrary.
+If, however, you want the compiler to automatically find and load source code into the VFS, your
+source unit names need to be structured in a way that makes it possible for an <a class="reference internal" href="path-resolution.html#import-callback"><span class="std std-ref">import callback</span></a> to locate them.
+When using the command-line compiler the default import callback supports only loading source code
+from the host filesystem, which means that your source unit names must be paths.
+Some environments provide custom callbacks that are more versatile.
+For example the <a class="reference external" href="https://remix.ethereum.org/">Remix IDE</a> provides one that
+lets you <a class="reference external" href="https://remix-ide.readthedocs.io/en/latest/import.html">import files from HTTP, IPFS and Swarm URLs or refer directly to packages in NPM registry</a>.</p>
+<p>For a complete description of the virtual filesystem and the path resolution logic used by the
+compiler see <a class="reference internal" href="path-resolution.html#path-resolution"><span class="std std-ref">Path Resolution</span></a>.</p>
+</section>
+</section>
+<section id="comments">
+<span id="index-9"></span><h2>Comments<a class="headerlink" href="#comments" title="連結到這個標頭"></a></h2>
+<p>Single-line comments (<code class="docutils literal notranslate"><span class="pre">//</span></code>) and multi-line comments (<code class="docutils literal notranslate"><span class="pre">/*...*/</span></code>) are possible.</p>
+<p class="remix-link-container"><a class="remix-link reference external" href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.36&amp;code=Ly8gVGhpcyBpcyBhIHNpbmdsZS1saW5lIGNvbW1lbnQuCgovKgpUaGlzIGlzIGEKbXVsdGktbGluZSBjb21tZW50LgoqLw==" target="_blank">open in Remix</a></p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="c1">// This is a single-line comment.</span>
+
+<span class="cm">/*</span>
+<span class="cm">This is a</span>
+<span class="cm">multi-line comment.</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>A single-line comment is terminated by any unicode line terminator
+(LF, VF, FF, CR, NEL, LS or PS) in UTF-8 encoding. The terminator is still part of
+the source code after the comment, so if it is not an ASCII symbol
+(these are NEL, LS and PS), it will lead to a parser error.</p>
+</div>
+<p>Additionally, there is another type of comment called a NatSpec comment,
+which is detailed in the <a class="reference internal" href="style-guide.html#style-guide-natspec"><span class="std std-ref">style guide</span></a>. They are written with a
+triple slash (<code class="docutils literal notranslate"><span class="pre">///</span></code>) or a double asterisk block (<code class="docutils literal notranslate"><span class="pre">/**</span> <span class="pre">...</span> <span class="pre">*/</span></code>) and
+they should be used directly above function declarations or statements.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installing-solidity.html" class="btn btn-neutral float-left" title="安裝 Solidity 編譯器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="structure-of-a-contract.html" class="btn btn-neutral float-right" title="合約結構" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, The Solidity Authors.</p>
+  </div>
+
+  
+    <p>
+        <a href="credits-and-attribution.html">Credits and attribution</a>.
+    </p>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
