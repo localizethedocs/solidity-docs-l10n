@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-05-11 12:17:52 +0200",
-      "hash" : "1a776c9682267e44e5aefe076afc6487c762bcfb",
-      "title" : "Merge pull request #16687 from argotorg/bump-node-js"
+      "date" : "2026-06-04 13:21:55 +0200",
+      "hash" : "cd88744caaeee881c8990743f86f81f3dcd0adfa",
+      "title" : "Merge pull request #16770 from argotorg/remove-eof-libyul"
     }
   },
   "type" : "branch",
