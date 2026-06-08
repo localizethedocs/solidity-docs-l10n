@@ -1,0 +1,1479 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-11 11:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../using-the-compiler.rst:3
+msgid "Using the Compiler"
+msgstr "使用編譯器"
+
+#: ../../../using-the-compiler.rst:10
+msgid "Using the Commandline Compiler"
+msgstr "使用命令行編譯器"
+
+#: ../../../using-the-compiler.rst:13
+msgid ""
+"This section does not apply to :ref:`solcjs <solcjs>`, not even if it is "
+"used in commandline mode."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:16
+msgid "Basic Usage"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:18
+msgid ""
+"One of the build targets of the Solidity repository is ``solc``, the "
+"Solidity commandline compiler. Using ``solc --help`` provides you with an "
+"explanation of all options. The compiler can produce various outputs, "
+"ranging from simple binaries and assembly over an abstract syntax tree "
+"(parse tree) to estimations of gas usage. If you only want to compile a "
+"single file, you run it as ``solc --bin sourceFile.sol`` and it will print "
+"the binary. If you want to get some of the more advanced output variants of "
+"``solc``, it is probably better to tell it to output everything to separate "
+"files using ``solc -o outputDirectory --bin --ast-compact-json --asm "
+"sourceFile.sol``."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:23
+msgid "Optimizer Options"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:25
+msgid ""
+"Before you deploy your contract, activate the optimizer when compiling using "
+"``solc --optimize --bin sourceFile.sol``. By default, the optimizer will "
+"optimize the contract assuming it is called 200 times across its lifetime "
+"(more specifically, it assumes each opcode is executed around 200 times). If "
+"you want the initial contract deployment to be cheaper and the later "
+"function executions to be more expensive, set it to ``--optimize-runs=1``. "
+"If you expect many transactions and do not care for higher deployment cost "
+"and output size, set ``--optimize-runs`` to a high number. This parameter "
+"has effects on the following (this might change in the future):"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:33
+msgid "the size of the binary search in the function dispatch routine"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:34
+msgid "the way constants like large numbers or strings are stored"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:39
+msgid "Base Path and Import Remapping"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:41
+msgid ""
+"The commandline compiler will automatically read imported files from the "
+"filesystem, but it is also possible to provide :ref:`path redirects <import-"
+"remapping>` using ``prefix=path`` in the following way:"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:44
+msgid "solc github.com/ethereum/dapp-bin/=/usr/local/lib/dapp-bin/ file.sol"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:48
+msgid ""
+"This essentially instructs the compiler to search for anything starting with "
+"``github.com/ethereum/dapp-bin/`` under ``/usr/local/lib/dapp-bin``."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:51
+msgid ""
+"When accessing the filesystem to search for imports, :ref:`paths that do not "
+"start with ./ or ../ <direct-imports>` are treated as relative to the "
+"directories specified using ``--base-path`` and ``--include-path`` options "
+"(or the current working directory if base path is not specified). "
+"Furthermore, the part of the path added via these options will not appear in "
+"the contract metadata."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:56
+msgid ""
+"For security reasons the compiler has :ref:`restrictions on what directories "
+"it can access <allowed-paths>`. Directories of source files specified on the "
+"command-line and target paths of remappings are automatically allowed to be "
+"accessed by the file reader, but everything else is rejected by default. "
+"Additional paths (and their subdirectories) can be allowed via the ``--allow-"
+"paths /sample/path,/another/sample/path`` switch. Everything inside the path "
+"specified via ``--base-path`` is always allowed."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:64
+msgid ""
+"The above is only a simplification of how the compiler handles import paths. "
+"For a detailed explanation with examples and discussion of corner cases "
+"please refer to the section on :ref:`path resolution <path-resolution>`."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:72
+msgid "Library Linking"
+msgstr "程式庫連結"
+
+#: ../../../using-the-compiler.rst:74
+msgid ""
+"If your contracts use :ref:`libraries <libraries>`, you will notice that the "
+"bytecode contains substrings of the form "
+"``__$53aea86b7d70b31448b230b20ae141a537$__`` `(format was different <v0.5.0) "
+"<https://docs.soliditylang.org/en/v0.4.26/contracts.html#libraries>`_. These "
+"are placeholders for the actual library addresses. The placeholder is a 34 "
+"character prefix of the hex encoding of the keccak256 hash of the fully "
+"qualified library name. The bytecode file will also contain lines of the "
+"form ``// <placeholder> -> <fq library name>`` at the end to help identify "
+"which libraries the placeholders represent. Note that the fully qualified "
+"library name is the path of its source file and the library name separated "
+"by ``:``. You can use ``solc`` as a linker meaning that it will insert the "
+"library addresses for you at those points:"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:81
+msgid ""
+"Either add ``--libraries \"file.sol:"
+"Math=0x1234567890123456789012345678901234567890 file.sol:"
+"Heap=0xabCD567890123456789012345678901234567890\"`` to your command to "
+"provide an address for each library (use commas or spaces as separators) or "
+"store the string in a file (one library per line) and run ``solc`` using ``--"
+"libraries fileName``."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:84
+msgid ""
+"Starting Solidity 0.8.1 accepts ``=`` as separator between library and "
+"address, and ``:`` as a separator is deprecated. It will be removed in the "
+"future. Currently ``--libraries \"file.sol:"
+"Math:0x1234567890123456789012345678901234567890 file.sol:"
+"Heap:0xabCD567890123456789012345678901234567890\"`` will work too."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:88
+msgid ""
+"If ``solc`` is called with the option ``--standard-json``, it will expect a "
+"JSON input (as explained below) on the standard input, and return a JSON "
+"output on the standard output. This is the recommended interface for more "
+"complex and especially automated uses. The process will always terminate in "
+"a \"success\" state and report any errors via the JSON output. The option "
+"``--base-path`` is also processed in standard-json mode."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:91
+msgid ""
+"If ``solc`` is called with the option ``--link``, all input files are "
+"interpreted to be unlinked binaries (hex-encoded) in the "
+"``__$53aea86b7d70b31448b230b20ae141a537$__``-format given above and are "
+"linked in-place (if the input is read from stdin, it is written to stdout). "
+"All options except ``--libraries`` are ignored (including ``-o``) in this "
+"case."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:94
+msgid ""
+"Manually linking libraries on the generated bytecode is discouraged because "
+"it does not update contract metadata. Since metadata contains a list of "
+"libraries specified at the time of compilation and bytecode contains a "
+"metadata hash, you will get different binaries, depending on when linking is "
+"performed."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:99
+msgid ""
+"You should ask the compiler to link the libraries at the time a contract is "
+"compiled by either using the ``--libraries`` option of ``solc`` or the "
+"``libraries`` key if you use the standard-JSON interface to the compiler."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:104
+msgid ""
+"The library placeholder used to be the fully qualified name of the library "
+"itself instead of the hash of it. This format is still supported by ``solc --"
+"link`` but the compiler will no longer output it. This change was made to "
+"reduce the likelihood of a collision between libraries, since only the first "
+"36 characters of the fully qualified library name could be used."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:114
+msgid "Setting the EVM Version to Target"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:116
+msgid ""
+"When you compile your contract code you can specify the Ethereum virtual "
+"machine version to compile for to avoid particular features or behaviors."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:121
+msgid ""
+"Compiling for the wrong EVM version can result in wrong, strange and failing "
+"behavior. Please ensure, especially if running a private chain, that you use "
+"matching EVM versions."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:125
+msgid "On the command-line, you can select the EVM version as follows:"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:127
+msgid "solc --evm-version <VERSION> contract.sol"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:131
+msgid ""
+"In the :ref:`standard JSON interface <compiler-api>`, use the "
+"``\"evmVersion\"`` key in the ``\"settings\"`` field:"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:134
+msgid ""
+"{\n"
+"  \"sources\": {/* ... */},\n"
+"  \"settings\": {\n"
+"    \"optimizer\": {/* ... */},\n"
+"    \"evmVersion\": \"<VERSION>\"\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:145
+msgid "Target Options"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:147
+msgid ""
+"Below is a list of target EVM versions and the compiler-relevant changes "
+"introduced at each version. Backward compatibility is not guaranteed between "
+"each version."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:150
+msgid "``homestead`` (*support deprecated*)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:151
+msgid "(oldest version)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:152
+msgid "``tangerineWhistle`` (*support deprecated*)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:153
+msgid ""
+"Gas cost for access to other accounts increased, relevant for gas estimation "
+"and the optimizer."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:154
+msgid ""
+"All gas sent by default for external calls, previously a certain amount had "
+"to be retained."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:155
+msgid "``spuriousDragon`` (*support deprecated*)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:156
+msgid ""
+"Gas cost for the ``exp`` opcode increased, relevant for gas estimation and "
+"the optimizer."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:157
+msgid "``byzantium`` (*support deprecated*)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:158
+msgid ""
+"Opcodes ``returndatacopy``, ``returndatasize`` and ``staticcall`` are "
+"available in assembly."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:159
+msgid ""
+"The ``staticcall`` opcode is used when calling non-library view or pure "
+"functions, which prevents the functions from modifying state at the EVM "
+"level, i.e., even applies when you use invalid type conversions."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:160
+msgid "It is possible to access dynamic data returned from function calls."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:161
+msgid ""
+"``revert`` opcode introduced, which means that ``revert()`` will not waste "
+"gas."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:162
+msgid "``constantinople``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:163
+msgid ""
+"Opcodes ``create2``, ``extcodehash``, ``shl``, ``shr`` and ``sar`` are "
+"available in assembly."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:164
+msgid "Shifting operators use shifting opcodes and thus need less gas."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:165
+msgid "``petersburg``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:166
+msgid "The compiler behaves the same way as with constantinople."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:167
+msgid "``istanbul``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:168
+msgid "Opcodes ``chainid`` and ``selfbalance`` are available in assembly."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:169
+msgid "``berlin``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:170
+msgid ""
+"Gas costs for ``SLOAD``, ``*CALL``, ``BALANCE``, ``EXT*`` and "
+"``SELFDESTRUCT`` increased. The compiler assumes cold gas costs for such "
+"operations. This is relevant for gas estimation and the optimizer."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:173
+msgid "``london``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:174
+msgid ""
+"The block's base fee (`EIP-3198 <https://eips.ethereum.org/EIPS/eip-3198>`_ "
+"and `EIP-1559 <https://eips.ethereum.org/EIPS/eip-1559>`_) can be accessed "
+"via the global ``block.basefee`` or ``basefee()`` in inline assembly."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:175
+msgid "``paris``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:176
+msgid ""
+"Introduces ``prevrandao()`` and ``block.prevrandao``, and changes the "
+"semantics of the now deprecated ``block.difficulty``, disallowing "
+"``difficulty()`` in inline assembly (see `EIP-4399 <https://eips.ethereum."
+"org/EIPS/eip-4399>`_)."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:177
+msgid "``shanghai``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:178
+msgid ""
+"Smaller code size and gas savings due to the introduction of ``push0`` (see "
+"`EIP-3855 <https://eips.ethereum.org/EIPS/eip-3855>`_)."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:179
+msgid "``cancun``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:180
+msgid ""
+"The block's blob base fee (`EIP-7516 <https://eips.ethereum.org/EIPS/"
+"eip-7516>`_ and `EIP-4844 <https://eips.ethereum.org/EIPS/eip-4844>`_) can "
+"be accessed via the global ``block.blobbasefee`` or ``blobbasefee()`` in "
+"inline assembly."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:181
+msgid ""
+"Introduces ``blobhash()`` in inline assembly and a corresponding global "
+"function to retrieve versioned hashes of blobs associated with the "
+"transaction (see `EIP-4844 <https://eips.ethereum.org/EIPS/eip-4844>`_)."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:182
+msgid ""
+"Opcode ``mcopy`` is available in assembly (see `EIP-5656 <https://eips."
+"ethereum.org/EIPS/eip-5656>`_)."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:183
+msgid ""
+"Opcodes ``tstore`` and ``tload`` are available in assembly (see `EIP-1153 "
+"<https://eips.ethereum.org/EIPS/eip-1153>`_)."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:184
+msgid "``prague``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:185
+msgid "``osaka`` (**default**)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:186
+msgid ""
+"``clz`` builtin function is available in inline assembly. (`EIP-7939 "
+"<https://eips.ethereum.org/EIPS/eip-7939>`_)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:192
+msgid "Compiler Input and Output JSON Description"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:194
+msgid ""
+"The recommended way to interface with the Solidity compiler especially for "
+"more complex and automated setups is the so-called JSON-input-output "
+"interface. The same interface is provided by all distributions of the "
+"compiler."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:198
+msgid ""
+"The fields are generally subject to change, some are optional (as noted), "
+"but we try to only make backwards compatible changes."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:201
+msgid ""
+"The compiler API expects a JSON formatted input and outputs the compilation "
+"result in a JSON formatted output. The standard error output is not used and "
+"the process will always terminate in a \"success\" state, even if there were "
+"errors. Errors are always reported as part of the JSON output."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:205
+msgid ""
+"The following subsections describe the format through an example. Comments "
+"are of course not permitted and used here only for explanatory purposes."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:209
+msgid "Input Description"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:211
+msgid ""
+"{\n"
+"  // Required: Source code language. Currently supported are \"Solidity\", "
+"\"Yul\", \"SolidityAST\" (experimental), \"EVMAssembly\" (experimental).\n"
+"  \"language\": \"Solidity\",\n"
+"  // Required\n"
+"  \"sources\":\n"
+"  {\n"
+"    // The keys here are the \"global\" names of the source files,\n"
+"    // imports can use other files via remappings (see below).\n"
+"    \"myFile.sol\":\n"
+"    {\n"
+"      // Optional: keccak256 hash of the source file\n"
+"      // It is used to verify the retrieved content if imported via URLs.\n"
+"      \"keccak256\": \"0x123...\",\n"
+"      // Required (unless \"content\" is used, see below): URL(s) to the "
+"source file.\n"
+"      // URL(s) should be imported in this order and the result checked "
+"against the\n"
+"      // keccak256 hash (if available). If the hash doesn't match or none of "
+"the\n"
+"      // URL(s) result in success, an error should be raised.\n"
+"      // Using the commandline interface only filesystem paths are "
+"supported.\n"
+"      // With the JavaScript interface the URL will be passed to the user-"
+"supplied\n"
+"      // read callback, so any URL supported by the callback can be used.\n"
+"      \"urls\":\n"
+"      [\n"
+"        \"bzzr://56ab...\",\n"
+"        \"ipfs://Qma...\",\n"
+"        \"/tmp/path/to/file.sol\"\n"
+"        // If files are used, their directories should be added to the "
+"command-line via\n"
+"        // `--allow-paths <path>`.\n"
+"      ]\n"
+"    },\n"
+"    \"settable\":\n"
+"    {\n"
+"      // Optional: keccak256 hash of the source file\n"
+"      \"keccak256\": \"0x234...\",\n"
+"      // Required (unless \"urls\" is used): literal contents of the source "
+"file\n"
+"      \"content\": \"contract settable is owned { uint256 private x = 0; "
+"function set(uint256 _x) public { if (msg.sender == owner) x = _x; } }\"\n"
+"    },\n"
+"    \"myFile.sol_json.ast\":\n"
+"    {\n"
+"      // If language is set to \"SolidityAST\", an AST needs to be supplied "
+"under the \"ast\" key\n"
+"      // and there can be only one source file present.\n"
+"      // The format is the same as used by the `ast` output.\n"
+"      // Note that importing ASTs is experimental and in particular that:\n"
+"      // - importing invalid ASTs can produce undefined results and\n"
+"      // - no proper error reporting is available on invalid ASTs.\n"
+"      // Furthermore, note that the AST import only consumes the fields of "
+"the AST as\n"
+"      // produced by the compiler in \"stopAfter\": \"parsing\" mode and "
+"then re-performs\n"
+"      // analysis, so any analysis-based annotations of the AST are ignored "
+"upon import.\n"
+"      \"ast\": { ... }\n"
+"    },\n"
+"    \"myFile_evm.json\":\n"
+"    {\n"
+"      // If language is set to \"EVMAssembly\", an EVM Assembly JSON object "
+"needs to be supplied\n"
+"      // under the \"assemblyJson\" key and there can be only one source "
+"file present.\n"
+"      // The format is the same as used by the `evm.legacyAssembly` output "
+"or `--asm-json`\n"
+"      // output on the command line.\n"
+"      // Note that importing EVM assembly is experimental.\n"
+"      \"assemblyJson\":\n"
+"      {\n"
+"        \".code\": [ ... ],\n"
+"        \".data\": { ... }, // optional\n"
+"        \"sourceList\": [ ... ] // optional (if no `source` node was defined "
+"in any `.code` object)\n"
+"      }\n"
+"    }\n"
+"  },\n"
+"  // Optional\n"
+"  \"settings\":\n"
+"  {\n"
+"    // Optional: Stop compilation after the given stage. Currently only "
+"\"parsing\" is valid here\n"
+"    \"stopAfter\": \"parsing\",\n"
+"    // Optional: List of remappings\n"
+"    \"remappings\": [ \":g=/dir\" ],\n"
+"    // Optional: Experimental mode toggle (Default: false)\n"
+"    // Makes it possible to use experimental features (but does not enable "
+"any such feature by itself).\n"
+"    // The use of this mode is recorded in contract metadata.\n"
+"    \"experimental\": true,\n"
+"    // Optional: Optimizer settings\n"
+"    \"optimizer\": {\n"
+"      // Turn on the optimizer. Optional. Default: false.\n"
+"      // NOTE: The state of the optimizer is fully determined by the "
+"'details' dict and this setting\n"
+"      // only affects its defaults - when enabled, all components default to "
+"being enabled.\n"
+"      // The opposite is not true - there are several components that always "
+"default to being\n"
+"      // enabled an can only be explicitly disabled via 'details'.\n"
+"      // WARNING: Before version 0.8.6 omitting this setting was not "
+"equivalent to setting\n"
+"      // it to false and would result in all components being disabled "
+"instead.\n"
+"      // WARNING: Enabling optimizations for EVMAssembly input is allowed "
+"but not necessary under normal\n"
+"      // circumstances. It forces the opcode-based optimizer to run again "
+"and can produce bytecode that\n"
+"      // is not reproducible from metadata.\n"
+"      \"enabled\": true,\n"
+"      // Optimize for how many times you intend to run the code. Optional. "
+"Default: 200.\n"
+"      // Lower values will optimize more for initial deployment cost, "
+"higher\n"
+"      // values will optimize more for high-frequency usage.\n"
+"      \"runs\": 200,\n"
+"      // State of all optimizer components. Optional.\n"
+"      // Default values are determined by whether the optimizer is enabled "
+"or not.\n"
+"      // Note that the 'enabled' setting only affects the defaults here and "
+"has no effect when\n"
+"      // all values are provided explicitly.\n"
+"      \"details\": {\n"
+"        // Peephole optimizer (opcode-based). Optional. Default: true.\n"
+"        // Default for EVMAssembly input: false when optimization is not "
+"enabled.\n"
+"        // NOTE: Always runs (even with optimization disabled) except for "
+"EVMAssembly input or when explicitly turned off here.\n"
+"        \"peephole\": true,\n"
+"        // Inliner (opcode-based). Optional. Default: true when optimization "
+"is enabled.\n"
+"        \"inliner\": false,\n"
+"        // Unused JUMPDEST remover (opcode-based). Optional. Default: true.\n"
+"        // Default for EVMAssembly input: false when optimization is not "
+"enabled.\n"
+"        // NOTE: Always runs (even with optimization disabled) except for "
+"EVMAssembly input or when explicitly turned off here.\n"
+"        \"jumpdestRemover\": true,\n"
+"        // Literal reordering (codegen-based). Optional. Default: true when "
+"optimization is enabled.\n"
+"        // Moves literals to the right of commutative binary operators "
+"during code generation, helping exploit associativity.\n"
+"        \"orderLiterals\": false,\n"
+"        // Block deduplicator (opcode-based). Optional. Default: true when "
+"optimization is enabled.\n"
+"        // Unifies assembly code blocks that share content.\n"
+"        \"deduplicate\": false,\n"
+"        // Common subexpression elimination (opcode-based). Optional. "
+"Default: true when optimization is enabled.\n"
+"        // This is the most complicated step but can also provide the "
+"largest gain.\n"
+"        \"cse\": false,\n"
+"        // Constant optimizer (opcode-based). Optional. Default: true when "
+"optimization is enabled.\n"
+"        // Tries to find better representations of literal numbers and "
+"strings, that satisfy the\n"
+"        // size/cost trade-off determined by the 'runs' setting.\n"
+"        \"constantOptimizer\": false,\n"
+"        // Unchecked loop increment (codegen-based). Optional. Default: "
+"true.\n"
+"        // Use unchecked arithmetic when incrementing the counter of 'for' "
+"loops under certain circumstances.\n"
+"        // NOTE: Always runs (even with optimization disabled) unless "
+"explicitly turned off here.\n"
+"        \"simpleCounterForLoopUncheckedIncrement\": true,\n"
+"        // Yul optimizer. Optional. Default: true when optimization is "
+"enabled.\n"
+"        // Used to optimize the IR produced by the Yul IR-based pipeline as "
+"well as inline assembly\n"
+"        // and utility Yul code generated by the compiler.\n"
+"        // NOTE: Before Solidity 0.6.0 the default was false.\n"
+"        \"yul\": false,\n"
+"        // Tuning options for the Yul optimizer. Optional.\n"
+"        \"yulDetails\": {\n"
+"          // Improve allocation of stack slots for variables, can free up "
+"stack slots early.\n"
+"          // Optional. Default: true if Yul optimizer is enabled.\n"
+"          \"stackAllocation\": true,\n"
+"          // Optimization step sequence.\n"
+"          // The general form of the value is \"<main sequence>:<cleanup "
+"sequence>\".\n"
+"          // The setting is optional and when omitted, default values are "
+"used for both sequences.\n"
+"          // If the value does not contain the ':' delimiter, it is "
+"interpreted as the main\n"
+"          // sequence and the default is used for the cleanup sequence.\n"
+"          // To make one of the sequences empty, the delimiter must be "
+"present at the first or last position.\n"
+"          // In particular if the whole value consists only of the "
+"delimiter, both sequences are empty.\n"
+"          // Note that there are several hard-coded steps that always run, "
+"even when both sequences are empty.\n"
+"          // For more information see \"The Optimizer > Selecting "
+"Optimizations\".\n"
+"          \"optimizerSteps\": \"dfDvulfnTUtnIf...\"\n"
+"        }\n"
+"      }\n"
+"    },\n"
+"    // Version of the EVM to compile for (optional).\n"
+"    // Affects type checking and code generation. Can be homestead,\n"
+"    // tangerineWhistle, spuriousDragon, byzantium, constantinople,\n"
+"    // petersburg, istanbul, berlin, london, paris, shanghai, cancun,\n"
+"    // prague, osaka (default), or @future (experimental).\n"
+"    \"evmVersion\": \"osaka\",\n"
+"    // EVM Object Format version to compile for (optional, experimental).\n"
+"    // Currently the only valid value is 1. If not specified, legacy non-EOF "
+"bytecode will be generated.\n"
+"    // Requires `evmVersion` >= osaka.\n"
+"    \"eofVersion\": null,\n"
+"    // Optional: Change compilation pipeline to go through the Yul "
+"intermediate representation.\n"
+"    // This is false by default.\n"
+"    \"viaIR\": true,\n"
+"    // Optional: Turn on SSA CFG-based code generation via the IR "
+"(experimental).\n"
+"    // Implies viaIR: true. This is false by default.\n"
+"    \"viaSSACFG\": false,\n"
+"    // Optional: Debugging settings\n"
+"    \"debug\": {\n"
+"      // How to treat revert (and require) reason strings. Settings are\n"
+"      // \"default\", \"strip\", \"debug\" and \"verboseDebug\".\n"
+"      // \"default\" does not inject compiler-generated revert strings and "
+"keeps user-supplied ones.\n"
+"      // \"strip\" removes all revert strings (if possible, i.e. if literals "
+"are used) keeping side-effects.\n"
+"      // NOTE: \"strip\" does not remove custom errors.\n"
+"      // \"debug\" injects strings for compiler-generated internal reverts, "
+"implemented for ABI encoders V1 and V2 for now.\n"
+"      // \"verboseDebug\" even appends further information to user-supplied "
+"revert strings (not yet implemented)\n"
+"      \"revertStrings\": \"default\",\n"
+"      // Optional: How much extra debug information to include in comments "
+"in the produced EVM\n"
+"      // assembly and Yul code. Available components are:\n"
+"      // - `location`: Annotations of the form `@src <index>:<start>:<end>` "
+"indicating the\n"
+"      //    location of the corresponding element in the original Solidity "
+"file, where:\n"
+"      //     - `<index>` is the file index matching the `@use-src` "
+"annotation,\n"
+"      //     - `<start>` is the index of the first byte at that location,\n"
+"      //     - `<end>` is the index of the first byte after that location.\n"
+"      // - `snippet`: A single-line code snippet from the location indicated "
+"by `@src`.\n"
+"      //     The snippet is quoted and follows the corresponding `@src` "
+"annotation.\n"
+"      // - `ast-id`: Annotations of the form `@ast-id <id>` over elements "
+"that can be mapped back to a definition in the original Solidity file.\n"
+"      //   `<id>` is a node ID in the Solidity AST ('ast' output).\n"
+"      // - `ethdebug`: Ethdebug annotations (experimental). Automatically "
+"enabled when any ethdebug output is requested.\n"
+"      // - `*`: Wildcard value that can be used to request all non-"
+"experimental components.\n"
+"      \"debugInfo\": [\"location\", \"snippet\", \"ast-id\", \"ethdebug\"]\n"
+"    },\n"
+"    // Metadata settings (optional)\n"
+"    \"metadata\": {\n"
+"      // The CBOR metadata is appended at the end of the bytecode by "
+"default.\n"
+"      // Setting this to false omits the metadata from the runtime and "
+"deploy time code.\n"
+"      \"appendCBOR\": true,\n"
+"      // Use only literal content and not URLs (false by default)\n"
+"      \"useLiteralContent\": true,\n"
+"      // Use the given hash method for the metadata hash that is appended to "
+"the bytecode.\n"
+"      // The metadata hash can be removed from the bytecode via option "
+"\"none\".\n"
+"      // The other options are \"ipfs\" and \"bzzr1\".\n"
+"      // If the option is omitted, \"ipfs\" is used by default.\n"
+"      \"bytecodeHash\": \"ipfs\"\n"
+"    },\n"
+"    // Addresses of the libraries. If not all libraries are given here,\n"
+"    // it can result in unlinked objects whose output data is different.\n"
+"    \"libraries\": {\n"
+"      // The top level key is the name of the source file where the library "
+"is used.\n"
+"      // If remappings are used, this source file should match the global "
+"path\n"
+"      // after remappings were applied.\n"
+"      // If this key is an empty string, that refers to a global level.\n"
+"      \"myFile.sol\": {\n"
+"        \"MyLib\": \"0x123123...\"\n"
+"      }\n"
+"    },\n"
+"    // The following can be used to select desired outputs based\n"
+"    // on file and contract names.\n"
+"    // If this field is omitted, then the compiler loads and does type "
+"checking,\n"
+"    // but will not generate any outputs apart from errors.\n"
+"    // The first level key is the file name and the second level key is the "
+"contract name.\n"
+"    // An empty contract name is used for outputs that are not tied to a "
+"contract\n"
+"    // but to the whole source file like the AST.\n"
+"    // A star as contract name refers to all contracts in the file.\n"
+"    // Similarly, a star as a file name matches all files.\n"
+"    // To select all outputs the compiler can possibly generate, with the "
+"exclusion of\n"
+"    // Yul intermediate representation outputs, use\n"
+"    // \"outputSelection: { \"*\": { \"*\": [ \"*\" ], \"\": "
+"[ \"*\" ] } }\"\n"
+"    // but note that this might slow down the compilation process "
+"needlessly.\n"
+"    //\n"
+"    // The available output types are as follows:\n"
+"    //\n"
+"    // File level (needs empty string as contract name):\n"
+"    //   ast - AST of all source files\n"
+"    //\n"
+"    // Contract level (needs the contract name or \"*\"):\n"
+"    //   abi - ABI\n"
+"    //   devdoc - Developer documentation (natspec)\n"
+"    //   userdoc - User documentation (natspec)\n"
+"    //   metadata - Metadata\n"
+"    //   ir - Yul intermediate representation of the code before "
+"optimization\n"
+"    //   irAst - AST of Yul intermediate representation of the code before "
+"optimization (experimental)\n"
+"    //   irOptimized - Intermediate representation after optimization\n"
+"    //   irOptimizedAst - AST of intermediate representation after "
+"optimization (experimental)\n"
+"    //   storageLayout - Slots, offsets and types of the contract's state "
+"variables in storage\n"
+"    //   transientStorageLayout - Slots, offsets and types of the contract's "
+"state variables in transient storage\n"
+"    //   evm.assembly - New assembly format\n"
+"    //   evm.legacyAssembly - Old-style assembly format in JSON\n"
+"    //   evm.bytecode.ethdebug - Debug information in ethdebug format "
+"(ethdebug/format/program schema for creation bytecode). Can only be "
+"requested when compiling via IR. (experimental)\n"
+"    //   evm.deployedBytecode.ethdebug - Debug information in ethdebug "
+"format (ethdebug/format/program schema for deployed bytecode). Can only be "
+"requested when compiling via IR. (experimental)\n"
+"    //   evm.bytecode.functionDebugData - Debugging information at function "
+"level\n"
+"    //   evm.bytecode.object - Bytecode object\n"
+"    //   evm.bytecode.opcodes - Opcodes list\n"
+"    //   evm.bytecode.sourceMap - Source mapping (useful for debugging)\n"
+"    //   evm.bytecode.linkReferences - Link references (if unlinked object)\n"
+"    //   evm.bytecode.generatedSources - Sources generated by the compiler\n"
+"    //   evm.deployedBytecode* - Deployed bytecode (has all the options that "
+"evm.bytecode has)\n"
+"    //   evm.deployedBytecode.immutableReferences - Map from AST ids to "
+"bytecode ranges that reference immutables\n"
+"    //   evm.methodIdentifiers - The list of function hashes\n"
+"    //   evm.gasEstimates - Function gas estimates\n"
+"    //   yulCFGJson - Control Flow Graph (CFG) of the Single Static "
+"Assignment (SSA) form of the contract (experimental)\n"
+"    //\n"
+"    // Global level (needs \"*\" as file name and \"*\" as contract name):\n"
+"    //   ethdebug.resources - Global ethdebug output (ethdebug/format/info/"
+"resources schema) containing source list and compiler info (experimental)\n"
+"    //   ethdebug.compilation - Global ethdebug compilation output (the "
+"'compilation' key from ethdebug/format/info/resources schema) "
+"(experimental)\n"
+"    //\n"
+"    // Note that using `evm`, `evm.bytecode`, etc. will select every\n"
+"    // target part of that output. Additionally, `*` can be used as a "
+"wildcard to request everything.\n"
+"    //\n"
+"    \"outputSelection\": {\n"
+"      \"*\": {\n"
+"        \"*\": [\n"
+"          \"metadata\", \"evm.bytecode\" // Enable the metadata and bytecode "
+"outputs of every single contract.\n"
+"          , \"evm.bytecode.sourceMap\" // Enable the source map output of "
+"every single contract.\n"
+"        ],\n"
+"        \"\": [\n"
+"          \"ast\" // Enable the AST output of every single file.\n"
+"        ]\n"
+"      },\n"
+"      // Enable the abi and opcodes output of MyContract defined in file "
+"def.\n"
+"      \"def\": {\n"
+"        \"MyContract\": [ \"abi\", \"evm.bytecode.opcodes\" ]\n"
+"      }\n"
+"    },\n"
+"    // The modelChecker object is experimental and subject to changes.\n"
+"    \"modelChecker\":\n"
+"    {\n"
+"      // Chose which contracts should be analyzed as the deployed one.\n"
+"      \"contracts\":\n"
+"      {\n"
+"        \"source1.sol\": [\"contract1\"],\n"
+"        \"source2.sol\": [\"contract2\", \"contract3\"]\n"
+"      },\n"
+"      // Choose how division and modulo operations should be encoded.\n"
+"      // When using `false` they are replaced by multiplication with slack\n"
+"      // variables. This is the default.\n"
+"      // Using `true` here is recommended if you are using the CHC engine\n"
+"      // and not using Spacer as the Horn solver (using Eldarica, for "
+"example).\n"
+"      // See the Formal Verification section for a more detailed explanation "
+"of this option.\n"
+"      \"divModNoSlacks\": false,\n"
+"      // Choose which model checker engine to use: all (default), bmc, chc, "
+"none.\n"
+"      \"engine\": \"chc\",\n"
+"      // Choose whether external calls should be considered trusted in case "
+"the\n"
+"      // code of the called function is available at compile-time.\n"
+"      // For details see the SMTChecker section.\n"
+"      \"extCalls\": \"trusted\",\n"
+"      // Choose which types of invariants should be reported to the user: "
+"contract, reentrancy.\n"
+"      \"invariants\": [\"contract\", \"reentrancy\"],\n"
+"      // Choose whether to output all proved targets. The default is "
+"`false`.\n"
+"      \"showProvedSafe\": true,\n"
+"      // Choose whether to output all unproved targets. The default is "
+"`false`.\n"
+"      \"showUnproved\": true,\n"
+"      // Choose whether to output all unsupported language features. The "
+"default is `false`.\n"
+"      \"showUnsupported\": true,\n"
+"      // Choose which solvers should be used, if available.\n"
+"      // See the Formal Verification section for the solvers description.\n"
+"      \"solvers\": [\"cvc5\", \"smtlib2\", \"z3\"],\n"
+"      // Choose which targets should be checked: constantCondition,\n"
+"      // underflow, overflow, divByZero, balance, assert, popEmptyArray, "
+"outOfBounds.\n"
+"      // If the option is not given all targets are checked by default,\n"
+"      // except underflow/overflow for Solidity >=0.8.7.\n"
+"      // See the Formal Verification section for the targets description.\n"
+"      \"targets\": [\"underflow\", \"overflow\", \"assert\"],\n"
+"      // Timeout for each SMT query in milliseconds.\n"
+"      // If this option is not given, the SMTChecker will use a "
+"deterministic\n"
+"      // resource limit by default.\n"
+"      // A given timeout of 0 means no resource/time restrictions for any "
+"query.\n"
+"      \"timeout\": 20000\n"
+"    }\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:543
+msgid "Output Description"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:545
+msgid ""
+"{\n"
+"  // Optional: not present if no errors/warnings/infos were encountered\n"
+"  \"errors\": [\n"
+"    {\n"
+"      // Optional: Location within the source file.\n"
+"      \"sourceLocation\": {\n"
+"        \"file\": \"sourceFile.sol\",\n"
+"        \"start\": 0,\n"
+"        \"end\": 100\n"
+"      },\n"
+"      // Optional: Further locations (e.g. places of conflicting "
+"declarations)\n"
+"      \"secondarySourceLocations\": [\n"
+"        {\n"
+"          \"file\": \"sourceFile.sol\",\n"
+"          \"start\": 64,\n"
+"          \"end\": 92,\n"
+"          \"message\": \"Other declaration is here:\"\n"
+"        }\n"
+"      ],\n"
+"      // Mandatory: Error type, such as \"TypeError\", "
+"\"InternalCompilerError\", \"Exception\", etc.\n"
+"      // See below for complete list of types.\n"
+"      \"type\": \"TypeError\",\n"
+"      // Mandatory: Component where the error originated, such as "
+"\"general\" etc.\n"
+"      \"component\": \"general\",\n"
+"      // Mandatory (\"error\", \"warning\" or \"info\", but please note that "
+"this may be extended in the future)\n"
+"      \"severity\": \"error\",\n"
+"      // Optional: unique code for the cause of the error\n"
+"      \"errorCode\": \"3141\",\n"
+"      // Mandatory\n"
+"      \"message\": \"Invalid keyword\",\n"
+"      // Optional: the message formatted with source location\n"
+"      \"formattedMessage\": \"sourceFile.sol:100: Invalid keyword\"\n"
+"    }\n"
+"  ],\n"
+"  // This contains the file-level outputs.\n"
+"  // It can be limited/filtered by the outputSelection settings.\n"
+"  \"sources\": {\n"
+"    \"sourceFile.sol\": {\n"
+"      // Identifier of the source (used in source maps)\n"
+"      \"id\": 1,\n"
+"      // The AST object\n"
+"      \"ast\": {}\n"
+"    }\n"
+"  },\n"
+"  // This contains the contract-level outputs.\n"
+"  // It can be limited/filtered by the outputSelection settings.\n"
+"  \"contracts\": {\n"
+"    \"sourceFile.sol\": {\n"
+"      // If the language used has no contract names, this field should equal "
+"to an empty string.\n"
+"      \"ContractName\": {\n"
+"        // The Ethereum Contract ABI. If empty, it is represented as an "
+"empty array.\n"
+"        // See https://docs.soliditylang.org/en/develop/abi-spec.html\n"
+"        \"abi\": [],\n"
+"        // See the Metadata Output documentation (serialised JSON string)\n"
+"        \"metadata\": \"{/* ... */}\",\n"
+"        // User documentation (natspec)\n"
+"        \"userdoc\": {},\n"
+"        // Developer documentation (natspec)\n"
+"        \"devdoc\": {},\n"
+"        // Intermediate representation before optimization (string)\n"
+"        \"ir\": \"\",\n"
+"        // AST of intermediate representation before optimization\n"
+"        \"irAst\":  {/* ... */},\n"
+"        // Intermediate representation after optimization (string)\n"
+"        \"irOptimized\": \"\",\n"
+"        // AST of intermediate representation after optimization\n"
+"        \"irOptimizedAst\": {/* ... */},\n"
+"        // See the Storage Layout documentation.\n"
+"        \"storageLayout\": {\"storage\": [/* ... */], \"types\": {/* ... "
+"*/} },\n"
+"        // See the Storage Layout documentation.\n"
+"        \"transientStorageLayout\": {\"storage\": [/* ... */], \"types\": {/"
+"* ... */} },\n"
+"        // EVM-related outputs\n"
+"        \"evm\": {\n"
+"          // Assembly (string)\n"
+"          \"assembly\": \"\",\n"
+"          // Old-style assembly (object)\n"
+"          \"legacyAssembly\": {},\n"
+"          // Bytecode and related details.\n"
+"          \"bytecode\": {\n"
+"            // Ethdebug output (experimental)\n"
+"            \"ethdebug\": {/* ... */},\n"
+"            // Debugging data at the level of functions.\n"
+"            \"functionDebugData\": {\n"
+"              // Now follows a set of functions including compiler-internal "
+"and\n"
+"              // user-defined function. The set does not have to be "
+"complete.\n"
+"              \"@mint_13\": { // Internal name of the function\n"
+"                \"entryPoint\": 128, // Byte offset into the bytecode where "
+"the function starts (optional)\n"
+"                \"id\": 13, // AST ID of the function definition or null for "
+"compiler-internal functions (optional)\n"
+"                \"parameterSlots\": 2, // Number of EVM stack slots for the "
+"function parameters (optional)\n"
+"                \"returnSlots\": 1 // Number of EVM stack slots for the "
+"return values (optional)\n"
+"              }\n"
+"            },\n"
+"            // The bytecode as a hex string.\n"
+"            \"object\": \"00fe\",\n"
+"            // Opcodes list (string)\n"
+"            \"opcodes\": \"\",\n"
+"            // The source mapping as a string. See the source mapping "
+"definition.\n"
+"            \"sourceMap\": \"\",\n"
+"            // Array of sources generated by the compiler. Currently only\n"
+"            // contains a single Yul file.\n"
+"            \"generatedSources\": [{\n"
+"              // Yul AST\n"
+"              \"ast\": {/* ... */},\n"
+"              // Source file in its text form (may contain comments)\n"
+"              \"contents\":\"{ function abi_decode(start, end) -> data "
+"{ data := calldataload(start) } }\",\n"
+"              // Source file ID, used for source references, same "
+"\"namespace\" as the Solidity source files\n"
+"              \"id\": 2,\n"
+"              \"language\": \"Yul\",\n"
+"              \"name\": \"#utility.yul\"\n"
+"            }],\n"
+"            // If given, this is an unlinked object.\n"
+"            \"linkReferences\": {\n"
+"              \"libraryFile.sol\": {\n"
+"                // Byte offsets into the bytecode.\n"
+"                // Linking replaces the 20 bytes located there.\n"
+"                \"Library1\": [\n"
+"                  { \"start\": 0, \"length\": 20 },\n"
+"                  { \"start\": 200, \"length\": 20 }\n"
+"                ]\n"
+"              }\n"
+"            }\n"
+"          },\n"
+"          \"deployedBytecode\": {\n"
+"            // Ethdebug output (experimental)\n"
+"            \"ethdebug\": {/* ... */},\n"
+"            /* ..., */ // The same layout as above.\n"
+"            \"immutableReferences\": {\n"
+"              // There are two references to the immutable with AST ID 3, "
+"both 32 bytes long. One is\n"
+"              // at bytecode offset 42, the other at bytecode offset 80.\n"
+"              \"3\": [{ \"start\": 42, \"length\": 32 }, { \"start\": 80, "
+"\"length\": 32 }]\n"
+"            }\n"
+"          },\n"
+"          // The list of function hashes\n"
+"          \"methodIdentifiers\": {\n"
+"            \"delegate(address)\": \"5c19a95c\"\n"
+"          },\n"
+"          // Function gas estimates\n"
+"          \"gasEstimates\": {\n"
+"            \"creation\": {\n"
+"              \"codeDepositCost\": \"420000\",\n"
+"              \"executionCost\": \"infinite\",\n"
+"              \"totalCost\": \"infinite\"\n"
+"            },\n"
+"            \"external\": {\n"
+"              \"delegate(address)\": \"25000\"\n"
+"            },\n"
+"            \"internal\": {\n"
+"              \"heavyLifting()\": \"infinite\"\n"
+"            }\n"
+"          },\n"
+"          // Yul CFG representation of the SSA form (experimental)\n"
+"          \"yulCFGJson\": {/* ... */}\n"
+"        }\n"
+"      }\n"
+"    }\n"
+"  },\n"
+"  // Global Ethdebug output (experimental)\n"
+"  \"ethdebug\": {\n"
+"    // Requested via ethdebug.resources output selection\n"
+"    \"resources\": {/* ... */},\n"
+"    // Requested via ethdebug.compilation output selection\n"
+"    \"compilation\": {/* ... */}\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:714
+msgid "Error Types"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:716
+msgid ""
+"``JSONError``: JSON input doesn't conform to the required format, e.g. input "
+"is not a JSON object, the language is not supported, etc."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:717
+msgid ""
+"``IOError``: IO and import processing errors, such as unresolvable URL or "
+"hash mismatch in supplied sources."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:718
+msgid "``ParserError``: Source code doesn't conform to the language rules."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:719
+msgid ""
+"``DocstringParsingError``: The NatSpec tags in the comment block cannot be "
+"parsed."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:720
+msgid ""
+"``SyntaxError``: Syntactical error, such as ``continue`` is used outside of "
+"a ``for`` loop."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:721
+msgid ""
+"``DeclarationError``: Invalid, unresolvable or clashing identifier names. e."
+"g. ``Identifier not found``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:722
+msgid ""
+"``TypeError``: Error within the type system, such as invalid type "
+"conversions, invalid assignments, etc."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:723
+msgid ""
+"``UnimplementedFeatureError``: Feature is not supported by the compiler, but "
+"is expected to be supported in future versions."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:724
+msgid ""
+"``InternalCompilerError``: Internal bug triggered in the compiler - this "
+"should be reported as an issue."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:725
+msgid ""
+"``Exception``: Unknown failure during compilation - this should be reported "
+"as an issue."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:726
+msgid ""
+"``CompilerError``: Invalid use of the compiler stack - this should be "
+"reported as an issue."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:727
+msgid ""
+"``FatalError``: Fatal error not processed correctly - this should be "
+"reported as an issue."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:728
+msgid ""
+"``YulException``: Error during Yul code generation - this should be reported "
+"as an issue."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:729
+msgid ""
+"``Warning``: A warning, which didn't stop the compilation, but should be "
+"addressed if possible."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:730
+msgid ""
+"``Info``: Information that the compiler thinks the user might find useful, "
+"but is not dangerous and does not necessarily need to be addressed."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:736
+msgid "Experimental Mode"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:738
+msgid ""
+"Some language and compiler features included in stable releases are not "
+"themselves considered stable. They are sparsely documented, if at all, often "
+"not adequately tested, and thus not yet intended for production use. In many "
+"cases it is possible to develop a big feature incrementally, with each "
+"iteration being already stable. Sometimes, however, it is preferable to "
+"start with a prototype and stabilize it over multiple releases, while "
+"receiving feedback from users. To prevent accidental use, such features can "
+"be only accessed by enabling the experimental mode."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:744
+msgid ""
+"There are no backwards compatibility guarantees for experimental features. "
+"They are subject to change in breaking ways in non-breaking releases of the "
+"compiler. Only major changes affecting them are recorded in the changelog."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:748
+msgid ""
+"To enable the experimental mode, use the ``--experimental`` flag on the "
+"command line, or the analogous ``settings.experimental`` boolean setting in "
+"the Standard JSON input."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:751
+msgid "Note that the use of this mode is recorded in the metadata:"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:753
+msgid "``experimental`` flag in CBOR metadata is set to ``true``,"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:754
+msgid "``settings.experimental`` in JSON metadata is set to ``true``,"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:757
+msgid ""
+"Prior to version 0.8.35, most of the experimental features were usable "
+"without any extra safeguards. Some were gated behind ``pragma "
+"experimental``, but this was not done consistently. The information about "
+"them was also only recorded in CBOR metadata and even then not always. The "
+"main goal of the experimental mode is to systematize this and make users "
+"fully aware when relying on features which are unfinished or not production-"
+"ready."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:762
+msgid "The table below details all currently available experimental features."
+msgstr ""
+
+#: ../../../using-the-compiler.rst:765
+msgid "Feature"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:765
+msgid "ID"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:765
+msgid "Affects bytecode"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:765
+msgid "Flag/pragma"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:767
+msgid "AST import"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:767
+msgid "``ast-import``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:767 ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:773 ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:779 ../../../using-the-compiler.rst:785
+msgid "yes"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:767
+msgid "``--import-ast``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:769
+msgid "LSP"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:769
+msgid "``lsp``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:769 ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:781 ../../../using-the-compiler.rst:783
+msgid "no"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:769
+msgid "``--lsp``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:771
+msgid "EVM Assembly import"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:771
+msgid "``evmasm-import``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:771
+msgid "``--import-asm-json``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:773
+msgid "Generic Solidity"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:773
+msgid "``generic-solidity``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:773
+msgid "``pragma experimental solidity``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:775
+msgid "IR AST"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:775
+msgid "``ir-ast``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:775
+msgid "``--ir-ast-json``, ``--ir-optimized-ast-json``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:777
+msgid "EOF"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:777
+msgid "``eof``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:777
+msgid "``--experimental-eof-version``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:779
+msgid "Non-mainnet EVMs"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:779
+msgid "``evm``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:779
+msgid "``--evm-version <version name>``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:781
+msgid "Ethdebug"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:781
+msgid "``ethdebug``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:781
+msgid ""
+"``--ethdebug-resources``, ``--ethdebug-compilation``, ``--ethdebug-"
+"program``, ``--ethdebug-program-runtime``, ``--debug-info ethdebug``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:784
+msgid "SSA CFG"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:784
+msgid "``ssa-cfg``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:783
+msgid "``--yul-cfg-json``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:785
+msgid "``--via-ssa-cfg``"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:5
+msgid "commandline compiler"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:5
+msgid "compiler"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:5
+msgid "commandline"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:5
+msgid "solc"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:36
+msgid "allowed paths"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:36
+msgid "--allow-paths"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:36
+msgid "base path"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:36 ../../../using-the-compiler.rst:86
+msgid "--base-path"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:36
+msgid "include paths"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:36
+msgid "--include-path"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:68
+msgid "linker"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:68
+msgid "--link"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:68
+msgid "--libraries"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:86 ../../../using-the-compiler.rst:188
+msgid "--standard-json"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:111
+msgid "EVM version"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:111
+msgid "compile target"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:188
+msgid "standard JSON"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:732
+msgid "Experimental mode"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:732
+msgid "--experimental"
+msgstr ""
