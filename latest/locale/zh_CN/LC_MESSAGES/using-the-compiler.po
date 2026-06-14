@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-06-08 12:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -686,11 +686,6 @@ msgid ""
 "    // petersburg, istanbul, berlin, london, paris, shanghai, cancun,\n"
 "    // prague, osaka (default), or @future (experimental).\n"
 "    \"evmVersion\": \"osaka\",\n"
-"    // EVM Object Format version to compile for (optional, experimental).\n"
-"    // Currently the only valid value is 1. If not specified, legacy non-EOF "
-"bytecode will be generated.\n"
-"    // Requires `evmVersion` >= osaka.\n"
-"    \"eofVersion\": null,\n"
 "    // Optional: Change compilation pipeline to go through the Yul "
 "intermediate representation.\n"
 "    // This is false by default.\n"
@@ -921,11 +916,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:543
+#: ../../../using-the-compiler.rst:539
 msgid "Output Description"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:545
+#: ../../../using-the-compiler.rst:541
 msgid ""
 "{\n"
 "  // Optional: not present if no errors/warnings/infos were encountered\n"
@@ -1112,103 +1107,103 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:714
+#: ../../../using-the-compiler.rst:710
 msgid "Error Types"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:716
+#: ../../../using-the-compiler.rst:712
 msgid ""
 "``JSONError``: JSON input doesn't conform to the required format, e.g. input "
 "is not a JSON object, the language is not supported, etc."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:717
+#: ../../../using-the-compiler.rst:713
 msgid ""
 "``IOError``: IO and import processing errors, such as unresolvable URL or "
 "hash mismatch in supplied sources."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:718
+#: ../../../using-the-compiler.rst:714
 msgid "``ParserError``: Source code doesn't conform to the language rules."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:719
+#: ../../../using-the-compiler.rst:715
 msgid ""
 "``DocstringParsingError``: The NatSpec tags in the comment block cannot be "
 "parsed."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:720
+#: ../../../using-the-compiler.rst:716
 msgid ""
 "``SyntaxError``: Syntactical error, such as ``continue`` is used outside of "
 "a ``for`` loop."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:721
+#: ../../../using-the-compiler.rst:717
 msgid ""
 "``DeclarationError``: Invalid, unresolvable or clashing identifier names. e."
 "g. ``Identifier not found``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:722
+#: ../../../using-the-compiler.rst:718
 msgid ""
 "``TypeError``: Error within the type system, such as invalid type "
 "conversions, invalid assignments, etc."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:723
+#: ../../../using-the-compiler.rst:719
 msgid ""
 "``UnimplementedFeatureError``: Feature is not supported by the compiler, but "
 "is expected to be supported in future versions."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:724
+#: ../../../using-the-compiler.rst:720
 msgid ""
 "``InternalCompilerError``: Internal bug triggered in the compiler - this "
 "should be reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:725
+#: ../../../using-the-compiler.rst:721
 msgid ""
 "``Exception``: Unknown failure during compilation - this should be reported "
 "as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:726
+#: ../../../using-the-compiler.rst:722
 msgid ""
 "``CompilerError``: Invalid use of the compiler stack - this should be "
 "reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:727
+#: ../../../using-the-compiler.rst:723
 msgid ""
 "``FatalError``: Fatal error not processed correctly - this should be "
 "reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:728
+#: ../../../using-the-compiler.rst:724
 msgid ""
 "``YulException``: Error during Yul code generation - this should be reported "
 "as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:729
+#: ../../../using-the-compiler.rst:725
 msgid ""
 "``Warning``: A warning, which didn't stop the compilation, but should be "
 "addressed if possible."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:730
+#: ../../../using-the-compiler.rst:726
 msgid ""
 "``Info``: Information that the compiler thinks the user might find useful, "
 "but is not dangerous and does not necessarily need to be addressed."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:736
+#: ../../../using-the-compiler.rst:732
 msgid "Experimental Mode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:738
+#: ../../../using-the-compiler.rst:734
 msgid ""
 "Some language and compiler features included in stable releases are not "
 "themselves considered stable. They are sparsely documented, if at all, often "
@@ -1220,33 +1215,33 @@ msgid ""
 "be only accessed by enabling the experimental mode."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:744
+#: ../../../using-the-compiler.rst:740
 msgid ""
 "There are no backwards compatibility guarantees for experimental features. "
 "They are subject to change in breaking ways in non-breaking releases of the "
 "compiler. Only major changes affecting them are recorded in the changelog."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:748
+#: ../../../using-the-compiler.rst:744
 msgid ""
 "To enable the experimental mode, use the ``--experimental`` flag on the "
 "command line, or the analogous ``settings.experimental`` boolean setting in "
 "the Standard JSON input."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:751
+#: ../../../using-the-compiler.rst:747
 msgid "Note that the use of this mode is recorded in the metadata:"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:753
+#: ../../../using-the-compiler.rst:749
 msgid "``experimental`` flag in CBOR metadata is set to ``true``,"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:754
+#: ../../../using-the-compiler.rst:750
 msgid "``settings.experimental`` in JSON metadata is set to ``true``,"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:757
+#: ../../../using-the-compiler.rst:753
 msgid ""
 "Prior to version 0.8.35, most of the experimental features were usable "
 "without any extra safeguards. Some were gated behind ``pragma "
@@ -1257,148 +1252,136 @@ msgid ""
 "ready."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:762
+#: ../../../using-the-compiler.rst:758
 msgid "The table below details all currently available experimental features."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:761
 msgid "Feature"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:761
 msgid "ID"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:761
 msgid "Affects bytecode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:761
 msgid "Flag/pragma"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:763
 msgid "AST import"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:763
 msgid "``ast-import``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767 ../../../using-the-compiler.rst:771
-#: ../../../using-the-compiler.rst:773 ../../../using-the-compiler.rst:777
-#: ../../../using-the-compiler.rst:779 ../../../using-the-compiler.rst:785
+#: ../../../using-the-compiler.rst:763 ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:769 ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:779
 msgid "yes"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:763
 msgid "``--import-ast``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:765
 msgid "LSP"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:765
 msgid "``lsp``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769 ../../../using-the-compiler.rst:775
-#: ../../../using-the-compiler.rst:781 ../../../using-the-compiler.rst:783
+#: ../../../using-the-compiler.rst:765 ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:775 ../../../using-the-compiler.rst:777
 msgid "no"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:765
 msgid "``--lsp``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:767
 msgid "EVM Assembly import"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:767
 msgid "``evmasm-import``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:767
 msgid "``--import-asm-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:769
 msgid "Generic Solidity"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:769
 msgid "``generic-solidity``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:769
 msgid "``pragma experimental solidity``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:771
 msgid "IR AST"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:771
 msgid "``ir-ast``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:771
 msgid "``--ir-ast-json``, ``--ir-optimized-ast-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
-msgid "EOF"
-msgstr ""
-
-#: ../../../using-the-compiler.rst:777
-msgid "``eof``"
-msgstr ""
-
-#: ../../../using-the-compiler.rst:777
-msgid "``--experimental-eof-version``"
-msgstr ""
-
-#: ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:773
 msgid "Non-mainnet EVMs"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:773
 msgid "``evm``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:773
 msgid "``--evm-version <version name>``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:781
+#: ../../../using-the-compiler.rst:775
 msgid "Ethdebug"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:781
+#: ../../../using-the-compiler.rst:775
 msgid "``ethdebug``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:781
+#: ../../../using-the-compiler.rst:775
 msgid ""
 "``--ethdebug-resources``, ``--ethdebug-compilation``, ``--ethdebug-"
 "program``, ``--ethdebug-program-runtime``, ``--debug-info ethdebug``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:784
+#: ../../../using-the-compiler.rst:778
 msgid "SSA CFG"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:784
+#: ../../../using-the-compiler.rst:778
 msgid "``ssa-cfg``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:783
+#: ../../../using-the-compiler.rst:777
 msgid "``--yul-cfg-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:785
+#: ../../../using-the-compiler.rst:779
 msgid "``--via-ssa-cfg``"
 msgstr ""
 
@@ -1470,10 +1453,10 @@ msgstr ""
 msgid "standard JSON"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:732
+#: ../../../using-the-compiler.rst:728
 msgid "Experimental mode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:732
+#: ../../../using-the-compiler.rst:728
 msgid "--experimental"
 msgstr ""
