@@ -405,7 +405,7 @@ msgstr ""
 
 #: ../../../ir-breaking-changes.rst:259
 msgid "Internals"
-msgstr ""
+msgstr "內部原理"
 
 #: ../../../ir-breaking-changes.rst:264
 msgid "Internal function pointers"
