@@ -31,15 +31,15 @@ msgstr "編譯器"
 
 #: ../../../index.rst:143
 msgid "Internals"
-msgstr ""
+msgstr "內部原理"
 
 #: ../../../index.rst:156
 msgid "Advisory content"
-msgstr ""
+msgstr "建議內容"
 
 #: ../../../index.rst:167
 msgid "Additional Material"
-msgstr ""
+msgstr "附加材料"
 
 #: ../../../index.rst:176
 msgid "Resources"
@@ -85,6 +85,8 @@ msgid ""
 "With Solidity, you can create contracts for uses such as voting, "
 "crowdfunding, blind auctions, and multi-signature wallets."
 msgstr ""
+"使用 Solidity，您可以建立用於投票、群眾募資、\n"
+"盲拍和多簽錢包等用途的合約。"
 
 #: ../../../index.rst:15
 msgid ""
@@ -95,6 +97,11 @@ msgid ""
 "features, are introduced regularly. We currently use a 0.y.z version number "
 "`to indicate this fast pace of change <https://semver.org/#spec-item-4>`_."
 msgstr ""
+"部署合約時，您應使用最新發布的 Solidity 版本。除了特殊情況外，\n"
+"僅最新版本會收到\\ `安全性修復 <https://github.com/argotorg/solidity/"
+"security/policy#supported-versions>`_\\ 。此外，重大變更以及新功能\n"
+"會定期引入。我們目前使用 0.y.z 版本號\\ `來表示這種快速變更的步調 <https://"
+"semver.org/#spec-item-4>`_\\ 。"
 
 #: ../../../index.rst:23
 msgid ""
@@ -102,12 +109,16 @@ msgid ""
 "breaking changes. Make sure you read :doc:`the full list <080-breaking-"
 "changes>`."
 msgstr ""
+"Solidity 最近發布了 0.8.x 版本，其中引入了許多重大變更。\n"
+"請務必閱讀\\ :doc:`完整清單 <080-breaking-changes>`\\ 。"
 
 #: ../../../index.rst:26
 msgid ""
 "Ideas for improving Solidity or this documentation are always welcome, read "
 "our :doc:`contributors guide <contributing>` for more details."
 msgstr ""
+"我們隨時歡迎關於改進 Solidity 或此文件的建議，\n"
+"請閱讀我們的\\ :doc:`貢獻者指南 <contributing>`\\ 以獲取更多詳細資訊。"
 
 #: ../../../index.rst:31
 msgid ""
@@ -115,6 +126,8 @@ msgid ""
 "versions flyout menu in the bottom-right corner and selecting the preferred "
 "download format."
 msgstr ""
+"您可以透過點擊右下角的版本彈出選單，\n"
+"並選擇偏好的下載格式，將此文件下載為 PDF、HTML 或 Epub。"
 
 #: ../../../index.rst:36
 msgid "Getting Started"
@@ -130,6 +143,8 @@ msgid ""
 "started by digging into the \"Introduction to Smart Contracts\" section, "
 "which covers the following:"
 msgstr ""
+"如果您對智慧合約的概念不熟悉，我們建議您\n"
+"從「智慧合約簡介」章節開始深入了解，該章節涵蓋以下內容："
 
 #: ../../../index.rst:42
 msgid ""
@@ -156,6 +171,9 @@ msgid ""
 "`\"Solidity by Example\" <solidity-by-example>` and “Language Description” "
 "sections to understand the core concepts of the language."
 msgstr ""
+"\"\"熟悉基礎知識後，我們建議您閱讀\\ :doc:`「Solidity 範例」 <solidity-by-"
+"example>`\\ 和\n"
+"「語言描述」章節，以了解該語言的核心概念。"
 
 #: ../../../index.rst:51
 msgid "**3. Install the Solidity Compiler**"
@@ -167,6 +185,8 @@ msgid ""
 "preferred option and follow the steps outlined on the :ref:`installation "
 "page <installing-solidity>`."
 msgstr ""
+"安裝 Solidity 編譯器有多種方式，只需選擇您偏好的選項，\n"
+"並依照\\ :ref:`安裝頁面 <installing-solidity>`\\ 上概述的步驟操作即可。"
 
 #: ../../../index.rst:57
 msgid ""
@@ -175,6 +195,11 @@ msgid ""
 "you to write, deploy and administer Solidity smart contracts, without the "
 "need to install Solidity locally."
 msgstr ""
+"您可以使用\\ `Remix IDE <https://remix.ethereum.org>`_\\ 直接在瀏覽器中試用程"
+"式碼範例。\n"
+"Remix 是一個基於網頁瀏覽器的 IDE，可讓您撰寫、部署和管理 Solidity 智慧合"
+"約，\n"
+"無需在本機安裝 Solidity。"
 
 #: ../../../index.rst:63
 msgid ""
@@ -186,6 +211,12 @@ msgid ""
 "issues to watch out for, so before working on production code, make sure you "
 "read the :ref:`security_considerations` section."
 msgstr ""
+"由於軟體是人編寫的，因此可能存在錯誤。所以，在撰寫智慧合約時，\n"
+"您應遵循既定的軟體開發最佳實踐，包括程式碼審查、測試、稽核和正確性證明。\n"
+"智慧合約的使用者有時比其作者對程式碼更有信心，\n"
+"而區塊鏈和智慧合約也有其獨特的需要留意問題，\n"
+"因此在投入正式環境程式碼之前，請務必閱讀\\ :ref:`security_considerations`\\ "
+"章節。"
 
 #: ../../../index.rst:70
 msgid "**4. Learn More**"
@@ -199,6 +230,10 @@ msgid ""
 "Ethereum, and a wide selection of tutorials, tools, and development "
 "frameworks."
 msgstr ""
+"如果您想了解更多關於在以太坊上建立去中心化應用程式的資訊，\n"
+"`以太坊開發者資源 <https://ethereum.org/en/developers/>`_\\ 可以為您提供更多"
+"關於以太坊的一般文件，\n"
+"以及豐富的教學、工具和開發框架選擇。"
 
 #: ../../../index.rst:76
 msgid ""
@@ -206,6 +241,10 @@ msgid ""
 "the `Ethereum StackExchange <https://ethereum.stackexchange.com/>`_, or our "
 "`Gitter channel <https://gitter.im/ethereum/solidity>`_."
 msgstr ""
+"如果您有任何問題，可以嘗試在\\ `Ethereum StackExchange <https://ethereum."
+"stackexchange.com/>`_\\ 上搜尋答案或提問，\n"
+"或是在我們的\\ `Gitter 頻道 <https://gitter.im/ethereum/solidity>`_\\ 上發"
+"問。"
 
 #: ../../../index.rst:83
 msgid "Translations"
@@ -224,7 +263,7 @@ msgstr ""
 msgid ""
 "You can switch between languages by clicking on the flyout menu in the "
 "bottom-right corner and selecting the preferred language."
-msgstr ""
+msgstr "您可以透過點擊右下角的彈出選單並選擇偏好的語言來切換語言。"
 
 #: ../../../index.rst:92
 msgid "`Chinese <https://docs.soliditylang.org/zh-cn/latest/>`_"
@@ -269,6 +308,10 @@ msgid ""
 "`solidity-docs org <https://github.com/solidity-docs>`_ for information on "
 "how to start a new language or contribute to the community translations."
 msgstr ""
+"我們建立了 GitHub 組織和翻譯工作流程，以協助簡化社群的工作。\n"
+"請參閱\\ `solidity-docs 組織 <https://github.com/solidity-docs>`_\\ 中的翻譯"
+"指南，\n"
+"了解如何開始新的語言或為社群翻譯做出貢獻。"
 
 #: ../../../index.rst:109
 msgid "Contents"
@@ -276,4 +319,4 @@ msgstr "目次"
 
 #: ../../../index.rst:111
 msgid ":ref:`Keyword Index <genindex>`, :ref:`Search Page <search>`"
-msgstr ""
+msgstr ":ref:`關鍵字索引 <genindex>`\\ 、\\ :ref:`搜尋頁面 <search>`"
