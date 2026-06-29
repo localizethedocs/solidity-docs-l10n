@@ -152,6 +152,8 @@ msgid ""
 "forum <https://forum.soliditylang.org/>`_ is the correct place (see :ref:"
 "`solidity_language_design`)."
 msgstr ""
+"關於語言設計的技術性討論，應發佈在 `Solidity 論壇 <https://forum."
+"soliditylang.org/>`_\\ （請參見 :ref:`solidity_language_design`）。"
 
 #: ../../../contributing.rst:60
 msgid "Workflow for Pull Requests"
