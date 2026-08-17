@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-08-17 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,49 +189,55 @@ msgstr ""
 
 #: ../../../units-and-global-variables.rst:89
 msgid ""
+"``block.slotnum`` (``uint64``): current beacon chain slot number (`EIP-7843 "
+"<https://eips.ethereum.org/EIPS/eip-7843>`_, ``EVM >= Amsterdam``)"
+msgstr ""
+
+#: ../../../units-and-global-variables.rst:90
+msgid ""
 "``block.timestamp`` (``uint``): current block timestamp as seconds since "
 "unix epoch"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:90
+#: ../../../units-and-global-variables.rst:91
 msgid "``gasleft() returns (uint256)``: remaining gas"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:91
+#: ../../../units-and-global-variables.rst:92
 msgid "``msg.data`` (``bytes calldata``): complete calldata"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:92
+#: ../../../units-and-global-variables.rst:93
 msgid "``msg.sender`` (``address``): sender of the message (current call)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:93
+#: ../../../units-and-global-variables.rst:94
 msgid ""
 "``msg.sig`` (``bytes4``): first four bytes of the calldata (i.e. function "
 "identifier)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:94
+#: ../../../units-and-global-variables.rst:95
 msgid "``msg.value`` (``uint``): number of wei sent with the message"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:95
+#: ../../../units-and-global-variables.rst:96
 msgid "``tx.gasprice`` (``uint``): gas price of the transaction"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:96
+#: ../../../units-and-global-variables.rst:97
 msgid ""
 "``tx.origin`` (``address``): sender of the transaction (full call chain)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:99
+#: ../../../units-and-global-variables.rst:100
 msgid ""
 "The values of all members of ``msg``, including ``msg.sender`` and ``msg."
 "value`` can change for every **external** function call. This includes calls "
 "to library functions."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:104
+#: ../../../units-and-global-variables.rst:105
 msgid ""
 "When contracts are evaluated off-chain rather than in context of a "
 "transaction included in a block, you should not assume that ``block.*`` and "
@@ -240,13 +246,13 @@ msgid ""
 "can be arbitrary."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:110
+#: ../../../units-and-global-variables.rst:111
 msgid ""
 "Do not rely on ``block.timestamp`` or ``blockhash`` as a source of "
 "randomness, unless you know what you are doing."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:113
+#: ../../../units-and-global-variables.rst:114
 msgid ""
 "Both the timestamp and the block hash can be influenced by miners to some "
 "degree. Bad actors in the mining community can for example run a casino "
@@ -254,42 +260,42 @@ msgid ""
 "not receive any compensation, e.g. Ether."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:117
+#: ../../../units-and-global-variables.rst:118
 msgid ""
 "The current block timestamp must be strictly larger than the timestamp of "
 "the last block, but the only guarantee is that it will be somewhere between "
 "the timestamps of two consecutive blocks in the canonical chain."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:122
+#: ../../../units-and-global-variables.rst:123
 msgid ""
 "The block hashes are not available for all blocks for scalability reasons. "
 "You can only access the hashes of the most recent 256 blocks, all other "
 "values will be zero."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:127
+#: ../../../units-and-global-variables.rst:128
 msgid ""
 "The function ``blockhash`` was previously known as ``block.blockhash``, "
 "which was deprecated in version 0.4.22 and removed in version 0.5.0."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:131
+#: ../../../units-and-global-variables.rst:132
 msgid ""
 "The function ``gasleft`` was previously known as ``msg.gas``, which was "
 "deprecated in version 0.4.21 and removed in version 0.5.0."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:135
+#: ../../../units-and-global-variables.rst:136
 msgid ""
 "In version 0.7.0, the alias ``now`` (for ``block.timestamp``) was removed."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:140
+#: ../../../units-and-global-variables.rst:141
 msgid "ABI Encoding and Decoding Functions"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:142
+#: ../../../units-and-global-variables.rst:143
 msgid ""
 "``abi.decode(bytes memory encodedData, (...)) returns (...)``: ABI-decodes "
 "the given data, while the types are given in parentheses as second argument. "
@@ -297,33 +303,33 @@ msgid ""
 "(uint, uint[2], bytes))``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:143
+#: ../../../units-and-global-variables.rst:144
 msgid ""
 "``abi.encode(...) returns (bytes memory)``: ABI-encodes the given arguments"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:144
+#: ../../../units-and-global-variables.rst:145
 msgid ""
 "``abi.encodePacked(...) returns (bytes memory)``: Performs :ref:`packed "
 "encoding <abi_packed_mode>` of the given arguments. Note that packed "
 "encoding can be ambiguous!"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:145
+#: ../../../units-and-global-variables.rst:146
 msgid ""
 "``abi.encodeWithSelector(bytes4 selector, ...) returns (bytes memory)``: ABI-"
 "encodes the given arguments starting from the second and prepends the given "
 "four-byte selector"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:146
+#: ../../../units-and-global-variables.rst:147
 msgid ""
 "``abi.encodeWithSignature(string memory signature, ...) returns (bytes "
 "memory)``: Equivalent to ``abi."
 "encodeWithSelector(bytes4(keccak256(bytes(signature))), ...)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:147
+#: ../../../units-and-global-variables.rst:148
 msgid ""
 "``abi.encodeCall(function functionPointer, (...)) returns (bytes memory)``: "
 "ABI-encodes a call to ``functionPointer`` with the arguments found in the "
@@ -332,7 +338,7 @@ msgid ""
 "(...))``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:150
+#: ../../../units-and-global-variables.rst:151
 msgid ""
 "These encoding functions can be used to craft data for external function "
 "calls without actually calling an external function. Furthermore, "
@@ -341,185 +347,185 @@ msgid ""
 "collision\" using different function parameter types)."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:155
+#: ../../../units-and-global-variables.rst:156
 msgid ""
 "See the documentation about the :ref:`ABI <ABI>` and the :ref:`tightly "
 "packed encoding <abi_packed_mode>` for details about the encoding."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:161
+#: ../../../units-and-global-variables.rst:162
 msgid "Members of bytes"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:163
+#: ../../../units-and-global-variables.rst:164
 msgid ""
 "``bytes.concat(...) returns (bytes memory)``: :ref:`Concatenates variable "
 "number of bytes and bytes1, ..., bytes32 arguments to one byte array<bytes-"
 "concat>`"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:168
+#: ../../../units-and-global-variables.rst:169
 msgid "Members of string"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:170
+#: ../../../units-and-global-variables.rst:171
 msgid ""
 "``string.concat(...) returns (string memory)``: :ref:`Concatenates variable "
 "number of string arguments to one string array<string-concat>`"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:176
+#: ../../../units-and-global-variables.rst:177
 msgid "Error Handling"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:178
+#: ../../../units-and-global-variables.rst:179
 msgid ""
 "See the dedicated section on :ref:`assert and require<assert-and-require>` "
 "for more details on error handling and when to use which function."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:181
+#: ../../../units-and-global-variables.rst:182
 msgid "``assert(bool condition)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:182
+#: ../../../units-and-global-variables.rst:183
 msgid ""
 "causes a Panic error and thus state change reversion if the condition is not "
 "met - to be used for internal errors."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:184
+#: ../../../units-and-global-variables.rst:185
 msgid "``require(bool condition)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:185
+#: ../../../units-and-global-variables.rst:186
 msgid ""
 "reverts if the condition is not met - to be used for errors in inputs or "
 "external components."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:187
+#: ../../../units-and-global-variables.rst:188
 msgid "``require(bool condition, string memory message)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:188
+#: ../../../units-and-global-variables.rst:189
 msgid ""
 "reverts if the condition is not met - to be used for errors in inputs or "
 "external components. Also provides an error message."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:190
+#: ../../../units-and-global-variables.rst:191
 msgid "``revert()``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:191
+#: ../../../units-and-global-variables.rst:192
 msgid "abort execution and revert state changes"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:193
+#: ../../../units-and-global-variables.rst:194
 msgid "``revert(string memory reason)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:194
+#: ../../../units-and-global-variables.rst:195
 msgid ""
 "abort execution and revert state changes, providing an explanatory string"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:201
+#: ../../../units-and-global-variables.rst:202
 msgid "Mathematical and Cryptographic Functions"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:203
+#: ../../../units-and-global-variables.rst:204
 msgid "``addmod(uint x, uint y, uint k) returns (uint)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:204
+#: ../../../units-and-global-variables.rst:205
 msgid ""
 "compute ``(x + y) % k`` where the addition is performed with arbitrary "
 "precision and does not wrap around at ``2**256``. Assert that ``k != 0`` "
 "starting from version 0.5.0."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:206
+#: ../../../units-and-global-variables.rst:207
 msgid "``mulmod(uint x, uint y, uint k) returns (uint)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:207
+#: ../../../units-and-global-variables.rst:208
 msgid ""
 "compute ``(x * y) % k`` where the multiplication is performed with arbitrary "
 "precision and does not wrap around at ``2**256``. Assert that ``k != 0`` "
 "starting from version 0.5.0."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:209
+#: ../../../units-and-global-variables.rst:210
 msgid "``keccak256(bytes memory) returns (bytes32)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:210
+#: ../../../units-and-global-variables.rst:211
 msgid "compute the Keccak-256 hash of the input"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:214
+#: ../../../units-and-global-variables.rst:215
 msgid ""
 "There used to be an alias for ``keccak256`` called ``sha3``, which was "
 "removed in version 0.5.0."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:216
+#: ../../../units-and-global-variables.rst:217
 msgid "``sha256(bytes memory) returns (bytes32)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:217
+#: ../../../units-and-global-variables.rst:218
 msgid "compute the SHA-256 hash of the input"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:219
+#: ../../../units-and-global-variables.rst:220
 msgid "``ripemd160(bytes memory) returns (bytes20)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:220
+#: ../../../units-and-global-variables.rst:221
 msgid "compute RIPEMD-160 hash of the input"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:222
+#: ../../../units-and-global-variables.rst:223
 msgid ""
 "``ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns (address)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:223
+#: ../../../units-and-global-variables.rst:224
 msgid ""
 "recover the address associated with the public key from elliptic curve "
 "signature or return zero on error. The function parameters correspond to "
 "ECDSA values of the signature:"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:226
+#: ../../../units-and-global-variables.rst:227
 msgid "``r`` = first 32 bytes of signature"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:227
+#: ../../../units-and-global-variables.rst:228
 msgid "``s`` = second 32 bytes of signature"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:228
+#: ../../../units-and-global-variables.rst:229
 msgid "``v`` = final 1 byte of signature"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:230
+#: ../../../units-and-global-variables.rst:231
 msgid ""
 "``ecrecover`` returns an ``address``, and not an ``address payable``. See :"
 "ref:`address payable<address>` for conversion, in case you need to transfer "
 "funds to the recovered address."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:233
+#: ../../../units-and-global-variables.rst:234
 msgid ""
 "For further details, read `example usage <https://ethereum.stackexchange.com/"
 "questions/1777/workflow-on-signing-a-string-with-private-key-followed-by-"
 "signature-verificatio>`_."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:237
+#: ../../../units-and-global-variables.rst:238
 msgid ""
 "If you use ``ecrecover``, be aware that a valid signature can be turned into "
 "a different valid signature without requiring knowledge of the corresponding "
@@ -528,7 +534,7 @@ msgid ""
 "eip-2#specification>`_), but the ecrecover function remained unchanged."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:242
+#: ../../../units-and-global-variables.rst:243
 msgid ""
 "This is usually not a problem unless you require signatures to be unique or "
 "use them to identify items. OpenZeppelin has an `ECDSA helper library "
@@ -536,7 +542,7 @@ msgid ""
 "use as a wrapper for ``ecrecover`` without this issue."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:247
+#: ../../../units-and-global-variables.rst:248
 msgid ""
 "When running ``sha256``, ``ripemd160`` or ``ecrecover`` on a *private "
 "blockchain*, you might encounter Out-of-Gas. This is because these functions "
@@ -548,11 +554,11 @@ msgid ""
 "in your actual contracts. This is not an issue on the main or test net."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:249
+#: ../../../units-and-global-variables.rst:250
 msgid "``erc7201(string memory id) returns (uint)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:250
+#: ../../../units-and-global-variables.rst:251
 msgid ""
 "compute the base slot of a storage namespace of a given ``id`` according to "
 "the ``erc7201`` formula defined by `ERC-7201 <https://eips.ethereum.org/EIPS/"
@@ -561,112 +567,112 @@ msgid ""
 "whitespace. The function can be used in compile-time context."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:260
+#: ../../../units-and-global-variables.rst:261
 msgid "Members of Address Types"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:261
+#: ../../../units-and-global-variables.rst:262
 msgid ""
 "These members are explained in more detail in the section on :ref:`members "
 "of address <members-of-addresses>`."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:263
+#: ../../../units-and-global-variables.rst:264
 msgid "``<address>.balance`` (``uint256``)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:264
+#: ../../../units-and-global-variables.rst:265
 msgid "balance of the :ref:`address` in Wei"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:266
+#: ../../../units-and-global-variables.rst:267
 msgid "``<address>.code`` (``bytes memory``)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:267
+#: ../../../units-and-global-variables.rst:268
 msgid "code at the :ref:`address` (can be empty)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:269
+#: ../../../units-and-global-variables.rst:270
 msgid "``<address>.codehash`` (``bytes32``)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:270
+#: ../../../units-and-global-variables.rst:271
 msgid "the codehash of the :ref:`address`"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:272
+#: ../../../units-and-global-variables.rst:273
 msgid "``<address payable>.transfer(uint256 amount)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:273
+#: ../../../units-and-global-variables.rst:274
 msgid ""
 "send given amount of Wei to :ref:`address`, reverts on failure, forwards "
 "2300 gas stipend, not adjustable"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:275
+#: ../../../units-and-global-variables.rst:276
 msgid "``<address payable>.send(uint256 amount) returns (bool)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:276
+#: ../../../units-and-global-variables.rst:277
 msgid ""
 "send given amount of Wei to :ref:`address`, returns ``false`` on failure, "
 "forwards 2300 gas stipend, not adjustable"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:279
+#: ../../../units-and-global-variables.rst:280
 msgid ""
 "``send()`` and ``transfer()`` are deprecated and scheduled for removal. See "
 "the section on :ref:`send <send-address-member>` and :ref:`transfer <balance-"
 "transfer-address-members>` for more information."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:282
+#: ../../../units-and-global-variables.rst:283
 msgid "``<address>.call(bytes memory) returns (bool, bytes memory)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:283
+#: ../../../units-and-global-variables.rst:284
 msgid ""
 "issue low-level ``CALL`` with the given payload, returns success condition "
 "and return data, forwards all available gas (subject to additional limits "
 "imposed by some EVM versions), adjustable"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:286
+#: ../../../units-and-global-variables.rst:287
 msgid "``<address>.delegatecall(bytes memory) returns (bool, bytes memory)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:287
+#: ../../../units-and-global-variables.rst:288
 msgid ""
 "issue low-level ``DELEGATECALL`` with the given payload, returns success "
 "condition and return data, forwards all available gas (subject to additional "
 "limits imposed by some EVM versions), adjustable"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:290
+#: ../../../units-and-global-variables.rst:291
 msgid "``<address>.staticcall(bytes memory) returns (bool, bytes memory)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:291
+#: ../../../units-and-global-variables.rst:292
 msgid ""
 "issue low-level ``STATICCALL`` with the given payload, returns success "
 "condition and return data, forwards all available gas (subject to additional "
 "limits imposed by some EVM versions), adjustable"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:294
+#: ../../../units-and-global-variables.rst:295
 msgid "For more information, see the section on :ref:`address`."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:297
+#: ../../../units-and-global-variables.rst:298
 msgid ""
 "You should avoid using ``.call()`` whenever possible when executing another "
 "contract function as it bypasses type checking, function existence check, "
 "and argument packing."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:301
+#: ../../../units-and-global-variables.rst:302
 msgid ""
 "There are some dangers in using ``send``: The transfer fails if the call "
 "stack depth is at 1024 (this can always be forced by the caller) and it also "
@@ -675,7 +681,7 @@ msgid ""
 "even better: Use a pattern where the recipient withdraws the Ether."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:307
+#: ../../../units-and-global-variables.rst:308
 msgid ""
 "Due to the fact that the EVM considers a call to a non-existing contract to "
 "always succeed, Solidity includes an extra check using the ``extcodesize`` "
@@ -684,7 +690,7 @@ msgid ""
 "exception is raised."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:312
+#: ../../../units-and-global-variables.rst:313
 msgid ""
 "The low-level calls which operate on addresses rather than contract "
 "instances (i.e. ``.call()``, ``.delegatecall()``, ``.staticcall()``, ``."
@@ -692,14 +698,14 @@ msgid ""
 "them cheaper in terms of gas but also less safe."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:317
+#: ../../../units-and-global-variables.rst:318
 msgid ""
 "Prior to version 0.5.0, Solidity allowed address members to be accessed by a "
 "contract instance, for example ``this.balance``. This is now forbidden and "
 "an explicit conversion to address must be done: ``address(this).balance``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:321
+#: ../../../units-and-global-variables.rst:322
 msgid ""
 "If state variables are accessed via a low-level delegatecall, the storage "
 "layout of the two contracts must align in order for the called contract to "
@@ -708,66 +714,66 @@ msgid ""
 "arguments as in the case for the high-level libraries."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:327
+#: ../../../units-and-global-variables.rst:328
 msgid ""
 "Prior to version 0.5.0, ``.call``, ``.delegatecall`` and ``.staticcall`` "
 "only returned the success condition and not the return data."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:331
+#: ../../../units-and-global-variables.rst:332
 msgid ""
 "Prior to version 0.5.0, there was a member called ``callcode`` with similar "
 "but slightly different semantics than ``delegatecall``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:338
+#: ../../../units-and-global-variables.rst:339
 msgid "Contract-related"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:340
+#: ../../../units-and-global-variables.rst:341
 msgid "``this`` (current contract's type)"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:341
+#: ../../../units-and-global-variables.rst:342
 msgid "The current contract, explicitly convertible to :ref:`address`"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:343
+#: ../../../units-and-global-variables.rst:344
 msgid "``super``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:344
+#: ../../../units-and-global-variables.rst:345
 msgid "A contract one level higher in the inheritance hierarchy"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:346
+#: ../../../units-and-global-variables.rst:347
 msgid "``selfdestruct(address payable recipient)``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:347
+#: ../../../units-and-global-variables.rst:348
 msgid ""
 "Destroy the current contract, sending its funds to the given :ref:`address` "
 "and end execution. Note that ``selfdestruct`` has some peculiarities "
 "inherited from the EVM:"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:351
+#: ../../../units-and-global-variables.rst:352
 msgid "the receiving contract's receive function is not executed."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:352
+#: ../../../units-and-global-variables.rst:353
 msgid ""
 "the contract is only really destroyed at the end of the transaction and "
 "``revert`` s might \"undo\" the destruction."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:354
+#: ../../../units-and-global-variables.rst:355
 msgid ""
 "Furthermore, all functions of the current contract are callable directly "
 "including the current function."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:357
+#: ../../../units-and-global-variables.rst:358
 msgid ""
 "From ``EVM >= Cancun`` onwards, ``selfdestruct`` will **only** send all "
 "Ether in the account to the given recipient and not destroy the contract. "
@@ -779,7 +785,7 @@ msgid ""
 "eip-6780>`_ for more details."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:363
+#: ../../../units-and-global-variables.rst:364
 msgid ""
 "The new behaviour is the result of a network-wide change that affects all "
 "contracts present on the Ethereum mainnet and testnets. It is important to "
@@ -788,7 +794,7 @@ msgid ""
 "the contract has no bearing on it."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:369
+#: ../../../units-and-global-variables.rst:370
 msgid ""
 "Also, note that the ``selfdestruct`` opcode has been deprecated in Solidity "
 "version 0.8.18, as recommended by `EIP-6049 <https://eips.ethereum.org/EIPS/"
@@ -798,17 +804,17 @@ msgid ""
 "to the EVM might further reduce the functionality of the opcode."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:376
+#: ../../../units-and-global-variables.rst:377
 msgid ""
 "Prior to version 0.5.0, there was a function called ``suicide`` with the "
 "same semantics as ``selfdestruct``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:384
+#: ../../../units-and-global-variables.rst:385
 msgid "Type Information"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:386
+#: ../../../units-and-global-variables.rst:387
 msgid ""
 "The expression ``type(X)`` can be used to retrieve information about the "
 "type ``X``. Currently, there is limited support for this feature (``X`` can "
@@ -816,23 +822,23 @@ msgid ""
 "future."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:390
+#: ../../../units-and-global-variables.rst:391
 msgid "The following properties are available for a contract type ``C``:"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:392
+#: ../../../units-and-global-variables.rst:393
 msgid "``type(C).name``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:393
+#: ../../../units-and-global-variables.rst:394
 msgid "The name of the contract."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:395
+#: ../../../units-and-global-variables.rst:396
 msgid "``type(C).creationCode``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:396
+#: ../../../units-and-global-variables.rst:397
 msgid ""
 "Memory byte array that contains the creation bytecode of the contract. This "
 "can be used in inline assembly to build custom creation routines, especially "
@@ -842,11 +848,11 @@ msgid ""
 "that are not possible."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:403
+#: ../../../units-and-global-variables.rst:404
 msgid "``type(C).runtimeCode``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:404
+#: ../../../units-and-global-variables.rst:405
 msgid ""
 "Memory byte array that contains the runtime bytecode of the contract. This "
 "is the code that is usually deployed by the constructor of ``C``. If ``C`` "
@@ -856,17 +862,17 @@ msgid ""
 "same restrictions as with ``.creationCode`` also apply for this property."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:413
+#: ../../../units-and-global-variables.rst:414
 msgid ""
 "In addition to the properties above, the following properties are available "
 "for an interface type ``I``:"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:416
+#: ../../../units-and-global-variables.rst:417
 msgid "``type(I).interfaceId``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:417
+#: ../../../units-and-global-variables.rst:418
 msgid ""
 "A ``bytes4`` value containing the `EIP-165 <https://eips.ethereum.org/EIPS/"
 "eip-165>`_ interface identifier of the given interface ``I``. This "
@@ -874,37 +880,37 @@ msgid ""
 "within the interface itself - excluding all inherited functions."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:421
+#: ../../../units-and-global-variables.rst:422
 msgid "The following properties are available for an integer type ``T``:"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:423
+#: ../../../units-and-global-variables.rst:424
 msgid "``type(T).min``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:424
+#: ../../../units-and-global-variables.rst:425
 msgid "The smallest value representable by type ``T``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:426
+#: ../../../units-and-global-variables.rst:427
 msgid "``type(T).max``"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:427
+#: ../../../units-and-global-variables.rst:428
 msgid "The largest value representable by type ``T``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:430
+#: ../../../units-and-global-variables.rst:431
 msgid "Reserved Keywords"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:432
+#: ../../../units-and-global-variables.rst:433
 msgid ""
 "These keywords are reserved in Solidity. They might become part of the "
 "syntax in the future:"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:434
+#: ../../../units-and-global-variables.rst:435
 msgid ""
 "``after``, ``alias``, ``apply``, ``auto``, ``byte``, ``case``, ``copyof``, "
 "``default``, ``define``, ``final``, ``implements``, ``in``, ``inline``, "
@@ -913,18 +919,19 @@ msgid ""
 "``static``, ``supports``, ``switch``, ``typedef``, ``typeof``, ``var``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:441
+#: ../../../units-and-global-variables.rst:442
 msgid ""
 "The following identifiers will become keywords in the future and will no "
 "longer be usable as names: ``at``, ``error``, ``layout``, ``leave``, "
 "``super``, ``transient``, ``this``."
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:444
+#: ../../../units-and-global-variables.rst:445
 msgid ""
 "There are also names which will be considered Yul reserved identifiers in "
 "the future: ``basefee``, ``blobbasefee``, ``blobhash``, ``clz``, "
-"``memoryguard``, ``mcopy``, ``prevrandao``, ``tload``, ``tstore``."
+"``memoryguard``, ``mcopy``, ``prevrandao``, ``slotnum``, ``tload``, "
+"``tstore``."
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:1
@@ -982,7 +989,7 @@ msgid "time"
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:70
-#: ../../../units-and-global-variables.rst:137
+#: ../../../units-and-global-variables.rst:138
 msgid "abi"
 msgstr ""
 
@@ -1023,6 +1030,10 @@ msgid "blobbasefee"
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:70
+msgid "slotnum"
+msgstr ""
+
+#: ../../../units-and-global-variables.rst:70
 msgid "msg"
 msgstr ""
 
@@ -1050,118 +1061,118 @@ msgstr ""
 msgid "origin"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:137
+#: ../../../units-and-global-variables.rst:138
 msgid "encoding"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:137
+#: ../../../units-and-global-variables.rst:138
 msgid "packed"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:158
+#: ../../../units-and-global-variables.rst:159
 msgid "bytes members"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:165
+#: ../../../units-and-global-variables.rst:166
 msgid "string members"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:173
+#: ../../../units-and-global-variables.rst:174
 msgid "assert"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:173
+#: ../../../units-and-global-variables.rst:174
 msgid "revert"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:173
+#: ../../../units-and-global-variables.rst:174
 msgid "require"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "keccak256"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "ripemd160"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "sha256"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "ecrecover"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "addmod"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "mulmod"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "cryptography"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:196
+#: ../../../units-and-global-variables.rst:197
 msgid "erc7201"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "balance"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "codehash"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "send"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "transfer"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "call"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "callcode"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "delegatecall"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:255
+#: ../../../units-and-global-variables.rst:256
 msgid "staticcall"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:335
+#: ../../../units-and-global-variables.rst:336
 msgid "this"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:335
+#: ../../../units-and-global-variables.rst:336
 msgid "selfdestruct"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:335
+#: ../../../units-and-global-variables.rst:336
 msgid "super"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:379
+#: ../../../units-and-global-variables.rst:380
 msgid "type"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:379
+#: ../../../units-and-global-variables.rst:380
 msgid "creationCode"
 msgstr ""
 
-#: ../../../units-and-global-variables.rst:379
+#: ../../../units-and-global-variables.rst:380
 msgid "runtimeCode"
 msgstr ""
