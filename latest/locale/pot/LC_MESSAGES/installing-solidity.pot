@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-08-17 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -537,11 +537,11 @@ msgstr ""
 msgid "The following are dependencies for all builds of Solidity:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:409
+#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:408
 msgid "Software"
 msgstr ""
 
-#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:409
+#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:408
 msgid "Notes"
 msgstr ""
 
@@ -554,30 +554,30 @@ msgid "Cross-platform build file generator."
 msgstr ""
 
 #: ../../../installing-solidity.rst:329
-msgid "`Boost`_ (version 1.77+ on Windows, 1.83+ otherwise)"
+msgid "`Boost`_ (version 1.83+)"
 msgstr ""
 
-#: ../../../installing-solidity.rst:329 ../../../installing-solidity.rst:415
+#: ../../../installing-solidity.rst:329 ../../../installing-solidity.rst:414
 msgid "C++ libraries."
 msgstr ""
 
-#: ../../../installing-solidity.rst:332
+#: ../../../installing-solidity.rst:331
 msgid "`Git`_"
 msgstr ""
 
-#: ../../../installing-solidity.rst:332
+#: ../../../installing-solidity.rst:331
 msgid "Command-line tool for retrieving source code."
 msgstr ""
 
-#: ../../../installing-solidity.rst:334
+#: ../../../installing-solidity.rst:333
 msgid "`z3`_ (version 4.8.16+, Optional)"
 msgstr ""
 
-#: ../../../installing-solidity.rst:334
+#: ../../../installing-solidity.rst:333
 msgid "For use with SMT checker."
 msgstr ""
 
-#: ../../../installing-solidity.rst:343
+#: ../../../installing-solidity.rst:342
 msgid ""
 "Solidity versions prior to 0.5.10 can fail to correctly link against Boost "
 "versions 1.70+. A possible workaround is to temporarily rename ``<Boost "
@@ -585,13 +585,13 @@ msgid ""
 "configure Solidity."
 msgstr ""
 
-#: ../../../installing-solidity.rst:347
+#: ../../../installing-solidity.rst:346
 msgid ""
 "Starting from 0.5.10 linking against Boost 1.70+ should work without manual "
 "intervention."
 msgstr ""
 
-#: ../../../installing-solidity.rst:350
+#: ../../../installing-solidity.rst:349
 msgid ""
 "The default build configuration requires a specific Z3 version (the latest "
 "one at the time the code was last updated). Changes introduced between Z3 "
@@ -605,7 +605,7 @@ msgid ""
 "sh`` to skip the SMT tests."
 msgstr ""
 
-#: ../../../installing-solidity.rst:360
+#: ../../../installing-solidity.rst:359
 msgid ""
 "By default the build is performed in *pedantic mode*, which enables extra "
 "warnings and tells the compiler to treat all warnings as errors. This forces "
@@ -619,33 +619,33 @@ msgid ""
 "<https://github.com/argotorg/solidity/issues/new>`_."
 msgstr ""
 
-#: ../../../installing-solidity.rst:371
+#: ../../../installing-solidity.rst:370
 msgid "Minimum Compiler Versions"
 msgstr ""
 
-#: ../../../installing-solidity.rst:373
+#: ../../../installing-solidity.rst:372
 msgid ""
 "The following C++ compilers and their minimum versions can build the "
 "Solidity codebase:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:377
+#: ../../../installing-solidity.rst:376
 msgid "`GCC <https://gcc.gnu.org>`_, version 13.3+"
 msgstr ""
 
-#: ../../../installing-solidity.rst:378
+#: ../../../installing-solidity.rst:377
 msgid "`Clang <https://clang.llvm.org/>`_, version 18.1.3+"
 msgstr ""
 
-#: ../../../installing-solidity.rst:379
+#: ../../../installing-solidity.rst:378
 msgid "`MSVC <https://visualstudio.microsoft.com/vs/>`_, version 2019+"
 msgstr ""
 
-#: ../../../installing-solidity.rst:382
+#: ../../../installing-solidity.rst:381
 msgid "Prerequisites - macOS"
 msgstr ""
 
-#: ../../../installing-solidity.rst:384
+#: ../../../installing-solidity.rst:383
 msgid ""
 "For macOS builds, ensure that you have the latest version of `Xcode "
 "installed <https://developer.apple.com/xcode/resources/>`_. This contains "
@@ -657,11 +657,11 @@ msgid ""
 "builds:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:393
+#: ../../../installing-solidity.rst:392
 msgid "sudo xcodebuild -license accept"
 msgstr ""
 
-#: ../../../installing-solidity.rst:397
+#: ../../../installing-solidity.rst:396
 msgid ""
 "Our OS X build script uses `the Homebrew <https://brew.sh>`_ package manager "
 "for installing external dependencies. Here's how to `uninstall Homebrew "
@@ -669,114 +669,114 @@ msgid ""
 "to start again from scratch."
 msgstr ""
 
-#: ../../../installing-solidity.rst:404
+#: ../../../installing-solidity.rst:403
 msgid "Prerequisites - Windows"
 msgstr ""
 
-#: ../../../installing-solidity.rst:406
+#: ../../../installing-solidity.rst:405
 msgid ""
 "You need to install the following dependencies for Windows builds of "
 "Solidity:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:411
+#: ../../../installing-solidity.rst:410
 msgid "`Visual Studio 2019 Build Tools`_"
 msgstr ""
 
-#: ../../../installing-solidity.rst:411
+#: ../../../installing-solidity.rst:410
 msgid "C++ compiler"
 msgstr ""
 
-#: ../../../installing-solidity.rst:413
+#: ../../../installing-solidity.rst:412
 msgid "`Visual Studio 2019`_  (Optional)"
 msgstr ""
 
-#: ../../../installing-solidity.rst:413
+#: ../../../installing-solidity.rst:412
 msgid "C++ compiler and dev environment."
 msgstr ""
 
-#: ../../../installing-solidity.rst:415
+#: ../../../installing-solidity.rst:414
 msgid "`Boost`_ (version 1.77+)"
 msgstr ""
 
-#: ../../../installing-solidity.rst:418
+#: ../../../installing-solidity.rst:417
 msgid ""
 "If you already have one IDE and only need the compiler and libraries, you "
 "could install Visual Studio 2019 Build Tools."
 msgstr ""
 
-#: ../../../installing-solidity.rst:421
+#: ../../../installing-solidity.rst:420
 msgid ""
 "Visual Studio 2019 provides both IDE and necessary compiler and libraries. "
 "So if you have not got an IDE and prefer to develop Solidity, Visual Studio "
 "2019 may be a choice for you to get everything setup easily."
 msgstr ""
 
-#: ../../../installing-solidity.rst:425
+#: ../../../installing-solidity.rst:424
 msgid ""
 "Here is the list of components that should be installed in Visual Studio "
 "2019 Build Tools or Visual Studio 2019:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:428
+#: ../../../installing-solidity.rst:427
 msgid "Visual Studio C++ core features"
 msgstr ""
 
-#: ../../../installing-solidity.rst:429
+#: ../../../installing-solidity.rst:428
 msgid "VC++ 2019 v141 toolset (x86,x64)"
 msgstr ""
 
-#: ../../../installing-solidity.rst:430
+#: ../../../installing-solidity.rst:429
 msgid "Windows Universal CRT SDK"
 msgstr ""
 
-#: ../../../installing-solidity.rst:431
+#: ../../../installing-solidity.rst:430
 msgid "Windows 8.1 SDK"
 msgstr ""
 
-#: ../../../installing-solidity.rst:432
+#: ../../../installing-solidity.rst:431
 msgid "C++/CLI support"
 msgstr ""
 
-#: ../../../installing-solidity.rst:437
+#: ../../../installing-solidity.rst:436
 msgid ""
 "We have a helper script which you can use to install all required external "
 "dependencies:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:439
+#: ../../../installing-solidity.rst:438
 msgid "scripts\\install_deps.ps1"
 msgstr ""
 
-#: ../../../installing-solidity.rst:443
+#: ../../../installing-solidity.rst:442
 msgid "This will install ``boost`` and ``cmake`` to the ``deps`` subdirectory."
 msgstr ""
 
-#: ../../../installing-solidity.rst:446
+#: ../../../installing-solidity.rst:445
 msgid "Clone the Repository"
 msgstr ""
 
-#: ../../../installing-solidity.rst:448
+#: ../../../installing-solidity.rst:447
 msgid "To clone the source code, execute the following command:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:450
+#: ../../../installing-solidity.rst:449
 msgid ""
 "git clone --recursive https://github.com/argotorg/solidity.git\n"
 "cd solidity"
 msgstr ""
 
-#: ../../../installing-solidity.rst:455
+#: ../../../installing-solidity.rst:454
 msgid ""
 "If you want to help develop Solidity, you should fork Solidity and add your "
 "personal fork as a second remote:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:458
+#: ../../../installing-solidity.rst:457
 msgid "git remote add personal git@github.com:[username]/solidity.git"
 msgstr ""
 
-#: ../../../installing-solidity.rst:463
+#: ../../../installing-solidity.rst:462
 msgid ""
 "This method will result in a pre-release build leading to e.g. a flag being "
 "set in each bytecode produced by such a compiler. If you want to re-build a "
@@ -784,25 +784,25 @@ msgid ""
 "release page:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:468
+#: ../../../installing-solidity.rst:467
 msgid ""
 "https://github.com/argotorg/solidity/releases/download/v0.X.Y/solidity_0.X.Y."
 "tar.gz"
 msgstr ""
 
-#: ../../../installing-solidity.rst:470
+#: ../../../installing-solidity.rst:469
 msgid "(not the \"Source code\" provided by GitHub)."
 msgstr ""
 
-#: ../../../installing-solidity.rst:473
+#: ../../../installing-solidity.rst:472
 msgid "Command-Line Build"
 msgstr ""
 
-#: ../../../installing-solidity.rst:475
+#: ../../../installing-solidity.rst:474
 msgid "**Be sure to install External Dependencies (see above) before build.**"
 msgstr ""
 
-#: ../../../installing-solidity.rst:477
+#: ../../../installing-solidity.rst:476
 msgid ""
 "Solidity project uses CMake to configure the build. You might want to "
 "install `ccache`_ to speed up repeated builds. CMake will pick it up "
@@ -810,39 +810,39 @@ msgid ""
 "Unices:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:484
+#: ../../../installing-solidity.rst:483
 msgid ""
 "mkdir build\n"
 "cd build\n"
 "cmake .. && make"
 msgstr ""
 
-#: ../../../installing-solidity.rst:490
+#: ../../../installing-solidity.rst:489
 msgid "or even easier on Linux and macOS, you can run:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:492
+#: ../../../installing-solidity.rst:491
 msgid ""
 "#note: this will install binaries solc and soltest at usr/local/bin\n"
 "./scripts/build.sh"
 msgstr ""
 
-#: ../../../installing-solidity.rst:499
+#: ../../../installing-solidity.rst:498
 msgid "BSD builds should work, but are untested by the Solidity team."
 msgstr ""
 
-#: ../../../installing-solidity.rst:501
+#: ../../../installing-solidity.rst:500
 msgid "And for Windows:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:503
+#: ../../../installing-solidity.rst:502
 msgid ""
 "mkdir build\n"
 "cd build\n"
 "cmake -G \"Visual Studio 16 2019\" .."
 msgstr ""
 
-#: ../../../installing-solidity.rst:509
+#: ../../../installing-solidity.rst:508
 msgid ""
 "In case you want to use the version of boost installed by "
 "``scripts\\install_deps.ps1``, you will additionally need to pass ``-"
@@ -851,7 +851,7 @@ msgid ""
 "``cmake``."
 msgstr ""
 
-#: ../../../installing-solidity.rst:513
+#: ../../../installing-solidity.rst:512
 msgid ""
 "This should result in the creation of **solidity.sln** in that build "
 "directory. Double-clicking on that file should result in Visual Studio "
@@ -859,101 +859,101 @@ msgid ""
 "work."
 msgstr ""
 
-#: ../../../installing-solidity.rst:517
+#: ../../../installing-solidity.rst:516
 msgid "Alternatively, you can build for Windows on the command-line, like so:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:519
+#: ../../../installing-solidity.rst:518
 msgid "cmake --build . --config Release"
 msgstr ""
 
-#: ../../../installing-solidity.rst:524
+#: ../../../installing-solidity.rst:523
 msgid "CMake Options"
 msgstr ""
 
-#: ../../../installing-solidity.rst:526
+#: ../../../installing-solidity.rst:525
 msgid ""
 "If you are interested what CMake options are available run ``cmake .. -LH``."
 msgstr ""
 
-#: ../../../installing-solidity.rst:531
+#: ../../../installing-solidity.rst:530
 msgid "SMT Solvers"
 msgstr ""
 
-#: ../../../installing-solidity.rst:532
+#: ../../../installing-solidity.rst:531
 msgid ""
 "Solidity can optionally use SMT solvers, namely ``z3``, ``cvc5`` and "
 "``Eldarica``, but their presence is checked only at runtime, they are not "
 "needed for the build to succeed."
 msgstr ""
 
-#: ../../../installing-solidity.rst:537
+#: ../../../installing-solidity.rst:536
 msgid ""
 "The emscripten builds require Z3 and will statically link against it instead."
 msgstr ""
 
-#: ../../../installing-solidity.rst:540
+#: ../../../installing-solidity.rst:539
 msgid "The Version String in Detail"
 msgstr ""
 
-#: ../../../installing-solidity.rst:542
+#: ../../../installing-solidity.rst:541
 msgid "The Solidity version string contains four parts:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:544
+#: ../../../installing-solidity.rst:543
 msgid "the version number"
 msgstr ""
 
-#: ../../../installing-solidity.rst:545
+#: ../../../installing-solidity.rst:544
 msgid ""
 "pre-release tag, usually set to ``develop.YYYY.MM.DD``, ``pre.N`` or "
 "``nightly.YYYY.MM.DD``"
 msgstr ""
 
-#: ../../../installing-solidity.rst:546
+#: ../../../installing-solidity.rst:545
 msgid "commit in the format of ``commit.GITHASH``"
 msgstr ""
 
-#: ../../../installing-solidity.rst:547
+#: ../../../installing-solidity.rst:546
 msgid ""
 "platform, which has an arbitrary number of items, containing details about "
 "the platform and compiler"
 msgstr ""
 
-#: ../../../installing-solidity.rst:549
+#: ../../../installing-solidity.rst:548
 msgid ""
 "If there are local modifications, the commit will be postfixed with ``.mod``."
 msgstr ""
 
-#: ../../../installing-solidity.rst:551
+#: ../../../installing-solidity.rst:550
 msgid ""
 "These parts are combined as required by SemVer, where the Solidity pre-"
 "release tag equals to the SemVer pre-release and the Solidity commit and "
 "platform combined make up the SemVer build metadata."
 msgstr ""
 
-#: ../../../installing-solidity.rst:554
+#: ../../../installing-solidity.rst:553
 msgid "Examples:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:556
+#: ../../../installing-solidity.rst:555
 msgid "release: ``0.4.8+commit.60cc1668.Emscripten.clang``"
 msgstr ""
 
-#: ../../../installing-solidity.rst:557
+#: ../../../installing-solidity.rst:556
 msgid "pre-release: ``0.4.9-pre.3+commit.fb60450bc.Emscripten.clang``"
 msgstr ""
 
-#: ../../../installing-solidity.rst:558
+#: ../../../installing-solidity.rst:557
 msgid ""
 "nightly build: ``0.4.9-nightly.2017.1.17+commit.6ecb4aa3.Emscripten.clang``"
 msgstr ""
 
-#: ../../../installing-solidity.rst:561
+#: ../../../installing-solidity.rst:560
 msgid "Important Information About Versioning"
 msgstr ""
 
-#: ../../../installing-solidity.rst:563
+#: ../../../installing-solidity.rst:562
 msgid ""
 "After a release is made, the patch version level is bumped, because we "
 "assume that only patch level changes follow. When changes are merged, the "
@@ -962,31 +962,31 @@ msgid ""
 "without the ``prerelease`` specifier."
 msgstr ""
 
-#: ../../../installing-solidity.rst:568
+#: ../../../installing-solidity.rst:567
 msgid "Example:"
 msgstr ""
 
-#: ../../../installing-solidity.rst:570
+#: ../../../installing-solidity.rst:569
 msgid "The 0.4.0 release is made."
 msgstr ""
 
-#: ../../../installing-solidity.rst:571
+#: ../../../installing-solidity.rst:570
 msgid "Nightly builds and preerelases have a version of 0.4.1 from now on."
 msgstr ""
 
-#: ../../../installing-solidity.rst:572
+#: ../../../installing-solidity.rst:571
 msgid "Non-breaking changes are introduced --> no change in version."
 msgstr ""
 
-#: ../../../installing-solidity.rst:573
+#: ../../../installing-solidity.rst:572
 msgid "A breaking change is introduced --> version is bumped to 0.5.0."
 msgstr ""
 
-#: ../../../installing-solidity.rst:574
+#: ../../../installing-solidity.rst:573
 msgid "The 0.5.0 release is made."
 msgstr ""
 
-#: ../../../installing-solidity.rst:576
+#: ../../../installing-solidity.rst:575
 msgid ""
 "This behavior works well with the :ref:`version pragma <version_pragma>`."
 msgstr ""
