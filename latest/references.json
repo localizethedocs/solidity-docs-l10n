@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-06-04 13:21:55 +0200",
-      "hash" : "cd88744caaeee881c8990743f86f81f3dcd0adfa",
-      "title" : "Merge pull request #16770 from argotorg/remove-eof-libyul"
+      "date" : "2026-08-31 11:02:14 +0200",
+      "hash" : "1f468650033d68ed8ba38e94cda37063925ad5a1",
+      "title" : "Merge pull request #16955 from argotorg/deprecate-experimental-pragma"
     }
   },
   "type" : "branch",

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-08-31 16:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1096,7 +1096,14 @@ msgstr ""
 msgid "Bounded Model Checker (BMC)"
 msgstr ""
 
-#: ../../../smtchecker.rst:790
+#: ../../../smtchecker.rst:791
+msgid ""
+"The BMC engine has been deprecated and will be removed in a future release. "
+"Selecting it, either explicitly via ``bmc`` or implicitly via ``all``, emits "
+"a deprecation warning. Please use the CHC engine instead."
+msgstr ""
+
+#: ../../../smtchecker.rst:795
 msgid ""
 "The BMC engine analyzes functions in isolation, that is, it does not take "
 "the overall behavior of the contract over multiple transactions into account "
@@ -1106,17 +1113,17 @@ msgid ""
 "possible. Knowledge that is potentially affected by reentrancy is erased."
 msgstr ""
 
-#: ../../../smtchecker.rst:797
+#: ../../../smtchecker.rst:802
 msgid ""
 "The characteristics above make BMC prone to reporting false positives, but "
 "it is also lightweight and should be able to quickly find small local bugs."
 msgstr ""
 
-#: ../../../smtchecker.rst:801
+#: ../../../smtchecker.rst:806
 msgid "Constrained Horn Clauses (CHC)"
 msgstr ""
 
-#: ../../../smtchecker.rst:803
+#: ../../../smtchecker.rst:808
 msgid ""
 "A contract's Control Flow Graph (CFG) is modelled as a system of Horn "
 "clauses, where the life cycle of the contract is represented by a loop that "
@@ -1127,17 +1134,17 @@ msgid ""
 "calls assume the called code is unknown and can do anything."
 msgstr ""
 
-#: ../../../smtchecker.rst:811
+#: ../../../smtchecker.rst:816
 msgid ""
 "The CHC engine is much more powerful than BMC in terms of what it can prove, "
 "and might require more computing resources."
 msgstr ""
 
-#: ../../../smtchecker.rst:815
+#: ../../../smtchecker.rst:820
 msgid "SMT and Horn solvers"
 msgstr ""
 
-#: ../../../smtchecker.rst:817
+#: ../../../smtchecker.rst:822
 msgid ""
 "The two engines detailed above use automated theorem provers as their "
 "logical backends.  BMC uses an SMT solver, whereas CHC uses a Horn solver. "
@@ -1147,26 +1154,26 @@ msgid ""
 "github.com/uuverifiers/eldarica>`_ which does both."
 msgstr ""
 
-#: ../../../smtchecker.rst:824
+#: ../../../smtchecker.rst:829
 msgid ""
 "The user can choose which solvers should be used, if available, via the CLI "
 "option ``--model-checker-solvers {all,cvc5,eld,smtlib2,z3}`` or the JSON "
 "option ``settings.modelChecker.solvers=[smtlib2,z3]``, where:"
 msgstr ""
 
-#: ../../../smtchecker.rst:828
+#: ../../../smtchecker.rst:833
 msgid ""
 "``cvc5`` is used via its binary which must be installed in the system. Only "
 "BMC uses ``cvc5``."
 msgstr ""
 
-#: ../../../smtchecker.rst:829
+#: ../../../smtchecker.rst:834
 msgid ""
 "``eld`` is used via its binary which must be installed in the system. Only "
 "CHC uses ``eld``, and only if ``z3`` is not enabled."
 msgstr ""
 
-#: ../../../smtchecker.rst:830
+#: ../../../smtchecker.rst:835
 msgid ""
 "``smtlib2`` outputs SMT/Horn queries in the `smtlib2 <http://smtlib.cs.uiowa."
 "edu/>`_ format. These can be used together with the compiler's `callback "
@@ -1176,14 +1183,14 @@ msgid ""
 "which solvers are called."
 msgstr ""
 
-#: ../../../smtchecker.rst:834
+#: ../../../smtchecker.rst:839
 msgid ""
 "``z3`` is available statically in ``soljson.js`` (from Solidity 0.6.9), that "
 "is, the JavaScript binary of the compiler. Otherwise it is used via its "
 "binary which must be installed in the system."
 msgstr ""
 
-#: ../../../smtchecker.rst:837
+#: ../../../smtchecker.rst:842
 msgid ""
 "z3 version 4.8.16 broke ABI compatibility with previous versions and cannot "
 "be used with solc <=0.8.13. If you are using z3 >=4.8.16 please use solc "
@@ -1192,7 +1199,7 @@ msgid ""
 "does."
 msgstr ""
 
-#: ../../../smtchecker.rst:842
+#: ../../../smtchecker.rst:847
 msgid ""
 "Since both BMC and CHC use ``z3``, and ``z3`` is available in a greater "
 "variety of environments, including in the browser, most users will almost "
@@ -1200,17 +1207,17 @@ msgid ""
 "apply this option to try alternative solvers on more complex problems."
 msgstr ""
 
-#: ../../../smtchecker.rst:847
+#: ../../../smtchecker.rst:852
 msgid ""
 "Please note that certain combinations of chosen engine and solver will lead "
 "to the SMTChecker doing nothing, for example choosing CHC and ``cvc5``."
 msgstr ""
 
-#: ../../../smtchecker.rst:852
+#: ../../../smtchecker.rst:857
 msgid "Abstraction and False Positives"
 msgstr ""
 
-#: ../../../smtchecker.rst:854
+#: ../../../smtchecker.rst:859
 msgid ""
 "The SMTChecker implements abstractions in an incomplete and sound way: If a "
 "bug is reported, it might be a false positive introduced by abstractions "
@@ -1219,7 +1226,7 @@ msgid ""
 "false negatives (unless there is a bug in the SMTChecker)."
 msgstr ""
 
-#: ../../../smtchecker.rst:860
+#: ../../../smtchecker.rst:865
 msgid ""
 "If a target cannot be proven you can try to help the solver by using the "
 "tuning options in the previous section. If you are sure of a false positive, "
@@ -1227,99 +1234,99 @@ msgid ""
 "give some more power to the solver."
 msgstr ""
 
-#: ../../../smtchecker.rst:866
+#: ../../../smtchecker.rst:871
 msgid "SMT Encoding and Types"
 msgstr ""
 
-#: ../../../smtchecker.rst:868
+#: ../../../smtchecker.rst:873
 msgid ""
 "The SMTChecker encoding tries to be as precise as possible, mapping Solidity "
 "types and expressions to their closest `SMT-LIB <http://smtlib.cs.uiowa.edu/"
 ">`_ representation, as shown in the table below."
 msgstr ""
 
-#: ../../../smtchecker.rst:873
+#: ../../../smtchecker.rst:878
 msgid "Solidity type"
 msgstr ""
 
-#: ../../../smtchecker.rst:873
+#: ../../../smtchecker.rst:878
 msgid "SMT sort"
 msgstr ""
 
-#: ../../../smtchecker.rst:873
+#: ../../../smtchecker.rst:878
 msgid "Theories"
 msgstr ""
 
-#: ../../../smtchecker.rst:875
+#: ../../../smtchecker.rst:880
 msgid "Boolean"
 msgstr ""
 
-#: ../../../smtchecker.rst:875
+#: ../../../smtchecker.rst:880
 msgid "Bool"
 msgstr ""
 
-#: ../../../smtchecker.rst:877
+#: ../../../smtchecker.rst:882
 msgid "intN, uintN, address, bytesN, enum, contract"
 msgstr ""
 
-#: ../../../smtchecker.rst:877 ../../../smtchecker.rst:885
+#: ../../../smtchecker.rst:882 ../../../smtchecker.rst:890
 msgid "Integer"
 msgstr ""
 
-#: ../../../smtchecker.rst:877
+#: ../../../smtchecker.rst:882
 msgid "LIA, NIA"
 msgstr ""
 
-#: ../../../smtchecker.rst:880
+#: ../../../smtchecker.rst:885
 msgid "array, mapping, bytes, string"
 msgstr ""
 
-#: ../../../smtchecker.rst:880
+#: ../../../smtchecker.rst:885
 msgid "Tuple (Array elements, Integer length)"
 msgstr ""
 
-#: ../../../smtchecker.rst:880
+#: ../../../smtchecker.rst:885
 msgid "Datatypes, Arrays, LIA"
 msgstr ""
 
-#: ../../../smtchecker.rst:883
+#: ../../../smtchecker.rst:888
 msgid "struct"
 msgstr ""
 
-#: ../../../smtchecker.rst:883
+#: ../../../smtchecker.rst:888
 msgid "Tuple"
 msgstr ""
 
-#: ../../../smtchecker.rst:883
+#: ../../../smtchecker.rst:888
 msgid "Datatypes"
 msgstr ""
 
-#: ../../../smtchecker.rst:885
+#: ../../../smtchecker.rst:890
 msgid "other types"
 msgstr ""
 
-#: ../../../smtchecker.rst:885
+#: ../../../smtchecker.rst:890
 msgid "LIA"
 msgstr ""
 
-#: ../../../smtchecker.rst:888
+#: ../../../smtchecker.rst:893
 msgid ""
 "Types that are not yet supported are abstracted by a single 256-bit unsigned "
 "integer, where their unsupported operations are ignored."
 msgstr ""
 
-#: ../../../smtchecker.rst:891
+#: ../../../smtchecker.rst:896
 msgid ""
 "For more details on how the SMT encoding works internally, see the paper "
 "`SMT-based Verification of Solidity Smart Contracts <https://github.com/"
 "chriseth/solidity_isola/blob/master/main.pdf>`_."
 msgstr ""
 
-#: ../../../smtchecker.rst:895
+#: ../../../smtchecker.rst:900
 msgid "Function Calls"
 msgstr ""
 
-#: ../../../smtchecker.rst:897
+#: ../../../smtchecker.rst:902
 msgid ""
 "In the BMC engine, function calls to the same contract (or base contracts) "
 "are inlined when possible, that is, when their implementation is available.  "
@@ -1328,136 +1335,136 @@ msgid ""
 "same."
 msgstr ""
 
-#: ../../../smtchecker.rst:902
+#: ../../../smtchecker.rst:907
 msgid ""
 "The CHC engine creates nonlinear Horn clauses that use summaries of the "
 "called functions to support internal function calls. External function calls "
 "are treated as calls to unknown code, including potential reentrant calls."
 msgstr ""
 
-#: ../../../smtchecker.rst:906
+#: ../../../smtchecker.rst:911
 msgid ""
 "Complex pure functions are abstracted by an uninterpreted function (UF) over "
 "the arguments."
 msgstr ""
 
-#: ../../../smtchecker.rst:910
+#: ../../../smtchecker.rst:915
 msgid "Functions"
 msgstr ""
 
-#: ../../../smtchecker.rst:910
+#: ../../../smtchecker.rst:915
 msgid "BMC/CHC behavior"
 msgstr ""
 
-#: ../../../smtchecker.rst:912
+#: ../../../smtchecker.rst:917
 msgid "``assert``"
 msgstr ""
 
-#: ../../../smtchecker.rst:912
+#: ../../../smtchecker.rst:917
 msgid "Verification target."
 msgstr ""
 
-#: ../../../smtchecker.rst:914
+#: ../../../smtchecker.rst:919
 msgid "``require``"
 msgstr ""
 
-#: ../../../smtchecker.rst:914
+#: ../../../smtchecker.rst:919
 msgid "Assumption."
 msgstr ""
 
-#: ../../../smtchecker.rst:916
+#: ../../../smtchecker.rst:921
 msgid "internal call"
 msgstr ""
 
-#: ../../../smtchecker.rst:916
+#: ../../../smtchecker.rst:921
 msgid "BMC: Inline function call. CHC: Function summaries."
 msgstr ""
 
-#: ../../../smtchecker.rst:919
+#: ../../../smtchecker.rst:924
 msgid "external call to known code"
 msgstr ""
 
-#: ../../../smtchecker.rst:919
+#: ../../../smtchecker.rst:924
 msgid ""
 "BMC: Inline function call or erase knowledge about state variables and local "
 "storage references. CHC: Assume called code is unknown. Try to infer "
 "invariants that hold after the call returns."
 msgstr ""
 
-#: ../../../smtchecker.rst:926
+#: ../../../smtchecker.rst:931
 msgid "Storage array push/pop"
 msgstr ""
 
-#: ../../../smtchecker.rst:926
+#: ../../../smtchecker.rst:931
 msgid "Supported precisely. Checks whether it is popping an empty array."
 msgstr ""
 
-#: ../../../smtchecker.rst:930
+#: ../../../smtchecker.rst:935
 msgid "ABI functions"
 msgstr ""
 
-#: ../../../smtchecker.rst:930 ../../../smtchecker.rst:934
+#: ../../../smtchecker.rst:935 ../../../smtchecker.rst:939
 msgid "Abstracted with UF."
 msgstr ""
 
-#: ../../../smtchecker.rst:932
+#: ../../../smtchecker.rst:937
 msgid "``addmod``, ``mulmod``"
 msgstr ""
 
-#: ../../../smtchecker.rst:932
+#: ../../../smtchecker.rst:937
 msgid "Supported precisely."
 msgstr ""
 
-#: ../../../smtchecker.rst:934
+#: ../../../smtchecker.rst:939
 msgid ""
 "``gasleft``, ``blobhash``, ``blockhash``, ``keccak256``, ``ecrecover``, "
 "``ripemd160``"
 msgstr ""
 
-#: ../../../smtchecker.rst:938
+#: ../../../smtchecker.rst:943
 msgid "pure functions without implementation (external or complex)"
 msgstr ""
 
-#: ../../../smtchecker.rst:938
+#: ../../../smtchecker.rst:943
 msgid "Abstracted with UF"
 msgstr ""
 
-#: ../../../smtchecker.rst:942
+#: ../../../smtchecker.rst:947
 msgid "external functions without implementation"
 msgstr ""
 
-#: ../../../smtchecker.rst:942
+#: ../../../smtchecker.rst:947
 msgid ""
 "BMC: Erase state knowledge and assume result is nondeterministic. CHC: "
 "Nondeterministic summary. Try to infer invariants that hold after the call "
 "returns."
 msgstr ""
 
-#: ../../../smtchecker.rst:948
+#: ../../../smtchecker.rst:953
 msgid "transfer"
 msgstr ""
 
-#: ../../../smtchecker.rst:948
+#: ../../../smtchecker.rst:953
 msgid ""
 "BMC: Checks whether the contract's balance is sufficient. CHC: does not yet "
 "perform the check."
 msgstr ""
 
-#: ../../../smtchecker.rst:952
+#: ../../../smtchecker.rst:957
 msgid "others"
 msgstr ""
 
-#: ../../../smtchecker.rst:952
+#: ../../../smtchecker.rst:957
 msgid "Currently unsupported"
 msgstr ""
 
-#: ../../../smtchecker.rst:955
+#: ../../../smtchecker.rst:960
 msgid ""
 "Using abstraction means loss of precise knowledge, but in many cases it does "
 "not mean loss of proving power."
 msgstr ""
 
-#: ../../../smtchecker.rst:958
+#: ../../../smtchecker.rst:963
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.0;\n"
@@ -1481,7 +1488,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../smtchecker.rst:981
+#: ../../../smtchecker.rst:986
 msgid ""
 "In the example above, the SMTChecker is not expressive enough to actually "
 "compute ``ecrecover``, but by modelling the function calls as uninterpreted "
@@ -1490,7 +1497,7 @@ msgid ""
 "always true."
 msgstr ""
 
-#: ../../../smtchecker.rst:986
+#: ../../../smtchecker.rst:991
 msgid ""
 "Abstracting a function call with an UF can be done for functions known to be "
 "deterministic, and can be easily done for pure functions.  It is however "
@@ -1498,11 +1505,11 @@ msgid ""
 "depend on state variables."
 msgstr ""
 
-#: ../../../smtchecker.rst:992
+#: ../../../smtchecker.rst:997
 msgid "Reference Types and Aliasing"
 msgstr ""
 
-#: ../../../smtchecker.rst:994
+#: ../../../smtchecker.rst:999
 msgid ""
 "Solidity implements aliasing for reference types with the same :ref:`data "
 "location<data-location>`. That means one variable may be modified through a "
@@ -1514,7 +1521,7 @@ msgid ""
 "types."
 msgstr ""
 
-#: ../../../smtchecker.rst:1005
+#: ../../../smtchecker.rst:1010
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.0;\n"
@@ -1559,7 +1566,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../smtchecker.rst:1049
+#: ../../../smtchecker.rst:1054
 msgid ""
 "After the assignment to ``b[0]``, we need to clear knowledge about ``a`` "
 "since it has the same type (``uint[]``) and data location (memory).  We also "
@@ -1568,7 +1575,7 @@ msgid ""
 "the same data as ``b`` or ``a``."
 msgstr ""
 
-#: ../../../smtchecker.rst:1055
+#: ../../../smtchecker.rst:1060
 msgid ""
 "Notice that we do not clear knowledge about ``array`` and ``d`` because they "
 "are located in storage, even though they also have type ``uint[]``.  "
@@ -1576,11 +1583,11 @@ msgid ""
 "``array`` and vice-versa."
 msgstr ""
 
-#: ../../../smtchecker.rst:1061
+#: ../../../smtchecker.rst:1066
 msgid "Contract Balance"
 msgstr ""
 
-#: ../../../smtchecker.rst:1063
+#: ../../../smtchecker.rst:1068
 msgid ""
 "A contract may be deployed with funds sent to it, if ``msg.value`` > 0 in "
 "the deployment transaction. However, the contract's address may already have "
@@ -1590,27 +1597,27 @@ msgid ""
 "balance may also increase without triggering any calls to the contract, if"
 msgstr ""
 
-#: ../../../smtchecker.rst:1072
+#: ../../../smtchecker.rst:1077
 msgid ""
 "``selfdestruct`` is executed by another contract with the analyzed contract "
 "as the target of the remaining funds,"
 msgstr ""
 
-#: ../../../smtchecker.rst:1074
+#: ../../../smtchecker.rst:1079
 msgid "the contract is the coinbase (i.e., ``block.coinbase``) of some block."
 msgstr ""
 
-#: ../../../smtchecker.rst:1076
+#: ../../../smtchecker.rst:1081
 msgid ""
 "To model this properly, the SMTChecker assumes that at every new transaction "
 "the contract's balance may grow by at least ``msg.value``."
 msgstr ""
 
-#: ../../../smtchecker.rst:1081
+#: ../../../smtchecker.rst:1086
 msgid "Real World Assumptions"
 msgstr ""
 
-#: ../../../smtchecker.rst:1083
+#: ../../../smtchecker.rst:1088
 msgid ""
 "Some scenarios can be expressed in Solidity and the EVM, but are expected to "
 "never occur in practice. One of such cases is the length of a dynamic "
@@ -1622,7 +1629,7 @@ msgid ""
 "address' balance can never overflow."
 msgstr ""
 
-#: ../../../smtchecker.rst:1093
+#: ../../../smtchecker.rst:1098
 msgid ""
 "A similar idea was presented in `EIP-1985 <https://eips.ethereum.org/EIPS/"
 "eip-1985>`_."
