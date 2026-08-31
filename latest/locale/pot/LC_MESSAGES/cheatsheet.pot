@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-08-31 16:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -485,112 +485,118 @@ msgstr ""
 
 #: ../../../cheatsheet.rst:78
 msgid ""
+"``block.slotnum`` (``uint64``): current beacon chain slot number (``EVM >= "
+"Amsterdam``) (see `EIP-7843 <https://eips.ethereum.org/EIPS/eip-7843>`_ )"
+msgstr ""
+
+#: ../../../cheatsheet.rst:79
+msgid ""
 "``block.timestamp`` (``uint``): current block timestamp in seconds since "
 "Unix epoch"
 msgstr ""
 
-#: ../../../cheatsheet.rst:79
+#: ../../../cheatsheet.rst:80
 msgid "``gasleft() returns (uint256)``: remaining gas"
 msgstr ""
 
-#: ../../../cheatsheet.rst:80
+#: ../../../cheatsheet.rst:81
 msgid "``msg.data`` (``bytes``): complete calldata"
 msgstr ""
 
-#: ../../../cheatsheet.rst:81
+#: ../../../cheatsheet.rst:82
 msgid "``msg.sender`` (``address``): sender of the message (current call)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:82
+#: ../../../cheatsheet.rst:83
 msgid ""
 "``msg.sig`` (``bytes4``): first four bytes of the calldata (i.e. function "
 "identifier)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:83
+#: ../../../cheatsheet.rst:84
 msgid "``msg.value`` (``uint``): number of wei sent with the message"
 msgstr ""
 
-#: ../../../cheatsheet.rst:84
+#: ../../../cheatsheet.rst:85
 msgid "``tx.gasprice`` (``uint``): gas price of the transaction"
 msgstr ""
 
-#: ../../../cheatsheet.rst:85
+#: ../../../cheatsheet.rst:86
 msgid ""
 "``tx.origin`` (``address``): sender of the transaction (full call chain)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:90
+#: ../../../cheatsheet.rst:91
 msgid "Validations and Assertions"
 msgstr ""
 
-#: ../../../cheatsheet.rst:92
+#: ../../../cheatsheet.rst:93
 msgid ""
 "``assert(bool condition)``: abort execution and revert state changes if "
 "condition is ``false`` (use for internal error)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:93
+#: ../../../cheatsheet.rst:94
 msgid ""
 "``require(bool condition)``: abort execution and revert state changes if "
 "condition is ``false`` (use for malformed input or error in external "
 "component)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:95
+#: ../../../cheatsheet.rst:96
 msgid ""
 "``require(bool condition, string memory message)``: abort execution and "
 "revert state changes if condition is ``false`` (use for malformed input or "
 "error in external component). Also provide error message."
 msgstr ""
 
-#: ../../../cheatsheet.rst:97
+#: ../../../cheatsheet.rst:98
 msgid "``revert()``: abort execution and revert state changes"
 msgstr ""
 
-#: ../../../cheatsheet.rst:98
+#: ../../../cheatsheet.rst:99
 msgid ""
 "``revert(string memory message)``: abort execution and revert state changes "
 "providing an explanatory string"
 msgstr ""
 
-#: ../../../cheatsheet.rst:103
+#: ../../../cheatsheet.rst:104
 msgid "Mathematical and Cryptographic Functions"
 msgstr ""
 
-#: ../../../cheatsheet.rst:105
+#: ../../../cheatsheet.rst:106
 msgid ""
 "``keccak256(bytes memory) returns (bytes32)``: compute the Keccak-256 hash "
 "of the input"
 msgstr ""
 
-#: ../../../cheatsheet.rst:106
+#: ../../../cheatsheet.rst:107
 msgid ""
 "``sha256(bytes memory) returns (bytes32)``: compute the SHA-256 hash of the "
 "input"
 msgstr ""
 
-#: ../../../cheatsheet.rst:107
+#: ../../../cheatsheet.rst:108
 msgid ""
 "``ripemd160(bytes memory) returns (bytes20)``: compute the RIPEMD-160 hash "
 "of the input"
 msgstr ""
 
-#: ../../../cheatsheet.rst:108
+#: ../../../cheatsheet.rst:109
 msgid ""
 "``ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns "
 "(address)``: recover address associated with the public key from elliptic "
 "curve signature, return zero on error"
 msgstr ""
 
-#: ../../../cheatsheet.rst:110
+#: ../../../cheatsheet.rst:111
 msgid ""
 "``addmod(uint x, uint y, uint k) returns (uint)``: compute ``(x + y) % k`` "
 "where the addition is performed with arbitrary precision and does not wrap "
 "around at ``2**256``. Assert that ``k != 0`` starting from version 0.5.0."
 msgstr ""
 
-#: ../../../cheatsheet.rst:112
+#: ../../../cheatsheet.rst:113
 msgid ""
 "``mulmod(uint x, uint y, uint k) returns (uint)``: compute ``(x * y) % k`` "
 "where the multiplication is performed with arbitrary precision and does not "
@@ -598,146 +604,146 @@ msgid ""
 "0.5.0."
 msgstr ""
 
-#: ../../../cheatsheet.rst:114
+#: ../../../cheatsheet.rst:115
 msgid ""
 "``erc7201(string memory id) returns (uint)``: compute the base slot of an "
 "``erc7201`` storage namespace. Can be used in compile time context."
 msgstr ""
 
-#: ../../../cheatsheet.rst:120
+#: ../../../cheatsheet.rst:121
 msgid "Contract-related"
 msgstr ""
 
-#: ../../../cheatsheet.rst:122
+#: ../../../cheatsheet.rst:123
 msgid ""
 "``this`` (current contract's type): the current contract, explicitly "
 "convertible to ``address`` or ``address payable``"
 msgstr ""
 
-#: ../../../cheatsheet.rst:123
+#: ../../../cheatsheet.rst:124
 msgid "``super``: a contract one level higher in the inheritance hierarchy"
 msgstr ""
 
-#: ../../../cheatsheet.rst:124
+#: ../../../cheatsheet.rst:125
 msgid ""
 "``selfdestruct(address payable recipient)``: send all funds to the given "
 "address and (only on EVMs before Cancun or when invoked within the "
 "transaction creating the contract) destroy the contract."
 msgstr ""
 
-#: ../../../cheatsheet.rst:129
+#: ../../../cheatsheet.rst:130
 msgid "Type Information"
 msgstr ""
 
-#: ../../../cheatsheet.rst:131
+#: ../../../cheatsheet.rst:132
 msgid "``type(C).name`` (``string``): the name of the contract"
 msgstr ""
 
-#: ../../../cheatsheet.rst:132
+#: ../../../cheatsheet.rst:133
 msgid ""
 "``type(C).creationCode`` (``bytes memory``): creation bytecode of the given "
 "contract, see :ref:`Type Information<meta-type>`."
 msgstr ""
 
-#: ../../../cheatsheet.rst:133
+#: ../../../cheatsheet.rst:134
 msgid ""
 "``type(C).runtimeCode`` (``bytes memory``): runtime bytecode of the given "
 "contract, see :ref:`Type Information<meta-type>`."
 msgstr ""
 
-#: ../../../cheatsheet.rst:134
+#: ../../../cheatsheet.rst:135
 msgid ""
 "``type(I).interfaceId`` (``bytes4``): value containing the EIP-165 interface "
 "identifier of the given interface, see :ref:`Type Information<meta-type>`."
 msgstr ""
 
-#: ../../../cheatsheet.rst:135
+#: ../../../cheatsheet.rst:136
 msgid ""
 "``type(T).min`` (``T``): the minimum value representable by the integer type "
 "``T``, see :ref:`Type Information<meta-type>`."
 msgstr ""
 
-#: ../../../cheatsheet.rst:136
+#: ../../../cheatsheet.rst:137
 msgid ""
 "``type(T).max`` (``T``): the maximum value representable by the integer type "
 "``T``, see :ref:`Type Information<meta-type>`."
 msgstr ""
 
-#: ../../../cheatsheet.rst:142
+#: ../../../cheatsheet.rst:143
 msgid "Function Visibility Specifiers"
 msgstr ""
 
-#: ../../../cheatsheet.rst:144
+#: ../../../cheatsheet.rst:145
 msgid ""
 "function myFunction() <visibility specifier> returns (bool) {\n"
 "    return true;\n"
 "}"
 msgstr ""
 
-#: ../../../cheatsheet.rst:151
+#: ../../../cheatsheet.rst:152
 msgid ""
 "``public``: visible externally and internally (creates a :ref:`getter "
 "function<getter-functions>` for storage/state variables)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:152
+#: ../../../cheatsheet.rst:153
 msgid "``private``: only visible in the current contract"
 msgstr ""
 
-#: ../../../cheatsheet.rst:153
+#: ../../../cheatsheet.rst:154
 msgid ""
 "``external``: only visible externally (only for functions) - i.e. can only "
 "be message-called (via ``this.func``)"
 msgstr ""
 
-#: ../../../cheatsheet.rst:154
+#: ../../../cheatsheet.rst:155
 msgid "``internal``: only visible internally"
 msgstr ""
 
-#: ../../../cheatsheet.rst:160
+#: ../../../cheatsheet.rst:161
 msgid "Modifiers"
 msgstr ""
 
-#: ../../../cheatsheet.rst:162
+#: ../../../cheatsheet.rst:163
 msgid "``pure`` for functions: Disallows modification or access of state."
 msgstr ""
 
-#: ../../../cheatsheet.rst:163
+#: ../../../cheatsheet.rst:164
 msgid "``view`` for functions: Disallows modification of state."
 msgstr ""
 
-#: ../../../cheatsheet.rst:164
+#: ../../../cheatsheet.rst:165
 msgid ""
 "``payable`` for functions: Allows them to receive Ether together with a call."
 msgstr ""
 
-#: ../../../cheatsheet.rst:165
+#: ../../../cheatsheet.rst:166
 msgid ""
 "``constant`` for state variables: Disallows assignment (except "
 "initialization), does not occupy storage slot."
 msgstr ""
 
-#: ../../../cheatsheet.rst:166
+#: ../../../cheatsheet.rst:167
 msgid ""
 "``immutable`` for state variables: Allows assignment at construction time "
 "and is constant when deployed. Is stored in code."
 msgstr ""
 
-#: ../../../cheatsheet.rst:167
+#: ../../../cheatsheet.rst:168
 msgid "``anonymous`` for events: Does not store event signature as topic."
 msgstr ""
 
-#: ../../../cheatsheet.rst:168
+#: ../../../cheatsheet.rst:169
 msgid "``indexed`` for event parameters: Stores the parameter as topic."
 msgstr ""
 
-#: ../../../cheatsheet.rst:169
+#: ../../../cheatsheet.rst:170
 msgid ""
 "``virtual`` for functions and modifiers: Allows the function's or modifier's "
 "behavior to be changed in derived contracts."
 msgstr ""
 
-#: ../../../cheatsheet.rst:171
+#: ../../../cheatsheet.rst:172
 msgid ""
 "``override``: States that this function, modifier or public state variable "
 "changes the behavior of a function or modifier in a base contract."
@@ -860,6 +866,10 @@ msgid "prevrandao"
 msgstr ""
 
 #: ../../../cheatsheet.rst:59
+msgid "slotnum"
+msgstr ""
+
+#: ../../../cheatsheet.rst:59
 msgid "timestamp"
 msgstr ""
 
@@ -899,134 +909,134 @@ msgstr ""
 msgid "origin"
 msgstr ""
 
-#: ../../../cheatsheet.rst:87
+#: ../../../cheatsheet.rst:88
 msgid "assert"
 msgstr ""
 
-#: ../../../cheatsheet.rst:87
+#: ../../../cheatsheet.rst:88
 msgid "require"
 msgstr ""
 
-#: ../../../cheatsheet.rst:87
+#: ../../../cheatsheet.rst:88
 msgid "revert"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "cryptography"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "keccak256"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "sha256"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "ripemd160"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "ecrecover"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "addmod"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "mulmod"
 msgstr ""
 
-#: ../../../cheatsheet.rst:100
+#: ../../../cheatsheet.rst:101
 msgid "erc7201"
 msgstr ""
 
-#: ../../../cheatsheet.rst:117
+#: ../../../cheatsheet.rst:118
 msgid "this"
 msgstr ""
 
-#: ../../../cheatsheet.rst:117
+#: ../../../cheatsheet.rst:118
 msgid "super"
 msgstr ""
 
-#: ../../../cheatsheet.rst:117
+#: ../../../cheatsheet.rst:118
 msgid "selfdestruct"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "type"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "name"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "creationCode"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "runtimeCode"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "interfaceId"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "min"
 msgstr ""
 
-#: ../../../cheatsheet.rst:126
+#: ../../../cheatsheet.rst:127
 msgid "max"
 msgstr ""
 
-#: ../../../cheatsheet.rst:139
+#: ../../../cheatsheet.rst:140
 msgid "visibility"
 msgstr ""
 
-#: ../../../cheatsheet.rst:139
+#: ../../../cheatsheet.rst:140
 msgid "public"
 msgstr ""
 
-#: ../../../cheatsheet.rst:139
+#: ../../../cheatsheet.rst:140
 msgid "private"
 msgstr ""
 
-#: ../../../cheatsheet.rst:139
+#: ../../../cheatsheet.rst:140
 msgid "external"
 msgstr ""
 
-#: ../../../cheatsheet.rst:139
+#: ../../../cheatsheet.rst:140
 msgid "internal"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "modifiers"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "pure"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "view"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "payable"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "constant"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "anonymous"
 msgstr ""
 
-#: ../../../cheatsheet.rst:157
+#: ../../../cheatsheet.rst:158
 msgid "indexed"
 msgstr ""
