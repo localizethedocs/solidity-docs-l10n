@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-06-04 13:21:55 +0200",
-      "hash" : "cd88744caaeee881c8990743f86f81f3dcd0adfa",
-      "title" : "Merge pull request #16770 from argotorg/remove-eof-libyul"
+      "date" : "2026-09-14 13:15:24 +0200",
+      "hash" : "a206064df568e04ae0732e9c6056fc0c45eed623",
+      "title" : "Merge pull request #17002 from argotorg/move-misordered-parameters-bug-changelog-entry"
     }
   },
   "type" : "branch",
