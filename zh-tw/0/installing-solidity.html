@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-TW" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安裝 Solidity 編譯器 &mdash; Solidity 0.8.35-develop 說明文件</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams.css?v=207cc276" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams-ext.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/fonts.css?v=da6ff50d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=8a4b722d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom-dark.css?v=1f23c23e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/pygments.css?v=85fccb41" />
+      <link rel="stylesheet" type="text/css" href="_static/css/toggle.css?v=ff7d3256" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="canonical" href="https://projects.localizethedocs.org/solidity-docs-l10n/installing-solidity.html" />
+    <script>
+        window.NAV_LINKS = {
+            blog: "網誌",
+            documentation: "文件",
+            use_cases: "使用案例",
+            contribute: "貢獻",
+            about: "關於",
+            forum: "論壇"
+        };
+    </script>
+    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ef8812c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cbf116e0"></script>
+      <script src="_static/js/constants.js?v=6647bbdb"></script>
+      <script src="_static/js/initialize.js?v=a99c897d"></script>
+      <script src="_static/js/toggle.js?v=a5a9aacd"></script>
+    <script src="_static/js/theme.js"></script>
+
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜尋" href="search.html" />
+    <link rel="next" title="Solidity 來源檔的配置" href="layout-of-source-files.html" />
+    <link rel="prev" title="Solidity by Example" href="solidity-by-example.html" />
+ 
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">基礎知識</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">安裝 Solidity 編譯器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#versioning">版本控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remix">Remix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#npm-node-js">npm / Node.js</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-packages">Linux 套件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos-packages">macOS 套件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-binaries">靜態執行檔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-from-source">從來源碼建置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites-all-operating-systems">先決條件 - 所有作業系統</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minimum-compiler-versions">最低編譯器版本</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites-macos">先決條件 - macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites-windows">先決條件 - Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-the-repository">複製儲存庫</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-build">命令行建置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cmake-options">CMake 組態選項</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#smt-solvers">SMT 求解器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-version-string-in-detail">版本字串詳解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-information-about-versioning">關於版本控制的重要資訊</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layout-of-source-files.html">Solidity 來源檔的配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">表達式與控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Inline Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">速查表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">語言文法</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using-the-compiler.html">使用編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysing-compilation-output.html">分析編譯器輸出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ir-breaking-changes.html">Solidity IR-based Codegen Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">內部原理</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_storage.html">Layout of State Variables in Storage and Transient Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_memory.html">Layout in Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_calldata.html">Layout of Call Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/variable_cleanup.html">Cleaning Up Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/source_mappings.html">Source Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/optimizer.html">The Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Contract Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-spec.html">Contract ABI Specification</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">建議內容</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">List of Known Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="050-breaking-changes.html">Solidity v0.5.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="060-breaking-changes.html">Solidity v0.6.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="070-breaking-changes.html">Solidity v0.7.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="080-breaking-changes.html">Solidity v0.8.0 重大變更</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附加材料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="natspec-format.html">NatSpec Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smtchecker.html">SMTChecker and Formal Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yul.html">Yul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="path-resolution.html">Import Path Resolution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language-influences.html">語言的影響</a></li>
+<li class="toctree-l1"><a class="reference internal" href="brand-guide.html">Solidity 品牌名稱</a></li>
+</ul>
+
+    <ul>
+        <li>
+            <a href="genindex.html">關鍵字索引</a>
+        </li>
+    </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Solidity</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">安裝 Solidity 編譯器</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installing-solidity.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-the-solidity-compiler">
+<span id="installing-solidity"></span><span id="index-0"></span><h1>安裝 Solidity 編譯器<a class="headerlink" href="#installing-the-solidity-compiler" title="連結到這個標頭"></a></h1>
+<section id="versioning">
+<h2>版本控制<a class="headerlink" href="#versioning" title="連結到這個標頭"></a></h2>
+<p>Solidity 版本遵循<a class="reference external" href="https://semver.org">語義化版本控制</a>。此外，主版本號為 0 的修補層級版本（即 0.x.y）不會包含重大變更。這表示使用 0.x.y 版本編譯的程式碼，預期可以使用 0.x.z（其中 z &gt; y）編譯。</p>
+<p>除了正式版本外，我們還提供<strong>預先發行版</strong>和<strong>每夜開發建置</strong>，以便開發者試用即將推出的功能並提供早期回饋。請注意，此類建置包含開發分支中的最新程式碼，不保證與正式版本具有相同的品質。儘管我們盡了最大努力，它們仍可能包含未記錄和／或有問題的變更，這些變更不會成為實際版本的一部分。它們不適用於正式環境。</p>
+<p>部署合約時，您應使用最新發行的 Solidity 版本。這是因為重大變更以及新功能和錯誤修復會定期引入。我們目前使用 0.x 版本號<a class="reference external" href="https://semver.org/#spec-item-4">來表示這種快速變更的步調</a>。</p>
+</section>
+<section id="remix">
+<h2>Remix<a class="headerlink" href="#remix" title="連結到這個標頭"></a></h2>
+<p><em>我們推薦使用 Remix 來處理小型合約以及快速學習 Solidity。</em></p>
+<p><a class="reference external" href="https://remix.ethereum.org/">在線上存取 Remix</a>，您無需安裝任何東西。如果您想在沒有網際網路連線的情況下使用它，請從<a class="reference external" href="https://github.com/remix-project-org/remix-desktop/releases/">發行版頁面</a>下載 Remix Desktop。Remix 也是在不安裝多個 Solidity 版本的情況下測試每夜建置版的便利選項。</p>
+<p>本頁面的其他選項詳細說明如何在您的電腦上安裝命令行 Solidity 編譯器軟體。如果您正在處理較大型的合約，或需要更多編譯選項，請選擇命令行編譯器。</p>
+</section>
+<section id="npm-node-js">
+<span id="solcjs"></span><h2>npm / Node.js<a class="headerlink" href="#npm-node-js" title="連結到這個標頭"></a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 是安裝 <code class="docutils literal notranslate"><span class="pre">solcjs``（一種</span> <span class="pre">Solidity</span> <span class="pre">編譯器）的便利且可攜的方式。``solcjs</span></code> 程式的功能少於本頁面後續說明的編譯器存取方式。<a class="reference internal" href="using-the-compiler.html#commandline-compiler"><span class="std std-ref">使用命令行編譯器</span></a> 文件假設您使用的是全功能編譯器 <code class="docutils literal notranslate"><span class="pre">solc</span></code>。<code class="docutils literal notranslate"><span class="pre">solcjs</span></code> 的使用方式記錄在其自己的<a class="reference external" href="https://github.com/argotorg/solc-js">儲存庫</a>中。</p>
+<p>注意：solc-js 專案是使用 Emscripten 從 C++ <code class="docutils literal notranslate"><span class="pre">solc</span></code> 衍生而來的，這表示兩者使用相同的編譯器來源碼。<code class="docutils literal notranslate"><span class="pre">solc-js</span></code> 可以直接在 JavaScript 專案中使用（例如 Remix）。請參考 solc-js 儲存庫以取得相關說明。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>solc
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>命令行執行檔名稱為 <code class="docutils literal notranslate"><span class="pre">solcjs</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">solcjs</span></code> 的命令行選項與 <code class="docutils literal notranslate"><span class="pre">solc</span></code> 不相容，期望 <code class="docutils literal notranslate"><span class="pre">solc</span></code> 行為的工具（例如 <code class="docutils literal notranslate"><span class="pre">geth</span></code>）將無法與 <code class="docutils literal notranslate"><span class="pre">solcjs</span></code> 搭配使用。</p>
+</div>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="連結到這個標頭"></a></h2>
+<p>Solidity 建置的 Docker 映像檔可透過 ghcr.io 上 argotorg 組織的<a class="reference external" href="https://github.com/argotorg/solidity/pkgs/container/solc">solc</a>映像檔取得。使用 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 標記取得最新發行版本，使用 <code class="docutils literal notranslate"><span class="pre">nightly</span></code> 標記取得 <code class="docutils literal notranslate"><span class="pre">develop</span></code> 分支中可能不穩定的變更。</p>
+<p>Docker 映像檔會執行編譯器執行檔，因此您可以將所有編譯器參數傳遞給它。例如，以下命令會拉取 <code class="docutils literal notranslate"><span class="pre">solc</span></code> 映像檔的穩定版本（如果您尚未擁有），並在新的容器中執行它，傳遞 <code class="docutils literal notranslate"><span class="pre">--help</span></code> 參數。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>ghcr.io/argotorg/solc:stable<span class="w"> </span>--help
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>特定的編譯器版本可透過 Docker 映像檔標記來支援，例如 <code class="docutils literal notranslate"><span class="pre">ghcr.io/argotorg/solc:0.8.23</span></code>。我們在此將使用 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 標記，而非特定版本標記，以確保使用者預設取得最新版本，避免版本過期的問題。</p>
+</div>
+<p>要使用 Docker 映像檔在主機上編譯 Solidity 檔案，請掛載一個本機資料夾作為輸入和輸出，並指定要編譯的合約。例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--volume<span class="w"> </span><span class="s2">"/tmp/some/local/path/:/sources/"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ghcr.io/argotorg/solc:stable<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>/sources/Contract.sol<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--abi<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--bin<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--output-dir<span class="w"> </span>/sources/output/
+</pre></div>
+</div>
+<p>您也可以使用標準 JSON 介面（在搭配工具使用編譯器時建議使用）。使用此介面時，只要 JSON 輸入是自包含的（即不參考任何需要由<a class="reference internal" href="path-resolution.html#initial-vfs-content-standard-json-with-import-callback"><span class="std std-ref">匯入回呼載入</span></a>的外部檔案），就不需要掛載任何目錄。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>ghcr.io/argotorg/solc:stable<span class="w"> </span>--standard-json<span class="w"> </span>&lt;<span class="w"> </span>input.json<span class="w"> </span>&gt;<span class="w"> </span>output.json
+</pre></div>
+</div>
+</section>
+<section id="linux-packages">
+<h2>Linux 套件<a class="headerlink" href="#linux-packages" title="連結到這個標頭"></a></h2>
+<p>我們提供編譯器的<a class="reference internal" href="#static-binaries"><span class="std std-ref">獨立執行檔</span></a>，應該可以在大多數發行版上執行，無需額外的安裝步驟。</p>
+<p>最高至 0.8.30 版本的 Ubuntu 套件可在<a class="reference external" href="https://launchpad.net/~ethereum/+archive/ubuntu/ethereum">ethereum/ethereum PPA</a>中取得。然而，我們已停止此發行方式，後續版本將不會新增到該處。</p>
+<p>一些 Linux 發行版提供自己的套件。這些套件並非由我們直接維護，但通常由各自的套件維護者保持更新。</p>
+<p>一些發行版也提供了由社群維護的非官方建置和安裝編譯器的腳本：</p>
+<ul>
+<li><p>Arch Linux / (AUR)：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://aur.archlinux.org/packages/solidity">solidity</a>（從來源碼建置），</p></li>
+<li><p><a class="reference external" href="https://aur.archlinux.org/packages/solidity-bin">solidity-bin</a>（使用我們的獨立執行檔）。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Nix：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/hellwolf/solc.nix">solc.nix</a>（從來源碼建置）。</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>請注意，這些腳本由使用者製作和維護，並未經過發行版維護者的任何審查。使用時請謹慎小心。</p>
+</div>
+<p>還有<a class="reference external" href="https://snapcraft.io/solc">snap 套件</a>，然而它<strong>目前未被維護</strong>。它可以在所有<a class="reference external" href="https://snapcraft.io/docs/reference/administration/distribution-support/">支援的 Linux 發行版</a>中安裝。要安裝最新穩定版的 solc：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>solc
+</pre></div>
+</div>
+<p>如果您想協助測試包含最新變更的 Solidity 開發版本，請使用以下命令：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>solc<span class="w"> </span>--edge
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p><code class="docutils literal notranslate"><span class="pre">solc</span></code> snap 使用嚴格限制模式。這是 snap 套件最安全的模式，但它有一些限制，例如只能存取 <code class="docutils literal notranslate"><span class="pre">/home</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/media</span></code> 目錄中的檔案。如需更多資訊，請前往<a class="reference external" href="https://snapcraft.io/blog/demystifying-snap-confinement">揭開 Snap 限制的神秘面紗</a>。</p>
+</div>
+</section>
+<section id="macos-packages">
+<h2>macOS 套件<a class="headerlink" href="#macos-packages" title="連結到這個標頭"></a></h2>
+<p>我們透過 Homebrew 以從來源碼建置的版本發行 Solidity 編譯器。目前不支援預先建置的 bottle。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>update
+brew<span class="w"> </span>upgrade
+brew<span class="w"> </span>tap<span class="w"> </span>ethereum/ethereum
+brew<span class="w"> </span>install<span class="w"> </span>solidity
+</pre></div>
+</div>
+<p>要安裝最新的 0.4.x / 0.5.x 版 Solidity，您也可以分別使用 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">solidity&#64;4</span></code> 和 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">solidity&#64;5</span></code>。</p>
+<p>如果您需要特定版本的 Solidity，可以直接從 Github 安裝 Homebrew formula。</p>
+<p>檢視<a class="reference external" href="https://github.com/ethereum/homebrew-ethereum/commits/master/solidity.rb">GitHub 上的 solidity.rb 提交記錄</a>。</p>
+<p>複製您想要的版本的提交雜湊值，並在您的機器上檢出它。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ethereum/homebrew-ethereum.git
+<span class="nb">cd</span><span class="w"> </span>homebrew-ethereum
+git<span class="w"> </span>checkout<span class="w"> </span>&lt;your-hash-goes-here&gt;
+</pre></div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">brew</span></code> 安裝它：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>unlink<span class="w"> </span>solidity
+<span class="c1"># 例如：安裝 0.4.8</span>
+brew<span class="w"> </span>install<span class="w"> </span>solidity.rb
+</pre></div>
+</div>
+</section>
+<section id="static-binaries">
+<span id="id1"></span><h2>靜態執行檔<a class="headerlink" href="#static-binaries" title="連結到這個標頭"></a></h2>
+<p>我們在<a class="reference external" href="https://github.com/argotorg/solc-bin/">solc-bin</a>維護了一個儲存庫，其中包含所有支援平台的過去和當前編譯器版本的靜態建置。這也是您可以找到每夜建置版的位置。</p>
+<p>該儲存庫不僅是終端使用者快速輕鬆取得即用執行檔的方式，也旨在對第三方工具友好：</p>
+<ul class="simple">
+<li><p>內容會鏡像到 <a class="reference external" href="https://binaries.soliditylang.org">https://binaries.soliditylang.org</a>，可以在無需任何驗證、速率限制或使用 git 的情況下，透過 HTTPS 輕鬆下載。</p></li>
+<li><p>內容以正確的 <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> 標頭和寬鬆的 CORS 組態提供，以便瀏覽器中執行的工具可以直接載入。</p></li>
+<li><p>執行檔不需要安裝或解壓縮（較舊的 Windows 建置除外，它們會與必要的 DLL 捆綁在一起）。</p></li>
+<li><p>我們力求高度的向後相容性。檔案一旦新增，就不會在未提供舊位置的符號連結／重新導向的情況下被移除或移動。它們也不會被原地修改，且應始終與原始校驗和相符。唯一的例外是那些破損或無法使用的檔案，若保持原樣可能弊大於利。</p></li>
+<li><p>檔案同時透過 HTTP 和 HTTPS 提供。只要您以安全的方式取得檔案清單（透過 git、HTTPS、IPFS 或僅在本機快取），並在下載後驗證執行檔的雜湊值，就不需要對執行檔本身使用 HTTPS。</p></li>
+</ul>
+<p>相同的執行檔在多數情況下也可在<a class="reference external" href="https://github.com/argotorg/solidity/releases">GitHub 上的 Solidity 發行版頁面</a>取得。區別在於我們通常不會更新 GitHub 發行版頁面上的舊版本。這表示如果命名慣例變更，我們不會重新命名它們，也不會為發行時不支援的平台新增建置。這些只會在 <code class="docutils literal notranslate"><span class="pre">solc-bin</span></code> 中發生。</p>
+<p><code class="docutils literal notranslate"><span class="pre">solc-bin</span></code> 儲存庫包含多個頂層目錄，每個目錄代表一個平台。每個目錄都包含一個 <code class="docutils literal notranslate"><span class="pre">list.json</span></code> 檔案，列出可用的執行檔。例如，在 <code class="docutils literal notranslate"><span class="pre">emscripten-wasm32/list.json</span></code> 中，您會找到關於 0.7.4 版本的以下資訊：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solc-emscripten-wasm32-v0.7.4+commit.3f05b770.js"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.7.4"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commit.3f05b770"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"longVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.7.4+commit.3f05b770"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"keccak256"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x300330ecd127756b824aa13e843cb1f43c473cb22eaf3750d5fb9c99279af8c3"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sha256"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x2b55ed5fec4d9625b6c7b3ab1abd2b7fb7dd2a9c68543bf0323db2c7e2d55af2"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"dweb:/ipfs/QmTLs5MuLEWXQkths41HiACoXDiH8zxyqBHGFDRSzVE5CS"</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>這表示：</p>
+<ul class="simple">
+<li><p>您可以在同一目錄下找到名為<a class="reference external" href="https://github.com/argotorg/solc-bin/blob/gh-pages/emscripten-wasm32/solc-emscripten-wasm32-v0.7.4+commit.3f05b770.js">solc-emscripten-wasm32-v0.7.4+commit.3f05b770.js</a>的執行檔。請注意，該檔案可能是符號連結，如果您不是使用 git 下載它，或者您的檔案系統不支援符號連結，則需要自行解析它。</p></li>
+<li><p>該執行檔也鏡像於 <a class="reference external" href="https://binaries.soliditylang.org/emscripten-wasm32/solc-emscripten-wasm32-v0.7.4+commit.3f05b770.js">https://binaries.soliditylang.org/emscripten-wasm32/solc-emscripten-wasm32-v0.7.4+commit.3f05b770.js</a>。在這種情況下，不需要 git，且符號連結會透明地解析，無論是提供檔案副本還是返回 HTTP 重新導向。</p></li>
+<li><p>該檔案也可在 IPFS 上取得，位於<a class="reference external" href="https://gateway.ipfs.io/ipfs/QmTLs5MuLEWXQkths41HiACoXDiH8zxyqBHGFDRSzVE5CS">QmTLs5MuLEWXQkths41HiACoXDiH8zxyqBHGFDRSzVE5CS</a>。請注意，<code class="docutils literal notranslate"><span class="pre">urls</span></code> 陣列中項目的順序並非預先確定或保證的，使用者不應依賴它。</p></li>
+<li><p>您可以透過將其 keccak256 雜湊值與<code class="docutils literal notranslate"><span class="pre">0x300330ecd127756b824aa13e843cb1f43c473cb22eaf3750d5fb9c99279af8c3</span></code>進行比較來驗證執行檔的完整性。該雜湊值可以在命令行上使用<a class="reference external" href="https://github.com/maandree/sha3sum">sha3sum</a>提供的 <code class="docutils literal notranslate"><span class="pre">keccak256sum</span></code> 工具，或在 JavaScript 中使用<a class="reference external" href="https://github.com/ethereumjs/ethereumjs-util/blob/master/docs/modules/_hash_.md#const-keccak256">ethereumjs-util 的 keccak256() 函式</a>來計算。</p></li>
+<li><p>您也可以透過將其 sha256 雜湊值與<code class="docutils literal notranslate"><span class="pre">0x2b55ed5fec4d9625b6c7b3ab1abd2b7fb7dd2a9c68543bf0323db2c7e2d55af2</span></code>進行比較來驗證執行檔的完整性。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>由於強烈的向後相容性要求，該儲存庫包含一些舊版元素，但在撰寫新工具時應避免使用它們：</p>
+<ul class="simple">
+<li><p>如果您想要最佳效能，請使用 <code class="docutils literal notranslate"><span class="pre">emscripten-wasm32/``（並以</span> <span class="pre">``emscripten-asmjs/</span></code> 作為備用）而不是 <code class="docutils literal notranslate"><span class="pre">bin/</span></code>。在 0.6.1 版之前，我們僅提供 asm.js 執行檔。從 0.6.2 開始，我們切換到效能更好的<a class="reference external" href="https://emscripten.org/docs/compiling/WebAssembly.html">WebAssembly 建置</a>。我們已為 wasm 重新建置了較舊的版本，但原始的 asm.js 檔案仍保留在 <code class="docutils literal notranslate"><span class="pre">bin/</span></code> 中。新的檔案必須放在單獨的目錄中以避免名稱衝突。</p></li>
+<li><p>如果您想確定下載的是 wasm 還是 asm.js 執行檔，請使用 <code class="docutils literal notranslate"><span class="pre">emscripten-asmjs/</span></code> 和 <code class="docutils literal notranslate"><span class="pre">emscripten-wasm32/``而不是</span> <span class="pre">``bin/</span></code> 和 <code class="docutils literal notranslate"><span class="pre">wasm/</span></code> 目錄。</p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">list.json</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">list.js</span></code> 和 <code class="docutils literal notranslate"><span class="pre">list.txt</span></code>。JSON 清單格式包含了舊格式的所有資訊，甚至更多。</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul class="simple">
+<li><p>solc-bin.ethereum.org 網域已不再支援。今後，我們建議仍在使用它作為 Solidity 執行檔來源的任何工具，切換到 binaries.soliditylang.org。</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>執行檔也可在 <a class="reference external" href="https://argotorg.github.io/solc-bin/">https://argotorg.github.io/solc-bin/</a> 取得，但該頁面在 0.7.2 版本發行後即停止更新，不會收到任何平台的新版本或每夜建置版，且不提供新的目錄結構，包括非 emscripten 建置。</p>
+<p>如果您正在使用它，請切換到 <a class="reference external" href="https://binaries.soliditylang.org">https://binaries.soliditylang.org</a>，它是一個可直接替換的方案。這使我們能夠以透明的方式變更底層託管並最大限度地減少中斷。與我們無法控制的 <code class="docutils literal notranslate"><span class="pre">argotorg.github.io</span></code> 網域不同，<code class="docutils literal notranslate"><span class="pre">binaries.soliditylang.org</span></code> 保證能長期正常運作並維持相同的 URL 結構。</p>
+</div>
+</section>
+<section id="building-from-source">
+<span id="id2"></span><h2>從來源碼建置<a class="headerlink" href="#building-from-source" title="連結到這個標頭"></a></h2>
+<section id="prerequisites-all-operating-systems">
+<h3>先決條件 - 所有作業系統<a class="headerlink" href="#prerequisites-all-operating-systems" title="連結到這個標頭"></a></h3>
+<p>以下是所有 Solidity 建置的相依性：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>軟體</p></th>
+<th class="head"><p>備註</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://cmake.org/download/">CMake</a>（Windows 上為 3.21.3+，其他為 3.13+）</p></td>
+<td><p>跨平台建置檔案產生器。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.boost.org">Boost</a>（Windows 上為 1.77+，其他為 1.83+）</p></td>
+<td><p>C++ 程式庫。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://git-scm.com/download">Git</a></p></td>
+<td><p>用於擷取來源碼的命令行工具。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/Z3Prover/z3">z3</a>（版本 4.8.16+，選用）</p></td>
+<td><p>用於 SMT 檢查器。</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>0.5.10 之前的 Solidity 版本可能無法正確連結 Boost 1.70+ 版本。一個可能的解決方法是在執行 cmake 命令組態 Solidity 之前，暫時重新命名 <code class="docutils literal notranslate"><span class="pre">&lt;Boost</span> <span class="pre">安裝路徑&gt;/lib/cmake/Boost-1.70.0</span></code>。</p>
+<p>從 0.5.10 開始，連結 Boost 1.70+ 應該無需手動介入即可運作。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>預設的建置組態需要特定的 Z3 版本（程式碼最後更新時的最新版本）。Z3 版本之間引入的變更通常會導致返回略有不同（但仍然有效）的結果。我們的 SMT 測試不考慮這些差異，並且在使用與撰寫時不同的版本時可能會失敗。這並不表示使用不同版本的建置是有缺陷的。如果您將 <code class="docutils literal notranslate"><span class="pre">-DSTRICT_Z3_VERSION=OFF</span></code> 選項傳遞給 CMake，則可以使用滿足上表要求的任何版本進行建置。然而，如果您這樣做，請記得將 <code class="docutils literal notranslate"><span class="pre">--no-smt</span></code> 選項傳遞給 <a href="#id1"><span class="problematic" id="id2">``</span></a>scripts/tests.sh``以跳過 SMT 測試。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>預設情況下，建置以<em>嚴格模式</em>執行，這會啟用額外的警告並告訴編譯器將所有警告視為錯誤。這強制開發者在警告出現時立即修復，以免累積成「待修復」的問題。如果您只對建立發行版本感興趣，且不打算修改來源碼來處理此類警告，可以將 <code class="docutils literal notranslate"><span class="pre">-DPEDANTIC=OFF</span></code> 選項傳遞給 CMake 來停用此模式。不建議在一般使用中這樣做，但在使用我們未測試過的工具鏈，或嘗試使用較新工具建置較舊版本時可能是必要的。如果您遇到此類警告，請考慮<a class="reference external" href="https://github.com/argotorg/solidity/issues/new">回報它們</a>。</p>
+</div>
+<section id="minimum-compiler-versions">
+<h4>最低編譯器版本<a class="headerlink" href="#minimum-compiler-versions" title="連結到這個標頭"></a></h4>
+<p>以下 C++ 編譯器及其最低版本可以建置 Solidity 程式碼庫：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gcc.gnu.org">GCC</a>，版本 13.3+</p></li>
+<li><p><a class="reference external" href="https://clang.llvm.org/">Clang</a>，版本 18.1.3+</p></li>
+<li><p><a class="reference external" href="https://visualstudio.microsoft.com/vs/">MSVC</a>，版本 2019+</p></li>
+</ul>
+</section>
+</section>
+<section id="prerequisites-macos">
+<h3>先決條件 - macOS<a class="headerlink" href="#prerequisites-macos" title="連結到這個標頭"></a></h3>
+<p>對於 macOS 建置，請確保您已安裝最新版本的<a class="reference external" href="https://developer.apple.com/xcode/resources/">Xcode</a>。其中包含<a class="reference external" href="https://en.wikipedia.org/wiki/Clang">Clang C++ 編譯器</a>、<a class="reference external" href="https://en.wikipedia.org/wiki/Xcode">Xcode IDE</a>以及在 OS X 上建置 C++ 應用程式所需的其他 Apple 開發工具。如果您是首次安裝 Xcode，或剛安裝了新版本，則需要同意授權條款才能進行命令行建置：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>xcodebuild<span class="w"> </span>-license<span class="w"> </span>accept
+</pre></div>
+</div>
+<p>我們的 OS X 建置腳本使用<a class="reference external" href="https://brew.sh">Homebrew</a>套件管理器來安裝外部相依性。如果您想從頭開始，這裡是如何<a class="reference external" href="https://docs.brew.sh/FAQ#how-do-i-uninstall-homebrew">解除安裝 Homebrew</a>的說明。</p>
+</section>
+<section id="prerequisites-windows">
+<h3>先決條件 - Windows<a class="headerlink" href="#prerequisites-windows" title="連結到這個標頭"></a></h3>
+<p>您需要安裝以下相依性來進行 Solidity 的 Windows 建置：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>軟體</p></th>
+<th class="head"><p>備註</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2019-and-other-products">Visual Studio 2019 Build Tools</a></p></td>
+<td><p>C++ 編譯器</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.visualstudio.com/vs/">Visual Studio 2019</a>（選用）</p></td>
+<td><p>C++ 編譯器和開發環境。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.boost.org">Boost</a>（版本 1.77+）</p></td>
+<td><p>C++ 程式庫。</p></td>
+</tr>
+</tbody>
+</table>
+<p>如果您已經有一個 IDE，只需要編譯器和程式庫，可以安裝 Visual Studio 2019 Build Tools。</p>
+<p>Visual Studio 2019 同時提供 IDE 以及必要的編譯器和程式庫。因此，如果您還沒有 IDE 並且偏好開發 Solidity，Visual Studio 2019 可能是讓您輕鬆組態一切的好選擇。</p>
+<p>以下是在 Visual Studio 2019 Build Tools 或 Visual Studio 2019 中應安裝的組件清單：</p>
+<ul class="simple">
+<li><p>Visual Studio C++ 核心功能</p></li>
+<li><p>VC++ 2019 v141 工具組 (x86,x64)</p></li>
+<li><p>Windows Universal CRT SDK</p></li>
+<li><p>Windows 8.1 SDK</p></li>
+<li><p>C++/CLI 支援</p></li>
+</ul>
+<p>我們有一個輔助腳本，您可以使用它來安裝所有必要的外部相依性：</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>scripts\install_deps.ps1
+</pre></div>
+</div>
+<p>這將會把 <code class="docutils literal notranslate"><span class="pre">boost</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> 安裝到 <code class="docutils literal notranslate"><span class="pre">deps</span></code> 子目錄中。</p>
+</section>
+<section id="clone-the-repository">
+<h3>複製儲存庫<a class="headerlink" href="#clone-the-repository" title="連結到這個標頭"></a></h3>
+<p>要複製來源碼，請執行以下命令：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/argotorg/solidity.git
+<span class="nb">cd</span><span class="w"> </span>solidity
+</pre></div>
+</div>
+<p>如果您想協助開發 Solidity，您應該 fork Solidity 並將您的個人 fork 新增為第二個遠端：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>personal<span class="w"> </span>git@github.com:<span class="o">[</span>username<span class="o">]</span>/solidity.git
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>此方法將產生預先發行版建置，導致此類編譯器產生的每個位元組碼中都會設定一個旗標。如果您想重新建置已發行的 Solidity 編譯器，請使用 GitHub 發行版頁面上的來源碼 tarball：</p>
+<p><a class="reference external" href="https://github.com/argotorg/solidity/releases/download/v0.X.Y/solidity_0.X.Y.tar.gz">https://github.com/argotorg/solidity/releases/download/v0.X.Y/solidity_0.X.Y.tar.gz</a></p>
+<p>（不是 GitHub 提供的「Source code」）。</p>
+</div>
+</section>
+<section id="command-line-build">
+<h3>命令行建置<a class="headerlink" href="#command-line-build" title="連結到這個標頭"></a></h3>
+<p><strong>在建置之前，請務必安裝外部相依性（請參閱上方）。</strong></p>
+<p>Solidity 專案使用 CMake 來組態建置。您可能想安裝<a class="reference external" href="https://ccache.dev/">ccache</a>來加速重複建置，CMake 會自動偵測到它。在 Linux、macOS 和其他 Unix 系統上建置 Solidity 非常相似：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>..<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make
+</pre></div>
+</div>
+<p>或在 Linux 和 macOS 上更簡單地，您可以執行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#note: this will install binaries solc and soltest at usr/local/bin</span>
+./scripts/build.sh
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>BSD 建置應該可以運作，但未經 Solidity 團隊測試。</p>
+</div>
+<p>對於 Windows：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>-G<span class="w"> </span><span class="s2">"Visual Studio 16 2019"</span><span class="w"> </span>..
+</pre></div>
+</div>
+<p>如果您想使用 <code class="docutils literal notranslate"><span class="pre">scripts\install_deps.ps1</span></code> 安裝的 boost 版本，您還需要將 <code class="docutils literal notranslate"><span class="pre">-DBoost_ROOT=&quot;deps/boost&quot;</span> <span class="pre">-DBoost_INCLUDE_DIR=&quot;deps/boost/include&quot;``和</span> <span class="pre">``-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded</span></code> 作為參數傳遞給 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> 呼叫。</p>
+<p>這應該會在該建置目錄中建立 <strong>solidity.sln</strong>。按兩下該檔案應該會啟動 Visual Studio。我們建議建置 <strong>Release</strong> 組態，但所有其他組態也都可以運作。</p>
+<p>或者，您可以在命令行上為 Windows 建置，如下所示：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--build<span class="w"> </span>.<span class="w"> </span>--config<span class="w"> </span>Release
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cmake-options">
+<h2>CMake 組態選項<a class="headerlink" href="#cmake-options" title="連結到這個標頭"></a></h2>
+<p>如果您想了解有哪些 CMake 組態選項可用，請執行 <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span> <span class="pre">-LH</span></code>。</p>
+<section id="smt-solvers">
+<span id="smt-solvers-build"></span><h3>SMT 求解器<a class="headerlink" href="#smt-solvers" title="連結到這個標頭"></a></h3>
+<p>Solidity 可以選擇性地使用 SMT 求解器，即 <code class="docutils literal notranslate"><span class="pre">z3</span></code>、<code class="docutils literal notranslate"><span class="pre">cvc5</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Eldarica</span></code>，但它們的存在僅在執行時期檢查，建置成功並不需要它們。</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Emscripten 建置需要 Z3，並且會改為靜態連結它。</p>
+</div>
+</section>
+</section>
+<section id="the-version-string-in-detail">
+<h2>版本字串詳解<a class="headerlink" href="#the-version-string-in-detail" title="連結到這個標頭"></a></h2>
+<p>Solidity 版本字串包含四個部分：</p>
+<ul class="simple">
+<li><p>版本號</p></li>
+<li><p>預先發行版標記，通常組態為 <code class="docutils literal notranslate"><span class="pre">develop.YYYY.MM.DD</span></code>、<code class="docutils literal notranslate"><span class="pre">pre.N</span></code> 或 <code class="docutils literal notranslate"><span class="pre">nightly.YYYY.MM.DD</span></code></p></li>
+<li><p>提交，格式為 <code class="docutils literal notranslate"><span class="pre">commit.GITHASH</span></code></p></li>
+<li><p>平台，包含任意數量的項目，含有關於平台和編譯器的詳細資訊</p></li>
+</ul>
+<p>如果有本機修改，提交將會以 <code class="docutils literal notranslate"><span class="pre">.mod</span></code> 作為後綴。</p>
+<p>這些部分依照 SemVer 的要求組合，其中 Solidity 預先發行版標記等同於 SemVer 預先發行版，而 Solidity 提交和平台組合構成 SemVer 建置中繼資料。</p>
+<p>範例：</p>
+<ul class="simple">
+<li><p>發行版：<code class="docutils literal notranslate"><span class="pre">0.4.8+commit.60cc1668.Emscripten.clang</span></code></p></li>
+<li><p>預先發行版：<code class="docutils literal notranslate"><span class="pre">0.4.9-pre.3+commit.fb60450bc.Emscripten.clang</span></code></p></li>
+<li><p>每夜建置版：<code class="docutils literal notranslate"><span class="pre">0.4.9-nightly.2017.1.17+commit.6ecb4aa3.Emscripten.clang</span></code></p></li>
+</ul>
+</section>
+<section id="important-information-about-versioning">
+<h2>關於版本控制的重要資訊<a class="headerlink" href="#important-information-about-versioning" title="連結到這個標頭"></a></h2>
+<p>發行版本後，修補版本層級會遞增，因為我們假設後續只有修補層級的變更。當變更合併時，版本應根據 SemVer 和變更的嚴重性進行遞增。最後，發行版始終使用當前建置的版本，但不含 <code class="docutils literal notranslate"><span class="pre">prerelease</span></code> 標識符。</p>
+<p>範例：</p>
+<ol class="arabic simple">
+<li><p>發行 0.4.0 版本。</p></li>
+<li><p>從現在起，每夜建置版和預先發行版的版本為 0.4.1。</p></li>
+<li><p>引入非重大變更 --&gt; 版本不變。</p></li>
+<li><p>引入重大變更 --&gt; 版本遞增至 0.5.0。</p></li>
+<li><p>發行 0.5.0 版本。</p></li>
+</ol>
+<p>此行為與<a class="reference internal" href="layout-of-source-files.html#version-pragma"><span class="std std-ref">版本 pragma</span></a> 搭配良好。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="solidity-by-example.html" class="btn btn-neutral float-left" title="Solidity by Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="layout-of-source-files.html" class="btn btn-neutral float-right" title="Solidity 來源檔的配置" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, The Solidity Authors.</p>
+  </div>
+
+  
+    <p>
+        <a href="credits-and-attribution.html">Credits and attribution</a>.
+    </p>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
