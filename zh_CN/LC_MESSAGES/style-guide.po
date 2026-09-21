@@ -1,0 +1,1709 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../style-guide.rst:5
+msgid "Style Guide"
+msgstr ""
+
+#: ../../../style-guide.rst:9
+msgid "Introduction"
+msgstr ""
+
+#: ../../../style-guide.rst:11
+msgid ""
+"This guide is intended to provide coding conventions for writing Solidity "
+"code. This guide should be thought of as an evolving document that will "
+"change over time as useful conventions are found and old conventions are "
+"rendered obsolete."
+msgstr ""
+
+#: ../../../style-guide.rst:15
+msgid ""
+"Many projects will implement their own style guides.  In the event of "
+"conflicts, project specific style guides take precedence."
+msgstr ""
+
+#: ../../../style-guide.rst:18
+msgid ""
+"The structure and many of the recommendations within this style guide were "
+"taken from Python's `pep8 style guide <https://peps.python.org/pep-0008/>`_."
+msgstr ""
+
+#: ../../../style-guide.rst:22
+msgid ""
+"The goal of this guide is *not* to be the right way or the best way to write "
+"Solidity code.  The goal of this guide is *consistency*.  A quote from "
+"Python's `pep8 <https://peps.python.org/pep-0008/#a-foolish-consistency-is-"
+"the-hobgoblin-of-little-minds>`_ captures this concept well."
+msgstr ""
+
+#: ../../../style-guide.rst:29
+msgid ""
+"A style guide is about consistency. Consistency with this style guide is "
+"important. Consistency within a project is more important. Consistency "
+"within one module or function is most important."
+msgstr ""
+
+#: ../../../style-guide.rst:31
+msgid ""
+"But most importantly: **know when to be inconsistent** -- sometimes the "
+"style guide just doesn't apply. When in doubt, use your best judgment. Look "
+"at other examples and decide what looks best. And do not hesitate to ask!"
+msgstr ""
+
+#: ../../../style-guide.rst:36
+msgid "Code Layout"
+msgstr ""
+
+#: ../../../style-guide.rst:40
+msgid "Indentation"
+msgstr ""
+
+#: ../../../style-guide.rst:42
+msgid "Use 4 spaces per indentation level."
+msgstr ""
+
+#: ../../../style-guide.rst:45
+msgid "Tabs or Spaces"
+msgstr ""
+
+#: ../../../style-guide.rst:47
+msgid "Spaces are the preferred indentation method."
+msgstr ""
+
+#: ../../../style-guide.rst:49
+msgid "Mixing tabs and spaces should be avoided."
+msgstr ""
+
+#: ../../../style-guide.rst:52
+msgid "Blank Lines"
+msgstr ""
+
+#: ../../../style-guide.rst:54
+msgid ""
+"Surround top level declarations in Solidity source with two blank lines."
+msgstr ""
+
+#: ../../../style-guide.rst:56 ../../../style-guide.rst:99
+#: ../../../style-guide.rst:160 ../../../style-guide.rst:202
+#: ../../../style-guide.rst:224 ../../../style-guide.rst:270
+#: ../../../style-guide.rst:324 ../../../style-guide.rst:401
+#: ../../../style-guide.rst:421 ../../../style-guide.rst:435
+#: ../../../style-guide.rst:453 ../../../style-guide.rst:489
+#: ../../../style-guide.rst:526 ../../../style-guide.rst:556
+#: ../../../style-guide.rst:577 ../../../style-guide.rst:617
+#: ../../../style-guide.rst:657 ../../../style-guide.rst:687
+#: ../../../style-guide.rst:735 ../../../style-guide.rst:789
+#: ../../../style-guide.rst:839 ../../../style-guide.rst:946
+#: ../../../style-guide.rst:970 ../../../style-guide.rst:988
+#: ../../../style-guide.rst:1004 ../../../style-guide.rst:1029
+#: ../../../style-guide.rst:1073 ../../../style-guide.rst:1151
+msgid "Yes:"
+msgstr ""
+
+#: ../../../style-guide.rst:58
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract A {\n"
+"    // ...\n"
+"}\n"
+"\n"
+"\n"
+"contract B {\n"
+"    // ...\n"
+"}\n"
+"\n"
+"\n"
+"contract C {\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:77 ../../../style-guide.rst:122
+#: ../../../style-guide.rst:170 ../../../style-guide.rst:213
+#: ../../../style-guide.rst:244 ../../../style-guide.rst:288
+#: ../../../style-guide.rst:362 ../../../style-guide.rst:407
+#: ../../../style-guide.rst:427 ../../../style-guide.rst:443
+#: ../../../style-guide.rst:465 ../../../style-guide.rst:503
+#: ../../../style-guide.rst:538 ../../../style-guide.rst:563
+#: ../../../style-guide.rst:595 ../../../style-guide.rst:629
+#: ../../../style-guide.rst:670 ../../../style-guide.rst:704
+#: ../../../style-guide.rst:761 ../../../style-guide.rst:814
+#: ../../../style-guide.rst:877 ../../../style-guide.rst:955
+#: ../../../style-guide.rst:976 ../../../style-guide.rst:995
+#: ../../../style-guide.rst:1014 ../../../style-guide.rst:1037
+#: ../../../style-guide.rst:1085 ../../../style-guide.rst:1190
+msgid "No:"
+msgstr ""
+
+#: ../../../style-guide.rst:79
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract A {\n"
+"    // ...\n"
+"}\n"
+"contract B {\n"
+"    // ...\n"
+"}\n"
+"\n"
+"contract C {\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:95
+msgid ""
+"Within a contract surround function declarations with a single blank line."
+msgstr ""
+
+#: ../../../style-guide.rst:97
+msgid ""
+"Blank lines may be omitted between groups of related one-liners (such as "
+"stub functions for an abstract contract)"
+msgstr ""
+
+#: ../../../style-guide.rst:101
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.6.0 <0.9.0;\n"
+"\n"
+"abstract contract A {\n"
+"    function spam() public virtual pure;\n"
+"    function ham() public virtual pure;\n"
+"}\n"
+"\n"
+"\n"
+"contract B is A {\n"
+"    function spam() public pure override {\n"
+"        // ...\n"
+"    }\n"
+"\n"
+"    function ham() public pure override {\n"
+"        // ...\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:124
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.6.0 <0.9.0;\n"
+"\n"
+"abstract contract A {\n"
+"    function spam() virtual pure public;\n"
+"    function ham() public virtual pure;\n"
+"}\n"
+"\n"
+"\n"
+"contract B is A {\n"
+"    function spam() public pure override {\n"
+"        // ...\n"
+"    }\n"
+"    function ham() public pure override {\n"
+"        // ...\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:147
+msgid "Maximum Line Length"
+msgstr ""
+
+#: ../../../style-guide.rst:149
+msgid "Maximum suggested line length is 120 characters."
+msgstr ""
+
+#: ../../../style-guide.rst:151
+msgid "Wrapped lines should conform to the following guidelines."
+msgstr ""
+
+#: ../../../style-guide.rst:153
+msgid "The first argument should not be attached to the opening parenthesis."
+msgstr ""
+
+#: ../../../style-guide.rst:154
+msgid "One, and only one, indent should be used."
+msgstr ""
+
+#: ../../../style-guide.rst:155
+msgid "Each argument should fall on its own line."
+msgstr ""
+
+#: ../../../style-guide.rst:156
+msgid ""
+"The terminating element, :code:`);`, should be placed on the final line by "
+"itself."
+msgstr ""
+
+#: ../../../style-guide.rst:158
+msgid "Function Calls"
+msgstr ""
+
+#: ../../../style-guide.rst:162
+msgid ""
+"thisFunctionCallIsReallyLong(\n"
+"    longArgument1,\n"
+"    longArgument2,\n"
+"    longArgument3\n"
+");"
+msgstr ""
+
+#: ../../../style-guide.rst:172
+msgid ""
+"thisFunctionCallIsReallyLong(longArgument1,\n"
+"                              longArgument2,\n"
+"                              longArgument3\n"
+");\n"
+"\n"
+"thisFunctionCallIsReallyLong(longArgument1,\n"
+"    longArgument2,\n"
+"    longArgument3\n"
+");\n"
+"\n"
+"thisFunctionCallIsReallyLong(\n"
+"    longArgument1, longArgument2,\n"
+"    longArgument3\n"
+");\n"
+"\n"
+"thisFunctionCallIsReallyLong(\n"
+"longArgument1,\n"
+"longArgument2,\n"
+"longArgument3\n"
+");\n"
+"\n"
+"thisFunctionCallIsReallyLong(\n"
+"    longArgument1,\n"
+"    longArgument2,\n"
+"    longArgument3);"
+msgstr ""
+
+#: ../../../style-guide.rst:200
+msgid "Assignment Statements"
+msgstr ""
+
+#: ../../../style-guide.rst:204
+msgid ""
+"thisIsALongNestedMapping[being][set][toSomeValue] = someFunction(\n"
+"    argument1,\n"
+"    argument2,\n"
+"    argument3,\n"
+"    argument4\n"
+");"
+msgstr ""
+
+#: ../../../style-guide.rst:215
+msgid ""
+"thisIsALongNestedMapping[being][set][toSomeValue] = someFunction(argument1,\n"
+"                                                                   argument2,\n"
+"                                                                   argument3,\n"
+"                                                                   argument4);"
+msgstr ""
+
+#: ../../../style-guide.rst:222
+msgid "Event Definitions and Event Emitters"
+msgstr ""
+
+#: ../../../style-guide.rst:226
+msgid ""
+"event LongAndLotsOfArgs(\n"
+"    address sender,\n"
+"    address recipient,\n"
+"    uint256 publicKey,\n"
+"    uint256 amount,\n"
+"    bytes32[] options\n"
+");\n"
+"\n"
+"emit LongAndLotsOfArgs(\n"
+"    sender,\n"
+"    recipient,\n"
+"    publicKey,\n"
+"    amount,\n"
+"    options\n"
+");"
+msgstr ""
+
+#: ../../../style-guide.rst:246
+msgid ""
+"event LongAndLotsOfArgs(address sender,\n"
+"                        address recipient,\n"
+"                        uint256 publicKey,\n"
+"                        uint256 amount,\n"
+"                        bytes32[] options);\n"
+"\n"
+"emit LongAndLotsOfArgs(sender,\n"
+"                  recipient,\n"
+"                  publicKey,\n"
+"                  amount,\n"
+"                  options);"
+msgstr ""
+
+#: ../../../style-guide.rst:261
+msgid "Source File Encoding"
+msgstr ""
+
+#: ../../../style-guide.rst:263
+msgid "UTF-8 or ASCII encoding is preferred."
+msgstr ""
+
+#: ../../../style-guide.rst:266
+msgid "Imports"
+msgstr ""
+
+#: ../../../style-guide.rst:268
+msgid "Import statements should always be placed at the top of the file."
+msgstr ""
+
+#: ../../../style-guide.rst:272
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"import \"./Owned.sol\";\n"
+"\n"
+"contract A {\n"
+"    // ...\n"
+"}\n"
+"\n"
+"\n"
+"contract B is Owned {\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:290
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract A {\n"
+"    // ...\n"
+"}\n"
+"\n"
+"\n"
+"import \"./Owned.sol\";\n"
+"\n"
+"\n"
+"contract B is Owned {\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:308
+msgid "Order of Functions"
+msgstr ""
+
+#: ../../../style-guide.rst:310
+msgid ""
+"Ordering helps readers identify which functions they can call and to find "
+"the constructor and fallback definitions easier."
+msgstr ""
+
+#: ../../../style-guide.rst:312
+msgid "Functions should be grouped according to their visibility and ordered:"
+msgstr ""
+
+#: ../../../style-guide.rst:314
+msgid "constructor"
+msgstr ""
+
+#: ../../../style-guide.rst:315
+msgid "receive function (if exists)"
+msgstr ""
+
+#: ../../../style-guide.rst:316
+msgid "fallback function (if exists)"
+msgstr ""
+
+#: ../../../style-guide.rst:317
+msgid "external"
+msgstr ""
+
+#: ../../../style-guide.rst:318
+msgid "public"
+msgstr ""
+
+#: ../../../style-guide.rst:319
+msgid "internal"
+msgstr ""
+
+#: ../../../style-guide.rst:320
+msgid "private"
+msgstr ""
+
+#: ../../../style-guide.rst:322
+msgid "Within a grouping, place the ``view`` and ``pure`` functions last."
+msgstr ""
+
+#: ../../../style-guide.rst:326
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"contract A {\n"
+"    constructor() {\n"
+"        // ...\n"
+"    }\n"
+"\n"
+"    receive() external payable {\n"
+"        // ...\n"
+"    }\n"
+"\n"
+"    fallback() external {\n"
+"        // ...\n"
+"    }\n"
+"\n"
+"    // External functions\n"
+"    // ...\n"
+"\n"
+"    // External functions that are view\n"
+"    // ...\n"
+"\n"
+"    // External functions that are pure\n"
+"    // ...\n"
+"\n"
+"    // Public functions\n"
+"    // ...\n"
+"\n"
+"    // Internal functions\n"
+"    // ...\n"
+"\n"
+"    // Private functions\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:364
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"contract A {\n"
+"\n"
+"    // External functions\n"
+"    // ...\n"
+"\n"
+"    fallback() external {\n"
+"        // ...\n"
+"    }\n"
+"    receive() external payable {\n"
+"        // ...\n"
+"    }\n"
+"\n"
+"    // Private functions\n"
+"    // ...\n"
+"\n"
+"    // Public functions\n"
+"    // ...\n"
+"\n"
+"    constructor() {\n"
+"        // ...\n"
+"    }\n"
+"\n"
+"    // Internal functions\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:395
+msgid "Whitespace in Expressions"
+msgstr ""
+
+#: ../../../style-guide.rst:397
+msgid "Avoid extraneous whitespace in the following  situations:"
+msgstr ""
+
+#: ../../../style-guide.rst:399
+msgid ""
+"Immediately inside parenthesis, brackets or braces, with the exception of "
+"single line function declarations."
+msgstr ""
+
+#: ../../../style-guide.rst:403
+msgid "spam(ham[1], Coin({name: \"ham\"}));"
+msgstr ""
+
+#: ../../../style-guide.rst:409
+msgid "spam( ham[ 1 ], Coin( { name: \"ham\" } ) );"
+msgstr ""
+
+#: ../../../style-guide.rst:413
+msgid "Exception:"
+msgstr ""
+
+#: ../../../style-guide.rst:415
+msgid "function singleLine() public { spam(); }"
+msgstr ""
+
+#: ../../../style-guide.rst:419
+msgid "Immediately before a comma, semicolon:"
+msgstr ""
+
+#: ../../../style-guide.rst:423
+msgid "function spam(uint i, Coin coin) public;"
+msgstr ""
+
+#: ../../../style-guide.rst:429
+msgid "function spam(uint i , Coin coin) public ;"
+msgstr ""
+
+#: ../../../style-guide.rst:433
+msgid ""
+"More than one space around an assignment or other operator to align with "
+"another:"
+msgstr ""
+
+#: ../../../style-guide.rst:437
+msgid ""
+"x = 1;\n"
+"y = 2;\n"
+"longVariable = 3;"
+msgstr ""
+
+#: ../../../style-guide.rst:445
+msgid ""
+"x            = 1;\n"
+"y            = 2;\n"
+"longVariable = 3;"
+msgstr ""
+
+#: ../../../style-guide.rst:451
+msgid "Do not include a whitespace in the receive and fallback functions:"
+msgstr ""
+
+#: ../../../style-guide.rst:455
+msgid ""
+"receive() external payable {\n"
+"    ...\n"
+"}\n"
+"\n"
+"fallback() external {\n"
+"    ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:467
+msgid ""
+"receive () external payable {\n"
+"    ...\n"
+"}\n"
+"\n"
+"fallback () external {\n"
+"    ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:479
+msgid "Control Structures"
+msgstr ""
+
+#: ../../../style-guide.rst:481
+msgid ""
+"The braces denoting the body of a contract, library, functions and structs "
+"should:"
+msgstr ""
+
+#: ../../../style-guide.rst:484
+msgid "open on the same line as the declaration"
+msgstr ""
+
+#: ../../../style-guide.rst:485
+msgid ""
+"close on their own line at the same indentation level as the beginning of "
+"the declaration."
+msgstr ""
+
+#: ../../../style-guide.rst:487 ../../../style-guide.rst:615
+msgid "The opening brace should be preceded by a single space."
+msgstr ""
+
+#: ../../../style-guide.rst:491
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract Coin {\n"
+"    struct Bank {\n"
+"        address owner;\n"
+"        uint balance;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:505
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"contract Coin\n"
+"{\n"
+"    struct Bank {\n"
+"        address owner;\n"
+"        uint balance;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:518
+msgid ""
+"The same recommendations apply to the control structures ``if``, ``else``, "
+"``while``, and ``for``."
+msgstr ""
+
+#: ../../../style-guide.rst:521
+msgid ""
+"Additionally there should be a single space between the control structures "
+"``if``, ``while``, and ``for`` and the parenthetic block representing the "
+"conditional, as well as a single space between the conditional parenthetic "
+"block and the opening brace."
+msgstr ""
+
+#: ../../../style-guide.rst:528
+msgid ""
+"if (...) {\n"
+"    ...\n"
+"}\n"
+"\n"
+"for (...) {\n"
+"    ...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:540
+msgid ""
+"if (...)\n"
+"{\n"
+"    ...\n"
+"}\n"
+"\n"
+"while(...){\n"
+"}\n"
+"\n"
+"for (...) {\n"
+"    ...;}"
+msgstr ""
+
+#: ../../../style-guide.rst:553
+msgid ""
+"For control structures whose body contains a single statement, omitting the "
+"braces is ok *if* the statement is contained on a single line."
+msgstr ""
+
+#: ../../../style-guide.rst:558
+msgid ""
+"if (x < 10)\n"
+"    x += 1;"
+msgstr ""
+
+#: ../../../style-guide.rst:565
+msgid ""
+"if (x < 10)\n"
+"    someArray.push(Coin({\n"
+"        name: 'spam',\n"
+"        value: 42\n"
+"    }));"
+msgstr ""
+
+#: ../../../style-guide.rst:573
+msgid ""
+"For ``if`` blocks which have an ``else`` or ``else if`` clause, the ``else`` "
+"should be placed on the same line as the ``if``'s closing brace. This is an "
+"exception compared to the rules of other block-like structures."
+msgstr ""
+
+#: ../../../style-guide.rst:579
+msgid ""
+"if (x < 3) {\n"
+"    x += 1;\n"
+"} else if (x > 7) {\n"
+"    x -= 1;\n"
+"} else {\n"
+"    x = 5;\n"
+"}\n"
+"\n"
+"\n"
+"if (x < 3)\n"
+"    x += 1;\n"
+"else\n"
+"    x -= 1;"
+msgstr ""
+
+#: ../../../style-guide.rst:597
+msgid ""
+"if (x < 3) {\n"
+"    x += 1;\n"
+"}\n"
+"else {\n"
+"    x -= 1;\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:607
+msgid "Function Declaration"
+msgstr ""
+
+#: ../../../style-guide.rst:609
+msgid ""
+"For short function declarations, it is recommended for the opening brace of "
+"the function body to be kept on the same line as the function declaration."
+msgstr ""
+
+#: ../../../style-guide.rst:612
+msgid ""
+"The closing brace should be at the same indentation level as the function "
+"declaration."
+msgstr ""
+
+#: ../../../style-guide.rst:619
+msgid ""
+"function increment(uint x) public pure returns (uint) {\n"
+"    return x + 1;\n"
+"}\n"
+"\n"
+"function increment(uint x) public pure onlyOwner returns (uint) {\n"
+"    return x + 1;\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:631
+msgid ""
+"function increment(uint x) public pure returns (uint)\n"
+"{\n"
+"    return x + 1;\n"
+"}\n"
+"\n"
+"function increment(uint x) public pure returns (uint){\n"
+"    return x + 1;\n"
+"}\n"
+"\n"
+"function increment(uint x) public pure returns (uint) {\n"
+"    return x + 1;\n"
+"    }\n"
+"\n"
+"function increment(uint x) public pure returns (uint) {\n"
+"    return x + 1;}"
+msgstr ""
+
+#: ../../../style-guide.rst:649
+msgid "The modifier order for a function should be:"
+msgstr ""
+
+#: ../../../style-guide.rst:651
+msgid "Visibility"
+msgstr ""
+
+#: ../../../style-guide.rst:652
+msgid "Mutability"
+msgstr ""
+
+#: ../../../style-guide.rst:653
+msgid "Virtual"
+msgstr ""
+
+#: ../../../style-guide.rst:654
+msgid "Override"
+msgstr ""
+
+#: ../../../style-guide.rst:655
+msgid "Custom modifiers"
+msgstr ""
+
+#: ../../../style-guide.rst:659
+msgid ""
+"function balance(uint from) public view override returns (uint)  {\n"
+"    return balanceOf[from];\n"
+"}\n"
+"\n"
+"function increment(uint x) public pure onlyOwner returns (uint) {\n"
+"    return x + 1;\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:672
+msgid ""
+"function balance(uint from) public override view returns (uint)  {\n"
+"    return balanceOf[from];\n"
+"}\n"
+"\n"
+"function increment(uint x) onlyOwner public pure returns (uint) {\n"
+"    return x + 1;\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:682
+msgid ""
+"For long function declarations, it is recommended to drop each argument onto "
+"its own line at the same indentation level as the function body.  The "
+"closing parenthesis and opening bracket should be placed on their own line "
+"as well at the same indentation level as the function declaration."
+msgstr ""
+
+#: ../../../style-guide.rst:689
+msgid ""
+"function thisFunctionHasLotsOfArguments(\n"
+"    address a,\n"
+"    address b,\n"
+"    address c,\n"
+"    address d,\n"
+"    address e,\n"
+"    address f\n"
+")\n"
+"    public\n"
+"{\n"
+"    doSomething();\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:706
+msgid ""
+"function thisFunctionHasLotsOfArguments(address a, address b, address c,\n"
+"    address d, address e, address f) public {\n"
+"    doSomething();\n"
+"}\n"
+"\n"
+"function thisFunctionHasLotsOfArguments(address a,\n"
+"                                        address b,\n"
+"                                        address c,\n"
+"                                        address d,\n"
+"                                        address e,\n"
+"                                        address f) public {\n"
+"    doSomething();\n"
+"}\n"
+"\n"
+"function thisFunctionHasLotsOfArguments(\n"
+"    address a,\n"
+"    address b,\n"
+"    address c,\n"
+"    address d,\n"
+"    address e,\n"
+"    address f) public {\n"
+"    doSomething();\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:732
+msgid ""
+"If a long function declaration has modifiers, then each modifier should be "
+"dropped to its own line."
+msgstr ""
+
+#: ../../../style-guide.rst:737
+msgid ""
+"function thisFunctionNameIsReallyLong(address x, address y, address z)\n"
+"    public\n"
+"    onlyOwner\n"
+"    priced\n"
+"    returns (address)\n"
+"{\n"
+"    doSomething();\n"
+"}\n"
+"\n"
+"function thisFunctionNameIsReallyLong(\n"
+"    address x,\n"
+"    address y,\n"
+"    address z\n"
+")\n"
+"    public\n"
+"    onlyOwner\n"
+"    priced\n"
+"    returns (address)\n"
+"{\n"
+"    doSomething();\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:763
+msgid ""
+"function thisFunctionNameIsReallyLong(address x, address y, address z)\n"
+"                                      public\n"
+"                                      onlyOwner\n"
+"                                      priced\n"
+"                                      returns (address) {\n"
+"    doSomething();\n"
+"}\n"
+"\n"
+"function thisFunctionNameIsReallyLong(address x, address y, address z)\n"
+"    public onlyOwner priced returns (address)\n"
+"{\n"
+"    doSomething();\n"
+"}\n"
+"\n"
+"function thisFunctionNameIsReallyLong(address x, address y, address z)\n"
+"    public\n"
+"    onlyOwner\n"
+"    priced\n"
+"    returns (address) {\n"
+"    doSomething();\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:787
+msgid ""
+"Multiline output parameters and return statements should follow the same "
+"style recommended for wrapping long lines found in the :ref:`Maximum Line "
+"Length <maximum_line_length>` section."
+msgstr ""
+
+#: ../../../style-guide.rst:791
+msgid ""
+"function thisFunctionNameIsReallyLong(\n"
+"    address a,\n"
+"    address b,\n"
+"    address c\n"
+")\n"
+"    public\n"
+"    returns (\n"
+"        address someAddressName,\n"
+"        uint256 LongArgument,\n"
+"        uint256 Argument\n"
+"    )\n"
+"{\n"
+"    doSomething()\n"
+"\n"
+"    return (\n"
+"        veryLongReturnArg1,\n"
+"        veryLongReturnArg2,\n"
+"        veryLongReturnArg3\n"
+"    );\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:816
+msgid ""
+"function thisFunctionNameIsReallyLong(\n"
+"    address a,\n"
+"    address b,\n"
+"    address c\n"
+")\n"
+"    public\n"
+"    returns (address someAddressName,\n"
+"             uint256 LongArgument,\n"
+"             uint256 Argument)\n"
+"{\n"
+"    doSomething()\n"
+"\n"
+"    return (veryLongReturnArg1,\n"
+"            veryLongReturnArg1,\n"
+"            veryLongReturnArg1);\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:835
+msgid ""
+"For constructor functions on inherited contracts whose bases require "
+"arguments, it is recommended to drop the base constructors onto new lines in "
+"the same manner as modifiers if the function declaration is long or hard to "
+"read."
+msgstr ""
+
+#: ../../../style-guide.rst:841
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"// Base contracts just to make this compile\n"
+"contract B {\n"
+"    constructor(uint) {\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract C {\n"
+"    constructor(uint, uint) {\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract D {\n"
+"    constructor(uint) {\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract A is B, C, D {\n"
+"    uint x;\n"
+"\n"
+"    constructor(uint param1, uint param2, uint param3, uint param4, uint "
+"param5)\n"
+"        B(param1)\n"
+"        C(param2, param3)\n"
+"        D(param4)\n"
+"    {\n"
+"        // do something with param5\n"
+"        x = param5;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:879
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"\n"
+"// Base contracts just to make this compile\n"
+"contract B {\n"
+"    constructor(uint) {\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract C {\n"
+"    constructor(uint, uint) {\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract D {\n"
+"    constructor(uint) {\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract A is B, C, D {\n"
+"    uint x;\n"
+"\n"
+"    constructor(uint param1, uint param2, uint param3, uint param4, uint "
+"param5)\n"
+"    B(param1)\n"
+"    C(param2, param3)\n"
+"    D(param4) {\n"
+"        x = param5;\n"
+"    }\n"
+"}\n"
+"\n"
+"\n"
+"contract X is B, C, D {\n"
+"    uint x;\n"
+"\n"
+"    constructor(uint param1, uint param2, uint param3, uint param4, uint "
+"param5)\n"
+"        B(param1)\n"
+"        C(param2, param3)\n"
+"        D(param4) {\n"
+"            x = param5;\n"
+"        }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:927
+msgid ""
+"When declaring short functions with a single statement, it is permissible to "
+"do it on a single line."
+msgstr ""
+
+#: ../../../style-guide.rst:929
+msgid "Permissible:"
+msgstr ""
+
+#: ../../../style-guide.rst:931
+msgid "function shortFunction() public { doSomething(); }"
+msgstr ""
+
+#: ../../../style-guide.rst:935
+msgid ""
+"These guidelines for function declarations are intended to improve "
+"readability. Authors should use their best judgment as this guide does not "
+"try to cover all possible permutations for function declarations."
+msgstr ""
+
+#: ../../../style-guide.rst:940
+msgid "Mappings"
+msgstr ""
+
+#: ../../../style-guide.rst:942
+msgid ""
+"In variable declarations, do not separate the keyword ``mapping`` from its "
+"type by a space. Do not separate any nested ``mapping`` keyword from its "
+"type by whitespace."
+msgstr ""
+
+#: ../../../style-guide.rst:948
+msgid ""
+"mapping(uint => uint) map;\n"
+"mapping(address => bool) registeredAddresses;\n"
+"mapping(uint => mapping(bool => Data[])) public data;\n"
+"mapping(uint => mapping(uint => s)) data;"
+msgstr ""
+
+#: ../../../style-guide.rst:957
+msgid ""
+"mapping (uint => uint) map;\n"
+"mapping( address => bool ) registeredAddresses;\n"
+"mapping (uint => mapping (bool => Data[])) public data;\n"
+"mapping(uint => mapping (uint => s)) data;"
+msgstr ""
+
+#: ../../../style-guide.rst:965
+msgid "Variable Declarations"
+msgstr ""
+
+#: ../../../style-guide.rst:967
+msgid ""
+"Declarations of array variables should not have a space between the type and "
+"the brackets."
+msgstr ""
+
+#: ../../../style-guide.rst:972
+msgid "uint[] x;"
+msgstr ""
+
+#: ../../../style-guide.rst:978
+msgid "uint [] x;"
+msgstr ""
+
+#: ../../../style-guide.rst:984
+msgid "Other Recommendations"
+msgstr ""
+
+#: ../../../style-guide.rst:986
+msgid "Strings should be quoted with double-quotes instead of single-quotes."
+msgstr ""
+
+#: ../../../style-guide.rst:990
+msgid ""
+"str = \"foo\";\n"
+"str = \"Hamlet says, 'To be or not to be...'\";"
+msgstr ""
+
+#: ../../../style-guide.rst:997
+msgid ""
+"str = 'bar';\n"
+"str = '\"Be yourself; everyone else is already taken.\" -Oscar Wilde';"
+msgstr ""
+
+#: ../../../style-guide.rst:1002
+msgid "Surround operators with a single space on either side."
+msgstr ""
+
+#: ../../../style-guide.rst:1006
+msgid ""
+"x = 3;\n"
+"x = 100 / 10;\n"
+"x += 3 + 4;\n"
+"x |= y && z;"
+msgstr ""
+
+#: ../../../style-guide.rst:1016
+msgid ""
+"x=3;\n"
+"x = 100/10;\n"
+"x += 3+4;\n"
+"x |= y&&z;"
+msgstr ""
+
+#: ../../../style-guide.rst:1024
+msgid ""
+"Operators with a higher priority than others can exclude surrounding "
+"whitespace in order to denote precedence.  This is meant to allow for "
+"improved readability for complex statements. You should always use the same "
+"amount of whitespace on either side of an operator:"
+msgstr ""
+
+#: ../../../style-guide.rst:1031
+msgid ""
+"x = 2**3 + 5;\n"
+"x = 2*y + 3*z;\n"
+"x = (a+b) * (a-b);"
+msgstr ""
+
+#: ../../../style-guide.rst:1039
+msgid ""
+"x = 2** 3 + 5;\n"
+"x = y+z;\n"
+"x +=1;"
+msgstr ""
+
+#: ../../../style-guide.rst:1047
+msgid "Order of Layout"
+msgstr ""
+
+#: ../../../style-guide.rst:1049
+msgid "Contract elements should be laid out in the following order:"
+msgstr ""
+
+#: ../../../style-guide.rst:1051
+msgid "Pragma statements"
+msgstr ""
+
+#: ../../../style-guide.rst:1052
+msgid "Import statements"
+msgstr ""
+
+#: ../../../style-guide.rst:1053 ../../../style-guide.rst:1063
+msgid "Events"
+msgstr ""
+
+#: ../../../style-guide.rst:1054 ../../../style-guide.rst:1064
+msgid "Errors"
+msgstr ""
+
+#: ../../../style-guide.rst:1055
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../style-guide.rst:1056
+msgid "Libraries"
+msgstr ""
+
+#: ../../../style-guide.rst:1057
+msgid "Contracts"
+msgstr ""
+
+#: ../../../style-guide.rst:1059
+msgid "Inside each contract, library or interface, use the following order:"
+msgstr ""
+
+#: ../../../style-guide.rst:1061
+msgid "Type declarations"
+msgstr ""
+
+#: ../../../style-guide.rst:1062
+msgid "State variables"
+msgstr ""
+
+#: ../../../style-guide.rst:1065
+msgid "Modifiers"
+msgstr ""
+
+#: ../../../style-guide.rst:1066
+msgid "Functions"
+msgstr ""
+
+#: ../../../style-guide.rst:1070
+msgid ""
+"It might be clearer to declare types close to their use in events or state "
+"variables."
+msgstr ""
+
+#: ../../../style-guide.rst:1075
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.4 <0.9.0;\n"
+"\n"
+"abstract contract Math {\n"
+"    error DivideByZero();\n"
+"    function divide(int256 numerator, int256 denominator) public virtual "
+"returns (uint256);\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1087
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.8.4 <0.9.0;\n"
+"\n"
+"abstract contract Math {\n"
+"    function divide(int256 numerator, int256 denominator) public virtual "
+"returns (uint256);\n"
+"    error DivideByZero();\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1100
+msgid "Naming Conventions"
+msgstr ""
+
+#: ../../../style-guide.rst:1102
+msgid ""
+"Naming conventions are powerful when adopted and used broadly.  The use of "
+"different conventions can convey significant *meta* information that would "
+"otherwise not be immediately available."
+msgstr ""
+
+#: ../../../style-guide.rst:1106
+msgid ""
+"The naming recommendations given here are intended to improve the "
+"readability, and thus they are not rules, but rather guidelines to try and "
+"help convey the most information through the names of things."
+msgstr ""
+
+#: ../../../style-guide.rst:1110
+msgid ""
+"Lastly, consistency within a codebase should always supersede any "
+"conventions outlined in this document."
+msgstr ""
+
+#: ../../../style-guide.rst:1115
+msgid "Naming Styles"
+msgstr ""
+
+#: ../../../style-guide.rst:1117
+msgid ""
+"To avoid confusion, the following names will be used to refer to different "
+"naming styles."
+msgstr ""
+
+#: ../../../style-guide.rst:1120
+msgid "``b`` (single lowercase letter)"
+msgstr ""
+
+#: ../../../style-guide.rst:1121
+msgid "``B`` (single uppercase letter)"
+msgstr ""
+
+#: ../../../style-guide.rst:1122
+msgid "``lowercase``"
+msgstr ""
+
+#: ../../../style-guide.rst:1123
+msgid "``UPPERCASE``"
+msgstr ""
+
+#: ../../../style-guide.rst:1124
+msgid "``UPPER_CASE_WITH_UNDERSCORES``"
+msgstr ""
+
+#: ../../../style-guide.rst:1125
+msgid "``CapitalizedWords`` (or CapWords)"
+msgstr ""
+
+#: ../../../style-guide.rst:1126
+msgid ""
+"``mixedCase`` (differs from CapitalizedWords by initial lowercase character!)"
+msgstr ""
+
+#: ../../../style-guide.rst:1128
+msgid ""
+"When using initialisms in CapWords, capitalize all the letters of the "
+"initialisms. Thus HTTPServerError is better than HttpServerError. When using "
+"initialisms in mixedCase, capitalize all the letters of the initialisms, "
+"except keep the first one lower case if it is the beginning of the name. "
+"Thus xmlHTTPRequest is better than XMLHTTPRequest."
+msgstr ""
+
+#: ../../../style-guide.rst:1132
+msgid "Names to Avoid"
+msgstr ""
+
+#: ../../../style-guide.rst:1134
+msgid "``l`` - Lowercase letter el"
+msgstr ""
+
+#: ../../../style-guide.rst:1135
+msgid "``O`` - Uppercase letter oh"
+msgstr ""
+
+#: ../../../style-guide.rst:1136
+msgid "``I`` - Uppercase letter eye"
+msgstr ""
+
+#: ../../../style-guide.rst:1138
+msgid ""
+"Never use any of these for single letter variable names.  They are often "
+"indistinguishable from the numerals one and zero."
+msgstr ""
+
+#: ../../../style-guide.rst:1143
+msgid "Contract and Library Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1145
+msgid ""
+"Contracts and libraries should be named using the CapWords style. Examples: "
+"``SimpleToken``, ``SmartBank``, ``CertificateHashRepository``, ``Player``, "
+"``Congress``, ``Owned``."
+msgstr ""
+
+#: ../../../style-guide.rst:1146
+msgid "Contract and library names should also match their filenames."
+msgstr ""
+
+#: ../../../style-guide.rst:1147
+msgid ""
+"If a contract file includes multiple contracts and/or libraries, then the "
+"filename should match the *core contract*. This is not recommended however "
+"if it can be avoided."
+msgstr ""
+
+#: ../../../style-guide.rst:1149
+msgid ""
+"As shown in the example below, if the contract name is ``Congress`` and the "
+"library name is ``Owned``, then their associated filenames should be "
+"``Congress.sol`` and ``Owned.sol``."
+msgstr ""
+
+#: ../../../style-guide.rst:1153
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"\n"
+"// Owned.sol\n"
+"contract Owned {\n"
+"    address public owner;\n"
+"\n"
+"    modifier onlyOwner {\n"
+"        require(msg.sender == owner);\n"
+"        _;\n"
+"    }\n"
+"\n"
+"    constructor() {\n"
+"        owner = msg.sender;\n"
+"    }\n"
+"\n"
+"    function transferOwnership(address newOwner) public onlyOwner {\n"
+"        owner = newOwner;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1176 ../../../style-guide.rst:1215
+msgid "and in ``Congress.sol``:"
+msgstr ""
+
+#: ../../../style-guide.rst:1178
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.0 <0.9.0;\n"
+"\n"
+"import \"./Owned.sol\";\n"
+"\n"
+"\n"
+"contract Congress is Owned, TokenRecipient {\n"
+"    //...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1192
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.7.0 <0.9.0;\n"
+"\n"
+"// owned.sol\n"
+"contract owned {\n"
+"    address public owner;\n"
+"\n"
+"    modifier onlyOwner {\n"
+"        require(msg.sender == owner);\n"
+"        _;\n"
+"    }\n"
+"\n"
+"    constructor() {\n"
+"        owner = msg.sender;\n"
+"    }\n"
+"\n"
+"    function transferOwnership(address newOwner) public onlyOwner {\n"
+"        owner = newOwner;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1217
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity ^0.7.0;\n"
+"\n"
+"\n"
+"import \"./owned.sol\";\n"
+"\n"
+"\n"
+"contract Congress is owned, tokenRecipient {\n"
+"    //...\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1231
+msgid "Struct Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1233
+msgid ""
+"Structs should be named using the CapWords style. Examples: ``MyCoin``, "
+"``Position``, ``PositionXY``."
+msgstr ""
+
+#: ../../../style-guide.rst:1237
+msgid "Event Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1239
+msgid ""
+"Events should be named using the CapWords style. Examples: ``Deposit``, "
+"``Transfer``, ``Approval``, ``BeforeTransfer``, ``AfterTransfer``."
+msgstr ""
+
+#: ../../../style-guide.rst:1243
+msgid "Function Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1245
+msgid ""
+"Functions should use mixedCase. Examples: ``getBalance``, ``transfer``, "
+"``verifyOwner``, ``addMember``, ``changeOwner``."
+msgstr ""
+
+#: ../../../style-guide.rst:1249
+msgid "Function Argument Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1251
+msgid ""
+"Function arguments should use mixedCase. Examples: ``initialSupply``, "
+"``account``, ``recipientAddress``, ``senderAddress``, ``newOwner``."
+msgstr ""
+
+#: ../../../style-guide.rst:1253
+msgid ""
+"When writing library functions that operate on a custom struct, the struct "
+"should be the first argument and should always be named ``self``."
+msgstr ""
+
+#: ../../../style-guide.rst:1258
+msgid "Local and State Variable Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1260
+msgid ""
+"Use mixedCase. Examples: ``totalSupply``, ``remainingSupply``, "
+"``balancesOf``, ``creatorAddress``, ``isPreSale``, ``tokenExchangeRate``."
+msgstr ""
+
+#: ../../../style-guide.rst:1264
+msgid "Constants"
+msgstr ""
+
+#: ../../../style-guide.rst:1266
+msgid ""
+"Constants should be named with all capital letters with underscores "
+"separating words. Examples: ``MAX_BLOCKS``, ``TOKEN_NAME``, "
+"``TOKEN_TICKER``, ``CONTRACT_VERSION``."
+msgstr ""
+
+#: ../../../style-guide.rst:1271
+msgid "Modifier Names"
+msgstr ""
+
+#: ../../../style-guide.rst:1273
+msgid ""
+"Use mixedCase. Examples: ``onlyBy``, ``onlyAfter``, ``onlyDuringThePreSale``."
+msgstr ""
+
+#: ../../../style-guide.rst:1277
+msgid "Enums"
+msgstr ""
+
+#: ../../../style-guide.rst:1279
+msgid ""
+"Enums, in the style of simple type declarations, should be named using the "
+"CapWords style. Examples: ``TokenGroup``, ``Frame``, ``HashStyle``, "
+"``CharacterLocation``."
+msgstr ""
+
+#: ../../../style-guide.rst:1283
+msgid "Avoiding Naming Collisions"
+msgstr ""
+
+#: ../../../style-guide.rst:1285
+msgid "``singleTrailingUnderscore_``"
+msgstr ""
+
+#: ../../../style-guide.rst:1287
+msgid ""
+"This convention is suggested when the desired name collides with that of an "
+"existing state variable, function, built-in or otherwise reserved name."
+msgstr ""
+
+#: ../../../style-guide.rst:1291
+msgid "Underscore Prefix for Non-external Functions and Variables"
+msgstr ""
+
+#: ../../../style-guide.rst:1293
+msgid "``_singleLeadingUnderscore``"
+msgstr ""
+
+#: ../../../style-guide.rst:1295
+msgid ""
+"This convention is suggested for non-external functions and state variables "
+"(``private`` or ``internal``). State variables without a specified "
+"visibility are ``internal`` by default."
+msgstr ""
+
+#: ../../../style-guide.rst:1297
+msgid ""
+"When designing a smart contract, the public-facing API (functions that can "
+"be called by any account) is an important consideration. Leading underscores "
+"allow you to immediately recognize the intent of such functions, but more "
+"importantly, if you change a function from non-external to external "
+"(including ``public``) and rename it accordingly, this forces you to review "
+"every call site while renaming. This can be an important manual check "
+"against unintended external functions and a common source of security "
+"vulnerabilities (avoid find-replace-all tooling for this change)."
+msgstr ""
+
+#: ../../../style-guide.rst:1309
+msgid "NatSpec"
+msgstr ""
+
+#: ../../../style-guide.rst:1311
+msgid ""
+"Solidity contracts can also contain NatSpec comments. They are written with "
+"a triple slash (``///``) or a double asterisk block (``/** ... */``) and "
+"they should be used directly above function declarations or statements."
+msgstr ""
+
+#: ../../../style-guide.rst:1315
+msgid ""
+"For example, the contract from :ref:`a simple smart contract <simple-smart-"
+"contract>` with the comments added looks like the one below:"
+msgstr ""
+
+#: ../../../style-guide.rst:1318
+msgid ""
+"// SPDX-License-Identifier: GPL-3.0\n"
+"pragma solidity >=0.4.16 <0.9.0;\n"
+"\n"
+"/// @author The Solidity Team\n"
+"/// @title A simple storage example\n"
+"contract SimpleStorage {\n"
+"    uint storedData;\n"
+"\n"
+"    /// Store `x`.\n"
+"    /// @param x the new value to store\n"
+"    /// @dev stores the number in the state variable `storedData`\n"
+"    function set(uint x) public {\n"
+"        storedData = x;\n"
+"    }\n"
+"\n"
+"    /// Return the stored value.\n"
+"    /// @dev retrieves the value of the state variable `storedData`\n"
+"    /// @return the stored value\n"
+"    function get() public view returns (uint) {\n"
+"        return storedData;\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../../style-guide.rst:1343
+msgid ""
+"It is recommended that Solidity contracts are fully annotated using :ref:"
+"`NatSpec <natspec>` for all public interfaces (everything in the ABI)."
+msgstr ""
+
+#: ../../../style-guide.rst:1345
+msgid ""
+"Please see the section about :ref:`NatSpec <natspec>` for a detailed "
+"explanation."
+msgstr ""
+
+#: ../../../style-guide.rst:1
+msgid "style"
+msgstr ""
+
+#: ../../../style-guide.rst:1
+msgid "coding style"
+msgstr ""
