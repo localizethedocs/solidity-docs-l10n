@@ -1,0 +1,322 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity 0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-11 12:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../index.rst:113
+msgid "Basics"
+msgstr "基礎知識"
+
+#: ../../../index.rst:121
+msgid "Language Description"
+msgstr "語言描述"
+
+#: ../../../index.rst:135
+msgid "Compiler"
+msgstr "編譯器"
+
+#: ../../../index.rst:143
+msgid "Internals"
+msgstr "內部原理"
+
+#: ../../../index.rst:156
+msgid "Advisory content"
+msgstr "建議內容"
+
+#: ../../../index.rst:167
+msgid "Additional Material"
+msgstr "附加材料"
+
+#: ../../../index.rst:176
+msgid "Resources"
+msgstr "資源"
+
+#: ../../../index.rst:2
+msgid "Solidity"
+msgstr ""
+
+#: ../../../index.rst:4
+msgid ""
+"Solidity is an object-oriented, high-level language for implementing smart "
+"contracts. Smart contracts are programs that govern the behavior of accounts "
+"within the Ethereum state."
+msgstr ""
+"Solidity 是一種物件導向的高階語言，用於實作智慧合約。智慧合約是管理以太坊狀態"
+"內帳戶行為的程式。"
+
+#: ../../../index.rst:7
+msgid ""
+"Solidity is a `curly-bracket language <https://en.wikipedia.org/wiki/"
+"List_of_programming_languages_by_type#Curly_bracket_languages>`_ designed to "
+"target the Ethereum Virtual Machine (EVM). It is influenced by C++, Python, "
+"and JavaScript. You can find more details about which languages Solidity has "
+"been inspired by in the :doc:`language influences <language-influences>` "
+"section."
+msgstr ""
+"Solidity 是一種\\ `花括號語言 <https://en.wikipedia.org/wiki/"
+"List_of_programming_languages_by_type#Curly_bracket_languages>`_\\ ，旨在針對"
+"以太坊虛擬機（EVM）進行設計。它受到 C++、Python 和 JavaScript 的影響。您可以"
+"在\\ :doc:`語言影響 <language-influences>`\\ 章節中找到更多關於 Solidity 受到"
+"哪些語言啟發的詳細資訊。"
+
+#: ../../../index.rst:11
+msgid ""
+"Solidity is statically typed, supports inheritance, libraries, and complex "
+"user-defined types, among other features."
+msgstr ""
+"Solidity 是一種靜態型別語言，支援繼承、 程式庫和複雜的使用者定義型別等功能。"
+
+#: ../../../index.rst:13
+msgid ""
+"With Solidity, you can create contracts for uses such as voting, "
+"crowdfunding, blind auctions, and multi-signature wallets."
+msgstr ""
+"使用 Solidity，您可以建立用於投票、群眾募資、\n"
+"盲拍和多簽錢包等用途的合約。"
+
+#: ../../../index.rst:15
+msgid ""
+"When deploying contracts, you should use the latest released version of "
+"Solidity. Apart from exceptional cases, only the latest version receives "
+"`security fixes <https://github.com/argotorg/solidity/security/"
+"policy#supported-versions>`_. Furthermore, breaking changes, as well as new "
+"features, are introduced regularly. We currently use a 0.y.z version number "
+"`to indicate this fast pace of change <https://semver.org/#spec-item-4>`_."
+msgstr ""
+"部署合約時，您應使用最新發布的 Solidity 版本。除了特殊情況外，\n"
+"僅最新版本會收到\\ `安全性修復 <https://github.com/argotorg/solidity/"
+"security/policy#supported-versions>`_\\ 。此外，重大變更以及新功能\n"
+"會定期引入。我們目前使用 0.y.z 版本號\\ `來表示這種快速變更的步調 <https://"
+"semver.org/#spec-item-4>`_\\ 。"
+
+#: ../../../index.rst:23
+msgid ""
+"Solidity recently released the 0.8.x version that introduced a lot of "
+"breaking changes. Make sure you read :doc:`the full list <080-breaking-"
+"changes>`."
+msgstr ""
+"Solidity 最近發布了 0.8.x 版本，其中引入了許多重大變更。\n"
+"請務必閱讀\\ :doc:`完整清單 <080-breaking-changes>`\\ 。"
+
+#: ../../../index.rst:26
+msgid ""
+"Ideas for improving Solidity or this documentation are always welcome, read "
+"our :doc:`contributors guide <contributing>` for more details."
+msgstr ""
+"我們隨時歡迎關於改進 Solidity 或此文件的建議，\n"
+"請閱讀我們的\\ :doc:`貢獻者指南 <contributing>`\\ 以獲取更多詳細資訊。"
+
+#: ../../../index.rst:31
+msgid ""
+"You can download this documentation as PDF, HTML or Epub by clicking on the "
+"versions flyout menu in the bottom-right corner and selecting the preferred "
+"download format."
+msgstr ""
+"您可以透過點擊右下角的版本彈出選單，\n"
+"並選擇偏好的下載格式，將此文件下載為 PDF、HTML 或 Epub。"
+
+#: ../../../index.rst:36
+msgid "Getting Started"
+msgstr "開始使用"
+
+#: ../../../index.rst:38
+msgid "**1. Understand the Smart Contract Basics**"
+msgstr "**1. 理解智慧合約基礎知識**"
+
+#: ../../../index.rst:40
+msgid ""
+"If you are new to the concept of smart contracts, we recommend you to get "
+"started by digging into the \"Introduction to Smart Contracts\" section, "
+"which covers the following:"
+msgstr ""
+"如果您對智慧合約的概念不熟悉，我們建議您\n"
+"從「智慧合約簡介」章節開始深入了解，該章節涵蓋以下內容："
+
+#: ../../../index.rst:42
+msgid ""
+":ref:`A simple example smart contract <simple-smart-contract>` written in "
+"Solidity."
+msgstr ""
+"以 Solidity 編寫的\\ :ref:`簡單智慧合約範例 <simple-smart-contract>`\\ 。"
+
+#: ../../../index.rst:43
+msgid ":ref:`Blockchain Basics <blockchain-basics>`."
+msgstr ":ref:`區塊鏈基礎知識 <blockchain-basics>`。"
+
+#: ../../../index.rst:44
+msgid ":ref:`The Ethereum Virtual Machine <the-ethereum-virtual-machine>`."
+msgstr ":ref:`以太坊虛擬機 <the-ethereum-virtual-machine>`。"
+
+#: ../../../index.rst:46
+msgid "**2. Get to Know Solidity**"
+msgstr "**2. 了解 Solidity**"
+
+#: ../../../index.rst:48
+msgid ""
+"Once you are accustomed to the basics, we recommend you read the :doc:"
+"`\"Solidity by Example\" <solidity-by-example>` and “Language Description” "
+"sections to understand the core concepts of the language."
+msgstr ""
+"\"\"熟悉基礎知識後，我們建議您閱讀\\ :doc:`「Solidity 範例」 <solidity-by-"
+"example>`\\ 和\n"
+"「語言描述」章節，以了解該語言的核心概念。"
+
+#: ../../../index.rst:51
+msgid "**3. Install the Solidity Compiler**"
+msgstr "**3. 安裝 Solidity 編譯器**"
+
+#: ../../../index.rst:53
+msgid ""
+"There are various ways to install the Solidity compiler, simply choose your "
+"preferred option and follow the steps outlined on the :ref:`installation "
+"page <installing-solidity>`."
+msgstr ""
+"安裝 Solidity 編譯器有多種方式，只需選擇您偏好的選項，\n"
+"並依照\\ :ref:`安裝頁面 <installing-solidity>`\\ 上概述的步驟操作即可。"
+
+#: ../../../index.rst:57
+msgid ""
+"You can try out code examples directly in your browser with the `Remix IDE "
+"<https://remix.ethereum.org>`_. Remix is a web browser-based IDE that allows "
+"you to write, deploy and administer Solidity smart contracts, without the "
+"need to install Solidity locally."
+msgstr ""
+"您可以使用\\ `Remix IDE <https://remix.ethereum.org>`_\\ 直接在瀏覽器中試用程"
+"式碼範例。\n"
+"Remix 是一個基於網頁瀏覽器的 IDE，可讓您撰寫、部署和管理 Solidity 智慧合"
+"約，\n"
+"無需在本機安裝 Solidity。"
+
+#: ../../../index.rst:63
+msgid ""
+"As humans write software, it can have bugs. Therefore, you should follow "
+"established software development best practices when writing your smart "
+"contracts. This includes code review, testing, audits, and correctness "
+"proofs. Smart contract users are sometimes more confident with code than "
+"their authors, and blockchains and smart contracts have their own unique "
+"issues to watch out for, so before working on production code, make sure you "
+"read the :ref:`security_considerations` section."
+msgstr ""
+"由於軟體是人編寫的，因此可能存在錯誤。所以，在撰寫智慧合約時，\n"
+"您應遵循既定的軟體開發最佳實踐，包括程式碼審查、測試、稽核和正確性證明。\n"
+"智慧合約的使用者有時比其作者對程式碼更有信心，\n"
+"而區塊鏈和智慧合約也有其獨特的需要留意問題，\n"
+"因此在投入正式環境程式碼之前，請務必閱讀\\ :ref:`security_considerations`\\ "
+"章節。"
+
+#: ../../../index.rst:70
+msgid "**4. Learn More**"
+msgstr "**4. 了解更多**"
+
+#: ../../../index.rst:72
+msgid ""
+"If you want to learn more about building decentralized applications on "
+"Ethereum, the `Ethereum Developer Resources <https://ethereum.org/en/"
+"developers/>`_ can help you with further general documentation around "
+"Ethereum, and a wide selection of tutorials, tools, and development "
+"frameworks."
+msgstr ""
+"如果您想了解更多關於在以太坊上建立去中心化應用程式的資訊，\n"
+"`以太坊開發者資源 <https://ethereum.org/en/developers/>`_\\ 可以為您提供更多"
+"關於以太坊的一般文件，\n"
+"以及豐富的教學、工具和開發框架選擇。"
+
+#: ../../../index.rst:76
+msgid ""
+"If you have any questions, you can try searching for answers or asking on "
+"the `Ethereum StackExchange <https://ethereum.stackexchange.com/>`_, or our "
+"`Gitter channel <https://gitter.im/ethereum/solidity>`_."
+msgstr ""
+"如果您有任何問題，可以嘗試在\\ `Ethereum StackExchange <https://ethereum."
+"stackexchange.com/>`_\\ 上搜尋答案或提問，\n"
+"或是在我們的\\ `Gitter 頻道 <https://gitter.im/ethereum/solidity>`_\\ 上發"
+"問。"
+
+#: ../../../index.rst:83
+msgid "Translations"
+msgstr "翻譯"
+
+#: ../../../index.rst:85
+msgid ""
+"Community contributors help translate this documentation into several "
+"languages. Note that they have varying degrees of completeness and up-to-"
+"dateness. The English version stands as a reference."
+msgstr ""
+"社群貢獻者協助將此文件翻譯成多種語言。請注意，各語言版本的完整度與即時性不盡"
+"相同，應以英文版本作為參考基準。"
+
+#: ../../../index.rst:89
+msgid ""
+"You can switch between languages by clicking on the flyout menu in the "
+"bottom-right corner and selecting the preferred language."
+msgstr "您可以透過點擊右下角的彈出選單並選擇偏好的語言來切換語言。"
+
+#: ../../../index.rst:92
+msgid "`Chinese <https://docs.soliditylang.org/zh-cn/latest/>`_"
+msgstr "`中文 <https://docs.soliditylang.org/zh-cn/latest/>`_"
+
+#: ../../../index.rst:93
+msgid "`French <https://docs.soliditylang.org/fr/latest/>`_"
+msgstr "`法文 <https://docs.soliditylang.org/fr/latest/>`_"
+
+#: ../../../index.rst:94
+msgid "`Indonesian <https://github.com/solidity-docs/id-indonesian>`_"
+msgstr "`印尼文 <https://github.com/solidity-docs/id-indonesian>`_"
+
+#: ../../../index.rst:95
+msgid "`Japanese <https://github.com/solidity-docs/ja-japanese>`_"
+msgstr "`日文 <https://github.com/solidity-docs/ja-japanese>`_"
+
+#: ../../../index.rst:96
+msgid "`Korean <https://github.com/solidity-docs/ko-korean>`_"
+msgstr "`韓文 <https://github.com/solidity-docs/ko-korean>`_"
+
+#: ../../../index.rst:97
+msgid "`Persian <https://github.com/solidity-docs/fa-persian>`_"
+msgstr "`波斯文 <https://github.com/solidity-docs/fa-persian>`_"
+
+#: ../../../index.rst:98
+msgid "`Russian <https://github.com/solidity-docs/ru-russian>`_"
+msgstr "`俄文 <https://github.com/solidity-docs/ru-russian>`_"
+
+#: ../../../index.rst:99
+msgid "`Spanish <https://github.com/solidity-docs/es-spanish>`_"
+msgstr "`西班牙文 <https://github.com/solidity-docs/es-spanish>`_"
+
+#: ../../../index.rst:100
+msgid "`Turkish <https://docs.soliditylang.org/tr/latest/>`_"
+msgstr "`土耳其文 <https://docs.soliditylang.org/tr/latest/>`_"
+
+#: ../../../index.rst:104
+msgid ""
+"We set up a GitHub organization and translation workflow to help streamline "
+"the community efforts. Please refer to the translation guide in the "
+"`solidity-docs org <https://github.com/solidity-docs>`_ for information on "
+"how to start a new language or contribute to the community translations."
+msgstr ""
+"我們建立了 GitHub 組織和翻譯工作流程，以協助簡化社群的工作。\n"
+"請參閱\\ `solidity-docs 組織 <https://github.com/solidity-docs>`_\\ 中的翻譯"
+"指南，\n"
+"了解如何開始新的語言或為社群翻譯做出貢獻。"
+
+#: ../../../index.rst:109
+msgid "Contents"
+msgstr "目次"
+
+#: ../../../index.rst:111
+msgid ":ref:`Keyword Index <genindex>`, :ref:`Search Page <search>`"
+msgstr ":ref:`關鍵字索引 <genindex>`\\ 、\\ :ref:`搜尋頁面 <search>`"
