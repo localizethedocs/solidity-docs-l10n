@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-09-21 14:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,93 +34,95 @@ msgstr ""
 #: ../../../brand-guide.rst:11
 msgid ""
 "The Solidity programming language is an open-source, community project "
-"governed by a core team. The core team is sponsored by the `Ethereum "
+"governed by a core team. The core team is part of the `Argot Collective "
+"<https://argot.org/>`_, a non-profit that develops and maintains Solidity. "
+"The project was originally started at and sponsored by the `Ethereum "
 "Foundation <https://ethereum.foundation/>`_."
 msgstr ""
 
-#: ../../../brand-guide.rst:15
+#: ../../../brand-guide.rst:17
 msgid ""
 "This document aims to provide information about how to best use the Solidity "
 "brand name and logo."
 msgstr ""
 
-#: ../../../brand-guide.rst:18
+#: ../../../brand-guide.rst:20
 msgid ""
 "We encourage you to read this document carefully before using the brand name "
 "or the logo. Your cooperation is highly appreciated!"
 msgstr ""
 
-#: ../../../brand-guide.rst:22
+#: ../../../brand-guide.rst:24
 msgid "Solidity Brand Name"
 msgstr ""
 
-#: ../../../brand-guide.rst:24
+#: ../../../brand-guide.rst:26
 msgid ""
 "\"Solidity\" should be used to refer to the Solidity programming language "
 "solely."
 msgstr ""
 
-#: ../../../brand-guide.rst:27
+#: ../../../brand-guide.rst:29
 msgid "Please do not use \"Solidity\":"
 msgstr ""
 
-#: ../../../brand-guide.rst:29
+#: ../../../brand-guide.rst:31
 msgid "To refer to any other programming language."
 msgstr ""
 
-#: ../../../brand-guide.rst:31
+#: ../../../brand-guide.rst:33
 msgid ""
 "In a way that is misleading or may imply association of unrelated modules, "
 "tools, documentation, or other resources with the Solidity programming "
 "language."
 msgstr ""
 
-#: ../../../brand-guide.rst:35
+#: ../../../brand-guide.rst:37
 msgid ""
 "In ways that confuse the community as to whether the Solidity programming "
 "language is open-source and free to use."
 msgstr ""
 
-#: ../../../brand-guide.rst:39
+#: ../../../brand-guide.rst:41
 msgid "Solidity Logo License"
 msgstr ""
 
-#: ../../../brand-guide.rst:41
+#: ../../../brand-guide.rst:43
 msgid "Creative Commons License"
 msgstr ""
 
-#: ../../../brand-guide.rst:45
+#: ../../../brand-guide.rst:47
 msgid ""
 "The Solidity logo is distributed and licensed under a `Creative Commons "
 "Attribution 4.0 International License <https://creativecommons.org/licenses/"
 "by/4.0/>`_."
 msgstr ""
 
-#: ../../../brand-guide.rst:48
+#: ../../../brand-guide.rst:50
 msgid ""
 "This is the most permissive Creative Commons license and allows reuse and "
 "modifications for any purpose."
 msgstr ""
 
-#: ../../../brand-guide.rst:51
+#: ../../../brand-guide.rst:53
 msgid "You are free to:"
 msgstr ""
 
-#: ../../../brand-guide.rst:53
+#: ../../../brand-guide.rst:55
 msgid "**Share** — Copy and redistribute the material in any medium or format."
 msgstr ""
 
-#: ../../../brand-guide.rst:55
+#: ../../../brand-guide.rst:57
 msgid ""
 "**Adapt** — Remix, transform, and build upon the material for any purpose, "
 "even commercially."
 msgstr ""
 
-#: ../../../brand-guide.rst:58
+#: ../../../brand-guide.rst:60
 msgid "Under the following terms:"
 msgstr ""
 
-#: ../../../brand-guide.rst:60
+#: ../../../brand-guide.rst:62
 msgid ""
 "**Attribution** — You must give appropriate credit, provide a link to the "
 "license, and indicate if changes were made. You may do so in any reasonable "
@@ -128,36 +130,36 @@ msgid ""
 "endorses you or your use."
 msgstr ""
 
-#: ../../../brand-guide.rst:65
+#: ../../../brand-guide.rst:67
 msgid ""
 "When using the Solidity logo, please respect the Solidity logo guidelines."
 msgstr ""
 
-#: ../../../brand-guide.rst:68
+#: ../../../brand-guide.rst:70
 msgid "Solidity Logo Guidelines"
 msgstr ""
 
-#: ../../../brand-guide.rst:73
+#: ../../../brand-guide.rst:75
 msgid "*(Right click on the logo to download it.)*"
 msgstr ""
 
-#: ../../../brand-guide.rst:75
+#: ../../../brand-guide.rst:77
 msgid "Please do not:"
 msgstr ""
 
-#: ../../../brand-guide.rst:77
+#: ../../../brand-guide.rst:79
 msgid "Change the ratio of the logo (do not stretch it or cut it)."
 msgstr ""
 
-#: ../../../brand-guide.rst:79
+#: ../../../brand-guide.rst:81
 msgid "Change the colors of the logo, unless it is absolutely necessary."
 msgstr ""
 
-#: ../../../brand-guide.rst:82
+#: ../../../brand-guide.rst:84
 msgid "Credits"
 msgstr ""
 
-#: ../../../brand-guide.rst:84
+#: ../../../brand-guide.rst:86
 msgid ""
 "This document was, in parts, derived from the `Python Software Foundation "
 "Trademark Usage Policy <https://www.python.org/psf/trademarks/>`_ and the "
