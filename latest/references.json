@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-06-04 13:21:55 +0200",
-      "hash" : "cd88744caaeee881c8990743f86f81f3dcd0adfa",
-      "title" : "Merge pull request #16770 from argotorg/remove-eof-libyul"
+      "date" : "2026-09-28 11:51:21 +0200",
+      "hash" : "bb8d74bf5b773e1ef25e7ec711a5329388bc21c4",
+      "title" : "Reset experimental mode and debug info selection in CompilerStack::reset() (#17010)"
     }
   },
   "type" : "branch",
