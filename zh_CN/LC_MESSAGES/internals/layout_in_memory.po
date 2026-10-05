@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../internals/layout_in_memory.rst:6
+msgid "Layout in Memory"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:8
+msgid ""
+"Solidity reserves four 32-byte slots, with specific byte ranges (inclusive "
+"of endpoints) being used as follows:"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:10
+msgid "``0x00`` - ``0x3f`` (64 bytes): scratch space for hashing methods"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:11
+msgid ""
+"``0x40`` - ``0x5f`` (32 bytes): currently allocated memory size (aka. free "
+"memory pointer)"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:12
+msgid "``0x60`` - ``0x7f`` (32 bytes): zero slot"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:14
+msgid ""
+"Scratch space can be used between statements (i.e. within inline assembly). "
+"The zero slot is used as initial value for dynamic memory arrays and should "
+"never be written to (the free memory pointer points to ``0x80`` initially)."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:18
+msgid ""
+"Solidity always places new objects at the free memory pointer and memory is "
+"never freed (this might change in the future)."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:21
+msgid ""
+"Elements in memory arrays in Solidity always occupy multiples of 32 bytes "
+"(this is even true for ``bytes1[]``, but not for ``bytes`` and ``string``). "
+"Multi-dimensional memory arrays are pointers to memory arrays. The length of "
+"a dynamic array is stored at the first slot of the array and followed by the "
+"array elements."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:28
+msgid ""
+"There are some operations in Solidity that need a temporary memory area "
+"larger than 64 bytes and therefore will not fit into the scratch space. They "
+"will be placed where the free memory points to, but given their short "
+"lifetime, the pointer is not updated. The memory may or may not be zeroed "
+"out. Because of this, one should not expect the free memory to point to "
+"zeroed out memory."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:35
+msgid ""
+"While it may seem like a good idea to use ``msize`` to arrive at a "
+"definitely zeroed out memory area, using such a pointer non-temporarily "
+"without updating the free memory pointer can have unexpected results."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:41
+msgid "Differences to Layout in Storage"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:43
+msgid ""
+"As described above the layout in memory is different from the layout in :ref:"
+"`storage<storage-inplace-encoding>`. Below there are some examples."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:47
+msgid "Example for Difference in Arrays"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:49
+msgid ""
+"The following array occupies 32 bytes (1 slot) in storage, but 128 bytes (4 "
+"items with 32 bytes each) in memory."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:52
+msgid "uint8[4] a;"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:59
+msgid "Example for Difference in Struct Layout"
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:61
+msgid ""
+"The following struct occupies 96 bytes (3 slots of 32 bytes) in storage, but "
+"128 bytes (4 items with 32 bytes each) in memory."
+msgstr ""
+
+#: ../../../internals/layout_in_memory.rst:65
+msgid ""
+"struct S {\n"
+"    uint a;\n"
+"    uint b;\n"
+"    uint8 c;\n"
+"    uint8 d;\n"
+"}"
+msgstr ""
