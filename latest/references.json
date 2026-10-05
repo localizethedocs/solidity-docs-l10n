@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-06-04 13:21:55 +0200",
-      "hash" : "cd88744caaeee881c8990743f86f81f3dcd0adfa",
-      "title" : "Merge pull request #16770 from argotorg/remove-eof-libyul"
+      "date" : "2026-10-05 18:24:57 +0200",
+      "hash" : "f5dccafd79b72a956dde9149394485ecd3075f26",
+      "title" : "Docs: Fix link to cvc5 (#17082)"
     }
   },
   "type" : "branch",
