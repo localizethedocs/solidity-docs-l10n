@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-10-05 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -689,47 +689,47 @@ msgstr "先決條件 - 所有作業系統"
 msgid "The following are dependencies for all builds of Solidity:"
 msgstr "以下是所有 Solidity 建置的相依性："
 
-#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:409
+#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:407
 msgid "Software"
 msgstr "軟體"
 
-#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:409
+#: ../../../installing-solidity.rst:324 ../../../installing-solidity.rst:407
 msgid "Notes"
 msgstr "備註"
 
 #: ../../../installing-solidity.rst:326
-msgid "`CMake`_ (version 3.21.3+ on Windows, 3.13+ otherwise)"
-msgstr "`CMake`_\\ （Windows 上為 3.21.3+，其他為 3.13+）"
+msgid "`CMake`_ (version 3.21.3+)"
+msgstr ""
 
 #: ../../../installing-solidity.rst:326
 msgid "Cross-platform build file generator."
 msgstr "跨平台建置檔案產生器。"
 
-#: ../../../installing-solidity.rst:329
-msgid "`Boost`_ (version 1.77+ on Windows, 1.83+ otherwise)"
-msgstr "`Boost`_\\ （Windows 上為 1.77+，其他為 1.83+）"
+#: ../../../installing-solidity.rst:328
+msgid "`Boost`_ (version 1.83+)"
+msgstr ""
 
-#: ../../../installing-solidity.rst:329 ../../../installing-solidity.rst:415
+#: ../../../installing-solidity.rst:328 ../../../installing-solidity.rst:413
 msgid "C++ libraries."
 msgstr "C++ 程式庫。"
 
-#: ../../../installing-solidity.rst:332
+#: ../../../installing-solidity.rst:330
 msgid "`Git`_"
 msgstr "`Git`_"
 
-#: ../../../installing-solidity.rst:332
+#: ../../../installing-solidity.rst:330
 msgid "Command-line tool for retrieving source code."
 msgstr "用於擷取來源碼的命令行工具。"
 
-#: ../../../installing-solidity.rst:334
+#: ../../../installing-solidity.rst:332
 msgid "`z3`_ (version 4.8.16+, Optional)"
 msgstr "`z3`_\\ （版本 4.8.16+，選用）"
 
-#: ../../../installing-solidity.rst:334
+#: ../../../installing-solidity.rst:332
 msgid "For use with SMT checker."
 msgstr "用於 SMT 檢查器。"
 
-#: ../../../installing-solidity.rst:343
+#: ../../../installing-solidity.rst:341
 msgid ""
 "Solidity versions prior to 0.5.10 can fail to correctly link against Boost "
 "versions 1.70+. A possible workaround is to temporarily rename ``<Boost "
@@ -740,13 +740,13 @@ msgstr ""
 "方法是在執行 cmake 命令組態 Solidity 之前，暫時重新命名 ``<Boost 安裝路徑>/"
 "lib/cmake/Boost-1.70.0``。"
 
-#: ../../../installing-solidity.rst:347
+#: ../../../installing-solidity.rst:345
 msgid ""
 "Starting from 0.5.10 linking against Boost 1.70+ should work without manual "
 "intervention."
 msgstr "從 0.5.10 開始，連結 Boost 1.70+ 應該無需手動介入即可運作。"
 
-#: ../../../installing-solidity.rst:350
+#: ../../../installing-solidity.rst:348
 msgid ""
 "The default build configuration requires a specific Z3 version (the latest "
 "one at the time the code was last updated). Changes introduced between Z3 "
@@ -766,7 +766,7 @@ msgstr ""
 "滿足上表要求的任何版本進行建置。然而，如果您這樣做，請記得將 ``--no-smt`` 選"
 "項傳遞給 ``scripts/tests.sh``以跳過 SMT 測試。"
 
-#: ../../../installing-solidity.rst:360
+#: ../../../installing-solidity.rst:358
 msgid ""
 "By default the build is performed in *pedantic mode*, which enables extra "
 "warnings and tells the compiler to treat all warnings as errors. This forces "
@@ -787,33 +787,33 @@ msgstr ""
 "您遇到此類警告，請考慮\\ `回報它們 <https://github.com/argotorg/solidity/"
 "issues/new>`_\\ 。"
 
-#: ../../../installing-solidity.rst:371
+#: ../../../installing-solidity.rst:369
 msgid "Minimum Compiler Versions"
 msgstr "最低編譯器版本"
 
-#: ../../../installing-solidity.rst:373
+#: ../../../installing-solidity.rst:371
 msgid ""
 "The following C++ compilers and their minimum versions can build the "
 "Solidity codebase:"
 msgstr "以下 C++ 編譯器及其最低版本可以建置 Solidity 程式碼庫："
 
-#: ../../../installing-solidity.rst:377
+#: ../../../installing-solidity.rst:375
 msgid "`GCC <https://gcc.gnu.org>`_, version 13.3+"
 msgstr "`GCC <https://gcc.gnu.org>`_\\ ，版本 13.3+"
 
-#: ../../../installing-solidity.rst:378
+#: ../../../installing-solidity.rst:376
 msgid "`Clang <https://clang.llvm.org/>`_, version 18.1.3+"
 msgstr "`Clang <https://clang.llvm.org/>`_\\ ，版本 18.1.3+"
 
-#: ../../../installing-solidity.rst:379
-msgid "`MSVC <https://visualstudio.microsoft.com/vs/>`_, version 2019+"
-msgstr "`MSVC <https://visualstudio.microsoft.com/vs/>`_\\ ，版本 2019+"
+#: ../../../installing-solidity.rst:377
+msgid "`MSVC <https://visualstudio.microsoft.com/vs/>`_, version 2022+"
+msgstr ""
 
-#: ../../../installing-solidity.rst:382
+#: ../../../installing-solidity.rst:380
 msgid "Prerequisites - macOS"
 msgstr "先決條件 - macOS"
 
-#: ../../../installing-solidity.rst:384
+#: ../../../installing-solidity.rst:382
 msgid ""
 "For macOS builds, ensure that you have the latest version of `Xcode "
 "installed <https://developer.apple.com/xcode/resources/>`_. This contains "
@@ -830,11 +830,11 @@ msgstr ""
 "Xcode>`_\\ 以及在 OS X 上建置 C++ 應用程式所需的其他 Apple 開發工具。如果您是"
 "首次安裝 Xcode，或剛安裝了新版本，則需要同意授權條款才能進行命令行建置："
 
-#: ../../../installing-solidity.rst:393
+#: ../../../installing-solidity.rst:391
 msgid "sudo xcodebuild -license accept"
 msgstr "sudo xcodebuild -license accept"
 
-#: ../../../installing-solidity.rst:397
+#: ../../../installing-solidity.rst:395
 msgid ""
 "Our OS X build script uses `the Homebrew <https://brew.sh>`_ package manager "
 "for installing external dependencies. Here's how to `uninstall Homebrew "
@@ -845,111 +845,104 @@ msgstr ""
 "部相依性。如果您想從頭開始，這裡是如何\\ `解除安裝 Homebrew <https://docs."
 "brew.sh/FAQ#how-do-i-uninstall-homebrew>`_\\ 的說明。"
 
-#: ../../../installing-solidity.rst:404
+#: ../../../installing-solidity.rst:402
 msgid "Prerequisites - Windows"
 msgstr "先決條件 - Windows"
 
-#: ../../../installing-solidity.rst:406
+#: ../../../installing-solidity.rst:404
 msgid ""
 "You need to install the following dependencies for Windows builds of "
 "Solidity:"
 msgstr "您需要安裝以下相依性來進行 Solidity 的 Windows 建置："
 
-#: ../../../installing-solidity.rst:411
-msgid "`Visual Studio 2019 Build Tools`_"
+#: ../../../installing-solidity.rst:409
+msgid "`Visual Studio 2022 Build Tools`_"
 msgstr ""
 
-#: ../../../installing-solidity.rst:411
+#: ../../../installing-solidity.rst:409
 msgid "C++ compiler"
 msgstr "C++ 編譯器"
 
-#: ../../../installing-solidity.rst:413
-msgid "`Visual Studio 2019`_  (Optional)"
-msgstr "`Visual Studio 2019`_\\ （選用）"
+#: ../../../installing-solidity.rst:411
+msgid "`Visual Studio 2022`_  (Optional)"
+msgstr ""
 
-#: ../../../installing-solidity.rst:413
+#: ../../../installing-solidity.rst:411
 msgid "C++ compiler and dev environment."
 msgstr "C++ 編譯器和開發環境。"
 
-#: ../../../installing-solidity.rst:415
+#: ../../../installing-solidity.rst:413
 msgid "`Boost`_ (version 1.77+)"
 msgstr "`Boost`_\\ （版本 1.77+）"
 
-#: ../../../installing-solidity.rst:418
+#: ../../../installing-solidity.rst:416
 msgid ""
 "If you already have one IDE and only need the compiler and libraries, you "
-"could install Visual Studio 2019 Build Tools."
+"could install Visual Studio 2022 Build Tools."
 msgstr ""
-"如果您已經有一個 IDE，只需要編譯器和程式庫，可以安裝 Visual Studio 2019 "
-"Build Tools。"
 
-#: ../../../installing-solidity.rst:421
+#: ../../../installing-solidity.rst:419
 msgid ""
-"Visual Studio 2019 provides both IDE and necessary compiler and libraries. "
+"Visual Studio 2022 provides both IDE and necessary compiler and libraries. "
 "So if you have not got an IDE and prefer to develop Solidity, Visual Studio "
-"2019 may be a choice for you to get everything setup easily."
+"2022 may be a choice for you to get everything setup easily."
 msgstr ""
-"Visual Studio 2019 同時提供 IDE 以及必要的編譯器和程式庫。因此，如果您還沒有 "
-"IDE 並且偏好開發 Solidity，Visual Studio 2019 可能是讓您輕鬆組態一切的好選"
-"擇。"
 
-#: ../../../installing-solidity.rst:425
+#: ../../../installing-solidity.rst:423
 msgid ""
 "Here is the list of components that should be installed in Visual Studio "
-"2019 Build Tools or Visual Studio 2019:"
+"2022 Build Tools or Visual Studio 2022:"
 msgstr ""
-"以下是在 Visual Studio 2019 Build Tools 或 Visual Studio 2019 中應安裝的組件"
-"清單："
 
-#: ../../../installing-solidity.rst:428
+#: ../../../installing-solidity.rst:426
 msgid "Visual Studio C++ core features"
 msgstr "Visual Studio C++ 核心功能"
 
-#: ../../../installing-solidity.rst:429
-msgid "VC++ 2019 v141 toolset (x86,x64)"
-msgstr "VC++ 2019 v141 工具組 (x86,x64)"
+#: ../../../installing-solidity.rst:427
+msgid "VC++ 2022 v143 toolset (x86,x64)"
+msgstr ""
 
-#: ../../../installing-solidity.rst:430
+#: ../../../installing-solidity.rst:428
 msgid "Windows Universal CRT SDK"
 msgstr ""
 
-#: ../../../installing-solidity.rst:431
-msgid "Windows 8.1 SDK"
+#: ../../../installing-solidity.rst:429
+msgid "Windows 10 or 11 SDK"
 msgstr ""
 
-#: ../../../installing-solidity.rst:432
+#: ../../../installing-solidity.rst:430
 msgid "C++/CLI support"
 msgstr "C++/CLI 支援"
 
-#: ../../../installing-solidity.rst:437
+#: ../../../installing-solidity.rst:435
 msgid ""
 "We have a helper script which you can use to install all required external "
 "dependencies:"
 msgstr "我們有一個輔助腳本，您可以使用它來安裝所有必要的外部相依性："
 
-#: ../../../installing-solidity.rst:439
+#: ../../../installing-solidity.rst:437
 msgid "scripts\\install_deps.ps1"
 msgstr ""
 
-#: ../../../installing-solidity.rst:443
+#: ../../../installing-solidity.rst:441
 msgid "This will install ``boost`` and ``cmake`` to the ``deps`` subdirectory."
 msgstr "這將會把 ``boost`` 和 ``cmake`` 安裝到 ``deps`` 子目錄中。"
 
-#: ../../../installing-solidity.rst:446
+#: ../../../installing-solidity.rst:444
 msgid "Clone the Repository"
 msgstr "複製儲存庫"
 
-#: ../../../installing-solidity.rst:448
+#: ../../../installing-solidity.rst:446
 msgid "To clone the source code, execute the following command:"
 msgstr "要複製來源碼，請執行以下命令："
 
-#: ../../../installing-solidity.rst:450
+#: ../../../installing-solidity.rst:448
 msgid ""
 "git clone --recursive https://github.com/argotorg/solidity.git\n"
 "cd solidity"
 msgstr ""
 
-#: ../../../installing-solidity.rst:455
+#: ../../../installing-solidity.rst:453
 msgid ""
 "If you want to help develop Solidity, you should fork Solidity and add your "
 "personal fork as a second remote:"
@@ -957,11 +950,11 @@ msgstr ""
 "如果您想協助開發 Solidity，您應該 fork Solidity 並將您的個人 fork 新增為第二"
 "個遠端："
 
-#: ../../../installing-solidity.rst:458
+#: ../../../installing-solidity.rst:456
 msgid "git remote add personal git@github.com:[username]/solidity.git"
 msgstr ""
 
-#: ../../../installing-solidity.rst:463
+#: ../../../installing-solidity.rst:461
 msgid ""
 "This method will result in a pre-release build leading to e.g. a flag being "
 "set in each bytecode produced by such a compiler. If you want to re-build a "
@@ -972,25 +965,25 @@ msgstr ""
 "標。如果您想重新建置已發行的 Solidity 編譯器，請使用 GitHub 發行版頁面上的來"
 "源碼 tarball："
 
-#: ../../../installing-solidity.rst:468
+#: ../../../installing-solidity.rst:466
 msgid ""
 "https://github.com/argotorg/solidity/releases/download/v0.X.Y/solidity_0.X.Y."
 "tar.gz"
 msgstr ""
 
-#: ../../../installing-solidity.rst:470
+#: ../../../installing-solidity.rst:468
 msgid "(not the \"Source code\" provided by GitHub)."
 msgstr "（不是 GitHub 提供的「Source code」）。"
 
-#: ../../../installing-solidity.rst:473
+#: ../../../installing-solidity.rst:471
 msgid "Command-Line Build"
 msgstr "命令行建置"
 
-#: ../../../installing-solidity.rst:475
+#: ../../../installing-solidity.rst:473
 msgid "**Be sure to install External Dependencies (see above) before build.**"
 msgstr "**在建置之前，請務必安裝外部相依性（請參閱上方）。**"
 
-#: ../../../installing-solidity.rst:477
+#: ../../../installing-solidity.rst:475
 msgid ""
 "Solidity project uses CMake to configure the build. You might want to "
 "install `ccache`_ to speed up repeated builds. CMake will pick it up "
@@ -1001,39 +994,39 @@ msgstr ""
 "置，CMake 會自動偵測到它。在 Linux、macOS 和其他 Unix 系統上建置 Solidity 非"
 "常相似："
 
-#: ../../../installing-solidity.rst:484
+#: ../../../installing-solidity.rst:482
 msgid ""
 "mkdir build\n"
 "cd build\n"
 "cmake .. && make"
 msgstr ""
 
-#: ../../../installing-solidity.rst:490
+#: ../../../installing-solidity.rst:488
 msgid "or even easier on Linux and macOS, you can run:"
 msgstr "或在 Linux 和 macOS 上更簡單地，您可以執行："
 
-#: ../../../installing-solidity.rst:492
+#: ../../../installing-solidity.rst:490
 msgid ""
 "#note: this will install binaries solc and soltest at usr/local/bin\n"
 "./scripts/build.sh"
 msgstr ""
 
-#: ../../../installing-solidity.rst:499
+#: ../../../installing-solidity.rst:497
 msgid "BSD builds should work, but are untested by the Solidity team."
 msgstr "BSD 建置應該可以運作，但未經 Solidity 團隊測試。"
 
-#: ../../../installing-solidity.rst:501
+#: ../../../installing-solidity.rst:499
 msgid "And for Windows:"
 msgstr "對於 Windows："
 
-#: ../../../installing-solidity.rst:503
+#: ../../../installing-solidity.rst:501
 msgid ""
 "mkdir build\n"
 "cd build\n"
-"cmake -G \"Visual Studio 16 2019\" .."
+"cmake -G \"Visual Studio 17 2022\" .."
 msgstr ""
 
-#: ../../../installing-solidity.rst:509
+#: ../../../installing-solidity.rst:507
 msgid ""
 "In case you want to use the version of boost installed by "
 "``scripts\\install_deps.ps1``, you will additionally need to pass ``-"
@@ -1045,7 +1038,7 @@ msgstr ""
 "DBoost_ROOT=\"deps/boost\" -DBoost_INCLUDE_DIR=\"deps/boost/include\"``和 ``-"
 "DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded`` 作為參數傳遞給 ``cmake`` 呼叫。"
 
-#: ../../../installing-solidity.rst:513
+#: ../../../installing-solidity.rst:511
 msgid ""
 "This should result in the creation of **solidity.sln** in that build "
 "directory. Double-clicking on that file should result in Visual Studio "
@@ -1055,28 +1048,28 @@ msgstr ""
 "這應該會在該建置目錄中建立 **solidity.sln**。按兩下該檔案應該會啟動 Visual "
 "Studio。我們建議建置 **Release** 組態，但所有其他組態也都可以運作。"
 
-#: ../../../installing-solidity.rst:517
+#: ../../../installing-solidity.rst:515
 msgid "Alternatively, you can build for Windows on the command-line, like so:"
 msgstr "或者，您可以在命令行上為 Windows 建置，如下所示："
 
-#: ../../../installing-solidity.rst:519
+#: ../../../installing-solidity.rst:517
 msgid "cmake --build . --config Release"
 msgstr "cmake --build . --config Release"
 
-#: ../../../installing-solidity.rst:524
+#: ../../../installing-solidity.rst:522
 msgid "CMake Options"
 msgstr "CMake 組態選項"
 
-#: ../../../installing-solidity.rst:526
+#: ../../../installing-solidity.rst:524
 msgid ""
 "If you are interested what CMake options are available run ``cmake .. -LH``."
 msgstr "如果您想了解有哪些 CMake 組態選項可用，請執行 ``cmake .. -LH``。"
 
-#: ../../../installing-solidity.rst:531
+#: ../../../installing-solidity.rst:529
 msgid "SMT Solvers"
 msgstr "SMT 求解器"
 
-#: ../../../installing-solidity.rst:532
+#: ../../../installing-solidity.rst:530
 msgid ""
 "Solidity can optionally use SMT solvers, namely ``z3``, ``cvc5`` and "
 "``Eldarica``, but their presence is checked only at runtime, they are not "
@@ -1085,24 +1078,24 @@ msgstr ""
 "Solidity 可以選擇性地使用 SMT 求解器，即 ``z3``、``cvc5`` 和 ``Eldarica``，但"
 "它們的存在僅在執行時期檢查，建置成功並不需要它們。"
 
-#: ../../../installing-solidity.rst:537
+#: ../../../installing-solidity.rst:535
 msgid ""
 "The emscripten builds require Z3 and will statically link against it instead."
 msgstr "Emscripten 建置需要 Z3，並且會改為靜態連結它。"
 
-#: ../../../installing-solidity.rst:540
+#: ../../../installing-solidity.rst:538
 msgid "The Version String in Detail"
 msgstr "版本字串詳解"
 
-#: ../../../installing-solidity.rst:542
+#: ../../../installing-solidity.rst:540
 msgid "The Solidity version string contains four parts:"
 msgstr "Solidity 版本字串包含四個部分："
 
-#: ../../../installing-solidity.rst:544
+#: ../../../installing-solidity.rst:542
 msgid "the version number"
 msgstr "版本號"
 
-#: ../../../installing-solidity.rst:545
+#: ../../../installing-solidity.rst:543
 msgid ""
 "pre-release tag, usually set to ``develop.YYYY.MM.DD``, ``pre.N`` or "
 "``nightly.YYYY.MM.DD``"
@@ -1110,22 +1103,22 @@ msgstr ""
 "預先發行版標記，通常組態為 ``develop.YYYY.MM.DD``、``pre.N`` 或 ``nightly."
 "YYYY.MM.DD``"
 
-#: ../../../installing-solidity.rst:546
+#: ../../../installing-solidity.rst:544
 msgid "commit in the format of ``commit.GITHASH``"
 msgstr "提交，格式為 ``commit.GITHASH``"
 
-#: ../../../installing-solidity.rst:547
+#: ../../../installing-solidity.rst:545
 msgid ""
 "platform, which has an arbitrary number of items, containing details about "
 "the platform and compiler"
 msgstr "平台，包含任意數量的項目，含有關於平台和編譯器的詳細資訊"
 
-#: ../../../installing-solidity.rst:549
+#: ../../../installing-solidity.rst:547
 msgid ""
 "If there are local modifications, the commit will be postfixed with ``.mod``."
 msgstr "如果有本機修改，提交將會以 ``.mod`` 作為後綴。"
 
-#: ../../../installing-solidity.rst:551
+#: ../../../installing-solidity.rst:549
 msgid ""
 "These parts are combined as required by SemVer, where the Solidity pre-"
 "release tag equals to the SemVer pre-release and the Solidity commit and "
@@ -1134,29 +1127,29 @@ msgstr ""
 "這些部分依照 SemVer 的要求組合，其中 Solidity 預先發行版標記等同於 SemVer 預"
 "先發行版，而 Solidity 提交和平台組合構成 SemVer 建置中繼資料。"
 
-#: ../../../installing-solidity.rst:554
+#: ../../../installing-solidity.rst:552
 msgid "Examples:"
 msgstr "範例："
 
-#: ../../../installing-solidity.rst:556
+#: ../../../installing-solidity.rst:554
 msgid "release: ``0.4.8+commit.60cc1668.Emscripten.clang``"
 msgstr "發行版：``0.4.8+commit.60cc1668.Emscripten.clang``"
 
-#: ../../../installing-solidity.rst:557
+#: ../../../installing-solidity.rst:555
 msgid "pre-release: ``0.4.9-pre.3+commit.fb60450bc.Emscripten.clang``"
 msgstr "預先發行版：``0.4.9-pre.3+commit.fb60450bc.Emscripten.clang``"
 
-#: ../../../installing-solidity.rst:558
+#: ../../../installing-solidity.rst:556
 msgid ""
 "nightly build: ``0.4.9-nightly.2017.1.17+commit.6ecb4aa3.Emscripten.clang``"
 msgstr ""
 "每夜建置版：``0.4.9-nightly.2017.1.17+commit.6ecb4aa3.Emscripten.clang``"
 
-#: ../../../installing-solidity.rst:561
+#: ../../../installing-solidity.rst:559
 msgid "Important Information About Versioning"
 msgstr "關於版本控制的重要資訊"
 
-#: ../../../installing-solidity.rst:563
+#: ../../../installing-solidity.rst:561
 msgid ""
 "After a release is made, the patch version level is bumped, because we "
 "assume that only patch level changes follow. When changes are merged, the "
@@ -1168,31 +1161,31 @@ msgstr ""
 "併時，版本應根據 SemVer 和變更的嚴重性進行遞增。最後，發行版始終使用當前建置"
 "的版本，但不含 ``prerelease`` 標識符。"
 
-#: ../../../installing-solidity.rst:568
+#: ../../../installing-solidity.rst:566
 msgid "Example:"
 msgstr "範例："
 
-#: ../../../installing-solidity.rst:570
+#: ../../../installing-solidity.rst:568
 msgid "The 0.4.0 release is made."
 msgstr "發行 0.4.0 版本。"
 
-#: ../../../installing-solidity.rst:571
+#: ../../../installing-solidity.rst:569
 msgid "Nightly builds and preerelases have a version of 0.4.1 from now on."
 msgstr "從現在起，每夜建置版和預先發行版的版本為 0.4.1。"
 
-#: ../../../installing-solidity.rst:572
+#: ../../../installing-solidity.rst:570
 msgid "Non-breaking changes are introduced --> no change in version."
 msgstr "引入非重大變更 --> 版本不變。"
 
-#: ../../../installing-solidity.rst:573
+#: ../../../installing-solidity.rst:571
 msgid "A breaking change is introduced --> version is bumped to 0.5.0."
 msgstr "引入重大變更 --> 版本遞增至 0.5.0。"
 
-#: ../../../installing-solidity.rst:574
+#: ../../../installing-solidity.rst:572
 msgid "The 0.5.0 release is made."
 msgstr "發行 0.5.0 版本。"
 
-#: ../../../installing-solidity.rst:576
+#: ../../../installing-solidity.rst:574
 msgid ""
 "This behavior works well with the :ref:`version pragma <version_pragma>`."
 msgstr "此行為與\\ :ref:`版本 pragma <version_pragma>` 搭配良好。"
@@ -1200,3 +1193,41 @@ msgstr "此行為與\\ :ref:`版本 pragma <version_pragma>` 搭配良好。"
 #: ../../../installing-solidity.rst:1
 msgid "installing"
 msgstr "安裝"
+
+#~ msgid "`CMake`_ (version 3.21.3+ on Windows, 3.13+ otherwise)"
+#~ msgstr "`CMake`_\\ （Windows 上為 3.21.3+，其他為 3.13+）"
+
+#~ msgid "`Boost`_ (version 1.77+ on Windows, 1.83+ otherwise)"
+#~ msgstr "`Boost`_\\ （Windows 上為 1.77+，其他為 1.83+）"
+
+#~ msgid "`MSVC <https://visualstudio.microsoft.com/vs/>`_, version 2019+"
+#~ msgstr "`MSVC <https://visualstudio.microsoft.com/vs/>`_\\ ，版本 2019+"
+
+#~ msgid "`Visual Studio 2019`_  (Optional)"
+#~ msgstr "`Visual Studio 2019`_\\ （選用）"
+
+#~ msgid ""
+#~ "If you already have one IDE and only need the compiler and libraries, you "
+#~ "could install Visual Studio 2019 Build Tools."
+#~ msgstr ""
+#~ "如果您已經有一個 IDE，只需要編譯器和程式庫，可以安裝 Visual Studio 2019 "
+#~ "Build Tools。"
+
+#~ msgid ""
+#~ "Visual Studio 2019 provides both IDE and necessary compiler and "
+#~ "libraries. So if you have not got an IDE and prefer to develop Solidity, "
+#~ "Visual Studio 2019 may be a choice for you to get everything setup easily."
+#~ msgstr ""
+#~ "Visual Studio 2019 同時提供 IDE 以及必要的編譯器和程式庫。因此，如果您還沒"
+#~ "有 IDE 並且偏好開發 Solidity，Visual Studio 2019 可能是讓您輕鬆組態一切的"
+#~ "好選擇。"
+
+#~ msgid ""
+#~ "Here is the list of components that should be installed in Visual Studio "
+#~ "2019 Build Tools or Visual Studio 2019:"
+#~ msgstr ""
+#~ "以下是在 Visual Studio 2019 Build Tools 或 Visual Studio 2019 中應安裝的組"
+#~ "件清單："
+
+#~ msgid "VC++ 2019 v141 toolset (x86,x64)"
+#~ msgstr "VC++ 2019 v141 工具組 (x86,x64)"

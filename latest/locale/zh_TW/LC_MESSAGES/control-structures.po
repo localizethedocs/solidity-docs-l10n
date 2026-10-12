@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-10-05 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -420,11 +420,11 @@ msgid ""
 "before it is stored."
 msgstr ""
 
-#: ../../../control-structures.rst:322
+#: ../../../control-structures.rst:324
 msgid "Order of Evaluation of Expressions"
 msgstr ""
 
-#: ../../../control-structures.rst:324
+#: ../../../control-structures.rst:326
 msgid ""
 "The evaluation order of expressions is not specified (more formally, the "
 "order in which the children of one node in the expression tree are evaluated "
@@ -433,15 +433,15 @@ msgid ""
 "circuiting for boolean expressions is done."
 msgstr ""
 
-#: ../../../control-structures.rst:333
+#: ../../../control-structures.rst:335
 msgid "Assignment"
 msgstr ""
 
-#: ../../../control-structures.rst:338
+#: ../../../control-structures.rst:342
 msgid "Destructuring Assignments and Returning Multiple Values"
 msgstr ""
 
-#: ../../../control-structures.rst:340
+#: ../../../control-structures.rst:344
 msgid ""
 "Solidity internally allows tuple types, i.e. a list of objects of "
 "potentially different types whose number is a constant at compile-time. "
@@ -450,13 +450,13 @@ msgid ""
 "variables (or LValues in general)."
 msgstr ""
 
-#: ../../../control-structures.rst:346
+#: ../../../control-structures.rst:350
 msgid ""
 "Tuples are not proper types in Solidity, they can only be used to form "
 "syntactic groupings of expressions."
 msgstr ""
 
-#: ../../../control-structures.rst:349
+#: ../../../control-structures.rst:353
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.5.0 <0.9.0;\n"
@@ -483,13 +483,13 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:372
+#: ../../../control-structures.rst:376
 msgid ""
 "It is not possible to mix variable declarations and non-declaration "
 "assignments, i.e. the following is not valid: ``(x, uint y) = (1, 2);``"
 msgstr ""
 
-#: ../../../control-structures.rst:376
+#: ../../../control-structures.rst:380
 msgid ""
 "Prior to version 0.5.0 it was possible to assign to tuples of smaller size, "
 "either filling up on the left or on the right side (which ever was empty). "
@@ -497,25 +497,25 @@ msgid ""
 "components."
 msgstr ""
 
-#: ../../../control-structures.rst:381
+#: ../../../control-structures.rst:385
 msgid ""
 "Be careful when assigning to multiple variables at the same time when "
 "reference types are involved, because it could lead to unexpected copying "
 "behavior."
 msgstr ""
 
-#: ../../../control-structures.rst:386
+#: ../../../control-structures.rst:390
 msgid "Complications for Arrays and Structs"
 msgstr ""
 
-#: ../../../control-structures.rst:388
+#: ../../../control-structures.rst:392
 msgid ""
 "The semantics of assignments are more complicated for non-value types like "
 "arrays and structs, including ``bytes`` and ``string``, see :ref:`Data "
 "location and assignment behavior <data-location-assignment>` for details."
 msgstr ""
 
-#: ../../../control-structures.rst:391
+#: ../../../control-structures.rst:395
 msgid ""
 "In the example below the call to ``g(x)`` has no effect on ``x`` because it "
 "creates an independent copy of the storage value in memory. However, "
@@ -523,7 +523,7 @@ msgid ""
 "is passed."
 msgstr ""
 
-#: ../../../control-structures.rst:395
+#: ../../../control-structures.rst:399
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.4.22 <0.9.0;\n"
@@ -546,11 +546,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:422
+#: ../../../control-structures.rst:426
 msgid "Scoping and Declarations"
 msgstr ""
 
-#: ../../../control-structures.rst:424
+#: ../../../control-structures.rst:428
 msgid ""
 "A variable which is declared will have an initial default value whose byte-"
 "representation is all zeros. The \"default values\" of variables are the "
@@ -563,7 +563,7 @@ msgid ""
 "type, the default value is its first member."
 msgstr ""
 
-#: ../../../control-structures.rst:436
+#: ../../../control-structures.rst:440
 msgid ""
 "Scoping in Solidity follows the widespread scoping rules of C99 (and many "
 "other languages): Variables are visible from the point right after their "
@@ -573,7 +573,7 @@ msgid ""
 "loop."
 msgstr ""
 
-#: ../../../control-structures.rst:442
+#: ../../../control-structures.rst:446
 msgid ""
 "Variables that are parameter-like (function parameters, modifier parameters, "
 "catch parameters, ...) are visible inside the code block that follows - the "
@@ -581,7 +581,7 @@ msgid ""
 "catch block for a catch parameter."
 msgstr ""
 
-#: ../../../control-structures.rst:447
+#: ../../../control-structures.rst:451
 msgid ""
 "Variables and other items declared outside of a code block, for example "
 "functions, contracts, user-defined types, etc., are visible even before they "
@@ -589,13 +589,13 @@ msgid ""
 "declared and call functions recursively."
 msgstr ""
 
-#: ../../../control-structures.rst:451
+#: ../../../control-structures.rst:455
 msgid ""
 "As a consequence, the following examples will compile without warnings, "
 "since the two variables have the same name but disjoint scopes."
 msgstr ""
 
-#: ../../../control-structures.rst:454
+#: ../../../control-structures.rst:458
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.5.0 <0.9.0;\n"
@@ -614,7 +614,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:472
+#: ../../../control-structures.rst:476
 msgid ""
 "As a special example of the C99 scoping rules, note that in the following, "
 "the first assignment to ``x`` will actually assign the outer and not the "
@@ -622,7 +622,7 @@ msgid ""
 "being shadowed."
 msgstr ""
 
-#: ../../../control-structures.rst:476
+#: ../../../control-structures.rst:480
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.5.0 <0.9.0;\n"
@@ -639,7 +639,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:493
+#: ../../../control-structures.rst:497
 msgid ""
 "Before version 0.5.0 Solidity followed the same scoping rules as JavaScript, "
 "that is, a variable declared anywhere within a function would be in scope "
@@ -648,7 +648,7 @@ msgid ""
 "starting from version 0.5.0."
 msgstr ""
 
-#: ../../../control-structures.rst:498
+#: ../../../control-structures.rst:502
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.5.0 <0.9.0;\n"
@@ -662,35 +662,35 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:516
+#: ../../../control-structures.rst:520
 msgid "Checked or Unchecked Arithmetic"
 msgstr ""
 
-#: ../../../control-structures.rst:518
+#: ../../../control-structures.rst:522
 msgid ""
 "An overflow or underflow is the situation where the resulting value of an "
 "arithmetic operation, when executed on an unrestricted integer, falls "
 "outside the range of the result type."
 msgstr ""
 
-#: ../../../control-structures.rst:521
+#: ../../../control-structures.rst:525
 msgid ""
 "Prior to Solidity 0.8.0, arithmetic operations would always wrap in case of "
 "under- or overflow leading to widespread use of libraries that introduce "
 "additional checks."
 msgstr ""
 
-#: ../../../control-structures.rst:525
+#: ../../../control-structures.rst:529
 msgid ""
 "Since Solidity 0.8.0, all arithmetic operations revert on over- and "
 "underflow by default, thus making the use of these libraries unnecessary."
 msgstr ""
 
-#: ../../../control-structures.rst:528
+#: ../../../control-structures.rst:532
 msgid "To obtain the previous behavior, an ``unchecked`` block can be used:"
 msgstr ""
 
-#: ../../../control-structures.rst:530
+#: ../../../control-structures.rst:534
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity ^0.8.0;\n"
@@ -706,52 +706,52 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:545
+#: ../../../control-structures.rst:549
 msgid ""
 "The call to ``f(2, 3)`` will return ``2**256-1``, while ``g(2, 3)`` will "
 "cause a failing assertion."
 msgstr ""
 
-#: ../../../control-structures.rst:548
+#: ../../../control-structures.rst:552
 msgid ""
 "The ``unchecked`` block can be used everywhere inside a block, but not as a "
 "replacement for a block. It also cannot be nested."
 msgstr ""
 
-#: ../../../control-structures.rst:551
+#: ../../../control-structures.rst:555
 msgid ""
 "The setting only affects the statements that are syntactically inside the "
 "block. Functions called from within an ``unchecked`` block do not inherit "
 "the property."
 msgstr ""
 
-#: ../../../control-structures.rst:555
+#: ../../../control-structures.rst:559
 msgid ""
 "To avoid ambiguity, you cannot use ``_;`` inside an ``unchecked`` block."
 msgstr ""
 
-#: ../../../control-structures.rst:557
+#: ../../../control-structures.rst:561
 msgid ""
 "The following operators will cause a failing assertion on overflow or "
 "underflow and will wrap without an error if used inside an unchecked block:"
 msgstr ""
 
-#: ../../../control-structures.rst:560
+#: ../../../control-structures.rst:564
 msgid ""
 "``++``, ``--``, ``+``, binary ``-``, unary ``-``, ``*``, ``/``, ``%``, ``**``"
 msgstr ""
 
-#: ../../../control-structures.rst:562
+#: ../../../control-structures.rst:566
 msgid "``+=``, ``-=``, ``*=``, ``/=``, ``%=``"
 msgstr ""
 
-#: ../../../control-structures.rst:565
+#: ../../../control-structures.rst:569
 msgid ""
 "It is not possible to disable the check for division by zero or modulo by "
 "zero using the ``unchecked`` block."
 msgstr ""
 
-#: ../../../control-structures.rst:569
+#: ../../../control-structures.rst:573
 msgid ""
 "Bitwise operators do not perform overflow or underflow checks. This is "
 "particularly visible when using bitwise shifts (``<<``, ``>>``, ``<<=``, "
@@ -760,31 +760,31 @@ msgid ""
 "``type(uint256).max * 8`` would."
 msgstr ""
 
-#: ../../../control-structures.rst:575
+#: ../../../control-structures.rst:579
 msgid ""
 "The second statement in ``int x = type(int).min; -x;`` will result in an "
 "overflow because the negative range can hold one more value than the "
 "positive range."
 msgstr ""
 
-#: ../../../control-structures.rst:578
+#: ../../../control-structures.rst:582
 msgid ""
 "Explicit type conversions will always truncate and never cause a failing "
 "assertion with the exception of a conversion from an integer to an enum type."
 msgstr ""
 
-#: ../../../control-structures.rst:586
+#: ../../../control-structures.rst:590
 msgid "Error handling: Assert, Require, Revert and Exceptions"
 msgstr ""
 
-#: ../../../control-structures.rst:588
+#: ../../../control-structures.rst:592
 msgid ""
 "Solidity uses state-reverting exceptions to handle errors. Such an exception "
 "undoes all changes made to the state in the current call (and all its sub-"
 "calls) and flags an error to the caller."
 msgstr ""
 
-#: ../../../control-structures.rst:593
+#: ../../../control-structures.rst:597
 msgid ""
 "When exceptions happen in a sub-call, they \"bubble up\" (i.e., exceptions "
 "are rethrown) automatically unless they are caught in a ``try/catch`` "
@@ -793,7 +793,7 @@ msgid ""
 "their first return value in case of an exception instead of \"bubbling up\"."
 msgstr ""
 
-#: ../../../control-structures.rst:601
+#: ../../../control-structures.rst:605
 msgid ""
 "The low-level functions ``call``, ``delegatecall`` and ``staticcall`` return "
 "``true`` as their first return value if the account called is non-existent, "
@@ -801,7 +801,7 @@ msgid ""
 "calling if needed."
 msgstr ""
 
-#: ../../../control-structures.rst:606
+#: ../../../control-structures.rst:610
 msgid ""
 "Exceptions can contain error data that is passed back to the caller in the "
 "form of :ref:`error instances <errors>`. The built-in errors "
@@ -810,23 +810,23 @@ msgid ""
 "``Panic`` is used for errors that should not be present in bug-free code."
 msgstr ""
 
-#: ../../../control-structures.rst:615
+#: ../../../control-structures.rst:619
 msgid "Panic via ``assert`` and Error via ``require``"
 msgstr ""
 
-#: ../../../control-structures.rst:617
+#: ../../../control-structures.rst:621
 msgid ""
 "The convenience functions ``assert`` and ``require`` can be used to check "
 "for conditions and throw an exception if the condition is not met."
 msgstr ""
 
-#: ../../../control-structures.rst:620
+#: ../../../control-structures.rst:624
 msgid ""
 "The ``assert`` function creates an error of type ``Panic(uint256)``. The "
 "same error is created by the compiler in certain situations as listed below."
 msgstr ""
 
-#: ../../../control-structures.rst:623
+#: ../../../control-structures.rst:627
 msgid ""
 "Assert should only be used to test for internal errors, and to check "
 "invariants. Properly functioning code should never create a Panic, not even "
@@ -836,81 +836,81 @@ msgid ""
 "Panic."
 msgstr ""
 
-#: ../../../control-structures.rst:631
+#: ../../../control-structures.rst:635
 msgid ""
 "A Panic exception is generated in the following situations. The error code "
 "supplied with the error data indicates the kind of panic."
 msgstr ""
 
-#: ../../../control-structures.rst:634
+#: ../../../control-structures.rst:638
 msgid "0x00: Used for generic compiler inserted panics."
 msgstr ""
 
-#: ../../../control-structures.rst:635
+#: ../../../control-structures.rst:639
 msgid "0x01: If you call ``assert`` with an argument that evaluates to false."
 msgstr ""
 
-#: ../../../control-structures.rst:636
+#: ../../../control-structures.rst:640
 msgid ""
 "0x11: If an arithmetic operation results in underflow or overflow outside of "
 "an ``unchecked { ... }`` block."
 msgstr ""
 
-#: ../../../control-structures.rst:637
+#: ../../../control-structures.rst:641
 msgid "0x12; If you divide or modulo by zero (e.g. ``5 / 0`` or ``23 % 0``)."
 msgstr ""
 
-#: ../../../control-structures.rst:638
+#: ../../../control-structures.rst:642
 msgid ""
 "0x21: If you convert a value that is too big or negative into an enum type."
 msgstr ""
 
-#: ../../../control-structures.rst:639
+#: ../../../control-structures.rst:643
 msgid "0x22: If you access a storage byte array that is incorrectly encoded."
 msgstr ""
 
-#: ../../../control-structures.rst:640
+#: ../../../control-structures.rst:644
 msgid "0x31: If you call ``.pop()`` on an empty array."
 msgstr ""
 
-#: ../../../control-structures.rst:641
+#: ../../../control-structures.rst:645
 msgid ""
 "0x32: If you access an array, ``bytesN`` or an array slice at an out-of-"
 "bounds or negative index (i.e. ``x[i]`` where ``i >= x.length`` or ``i < "
 "0``)."
 msgstr ""
 
-#: ../../../control-structures.rst:642
+#: ../../../control-structures.rst:646
 msgid ""
 "0x41: If you allocate too much memory or create an array that is too large."
 msgstr ""
 
-#: ../../../control-structures.rst:643
+#: ../../../control-structures.rst:647
 msgid ""
 "0x51: If you call a zero-initialized variable of internal function type."
 msgstr ""
 
-#: ../../../control-structures.rst:645
+#: ../../../control-structures.rst:649
 msgid "The ``require`` function provides three overloads:"
 msgstr ""
 
-#: ../../../control-structures.rst:647
+#: ../../../control-structures.rst:651
 msgid ""
 "``require(bool)`` which will revert without any data (not even an error "
 "selector)."
 msgstr ""
 
-#: ../../../control-structures.rst:648
+#: ../../../control-structures.rst:652
 msgid "``require(bool, string)`` which will revert with an ``Error(string)``."
 msgstr ""
 
-#: ../../../control-structures.rst:649
+#: ../../../control-structures.rst:653
 msgid ""
 "``require(bool, error)`` which will revert with the custom, user supplied "
 "error provided as the second argument."
 msgstr ""
 
-#: ../../../control-structures.rst:652
+#: ../../../control-structures.rst:656
 msgid ""
 "``require`` arguments are evaluated unconditionally, so take special care to "
 "make sure that they are not expressions with unexpected side-effects. For "
@@ -919,48 +919,48 @@ msgid ""
 "whether the supplied condition is ``true`` or ``false``."
 msgstr ""
 
-#: ../../../control-structures.rst:657
+#: ../../../control-structures.rst:661
 msgid ""
 "An ``Error(string)`` exception (or an exception without data) is generated "
 "by the compiler in the following situations:"
 msgstr ""
 
-#: ../../../control-structures.rst:660
+#: ../../../control-structures.rst:664
 msgid "Calling ``require(x)`` where ``x`` evaluates to ``false``."
 msgstr ""
 
-#: ../../../control-structures.rst:661
+#: ../../../control-structures.rst:665
 msgid "If you use ``revert()`` or ``revert(\"description\")``."
 msgstr ""
 
-#: ../../../control-structures.rst:662
+#: ../../../control-structures.rst:666
 msgid ""
 "If you perform an external function call targeting a contract that contains "
 "no code."
 msgstr ""
 
-#: ../../../control-structures.rst:663
+#: ../../../control-structures.rst:667
 msgid ""
 "If your contract receives Ether via a public function without ``payable`` "
 "modifier (including the constructor and the fallback function)."
 msgstr ""
 
-#: ../../../control-structures.rst:665
+#: ../../../control-structures.rst:669
 msgid "If your contract receives Ether via a public getter function."
 msgstr ""
 
-#: ../../../control-structures.rst:667
+#: ../../../control-structures.rst:671
 msgid ""
 "For the following cases, the error data from the external call (if provided) "
 "is forwarded. This means that it can either cause an ``Error`` or a "
 "``Panic`` (or whatever else was given):"
 msgstr ""
 
-#: ../../../control-structures.rst:671
+#: ../../../control-structures.rst:675
 msgid "If a ``.transfer()`` fails."
 msgstr ""
 
-#: ../../../control-structures.rst:672
+#: ../../../control-structures.rst:676
 msgid ""
 "If you call a function via a message call but it does not finish properly (i."
 "e., it runs out of gas, has no matching function, or throws an exception "
@@ -970,31 +970,31 @@ msgid ""
 "``false``."
 msgstr ""
 
-#: ../../../control-structures.rst:678
+#: ../../../control-structures.rst:682
 msgid ""
 "If you create a contract using the ``new`` keyword but the contract "
 "creation :ref:`does not finish properly<creating-contracts>`."
 msgstr ""
 
-#: ../../../control-structures.rst:681
+#: ../../../control-structures.rst:685
 msgid ""
 "You can optionally provide a message string or a custom error to "
 "``require``, but not to ``assert``."
 msgstr ""
 
-#: ../../../control-structures.rst:684
+#: ../../../control-structures.rst:688
 msgid ""
 "If you do not provide a string or custom error argument to ``require``, it "
 "will revert with empty error data, not even including the error selector."
 msgstr ""
 
-#: ../../../control-structures.rst:688
+#: ../../../control-structures.rst:692
 msgid ""
 "The following example shows how you can use ``require`` to check conditions "
 "on inputs and ``assert`` for internal error checking."
 msgstr ""
 
-#: ../../../control-structures.rst:691
+#: ../../../control-structures.rst:695
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.6.2 <0.9.0;\n"
@@ -1016,7 +1016,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:710
+#: ../../../control-structures.rst:714
 msgid ""
 "Internally, Solidity performs a revert operation (instruction ``0xfd``). "
 "This causes the EVM to revert all changes made to the state. The reason for "
@@ -1026,57 +1026,57 @@ msgid ""
 "transaction (or at least call) without effect."
 msgstr ""
 
-#: ../../../control-structures.rst:718
+#: ../../../control-structures.rst:722
 msgid ""
 "In both cases, the caller can react on such failures using ``try``/"
 "``catch``, but the changes in the callee will always be reverted."
 msgstr ""
 
-#: ../../../control-structures.rst:723
+#: ../../../control-structures.rst:727
 msgid ""
 "Panic exceptions used to use the ``invalid`` opcode before Solidity 0.8.0, "
 "which consumed all gas available to the call. Exceptions that use "
 "``require`` used to consume all gas until before the Metropolis release."
 msgstr ""
 
-#: ../../../control-structures.rst:730
+#: ../../../control-structures.rst:734
 msgid "``revert``"
 msgstr ""
 
-#: ../../../control-structures.rst:732
+#: ../../../control-structures.rst:736
 msgid ""
 "A direct revert can be triggered using the ``revert`` statement and the "
 "``revert`` function."
 msgstr ""
 
-#: ../../../control-structures.rst:734
+#: ../../../control-structures.rst:738
 msgid ""
 "The ``revert`` statement takes a custom error as direct argument without "
 "parentheses:"
 msgstr ""
 
-#: ../../../control-structures.rst:736
+#: ../../../control-structures.rst:740
 msgid "revert CustomError(arg1, arg2);"
 msgstr ""
 
-#: ../../../control-structures.rst:738
+#: ../../../control-structures.rst:742
 msgid ""
 "For backward-compatibility reasons, there is also the ``revert()`` function, "
 "which uses parentheses and accepts a string:"
 msgstr ""
 
-#: ../../../control-structures.rst:741
+#: ../../../control-structures.rst:745
 msgid "revert(); revert(\"description\");"
 msgstr ""
 
-#: ../../../control-structures.rst:744
+#: ../../../control-structures.rst:748
 msgid ""
 "The error data will be passed back to the caller and can be caught there. "
 "Using ``revert()`` causes a revert without any error data while "
 "``revert(\"description\")`` will create an ``Error(string)`` error."
 msgstr ""
 
-#: ../../../control-structures.rst:748
+#: ../../../control-structures.rst:752
 msgid ""
 "Using a custom error instance will usually be much cheaper than a string "
 "description, because you can use the name of the error to describe it, which "
@@ -1084,13 +1084,13 @@ msgid ""
 "NatSpec which does not incur any costs."
 msgstr ""
 
-#: ../../../control-structures.rst:753
+#: ../../../control-structures.rst:757
 msgid ""
 "The following example shows how to use an error string and a custom error "
 "instance together with ``revert`` and the equivalent ``require``:"
 msgstr ""
 
-#: ../../../control-structures.rst:756
+#: ../../../control-structures.rst:760
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity ^0.8.4;\n"
@@ -1119,14 +1119,14 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:783
+#: ../../../control-structures.rst:787
 msgid ""
 "The two ways ``if (!condition) revert(...);`` and ``require(condition, ...);"
 "`` are equivalent as long as the arguments to ``revert`` and ``require`` do "
 "not have side-effects, for example if they are just strings."
 msgstr ""
 
-#: ../../../control-structures.rst:788
+#: ../../../control-structures.rst:792
 msgid ""
 "The ``require`` function is evaluated just as any other function. This means "
 "that all arguments are evaluated before the function itself is executed. In "
@@ -1134,14 +1134,14 @@ msgid ""
 "even if ``condition`` is true."
 msgstr ""
 
-#: ../../../control-structures.rst:793
+#: ../../../control-structures.rst:797
 msgid ""
 "The provided string is :ref:`abi-encoded <ABI>` as if it were a call to a "
 "function ``Error(string)``. In the above example, ``revert(\"Not enough "
 "Ether provided.\");`` returns the following hexadecimal as error return data:"
 msgstr ""
 
-#: ../../../control-structures.rst:796
+#: ../../../control-structures.rst:800
 msgid ""
 "0x08c379a0                                                         // "
 "Function selector for Error(string)\n"
@@ -1153,30 +1153,30 @@ msgid ""
 "data"
 msgstr ""
 
-#: ../../../control-structures.rst:803
+#: ../../../control-structures.rst:807
 msgid ""
 "The provided message can be retrieved by the caller using ``try``/``catch`` "
 "as shown below."
 msgstr ""
 
-#: ../../../control-structures.rst:806
+#: ../../../control-structures.rst:810
 msgid ""
 "There used to be a keyword called ``throw`` with the same semantics as "
 "``revert()`` which was deprecated in version 0.4.13 and removed in version "
 "0.5.0."
 msgstr ""
 
-#: ../../../control-structures.rst:813
+#: ../../../control-structures.rst:817
 msgid "``try``/``catch``"
 msgstr ""
 
-#: ../../../control-structures.rst:815
+#: ../../../control-structures.rst:819
 msgid ""
 "A failure in an external call can be caught using a try/catch statement, as "
 "follows:"
 msgstr ""
 
-#: ../../../control-structures.rst:817
+#: ../../../control-structures.rst:821
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.1;\n"
@@ -1216,7 +1216,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../control-structures.rst:854
+#: ../../../control-structures.rst:858
 msgid ""
 "The ``try`` keyword has to be followed by an expression representing an "
 "external function call or a contract creation (``new ContractName()``). "
@@ -1230,27 +1230,27 @@ msgid ""
 "the ``catch`` blocks."
 msgstr ""
 
-#: ../../../control-structures.rst:863
+#: ../../../control-structures.rst:867
 msgid ""
 "Solidity supports different kinds of catch blocks depending on the type of "
 "error:"
 msgstr ""
 
-#: ../../../control-structures.rst:866
+#: ../../../control-structures.rst:870
 msgid ""
 "``catch Error(string memory reason) { ... }``: This catch clause is executed "
 "if the error was caused by ``revert(\"reasonString\")`` or ``require(false, "
 "\"reasonString\")`` (or an internal error that causes such an exception)."
 msgstr ""
 
-#: ../../../control-structures.rst:870
+#: ../../../control-structures.rst:874
 msgid ""
 "``catch Panic(uint errorCode) { ... }``: If the error was caused by a panic, "
 "i.e. by a failing ``assert``, division by zero, invalid array access, "
 "arithmetic overflow and others, this catch clause will be run."
 msgstr ""
 
-#: ../../../control-structures.rst:873
+#: ../../../control-structures.rst:877
 msgid ""
 "``catch (bytes memory lowLevelData) { ... }``: This clause is executed if "
 "the error signature does not match any other clause, if there was an error "
@@ -1259,33 +1259,33 @@ msgid ""
 "in that case."
 msgstr ""
 
-#: ../../../control-structures.rst:879
+#: ../../../control-structures.rst:883
 msgid ""
 "``catch { ... }``: If you are not interested in the error data, you can just "
 "use ``catch { ... }`` (even as the only catch clause) instead of the "
 "previous clause."
 msgstr ""
 
-#: ../../../control-structures.rst:883
+#: ../../../control-structures.rst:887
 msgid ""
 "It is planned to support other types of error data in the future. The "
 "strings ``Error`` and ``Panic`` are currently parsed as is and are not "
 "treated as identifiers."
 msgstr ""
 
-#: ../../../control-structures.rst:886
+#: ../../../control-structures.rst:890
 msgid ""
 "In order to catch all error cases, you have to have at least the clause "
 "``catch { ...}`` or the clause ``catch (bytes memory lowLevelData) { ... }``."
 msgstr ""
 
-#: ../../../control-structures.rst:889
+#: ../../../control-structures.rst:893
 msgid ""
 "The variables declared in the ``returns`` and the ``catch`` clause are only "
 "in scope in the block that follows."
 msgstr ""
 
-#: ../../../control-structures.rst:894
+#: ../../../control-structures.rst:898
 msgid ""
 "If an error happens during the decoding of the return data inside a try/"
 "catch-statement, this causes an exception in the currently executing "
@@ -1294,7 +1294,7 @@ msgid ""
 "there is a low-level catch clause, this error is caught there."
 msgstr ""
 
-#: ../../../control-structures.rst:902
+#: ../../../control-structures.rst:906
 msgid ""
 "If execution reaches a catch-block, then the state-changing effects of the "
 "external call have been reverted. If execution reaches the success block, "
@@ -1304,7 +1304,7 @@ msgid ""
 "noted above or due to not providing a low-level catch clause)."
 msgstr ""
 
-#: ../../../control-structures.rst:911
+#: ../../../control-structures.rst:915
 msgid ""
 "The reason behind a failed call can be manifold. Do not assume that the "
 "error message is coming directly from the called contract: The error might "
@@ -1407,62 +1407,62 @@ msgstr ""
 msgid "creating"
 msgstr ""
 
-#: ../../../control-structures.rst:330 ../../../control-structures.rst:335
+#: ../../../control-structures.rst:332 ../../../control-structures.rst:337
 msgid "assignment"
 msgstr ""
 
-#: ../../../control-structures.rst:335
+#: ../../../control-structures.rst:337
 msgid "destructuring"
 msgstr ""
 
-#: ../../../control-structures.rst:417
+#: ../../../control-structures.rst:421
 msgid "scoping"
 msgstr ""
 
-#: ../../../control-structures.rst:417
+#: ../../../control-structures.rst:421
 msgid "declarations"
 msgstr ""
 
-#: ../../../control-structures.rst:417
+#: ../../../control-structures.rst:421
 msgid "default value"
 msgstr ""
 
-#: ../../../control-structures.rst:512
+#: ../../../control-structures.rst:516
 msgid "safe math"
 msgstr ""
 
-#: ../../../control-structures.rst:512
+#: ../../../control-structures.rst:516
 msgid "safemath"
 msgstr ""
 
-#: ../../../control-structures.rst:512
+#: ../../../control-structures.rst:516
 msgid "checked"
 msgstr ""
 
-#: ../../../control-structures.rst:512
+#: ../../../control-structures.rst:516
 msgid "unchecked"
 msgstr ""
 
-#: ../../../control-structures.rst:581
+#: ../../../control-structures.rst:585
 msgid "exception"
 msgstr ""
 
-#: ../../../control-structures.rst:581
+#: ../../../control-structures.rst:585
 msgid "throw"
 msgstr ""
 
-#: ../../../control-structures.rst:581
+#: ../../../control-structures.rst:585
 msgid "assert"
 msgstr ""
 
-#: ../../../control-structures.rst:581
+#: ../../../control-structures.rst:585
 msgid "require"
 msgstr ""
 
-#: ../../../control-structures.rst:581
+#: ../../../control-structures.rst:585
 msgid "revert"
 msgstr ""
 
-#: ../../../control-structures.rst:581
+#: ../../../control-structures.rst:585
 msgid "errors"
 msgstr ""

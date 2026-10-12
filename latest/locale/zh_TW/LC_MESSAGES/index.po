@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-10-05 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,11 +37,11 @@ msgstr "內部原理"
 msgid "Advisory content"
 msgstr "建議內容"
 
-#: ../../../index.rst:167
+#: ../../../index.rst:168
 msgid "Additional Material"
 msgstr "附加材料"
 
-#: ../../../index.rst:176
+#: ../../../index.rst:177
 msgid "Resources"
 msgstr "資源"
 
