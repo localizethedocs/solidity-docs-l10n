@@ -1200,6 +1200,3 @@ msgstr "此行為與\\ :ref:`版本 pragma <version_pragma>` 搭配良好。"
 #: ../../../installing-solidity.rst:1
 msgid "installing"
 msgstr "安裝"
-
-#~ msgid "`Boost`_ (version 1.77+ on Windows, 1.83+ otherwise)"
-#~ msgstr "`Boost`_\\ （Windows 上為 1.77+，其他為 1.83+）"
