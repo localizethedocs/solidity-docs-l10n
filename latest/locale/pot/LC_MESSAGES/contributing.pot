@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 16:54+0000\n"
+"POT-Creation-Date: 2026-10-12 17:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,8 +56,8 @@ msgstr ""
 #: ../../../contributing.rst:16
 msgid ""
 "Responding to questions from other users on `StackExchange <https://ethereum."
-"stackexchange.com>`_ and the `Solidity Gitter Chat <https://gitter.im/"
-"ethereum/solidity>`_."
+"stackexchange.com>`_ and the `Solidity Matrix Chat <https://matrix.to/#/"
+"#ethereum\\_solidity:gitter.im>`_."
 msgstr ""
 
 #: ../../../contributing.rst:19
@@ -80,7 +80,7 @@ msgid ""
 "Please note that this project is released with a `Contributor Code of "
 "Conduct <https://raw.githubusercontent.com/ethereum/solidity/develop/"
 "CODE_OF_CONDUCT.md>`_. By participating in this project — in the issues, "
-"pull requests, or Gitter channels — you agree to abide by its terms."
+"pull requests, or Matrix channels — you agree to abide by its terms."
 msgstr ""
 
 #: ../../../contributing.rst:28
@@ -181,9 +181,10 @@ msgstr ""
 #: ../../../contributing.rst:74
 msgid ""
 "However, if you are making a larger change, please consult with the "
-"`Solidity Development Gitter channel <https://gitter.im/ethereum/solidity-"
-"dev>`_ (different from the one mentioned above — this one is focused on "
-"compiler and language development instead of language usage) first."
+"`Solidity Development Matrix channel <https://matrix.to/#/"
+"#ethereum\\_solidity-dev:gitter.im>`_ (different from the one mentioned "
+"above — this one is focused on compiler and language development instead of "
+"language usage) first."
 msgstr ""
 
 #: ../../../contributing.rst:78

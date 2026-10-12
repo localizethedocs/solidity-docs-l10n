@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 16:54+0000\n"
+"POT-Creation-Date: 2026-10-12 17:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -634,7 +634,7 @@ msgid "`GCC <https://gcc.gnu.org>`_, version 13.3+"
 msgstr ""
 
 #: ../../../installing-solidity.rst:376
-msgid "`Clang <https://clang.llvm.org/>`_, version 18.1.3+"
+msgid "`Clang <https://clang.llvm.org/>`_, version 19.1.1+"
 msgstr ""
 
 #: ../../../installing-solidity.rst:377
