@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-10-05 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,18 +39,26 @@ msgstr ""
 
 #: ../../../bugs.rst:19
 msgid ""
+"When reporting a security-relevant bug, please make sure that the behavior "
+"is unintentional and outside of documented language guarantees. Some "
+"regularly misreported behaviors are collected in :ref:`Frequently Reported "
+"Non-Bugs<frequently-reported-non-bugs>`."
+msgstr ""
+
+#: ../../../bugs.rst:22
+msgid ""
 "Contract source verification tools and also other tools interacting with "
 "contracts should consult this list according to the following criteria:"
 msgstr ""
 
-#: ../../../bugs.rst:22
+#: ../../../bugs.rst:25
 msgid ""
 "It is mildly suspicious if a contract was compiled with a nightly compiler "
 "version instead of a released version. This list does not keep track of "
 "unreleased or nightly versions."
 msgstr ""
 
-#: ../../../bugs.rst:25
+#: ../../../bugs.rst:28
 msgid ""
 "It is also mildly suspicious if a contract was compiled with a version that "
 "was not the most recent at the time the contract was created. For contracts "
@@ -58,103 +66,103 @@ msgid ""
 "a transaction and use the date of that transaction as creation date."
 msgstr ""
 
-#: ../../../bugs.rst:29
+#: ../../../bugs.rst:32
 msgid ""
 "It is highly suspicious if a contract was compiled with a compiler that "
 "contains a known bug and the contract was created at a time where a newer "
 "compiler version containing a fix was already released."
 msgstr ""
 
-#: ../../../bugs.rst:33
+#: ../../../bugs.rst:36
 msgid ""
 "The JSON file of known bugs below is an array of objects, one for each bug, "
 "with the following keys:"
 msgstr ""
 
-#: ../../../bugs.rst:36
+#: ../../../bugs.rst:39
 msgid "uid"
 msgstr ""
 
-#: ../../../bugs.rst:37
+#: ../../../bugs.rst:40
 msgid ""
 "Unique identifier given to the bug in the form of ``SOL-<year>-<number>``. "
 "It is possible that multiple entries exists with the same uid. This means "
 "multiple version ranges are affected by the same bug."
 msgstr ""
 
-#: ../../../bugs.rst:40
+#: ../../../bugs.rst:43
 msgid "name"
 msgstr ""
 
-#: ../../../bugs.rst:41
+#: ../../../bugs.rst:44
 msgid "Unique name given to the bug"
 msgstr ""
 
-#: ../../../bugs.rst:42
+#: ../../../bugs.rst:45
 msgid "summary"
 msgstr ""
 
-#: ../../../bugs.rst:43
+#: ../../../bugs.rst:46
 msgid "Short description of the bug"
 msgstr ""
 
-#: ../../../bugs.rst:44
+#: ../../../bugs.rst:47
 msgid "description"
 msgstr ""
 
-#: ../../../bugs.rst:45
+#: ../../../bugs.rst:48
 msgid "Detailed description of the bug"
 msgstr ""
 
-#: ../../../bugs.rst:46
+#: ../../../bugs.rst:49
 msgid "link"
 msgstr ""
 
-#: ../../../bugs.rst:47
+#: ../../../bugs.rst:50
 msgid "URL of a website with more detailed information, optional"
 msgstr ""
 
-#: ../../../bugs.rst:48
+#: ../../../bugs.rst:51
 msgid "introduced"
 msgstr ""
 
-#: ../../../bugs.rst:49
+#: ../../../bugs.rst:52
 msgid "The first published compiler version that contained the bug, optional"
 msgstr ""
 
-#: ../../../bugs.rst:50
+#: ../../../bugs.rst:53
 msgid "fixed"
 msgstr ""
 
-#: ../../../bugs.rst:51
+#: ../../../bugs.rst:54
 msgid ""
 "The first published compiler version that did not contain the bug anymore"
 msgstr ""
 
-#: ../../../bugs.rst:52
+#: ../../../bugs.rst:55
 msgid "publish"
 msgstr ""
 
-#: ../../../bugs.rst:53
+#: ../../../bugs.rst:56
 msgid "The date at which the bug became known publicly, optional"
 msgstr ""
 
-#: ../../../bugs.rst:54
+#: ../../../bugs.rst:57
 msgid "severity"
 msgstr ""
 
-#: ../../../bugs.rst:55
+#: ../../../bugs.rst:58
 msgid ""
 "Severity of the bug: very low, low, medium, high. Takes into account "
 "discoverability in contract tests, likelihood of occurrence and potential "
 "damage by exploits."
 msgstr ""
 
-#: ../../../bugs.rst:58
+#: ../../../bugs.rst:61
 msgid "conditions"
 msgstr ""
 
-#: ../../../bugs.rst:59
+#: ../../../bugs.rst:62
 msgid ""
 "Conditions that have to be met to trigger the bug. The following keys can be "
 "used: ``optimizer``, Boolean value which means that the optimizer has to be "
@@ -165,11 +173,11 @@ msgid ""
 "If no conditions are given, assume that the bug is present."
 msgstr ""
 
-#: ../../../bugs.rst:69
+#: ../../../bugs.rst:72
 msgid "check"
 msgstr ""
 
-#: ../../../bugs.rst:70
+#: ../../../bugs.rst:73
 msgid ""
 "This field contains different checks that report whether the smart contract "
 "contains the bug or not. The first type of check are JavaScript regular "
@@ -184,9 +192,197 @@ msgid ""
 "query, the bug is likely present."
 msgstr ""
 
-#: ../../../bugs.rst:83
+#: ../../../bugs.rst:86
 msgid ""
 "[\n"
+"    {\n"
+"        \"uid\": \"SOL-2026-6\",\n"
+"        \"name\": \"MisorderedNamedParametersInRequireWithCustomErrors\",\n"
+"        \"summary\": \"Custom error arguments passed to ``require`` using "
+"named-parameter syntax are ABI-encoded in call-site order instead of "
+"declaration order when compiling via IR.\",\n"
+"        \"description\": \"When a custom error was passed into the second "
+"argument of ``require`` and instantiated using named parameter syntax (e.g., "
+"``require(condition, MyError({b: 1, a: 2}))``), the IR-based code generator "
+"would pass the arguments to the ABI encoder in the order they appeared at "
+"the call site, without reordering them to match the error definition. The "
+"arguments were type-checked against the parameters with matching names, not "
+"the ones they were actually passed into by the codegen, so the bug would not "
+"result in a compilation error. Instead, the encoder would produce a "
+"structurally valid encoding matching the error signature but not reflecting "
+"the values used to instantiate the error. The arguments on the stack would "
+"be reordered and possibly reinterpreted as different types by the encoder. "
+"In case of reference types, the reinterpretation would result in the content "
+"being obtained from wrong offsets in memory, storage or calldata. In some "
+"cases large values misinterpreted as offsets or lengths would make the "
+"encoder revert due to running out of gas. Types that occupy more than one "
+"slot on the stack would further complicate the behavior by leading to not "
+"only reordering but also misalignment of argument boundaries. The only "
+"unaffected types were string literals, which are not being passed to the "
+"encoder through the stack. The bug was specific to custom errors passed as "
+"the second argument of ``require``. Standalone ``revert ErrorName({...})`` "
+"statements, event emissions, function calls, struct constructor invocations "
+"and other constructs supporting named parameters were not affected. The "
+"evmasm pipeline was also unaffected.\",\n"
+"        \"link\": \"https://blog.soliditylang.org/2026/09/10/misordered-"
+"named-parameters-in-require-with-custom-errors-bug/\",\n"
+"        \"introduced\": \"0.8.26\",\n"
+"        \"fixed\": \"0.8.37\",\n"
+"        \"severity\": \"very low\",\n"
+"        \"conditions\": {\n"
+"            \"viaIR\": true\n"
+"        }\n"
+"    },\n"
+"    {\n"
+"        \"uid\": \"SOL-2026-5\",\n"
+"        \"name\": \"MemoryByteArrayElementDeleteClearsWholeWord\",\n"
+"        \"summary\": \"Applying ``delete`` to a single element of a "
+"``bytes`` array in memory clears not only that element but the whole 32-byte "
+"word starting at the element's location, zeroing up to 31 bytes beyond the "
+"element.\",\n"
+"        \"description\": \"Elements of ``bytes`` arrays in memory are "
+"packed, each occupying a single byte. When a value is assigned to such an "
+"element, the evmasm code generator correctly stores it with a single-byte "
+"``MSTORE8`` instruction. The code path in the evmasm pipeline implementing "
+"``delete`` on such an element, however, wrote the zero value with a full-"
+"word ``MSTORE``, clearing the 32 bytes starting at the element's location. "
+"The bytes following the element within the array were silently zeroed. If "
+"the element was within the last 31 bytes of the array's allocation, the "
+"write also extended past it into the area where the allocator places the "
+"next memory object, clearing the most significant bytes of that object's "
+"first word. How many elements are in reach depends on the size of the "
+"allocation: arrays created with ``new bytes(n)`` or from literals occupy "
+"their length rounded up to a multiple of 32 bytes, so only elements falling "
+"within the last 31 bytes of that rounded-up area, if any, could be affected. "
+"The results of ``bytes.concat``, ``string.concat``, and the ``abi.encode*`` "
+"functions, on the other hand, are placed by the evmasm pipeline in an "
+"allocation of exactly the size of their data, so the next object starts "
+"immediately after their last element and each of their last 31 elements is "
+"in reach. Assigning zero to an element (``b[i] = 0``) was not affected, only "
+"the ``delete`` operator, and neither were byte arrays in transient storage, "
+"storage, or calldata. The bug exists only in the evmasm pipeline. Code "
+"compiled via IR is unaffected. Optimizer settings have no influence. The "
+"defective code predates the first released version of the compiler.\",\n"
+"        \"link\": \"https://blog.soliditylang.org/2026/09/10/memory-byte-"
+"array-element-delete-clears-whole-word-bug/\",\n"
+"        \"fixed\": \"0.8.37\",\n"
+"        \"severity\": \"low/medium\",\n"
+"        \"conditions\": {\n"
+"            \"viaIR\": false\n"
+"        }\n"
+"    },\n"
+"    {\n"
+"        \"uid\": \"SOL-2026-4\",\n"
+"        \"name\": \"SpillSlotCollisionAcrossMutualRecursion\",\n"
+"        \"summary\": \"Local variables of two simultaneously active "
+"functions moved to fixed memory offsets by the stack limit evader may be "
+"assigned the same offset if the call graph contains mutual recursion, so "
+"that one variable is silently overwritten by the other.\",\n"
+"        \"description\": \"To work around the 16-slot stack access limit of "
+"the EVM, the IR-based code generator can, under some preconditions, move "
+"local variables to fixed memory offsets. Variables that can never be active "
+"at the same time may safely share an offset, so the reserved memory area is "
+"sized by a depth-first walk of the call graph that computes for every node "
+"the number of slots it and its callees need. To keep this walk from "
+"descending infinitely into recursive call chains, the slot count was "
+"initialized with zero upon entering it. This provisional zero was "
+"observable: a function reached again through a call graph cycle reported an "
+"empty footprint to its caller, the caller's count was finalized and cached "
+"on that basis, and the undercount propagated to every later caller, "
+"including functions outside the cycle. As a result, a function called by "
+"such a cycle and a function calling into it could be assigned the same "
+"memory slot even though both can be active at the same time. A relocated "
+"variable still needed after the call into the cycle returned had then been "
+"silently overwritten by the called function, producing wrong results. "
+"Triggering the bug requires the IR pipeline and a call graph in which a "
+"cycle of at least two mutually recursive functions both reaches a function "
+"needing relocation of variables to memory and is entered from a separate "
+"call chain whose own relocated variable is read again after the call towards "
+"the cycle returns. From 0.8.21 onward, it is independent of whether the "
+"optimizer is enabled.\",\n"
+"        \"link\": \"https://blog.soliditylang.org/2026/09/10/spill-slot-"
+"collision-across-mutual-recursion-bug/\",\n"
+"        \"introduced\": \"0.7.2\",\n"
+"        \"fixed\": \"0.8.37\",\n"
+"        \"severity\": \"low/medium\",\n"
+"        \"conditions\": {\n"
+"            \"viaIR\": true\n"
+"        }\n"
+"    },\n"
+"    {\n"
+"        \"uid\": \"SOL-2026-3\",\n"
+"        \"name\": \"InheritanceOrderReversalOnStorageEndWarning\",\n"
+"        \"summary\": \"Emitting a warning about storage base location being "
+"too close to the storage end unintentionally reversed the "
+"``linearizedBaseContracts`` annotation, possibly leading to miscompilation "
+"due to reversing the order in which inheritance is resolved.\",\n"
+"        \"description\": \"When the compiler detects that a custom layout "
+"specifier puts contract's static storage area too close to the end of the "
+"address space, it emits a warning. To make the warning more useful, the "
+"compiler tries to point at the last storage variable in that area. For this "
+"reason it walks the linearized inheritance hierarchy in reverse (from the "
+"least to the most derived). The list is calculated once and stored in an AST "
+"annotation called ``linearizedBaseContracts``. The direct cause of the bug "
+"was the fact that the code that reverses the list was doing it in place "
+"rather than on a copy, modifying the annotation. This effectively reversed "
+"the order of base contracts seen by any component that runs after layout "
+"checks: later phases of analysis, AST export, code generator, SMTChecker, "
+"etc. The observable effect was a reversed order of state variable "
+"initialization, constructor invocation, virtual function/modifier "
+"resolution, leading either to miscompilations or internal compiler errors, "
+"depending on the specific usage. Since the source of the bug was in the "
+"analysis stage, it was independent of the codegen pipeline or optimizer "
+"settings. The main condition necessary to trigger the bug was the presence "
+"of the warning in the output. The other is presence of language constructs "
+"whose evaluation depends on the inheritance order. While potential effects "
+"are very serious, this requirement excludes the vast majority of contracts "
+"as intentionally placing the storage variables in the last 2**64 slots is "
+"highly discouraged, which was actually the main reason for adding this "
+"warning.\",\n"
+"        \"link\": \"https://blog.soliditylang.org/2026/07/09/inheritance-"
+"order-reversal-on-storage-end-warning-bug/\",\n"
+"        \"introduced\": \"0.8.29\",\n"
+"        \"fixed\": \"0.8.36\",\n"
+"        \"severity\": \"medium\"\n"
+"    },\n"
+"    {\n"
+"        \"uid\": \"SOL-2026-2\",\n"
+"        \"name\": \"UnsoundSpillInMutualRecursion\",\n"
+"        \"summary\": \"Local variables of a function involved in mutual "
+"recursion may spuriously be moved to fixed memory offsets and overwritten "
+"across recursive calls.\",\n"
+"        \"description\": \"To work around the 16-slot stack access limit of "
+"the EVM, the IR-based code generator can move local variables of stack-too-"
+"deep functions to fixed memory offsets. This relocation is unsound for "
+"recursive functions: a fixed offset would be shared by all activations of "
+"the function, so a recursive call would overwrite the caller's value. The "
+"stack limit evader therefore must not relocate variables of functions that "
+"are part of a recursive call chain. To this end, the call graph was searched "
+"for cycles using a path-based depth-first search that, once a function had "
+"been fully explored and popped from the search path, short-circuited on it "
+"on any later visit. As a result, a function shared between several "
+"intersecting cycles could be reached first through a path that did not yet "
+"close a cycle through it, get marked as finished, and then be skipped when a "
+"later path would have revealed that it does lie on a cycle. Such a function "
+"was misclassified as non-recursive. When a misclassified function was "
+"complex enough for the stack limit evader to relocate some of its variables, "
+"those variables were moved to fixed memory offsets and silently corrupted on "
+"recursion, producing wrong results rather than a compile-time error. "
+"Triggering the bug requires the IR pipeline, a set of mutually recursive "
+"functions whose call graph contains intersecting cycles, at least one of the "
+"functions in an undetected part of a cycle being complex enough to require "
+"relocation to memory, and an unfortunate processing order of the functions "
+"(which depends on the hashes of their Yul names). It is independent of "
+"whether the optimizer is enabled.\",\n"
+"        \"link\": \"https://blog.soliditylang.org/2026/07/09/unsound-spill-"
+"in-mutual-recursion-bug/\",\n"
+"        \"introduced\": \"0.7.2\",\n"
+"        \"fixed\": \"0.8.36\",\n"
+"        \"severity\": \"medium\",\n"
+"        \"conditions\": {\n"
+"            \"viaIR\": true\n"
+"        }\n"
+"    },\n"
 "    {\n"
 "        \"uid\": \"SOL-2026-1\",\n"
 "        \"name\": \"TransientStorageClearingHelperCollision\",\n"
@@ -536,7 +732,6 @@ msgid ""
 "        \"introduced\": \"0.8.11\",\n"
 "        \"fixed\": \"0.8.13\",\n"
 "        \"severity\": \"very low\"\n"
-"\n"
 "    },\n"
 "    {\n"
 "        \"uid\": \"SOL-2021-4\",\n"
@@ -1109,7 +1304,9 @@ msgid ""
 "release/\",\n"
 "        \"fixed\": \"0.4.25\",\n"
 "        \"severity\": \"medium/high\",\n"
-"        \"check\": {\"regex-source\": \"[^/]\\\\*\\\\* *[^/0-9 ]\"}\n"
+"        \"check\": {\n"
+"            \"regex-source\": \"[^/]\\\\*\\\\* *[^/0-9 ]\"\n"
+"        }\n"
 "    },\n"
 "    {\n"
 "        \"uid\": \"SOL-2018-3\",\n"
@@ -1122,9 +1319,11 @@ msgid ""
 "        \"introduced\": \"0.4.17\",\n"
 "        \"fixed\": \"0.4.25\",\n"
 "        \"severity\": \"very low\",\n"
-"        \"check\": {\"ast-compact-json-path\": \"$..[?(@.nodeType === "
+"        \"check\": {\n"
+"            \"ast-compact-json-path\": \"$..[?(@.nodeType === "
 "'EventDefinition')]..[?(@.nodeType === 'UserDefinedTypeName' && @."
-"typeDescriptions.typeString.startsWith('struct'))]\"}\n"
+"typeDescriptions.typeString.startsWith('struct'))]\"\n"
+"        }\n"
 "    },\n"
 "    {\n"
 "        \"uid\": \"SOL-2018-2\",\n"
@@ -1143,9 +1342,11 @@ msgid ""
 "        \"introduced\": \"0.1.4\",\n"
 "        \"fixed\": \"0.4.22\",\n"
 "        \"severity\": \"medium\",\n"
-"        \"check\": {\"regex-source\": \"returns[^;{]*\\\\[\\\\s*[^\\\\] \\"
-"\\t\\\\r\\\\n\\\\v\\\\f][^\\\\]]*\\\\]\\\\s*\\\\[\\\\s*[^\\\\] \\\\t\\\\r\\"
-"\\n\\\\v\\\\f][^\\\\]]*\\\\][^{;]*[;{]\"}\n"
+"        \"check\": {\n"
+"            \"regex-source\": \"returns[^;{]*\\\\[\\\\s*[^\\\\] \\\\t\\\\r\\"
+"\\n\\\\v\\\\f][^\\\\]]*\\\\]\\\\s*\\\\[\\\\s*[^\\\\] \\\\t\\\\r\\\\n\\\\v\\"
+"\\f][^\\\\]]*\\\\][^{;]*[;{]\"\n"
+"        }\n"
 "    },\n"
 "    {\n"
 "        \"uid\": \"SOL-2018-1\",\n"

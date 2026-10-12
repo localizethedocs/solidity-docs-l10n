@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:02+0000\n"
+"POT-Creation-Date: 2026-10-05 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1121,12 +1121,12 @@ msgstr ""
 #: ../../../types/value-types.rst:638
 msgid ""
 "Enums are one way to create a user-defined type in Solidity. They are "
-"explicitly convertible to and from all integer types but implicit conversion "
-"is not allowed.  The explicit conversion from integer checks at runtime that "
-"the value lies inside the range of the enum and causes a :ref:`Panic "
-"error<assert-and-require>` otherwise. Enums require at least one member, and "
-"its default value when declared is the first member. Enums cannot have more "
-"than 256 members."
+"explicitly convertible to and from all unsigned integer types but implicit "
+"conversion is not allowed. The explicit conversion from integer checks at "
+"runtime that the value lies inside the range of the enum and causes a :ref:"
+"`Panic error<assert-and-require>` otherwise. Enums require at least one "
+"member, and its default value when declared is the first member. Enums "
+"cannot have more than 256 members."
 msgstr ""
 
 #: ../../../types/value-types.rst:645
@@ -2366,11 +2366,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../types/reference-types.rst:495
+#: ../../../types/reference-types.rst:497
 msgid "Dangling References to Storage Array Elements"
 msgstr ""
 
-#: ../../../types/reference-types.rst:497
+#: ../../../types/reference-types.rst:499
 msgid ""
 "When working with storage arrays, you need to take care to avoid dangling "
 "references. A dangling reference is a reference that points to something "
@@ -2380,7 +2380,7 @@ msgid ""
 "array:"
 msgstr ""
 
-#: ../../../types/reference-types.rst:502
+#: ../../../types/reference-types.rst:504
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.0 <0.9.0;\n"
@@ -2404,7 +2404,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../types/reference-types.rst:524
+#: ../../../types/reference-types.rst:526
 msgid ""
 "The write in ``ptr.push(0x42)`` will **not** revert, despite the fact that "
 "``ptr`` no longer refers to a valid element of ``s``. Since the compiler "
@@ -2414,7 +2414,7 @@ msgid ""
 "element."
 msgstr ""
 
-#: ../../../types/reference-types.rst:530
+#: ../../../types/reference-types.rst:532
 msgid ""
 "Note that Solidity does not allow to declare references to value types in "
 "storage. These kinds of explicit dangling references are restricted to "
@@ -2422,7 +2422,7 @@ msgid ""
 "temporarily when using complex expressions in tuple assignments:"
 msgstr ""
 
-#: ../../../types/reference-types.rst:534
+#: ../../../types/reference-types.rst:536
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.0 <0.9.0;\n"
@@ -2461,20 +2461,20 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../types/reference-types.rst:567
+#: ../../../types/reference-types.rst:569
 msgid ""
 "It is always safer to only assign to storage once per statement and to avoid "
 "complex expressions on the left-hand-side of an assignment."
 msgstr ""
 
-#: ../../../types/reference-types.rst:570
+#: ../../../types/reference-types.rst:572
 msgid ""
 "You need to take particular care when dealing with references to elements of "
 "``bytes`` arrays, since a ``.push()`` on a bytes array may switch :ref:`from "
 "short to long layout in storage<bytes-and-string>`."
 msgstr ""
 
-#: ../../../types/reference-types.rst:574
+#: ../../../types/reference-types.rst:576
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.0 <0.9.0;\n"
@@ -2490,7 +2490,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../types/reference-types.rst:589
+#: ../../../types/reference-types.rst:591
 msgid ""
 "Here, when the first ``x.push()`` is evaluated, ``x`` is still stored in "
 "short layout, thereby ``x.push()`` returns a reference to an element in the "
@@ -2503,7 +2503,7 @@ msgid ""
 "do not simultaneously index-access the array in the same statement."
 msgstr ""
 
-#: ../../../types/reference-types.rst:598
+#: ../../../types/reference-types.rst:600
 msgid ""
 "While the above describes the behavior of dangling storage references in the "
 "current version of the compiler, any code with dangling references should be "
@@ -2512,15 +2512,15 @@ msgid ""
 "dangling references."
 msgstr ""
 
-#: ../../../types/reference-types.rst:604
+#: ../../../types/reference-types.rst:606
 msgid "Be sure to avoid dangling references in your code!"
 msgstr ""
 
-#: ../../../types/reference-types.rst:611
+#: ../../../types/reference-types.rst:613
 msgid "Array Slices"
 msgstr ""
 
-#: ../../../types/reference-types.rst:614
+#: ../../../types/reference-types.rst:616
 msgid ""
 "Array slices are a view on a contiguous portion of an array. They are "
 "written as ``x[start:end]``, where ``start`` and ``end`` are expressions "
@@ -2528,42 +2528,42 @@ msgid ""
 "element of the slice is ``x[start]`` and the last element is ``x[end - 1]``."
 msgstr ""
 
-#: ../../../types/reference-types.rst:620
+#: ../../../types/reference-types.rst:622
 msgid ""
 "If ``start`` is greater than ``end`` or if ``end`` is greater than the "
 "length of the array, an exception is thrown."
 msgstr ""
 
-#: ../../../types/reference-types.rst:623
+#: ../../../types/reference-types.rst:625
 msgid ""
 "Both ``start`` and ``end`` are optional: ``start`` defaults to ``0`` and "
 "``end`` defaults to the length of the array."
 msgstr ""
 
-#: ../../../types/reference-types.rst:626
+#: ../../../types/reference-types.rst:628
 msgid ""
 "Array slices do not have any members. They are implicitly convertible to "
 "arrays of their underlying type and support index access. Index access is "
 "not absolute in the underlying array, but relative to the start of the slice."
 msgstr ""
 
-#: ../../../types/reference-types.rst:632
+#: ../../../types/reference-types.rst:634
 msgid ""
 "Array slices do not have a type name which means no variable can have an "
 "array slices as type, they only exist in intermediate expressions."
 msgstr ""
 
-#: ../../../types/reference-types.rst:637
+#: ../../../types/reference-types.rst:639
 msgid "As of now, array slices are only implemented for calldata arrays."
 msgstr ""
 
-#: ../../../types/reference-types.rst:639
+#: ../../../types/reference-types.rst:641
 msgid ""
 "Array slices are useful to ABI-decode secondary data passed in function "
 "parameters:"
 msgstr ""
 
-#: ../../../types/reference-types.rst:641
+#: ../../../types/reference-types.rst:643
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.8.5 <0.9.0;\n"
@@ -2594,17 +2594,17 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../types/reference-types.rst:675
+#: ../../../types/reference-types.rst:677
 msgid "Structs"
 msgstr ""
 
-#: ../../../types/reference-types.rst:677
+#: ../../../types/reference-types.rst:679
 msgid ""
 "Solidity provides a way to define new types in the form of structs, which is "
 "shown in the following example:"
 msgstr ""
 
-#: ../../../types/reference-types.rst:680
+#: ../../../types/reference-types.rst:682
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.6.2 <0.9.0;\n"
@@ -2669,7 +2669,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../types/reference-types.rst:737
+#: ../../../types/reference-types.rst:739
 msgid ""
 "The contract does not provide the full functionality of a crowdfunding "
 "contract, but it contains the basic concepts necessary to understand "
@@ -2677,7 +2677,7 @@ msgid ""
 "themselves contain mappings and arrays."
 msgstr ""
 
-#: ../../../types/reference-types.rst:742
+#: ../../../types/reference-types.rst:744
 msgid ""
 "It is not possible for a struct to contain a member of its own type, "
 "although the struct itself can be the value type of a mapping member or it "
@@ -2685,7 +2685,7 @@ msgid ""
 "necessary, as the size of the struct has to be finite."
 msgstr ""
 
-#: ../../../types/reference-types.rst:747
+#: ../../../types/reference-types.rst:749
 msgid ""
 "Note how in all the functions, a struct type is assigned to a local variable "
 "with data location ``storage``. This does not copy the struct but only "
@@ -2693,13 +2693,13 @@ msgid ""
 "actually write to the state."
 msgstr ""
 
-#: ../../../types/reference-types.rst:752
+#: ../../../types/reference-types.rst:754
 msgid ""
 "Of course, you can also directly access the members of the struct without "
 "assigning it to a local variable, as in ``campaigns[campaignID].amount = 0``."
 msgstr ""
 
-#: ../../../types/reference-types.rst:757
+#: ../../../types/reference-types.rst:759
 msgid ""
 "Until Solidity 0.7.0, memory-structs containing members of storage-only "
 "types (e.g. mappings) were allowed and assignments like "
@@ -3749,7 +3749,7 @@ msgid ""
 msgstr ""
 
 #: ../../../types.rst:1 ../../../types/conversion.rst:1
-#: ../../../types/reference-types.rst:1 ../../../types/reference-types.rst:670
+#: ../../../types/reference-types.rst:1 ../../../types/reference-types.rst:672
 #: ../../../types/value-types.rst:1 ../../../types/value-types.rst:388
 #: ../../../types/value-types.rst:754
 msgid "type"
@@ -3922,11 +3922,11 @@ msgstr ""
 #: ../../../types/reference-types.rst:252
 #: ../../../types/reference-types.rst:349
 #: ../../../types/reference-types.rst:492
-#: ../../../types/reference-types.rst:606
+#: ../../../types/reference-types.rst:608
 msgid "array"
 msgstr ""
 
-#: ../../../types/reference-types.rst:1 ../../../types/reference-types.rst:670
+#: ../../../types/reference-types.rst:1 ../../../types/reference-types.rst:672
 msgid "struct"
 msgstr ""
 
@@ -3970,7 +3970,7 @@ msgstr ""
 msgid "dangling storage references"
 msgstr ""
 
-#: ../../../types/reference-types.rst:606
+#: ../../../types/reference-types.rst:608
 msgid "slice"
 msgstr ""
 
