@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../bugs.rst:7
 msgid "List of Known Bugs"
-msgstr ""
+msgstr "已知臭蟲列表"
 
 #: ../../../bugs.rst:9
 msgid ""
