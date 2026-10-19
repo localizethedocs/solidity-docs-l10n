@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-10-05 18:24:57 +0200",
-      "hash" : "f5dccafd79b72a956dde9149394485ecd3075f26",
-      "title" : "Docs: Fix link to cvc5 (#17082)"
+      "date" : "2026-10-12 17:31:41 +0200",
+      "hash" : "9e7d2c26199eabb0414ffa1481d8d55660c31df2",
+      "title" : "Merge pull request #17113 from argotorg/ci-bump-xcode-16"
     }
   },
   "type" : "branch",
