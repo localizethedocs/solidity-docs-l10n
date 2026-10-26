@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 16:54+0000\n"
+"POT-Creation-Date: 2026-10-26 14:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,21 +145,21 @@ msgstr ""
 
 #: ../../../using-the-compiler.rst:81
 msgid ""
-"Either add ``--libraries \"file.sol:"
-"Math=0x1234567890123456789012345678901234567890 file.sol:"
-"Heap=0xabCD567890123456789012345678901234567890\"`` to your command to "
-"provide an address for each library (use commas or spaces as separators) or "
-"store the string in a file (one library per line) and run ``solc`` using ``--"
-"libraries fileName``."
+"Either add ``--libraries "
+"\"file.sol:Math=0x1234567890123456789012345678901234567890 "
+"file.sol:Heap=0xabCD567890123456789012345678901234567890\"`` to your command "
+"to provide an address for each library (use commas or spaces as separators) "
+"or store the string in a file (one library per line) and run ``solc`` using "
+"``--libraries fileName``."
 msgstr ""
 
 #: ../../../using-the-compiler.rst:84
 msgid ""
 "Starting Solidity 0.8.1 accepts ``=`` as separator between library and "
 "address, and ``:`` as a separator is deprecated. It will be removed in the "
-"future. Currently ``--libraries \"file.sol:"
-"Math:0x1234567890123456789012345678901234567890 file.sol:"
-"Heap:0xabCD567890123456789012345678901234567890\"`` will work too."
+"future. Currently ``--libraries "
+"\"file.sol:Math:0x1234567890123456789012345678901234567890 "
+"file.sol:Heap:0xabCD567890123456789012345678901234567890\"`` will work too."
 msgstr ""
 
 #: ../../../using-the-compiler.rst:88
@@ -250,156 +250,158 @@ msgid ""
 msgstr ""
 
 #: ../../../using-the-compiler.rst:145
-msgid "Target Options"
+msgid "EVM Versions"
 msgstr ""
 
 #: ../../../using-the-compiler.rst:147
 msgid ""
 "Below is a list of target EVM versions and the compiler-relevant changes "
 "introduced at each version. Backward compatibility is not guaranteed between "
-"each version."
-msgstr ""
-
-#: ../../../using-the-compiler.rst:150
-msgid "``homestead`` (*support deprecated*)"
-msgstr ""
-
-#: ../../../using-the-compiler.rst:151
-msgid "(oldest version)"
+"each version. See also the `Timeline of all Ethereum forks <https://"
+"ethereum.org/ethereum-forks/>`__ for more details. Note that the compiler "
+"introduces a new option only for forks that actually change the EVM."
 msgstr ""
 
 #: ../../../using-the-compiler.rst:152
-msgid "``tangerineWhistle`` (*support deprecated*)"
+msgid "``homestead`` (*support deprecated*)"
 msgstr ""
 
 #: ../../../using-the-compiler.rst:153
+msgid "(oldest version)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:154
+msgid "``tangerineWhistle`` (*support deprecated*)"
+msgstr ""
+
+#: ../../../using-the-compiler.rst:155
 msgid ""
 "Gas cost for access to other accounts increased, relevant for gas estimation "
 "and the optimizer."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:154
+#: ../../../using-the-compiler.rst:156
 msgid ""
 "All gas sent by default for external calls, previously a certain amount had "
 "to be retained."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:155
+#: ../../../using-the-compiler.rst:157
 msgid "``spuriousDragon`` (*support deprecated*)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:156
+#: ../../../using-the-compiler.rst:158
 msgid ""
 "Gas cost for the ``exp`` opcode increased, relevant for gas estimation and "
 "the optimizer."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:157
+#: ../../../using-the-compiler.rst:159
 msgid "``byzantium`` (*support deprecated*)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:158
+#: ../../../using-the-compiler.rst:160
 msgid ""
 "Opcodes ``returndatacopy``, ``returndatasize`` and ``staticcall`` are "
 "available in assembly."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:159
+#: ../../../using-the-compiler.rst:161
 msgid ""
 "The ``staticcall`` opcode is used when calling non-library view or pure "
 "functions, which prevents the functions from modifying state at the EVM "
 "level, i.e., even applies when you use invalid type conversions."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:160
+#: ../../../using-the-compiler.rst:162
 msgid "It is possible to access dynamic data returned from function calls."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:161
+#: ../../../using-the-compiler.rst:163
 msgid ""
 "``revert`` opcode introduced, which means that ``revert()`` will not waste "
 "gas."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:162
+#: ../../../using-the-compiler.rst:164
 msgid "``constantinople`` (*support deprecated*)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:163
+#: ../../../using-the-compiler.rst:165
 msgid ""
 "Opcodes ``create2``, ``extcodehash``, ``shl``, ``shr`` and ``sar`` are "
 "available in assembly."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:164
+#: ../../../using-the-compiler.rst:166
 msgid "Shifting operators use shifting opcodes and thus need less gas."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:165
+#: ../../../using-the-compiler.rst:167
 msgid "``petersburg`` (*support deprecated*)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:166
+#: ../../../using-the-compiler.rst:168
 msgid "The compiler behaves the same way as with constantinople."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:167
+#: ../../../using-the-compiler.rst:169
 msgid "``istanbul`` (*support deprecated*)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:168
+#: ../../../using-the-compiler.rst:170
 msgid "Opcodes ``chainid`` and ``selfbalance`` are available in assembly."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:169
+#: ../../../using-the-compiler.rst:171
 msgid "``berlin`` (*support deprecated*)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:170
+#: ../../../using-the-compiler.rst:172
 msgid ""
 "Gas costs for ``SLOAD``, ``*CALL``, ``BALANCE``, ``EXT*`` and "
 "``SELFDESTRUCT`` increased. The compiler assumes cold gas costs for such "
 "operations. This is relevant for gas estimation and the optimizer."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:173
+#: ../../../using-the-compiler.rst:175
 msgid "``london``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:174
+#: ../../../using-the-compiler.rst:176
 msgid ""
 "The block's base fee (`EIP-3198 <https://eips.ethereum.org/EIPS/eip-3198>`_ "
 "and `EIP-1559 <https://eips.ethereum.org/EIPS/eip-1559>`_) can be accessed "
 "via the global ``block.basefee`` or ``basefee()`` in inline assembly."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:175
+#: ../../../using-the-compiler.rst:177
 msgid "``paris``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:176
+#: ../../../using-the-compiler.rst:178
 msgid ""
 "Introduces ``prevrandao()`` and ``block.prevrandao``, and changes the "
 "semantics of the now deprecated ``block.difficulty``, disallowing "
-"``difficulty()`` in inline assembly (see `EIP-4399 <https://eips.ethereum."
-"org/EIPS/eip-4399>`_)."
+"``difficulty()`` in inline assembly (see `EIP-4399 <https://"
+"eips.ethereum.org/EIPS/eip-4399>`_)."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:177
+#: ../../../using-the-compiler.rst:179
 msgid "``shanghai``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:178
+#: ../../../using-the-compiler.rst:180
 msgid ""
 "Smaller code size and gas savings due to the introduction of ``push0`` (see "
 "`EIP-3855 <https://eips.ethereum.org/EIPS/eip-3855>`_)."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:179
+#: ../../../using-the-compiler.rst:181
 msgid "``cancun``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:180
+#: ../../../using-the-compiler.rst:182
 msgid ""
 "The block's blob base fee (`EIP-7516 <https://eips.ethereum.org/EIPS/"
 "eip-7516>`_ and `EIP-4844 <https://eips.ethereum.org/EIPS/eip-4844>`_) can "
@@ -407,55 +409,55 @@ msgid ""
 "inline assembly."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:181
+#: ../../../using-the-compiler.rst:183
 msgid ""
 "Introduces ``blobhash()`` in inline assembly and a corresponding global "
 "function to retrieve versioned hashes of blobs associated with the "
 "transaction (see `EIP-4844 <https://eips.ethereum.org/EIPS/eip-4844>`_)."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:182
+#: ../../../using-the-compiler.rst:184
 msgid ""
-"Opcode ``mcopy`` is available in assembly (see `EIP-5656 <https://eips."
-"ethereum.org/EIPS/eip-5656>`_)."
+"Opcode ``mcopy`` is available in assembly (see `EIP-5656 <https://"
+"eips.ethereum.org/EIPS/eip-5656>`_)."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:183
+#: ../../../using-the-compiler.rst:185
 msgid ""
 "Opcodes ``tstore`` and ``tload`` are available in assembly (see `EIP-1153 "
 "<https://eips.ethereum.org/EIPS/eip-1153>`_)."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:184
+#: ../../../using-the-compiler.rst:186
 msgid "``prague``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:185
+#: ../../../using-the-compiler.rst:187
 msgid "``osaka`` (**default**)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:186
+#: ../../../using-the-compiler.rst:188
 msgid ""
 "``clz`` builtin function is available in inline assembly. (`EIP-7939 "
 "<https://eips.ethereum.org/EIPS/eip-7939>`_)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:187
+#: ../../../using-the-compiler.rst:189
 msgid "``amsterdam`` (**experimental**)"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:188
+#: ../../../using-the-compiler.rst:190
 msgid ""
 "The beacon chain slot number (`EIP-7843 <https://eips.ethereum.org/EIPS/"
 "eip-7843>`_) can be accessed via the global ``block.slotnum`` or "
 "``slotnum()`` in inline assembly."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:194
+#: ../../../using-the-compiler.rst:196
 msgid "Compiler Input and Output JSON Description"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:196
+#: ../../../using-the-compiler.rst:198
 msgid ""
 "The recommended way to interface with the Solidity compiler especially for "
 "more complex and automated setups is the so-called JSON-input-output "
@@ -463,13 +465,13 @@ msgid ""
 "compiler."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:200
+#: ../../../using-the-compiler.rst:202
 msgid ""
 "The fields are generally subject to change, some are optional (as noted), "
 "but we try to only make backwards compatible changes."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:203
+#: ../../../using-the-compiler.rst:205
 msgid ""
 "The compiler API expects a JSON formatted input and outputs the compilation "
 "result in a JSON formatted output. The standard error output is not used and "
@@ -477,17 +479,17 @@ msgid ""
 "errors. Errors are always reported as part of the JSON output."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:207
+#: ../../../using-the-compiler.rst:209
 msgid ""
 "The following subsections describe the format through an example. Comments "
 "are of course not permitted and used here only for explanatory purposes."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:211
+#: ../../../using-the-compiler.rst:213
 msgid "Input Description"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:213
+#: ../../../using-the-compiler.rst:215
 msgid ""
 "{\n"
 "  // Required: Source code language. Currently supported are \"Solidity\", "
@@ -744,8 +746,8 @@ msgid ""
 "id`; selecting\n"
 "      //   `ethdebug` without `ast-id` is an error. Requesting an ethdebug "
 "output does not\n"
-"      //   change this selection; without `ethdebug` in it the `evm.bytecode."
-"ethdebug` and\n"
+"      //   change this selection; without `ethdebug` in it the "
+"`evm.bytecode.ethdebug` and\n"
 "      //   `evm.deployedBytecode.ethdebug` outputs carry none of the "
 "semantic debug info\n"
 "      //   this component adds.\n"
@@ -798,8 +800,8 @@ msgid ""
 "    // To select all outputs the compiler can possibly generate, with the "
 "exclusion of\n"
 "    // Yul intermediate representation outputs, use\n"
-"    // \"outputSelection: { \"*\": { \"*\": [ \"*\" ], \"\": "
-"[ \"*\" ] } }\"\n"
+"    // \"outputSelection: { \"*\": { \"*\": [ \"*\" ], \"\": [ \"*\" ] } }"
+"\"\n"
 "    // but note that this might slow down the compilation process "
 "needlessly.\n"
 "    //\n"
@@ -939,11 +941,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:545
+#: ../../../using-the-compiler.rst:547
 msgid "Output Description"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:547
+#: ../../../using-the-compiler.rst:549
 msgid ""
 "{\n"
 "  // Optional: not present if no errors/warnings/infos were encountered\n"
@@ -1128,103 +1130,103 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:714
+#: ../../../using-the-compiler.rst:716
 msgid "Error Types"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:716
+#: ../../../using-the-compiler.rst:718
 msgid ""
 "``JSONError``: JSON input doesn't conform to the required format, e.g. input "
 "is not a JSON object, the language is not supported, etc."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:717
+#: ../../../using-the-compiler.rst:719
 msgid ""
 "``IOError``: IO and import processing errors, such as unresolvable URL or "
 "hash mismatch in supplied sources."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:718
+#: ../../../using-the-compiler.rst:720
 msgid "``ParserError``: Source code doesn't conform to the language rules."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:719
+#: ../../../using-the-compiler.rst:721
 msgid ""
 "``DocstringParsingError``: The NatSpec tags in the comment block cannot be "
 "parsed."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:720
+#: ../../../using-the-compiler.rst:722
 msgid ""
 "``SyntaxError``: Syntactical error, such as ``continue`` is used outside of "
 "a ``for`` loop."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:721
+#: ../../../using-the-compiler.rst:723
 msgid ""
-"``DeclarationError``: Invalid, unresolvable or clashing identifier names. e."
-"g. ``Identifier not found``"
+"``DeclarationError``: Invalid, unresolvable or clashing identifier names. "
+"e.g. ``Identifier not found``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:722
+#: ../../../using-the-compiler.rst:724
 msgid ""
 "``TypeError``: Error within the type system, such as invalid type "
 "conversions, invalid assignments, etc."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:723
+#: ../../../using-the-compiler.rst:725
 msgid ""
 "``UnimplementedFeatureError``: Feature is not supported by the compiler, but "
 "is expected to be supported in future versions."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:724
+#: ../../../using-the-compiler.rst:726
 msgid ""
 "``InternalCompilerError``: Internal bug triggered in the compiler - this "
 "should be reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:725
+#: ../../../using-the-compiler.rst:727
 msgid ""
 "``Exception``: Unknown failure during compilation - this should be reported "
 "as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:726
+#: ../../../using-the-compiler.rst:728
 msgid ""
 "``CompilerError``: Invalid use of the compiler stack - this should be "
 "reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:727
+#: ../../../using-the-compiler.rst:729
 msgid ""
 "``FatalError``: Fatal error not processed correctly - this should be "
 "reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:728
+#: ../../../using-the-compiler.rst:730
 msgid ""
 "``YulException``: Error during Yul code generation - this should be reported "
 "as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:729
+#: ../../../using-the-compiler.rst:731
 msgid ""
 "``Warning``: A warning, which didn't stop the compilation, but should be "
 "addressed if possible."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:730
+#: ../../../using-the-compiler.rst:732
 msgid ""
 "``Info``: Information that the compiler thinks the user might find useful, "
 "but is not dangerous and does not necessarily need to be addressed."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:736
+#: ../../../using-the-compiler.rst:738
 msgid "Experimental Mode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:738
+#: ../../../using-the-compiler.rst:740
 msgid ""
 "Some language and compiler features included in stable releases are not "
 "themselves considered stable. They are sparsely documented, if at all, often "
@@ -1236,33 +1238,33 @@ msgid ""
 "be only accessed by enabling the experimental mode."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:744
+#: ../../../using-the-compiler.rst:746
 msgid ""
 "There are no backwards compatibility guarantees for experimental features. "
 "They are subject to change in breaking ways in non-breaking releases of the "
 "compiler. Only major changes affecting them are recorded in the changelog."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:748
+#: ../../../using-the-compiler.rst:750
 msgid ""
 "To enable the experimental mode, use the ``--experimental`` flag on the "
 "command line, or the analogous ``settings.experimental`` boolean setting in "
 "the Standard JSON input."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:751
+#: ../../../using-the-compiler.rst:753
 msgid "Note that the use of this mode is recorded in the metadata:"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:753
+#: ../../../using-the-compiler.rst:755
 msgid "``experimental`` flag in CBOR metadata is set to ``true``,"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:754
+#: ../../../using-the-compiler.rst:756
 msgid "``settings.experimental`` in JSON metadata is set to ``true``,"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:757
+#: ../../../using-the-compiler.rst:759
 msgid ""
 "Prior to version 0.8.35, most of the experimental features were usable "
 "without any extra safeguards. Some were gated behind ``pragma "
@@ -1273,106 +1275,106 @@ msgid ""
 "ready."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:762
+#: ../../../using-the-compiler.rst:764
 msgid "The table below details all currently available experimental features."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:767
 msgid "Feature"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:767
 msgid "ID"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:767
 msgid "Affects bytecode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:765
+#: ../../../using-the-compiler.rst:767
 msgid "Flag/pragma"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:769
 msgid "AST import"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:769
 msgid "``ast-import``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767 ../../../using-the-compiler.rst:769
-#: ../../../using-the-compiler.rst:773 ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:769 ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:775 ../../../using-the-compiler.rst:779
 msgid "yes"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:769
 msgid "``--import-ast``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:771
 msgid "EVM Assembly import"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:771
 msgid "``evmasm-import``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:771
 msgid "``--import-asm-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:773
 msgid "IR AST"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:773
 msgid "``ir-ast``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771 ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:773 ../../../using-the-compiler.rst:777
 msgid "no"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:773
 msgid "``--ir-ast-json``, ``--ir-optimized-ast-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:775
 msgid "Non-mainnet EVMs"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:775
 msgid "``evm``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:775
 msgid "``--evm-version <version name>``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:777
 msgid "Ethdebug"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:777
 msgid "``ethdebug``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:777
 msgid ""
 "``--ethdebug-resources``, ``--ethdebug-compilation``, ``--ethdebug-"
 "program``, ``--ethdebug-program-runtime``, ``--debug-info ethdebug``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:779
 msgid "SSA CFG"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:779
 msgid "``ssa-cfg``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:779
 msgid "``--via-ssa-cfg``"
 msgstr ""
 
@@ -1428,7 +1430,7 @@ msgstr ""
 msgid "--libraries"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:86 ../../../using-the-compiler.rst:190
+#: ../../../using-the-compiler.rst:86 ../../../using-the-compiler.rst:192
 msgid "--standard-json"
 msgstr ""
 
@@ -1440,14 +1442,14 @@ msgstr ""
 msgid "compile target"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:190
+#: ../../../using-the-compiler.rst:192
 msgid "standard JSON"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:732
+#: ../../../using-the-compiler.rst:734
 msgid "Experimental mode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:732
+#: ../../../using-the-compiler.rst:734
 msgid "--experimental"
 msgstr ""

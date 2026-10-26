@@ -1,0 +1,1141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016-2025, The Solidity Authors
+# This file is distributed under the same license as the Solidity package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Solidity latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-26 14:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:5
+msgid "ethdebug Internal Debug Info"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:9
+msgid ""
+"ethdebug support and the interchange format described here are experimental. "
+"They may change before ethdebug output is stabilized."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:14
+msgid ""
+"This page is an initial draft and is deliberately kept out of the "
+"documentation TOC. It still mixes user-facing material with compiler "
+"internals; the two will later be split into separate documents."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:17
+msgid ""
+"The compiler emits public debug info using the `ethdebug format <https://"
+"github.com/ethdebug/format>`_. This page describes the internal debug info "
+"passed from the Solidity frontend through Yul before the public resources "
+"and contexts are emitted. At a textual compiler boundary, the debug info is "
+"a JSON sidecar paired with the Yul source."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:23
+msgid "Terminology"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:25
+msgid ""
+"Several established terms are ambiguous in this context, so this page pairs "
+"each with a more specific replacement."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:27
+msgid ""
+"*Metadata* elsewhere means the contract metadata embedded in bytecode. Data "
+"intended for debuggers is therefore called *debug info* on this page, never "
+"metadata."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:29
+msgid ""
+"*Location* elsewhere names both positions in source text and the data "
+"locations of the Solidity language such as storage, memory, and calldata. "
+"This page uses *source range* for bytes in Solidity or Yul source text and a "
+"pointer's *region location* for EVM data in stack, storage, transient "
+"storage, memory, calldata, returndata, or code; the two are unrelated."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:31
+msgid ""
+"*Pointer* elsewhere often means a Solidity storage or memory reference. "
+"Unless qualified that way, *pointer* on this page means an `ethdebug pointer "
+"<https://github.com/ethdebug/format/blob/main/schemas/pointer.schema.yaml>`_."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:34
+msgid ""
+"Fields introduced by this format follow these terms, for example "
+"``declarationSourceRange``. Existing compiler structures keep their "
+"established names, for example ``SourceLocation`` and the ``nativeLocation`` "
+"and ``originLocation`` fields of ``DebugData``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:39
+msgid ""
+"The first implementation stage is intentionally narrower than the format "
+"specified here. It will leave variable updates empty, emit public variable "
+"contexts only for storage-backed variables, and not yet cover immutable, "
+"constant, or other variables whose materialized representation is not "
+"storage-backed. Yul optimization with ethdebug is also deferred. These are "
+"implementation staging limits, not sidecar-format constraints."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:45
+msgid "Design Requirements"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:47
+msgid "The sidecar is designed so that:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:49
+msgid ""
+"A two-stage Solidity-to-Yul and Yul-to-bytecode compilation can produce the "
+"same bytecode and debug info as a one-stage compilation."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:50
+msgid ""
+"A language frontend that targets Yul can supply semantic debug info "
+"independently of Solidity frontend objects."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:51
+msgid ""
+"Source-language declaration identity and generated-Yul instance identity "
+"remain separate."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:52
+msgid ""
+"Pointer region locations and variable phases describe EVM machine state and "
+"remain language-independent."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:54
+msgid ""
+"The Yul text carries ``@ast-id`` comments that identify source-language "
+"origins. The sidecar carries the semantic records associated with those "
+"origins. Both artifacts are required at a compiler-to-compiler text boundary."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:59
+msgid "Pipeline"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:61
+msgid "The Solidity pipeline is designed to perform the following steps:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:63
+msgid ""
+"Solidity parsing assigns AST IDs, and analysis populates the existing type "
+"annotations on declarations."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:64
+msgid ""
+"When ethdebug debug info is requested, the frontend builds type and pointer "
+"resources and semantic records from type annotations, storage layout, and "
+"the ``IRVariable`` naming rules. This step uses analysis results and does "
+"not require IR or bytecode generation, so ``ethdebug.resources`` remains "
+"available after analysis."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:66
+msgid "IR generation emits Yul and, when requested, ``@ast-id`` comments."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:67
+msgid ""
+"``CompilerStack`` attaches the table after parsing generated Yul into a "
+"``YulStack``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:68
+msgid ""
+"``YulStack`` carries semantic records on Yul ``DebugData`` objects and "
+"retains unattached records in its side table."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:69
+msgid ""
+"When Yul is reparsed, the stack collects attached records into the table and "
+"reattaches them after parsing the printed Yul."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:70
+msgid ""
+"The output layer builds public type and pointer resources and program "
+"contexts from the table."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:73
+msgid "Debug-Info Dependency"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:75
+msgid ""
+"Semantic debug-info transfer depends on ``@ast-id`` comments. Accordingly, "
+"``ethdebug`` depends on the ``ast-id`` ``--debug-info`` component. CLI and "
+"Standard JSON input reject a debug-info selection containing ``ethdebug`` "
+"without ``ast-id``. Selecting an ethdebug output does not modify the debug-"
+"info selection, just as ``--ir-optimized`` does not imply ``--optimize``. "
+"Without ``ethdebug`` in the selection the program outputs are still produced "
+"from the assembly, but carry none of the semantic debug info the component "
+"adds; the resources and compilation outputs do not depend on it."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:82
+msgid "Core Structures"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:86
+msgid ""
+"Of the types named below, only ``langutil::DebugData`` exists in the "
+"compiler today. The ``SemanticDebugScope`` family and the "
+"``semanticDebugScope`` field on ``DebugData`` are planned additions and will "
+"arrive with the implementation pull requests."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:89
+msgid ""
+"``langutil::DebugData`` is the debug payload carried by Yul AST nodes. The "
+"sidecar envelope and variable records are compiler-specific. Type documents "
+"and pointer documents follow the public `type <https://github.com/ethdebug/"
+"format/blob/main/schemas/type.schema.yaml>`_ and `pointer <https://"
+"github.com/ethdebug/format/blob/main/schemas/pointer.schema.yaml>`_ schemas, "
+"with one internal pointer expression for unresolved Yul locals."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:93
+msgid "``DebugData`` fields relevant to ethdebug"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:97
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:125
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:142
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:268
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:377
+msgid "Field"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:98
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:126
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:143
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:269
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:378
+msgid "Type"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:99
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:127
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:144
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:205
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:270
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:379
+msgid "Meaning"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:100
+msgid "``nativeLocation``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:101
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:104
+msgid "``SourceLocation``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:102
+msgid "Source range in the current Yul text."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:103
+msgid "``originLocation``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:105
+msgid "Source range in the source language."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:106
+msgid "``astID``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:107
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:150
+msgid "optional signed 64-bit integer"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:108
+msgid "Source-language AST origin copied from ``@ast-id``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:109
+msgid "``semanticDebugScope``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:110
+msgid "optional ``SemanticDebugScope`` pointer"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:111
+msgid "Semantic variable payload attached to this Yul node."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:113
+msgid ""
+"``langutil::SemanticDebugScope`` describes the source node represented by an "
+"attached Yul node. On a node that introduces a source scope it defines the "
+"scope's variables; on a finer-grained node it carries only variable updates. "
+"The AST ID of the table entry identifies that source node. Variables are "
+"recorded at their defining scope rather than at each use because a debugger "
+"needs every binding visible at a program point, including variables that the "
+"corresponding expression does not read. The set of bindings visible at a "
+"program point follows from the chain of enclosing scope records, so nested "
+"scopes do not duplicate enclosing variables. Use sites are also unstable "
+"under inlining, common-subexpression elimination, and dead-code removal. The "
+"scope record therefore carries declaration identity, type, and initial "
+"recovery information once; ``variableUpdates`` supplies sparse, statement-"
+"level changes only when a variable's phase or pointer changes within that "
+"scope."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:121
+msgid "``SemanticDebugScope``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:128
+msgid "``variableDefinitions``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:129
+msgid "array of ``SemanticDebugVariable``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:130
+msgid ""
+"Bindings introduced by the scope, in source order. A variable appears in "
+"exactly one scope record; nested records do not repeat enclosing bindings."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:132
+msgid "``variableUpdates``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:133
+msgid "array of ``SemanticDebugVariableUpdate``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:134
+msgid ""
+"Phase or pointer changes taking effect at the attached node - see Variable "
+"Updates."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:136
+msgid ""
+"``SemanticDebugVariable`` stores a source binding together with its type, "
+"recovery phase, and pointer when materialized."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:138
+msgid "``SemanticDebugVariable``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:145
+msgid "``identifier``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:146
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:157
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:387
+msgid "optional string"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:147
+msgid ""
+"Source-language identifier. It is absent for unnamed variables such as "
+"unnamed Solidity return parameters."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:149
+msgid "``declarationASTID``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:151
+msgid ""
+"Identity of the source-language declaration. Synthetic bindings may omit it."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:153
+msgid "``declarationSourceRange``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:154
+msgid "optional ``SourceLocation``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:155
+msgid "Source range of the declaration."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:156
+msgid "``typeID``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:158
+msgid ""
+"Key of the variable's document in ``ethdebug.resources.types``. The sidecar "
+"carries the same table in its top-level ``resources`` object."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:160
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:274
+msgid "``phase``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:161
+msgid "``SemanticDebugVariablePhase``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:162
+msgid ""
+"Whether the value is materialized, computable, or unavailable - see Variable "
+"Phases and Pointers."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:163
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:278
+msgid "``pointer``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:164
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:279
+msgid "optional ``SemanticDebugPointer``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:165
+msgid "Pointer expression resolving a materialized value."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:167
+msgid ""
+"Field names are identical in the JSON form and the compiler structures. "
+"Every AST ID field accepts values from ``-2**63`` through ``2**63 - 1``, "
+"matching ``int64_t``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:170
+msgid ""
+"Pointers for persistent and transient state-variable declarations are "
+"derived from the storage layout after analysis. They contain literal slots "
+"and offsets or expressions over template parameters such as mapping keys. "
+"Producing the public type and pointer resource tables therefore does not "
+"require code generation."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:174
+msgid ""
+"Local storage references are different: their base slot is a runtime value. "
+"For example, after ``uint[] storage ref = condition ? a : b``, the pointer "
+"for ``ref`` starts at the generated Yul local holding the selected slot "
+"rather than at a statically known slot. Stack values, memory references, and "
+"such storage references can use the internal ``$$yulLocal`` expression "
+"described below until Yul-to-EVM code generation assigns their concrete "
+"representation. The expression must be resolved or removed before public "
+"emission."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:180
+msgid "Scope Attachment"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:182
+msgid ""
+"Semantic scope data belongs to the Yul node that introduces the "
+"corresponding scope."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:184
+msgid ""
+"Function and modifier records attach to the generated Yul "
+"``FunctionDefinition``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:185
+msgid ""
+"A source block lowered to a distinct Yul block attaches to that ``Block``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:186
+msgid ""
+"A conditional, loop clause, or catch clause that introduces a source scope "
+"attaches its payload to the generated block representing that scope."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:187
+msgid ""
+"Variables visible at contract and file level are collected in the record "
+"attached to the generated object's top-level Yul ``Block``. They do not "
+"remain side-table-only merely because their declarations have no distinct "
+"Yul node."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:190
+msgid ""
+"Every Yul AST node kind carries ``DebugData``, including names in parameter "
+"and return lists, so a scope payload can attach to any node. The producer is "
+"responsible for selecting the node that semantically owns a scope. The side "
+"table retains records while they are detached during parsing or "
+"transformation and any record for which no surviving attachment exists."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:195
+msgid "Variable Phases and Pointers"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:197
+msgid ""
+"``SemanticDebugVariablePhase`` describes whether a value can be recovered at "
+"a program point. It does not duplicate the physical location already present "
+"in an ethdebug pointer."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:200
+msgid "Variable phases"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:204
+msgid "Phase"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:206
+msgid "``materialized``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:207
+msgid "The value has a concrete representation described by ``pointer``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:208
+msgid "``computed``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:209
+msgid ""
+"The value has no region because the program recomputes it where it is used. "
+"The format carries no recovery recipe, so a debugger reports the value as "
+"unavailable; the phase records that recomputation would be possible in "
+"principle, unlike ``optimized-out``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:211
+msgid "``optimized-out``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:212
+msgid "No recoverable representation is available at this program point."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:216
+msgid ""
+"Describing computed values with value expressions, similar to DWARF "
+"expression locations, would require an ethdebug schema extension: pointers "
+"currently describe regions of EVM data and cannot yield a value directly."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:218
+msgid ""
+"A materialized variable has a pointer; a computed or optimized-out variable "
+"does not. For a materialized value, the pointer schema's ``location`` field "
+"says whether each region is on the stack or in storage, transient storage, "
+"memory, calldata, returndata, or code. Solidity immutables use a memory "
+"pointer while creation code initializes them and a code pointer when read "
+"from deployed code. A constant folded to an immediate may be described by "
+"code bytes, while a constant expression that must execute has the "
+"``computed`` phase."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:223
+msgid ""
+"``SemanticDebugPointer`` serializes to an `ethdebug pointer`_ document. "
+"Regions, groups, lists, conditionals, scopes, and template references use "
+"the corresponding structural forms from that schema. The pointer schema's "
+"``define``/``in`` form binds intermediate expressions used by the pointer "
+"itself, for example an array length or the start of its data. If one such "
+"binding depends on another, the producer nests ``define``/``in`` objects in "
+"dependency order. These expression bindings are unrelated to Yul lexical "
+"scopes and to ``SemanticDebugScope`` records. A root pointer with externally "
+"bound parameters, such as mapping keys, uses the schema's template form "
+"``{\"expect\": [...], \"for\": ...}``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:230
+msgid ""
+"Expressions use the `ethdebug pointer-expression grammar <https://"
+"ethdebug.github.io/format/docs/core-schemas/pointers/expressions/>`_. "
+"Literals are non-negative JSON numbers or ``0x``-prefixed strings; bound "
+"variables are identifier strings. The remaining forms are ``\"$wordsize\"`` "
+"and the schema's single-key objects for lookups, reads, arithmetic, hashing, "
+"concatenation, and resizing."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:234
+msgid ""
+"Expressions internal to the compiler use a ``$$`` prefix, which cannot clash "
+"with the schema's own ``$`` forms. The internal expression ``{\"$"
+"$yulLocal\": ...}`` names a generated Yul local whose stack depth has not "
+"yet been assigned. It has no public schema form and must be resolved or "
+"removed before emission; emission rejects any expression still carrying the "
+"``$$`` prefix."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:238
+msgid ""
+"Reusable pointers are published as resource templates. The sidecar carries "
+"them in the ``pointers`` table of its ``resources`` object, keyed by "
+"producer-defined name identifier and mirroring `ethdebug.resources.pointers "
+"<https://github.com/ethdebug/format/blob/main/schemas/info/"
+"resources.schema.yaml>`_. A variable whose location is described by a "
+"template carries the pointer schema's ``template`` reference to the table "
+"entry, so pointer templates are referenced the same way as types. Both "
+"resource tables are derived from analysis results; producing them does not "
+"wait for Yul-to-EVM code generation. Public emission copies the tables into "
+"``ethdebug.resources`` unchanged. A closed template can also be instantiated "
+"in a program context; a template with external parameters, such as mapping "
+"keys, remains a resource until the consumer supplies those parameters. A "
+"``template`` reference must resolve against a `local templates block "
+"<https://ethdebug.github.io/format/spec/pointer/collection/templates>`_ in "
+"the same pointer document or against the sidecar's ``resources.pointers`` "
+"table; deserialization rejects a reference to any other name."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:247
+msgid "Phase Changes"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:249
+msgid ""
+"After attachment or reparse, the producer checks all free Yul variable names "
+"used by a pointer. If any required name is absent from the current Yul "
+"object, the phase becomes ``optimized-out`` and the pointer is removed. The "
+"check excludes names bound by pointer ``define`` objects, list indices, and "
+"template parameters."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:253
+msgid ""
+"Transformations that preserve a value must rewrite its pointer expressions "
+"to the new Yul names or machine regions. Transformations that clone or "
+"specialize code must clone the scope-instance debug info as well. If a pass "
+"cannot describe a surviving value soundly, it must use ``optimized-out`` "
+"rather than retain a stale pointer."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:258
+msgid "Variable Updates"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:260
+msgid ""
+"A single per-scope phase and pointer cannot describe a value throughout its "
+"lifetime. ``SSATransform`` gives one source variable a different generated "
+"name at each assignment, while ``Rematerialiser`` replaces a materialized "
+"value with recomputation at individual uses. For these, an entry carries "
+"``variableUpdates`` - the analogue of an ``llvm.dbg.value`` intrinsic:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:264
+msgid "``SemanticDebugVariableUpdate`` fields"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:271
+msgid "``variableASTID``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:272
+msgid "signed 64-bit integer"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:273
+msgid "Declaration AST ID of the variable being updated."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:275
+msgid "optional ``SemanticDebugVariablePhase``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:276
+msgid ""
+"Replacement phase valid from the carrying node onward. It is omitted when "
+"only the pointer changes."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:280
+msgid ""
+"Replacement pointer for a materialized value. A change to ``computed`` or "
+"``optimized-out`` clears the previous pointer."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:283
+msgid ""
+"An update takes effect at the Yul node its payload is attached to and holds "
+"until the next update for the same variable within the scope, or the scope's "
+"end. Scope records define variables; statement-level records update them. A "
+"``Drop`` changes the phase to ``optimized-out``. Only passes whose effect "
+"the scope's initial phase and pointer cannot express need to produce updates."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:288
+msgid ""
+"Deleting a Yul node that carries updates does not merely lose detail: the "
+"variable's previous binding would incorrectly appear current for the rest of "
+"the scope. A pass that removes such a node must reattach the updates to the "
+"node that takes its place or emit a ``Drop`` update for the affected "
+"variables at that program point."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:291
+msgid ""
+"Most optimizer changes are pointer rewrites or phase changes rather than "
+"physical relocation. An SSA rename keeps the value ``materialized`` but "
+"changes the Yul local named by its pointer; rematerialization changes the "
+"phase to ``computed``. ``StackToMemoryMover``, including its use by "
+"``StackLimitEvader``, is an actual pointer-region change: its pointer "
+"changes from stack to memory while its phase remains ``materialized``. By "
+"contrast, ``LoadResolver`` creates or reuses a stack copy of a loaded value "
+"but does not move the source variable out of storage, so the source "
+"variable's storage pointer does not change."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:297
+msgid "Optimizer Update Rules"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:299
+msgid ""
+"Every transformation that rewrites Yul with ethdebug enabled must declare "
+"how it maintains the semantic side table. The pass itself must determine "
+"whether a value survived unchanged, moved, merged with another value, became "
+"computable, or disappeared; a generic pass driver cannot infer that "
+"reliably. A pass with no declared strategy is treated as ``Drop``, so an "
+"undeclared pass degrades debug info instead of producing stale pointers."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:303
+msgid "Debug-info update strategies"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:307
+msgid "Strategy"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:308
+msgid "Obligation"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:309
+msgid "Passes"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:310
+msgid "``Preserve``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:311
+msgid ""
+"Copy the debug entry unchanged. Valid only when the pass changes neither the "
+"phase nor the names or regions read by a pointer."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:313
+msgid ""
+"``ForLoopInitRewriter``, ``ForLoopConditionIntoBody``, "
+"``ForLoopConditionOutOfBody``, ``VarDeclInitializer``, ``FunctionHoister``, "
+"``FunctionGrouper``, ``ConditionalUnsimplifier``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:314
+msgid "``Merge``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:315
+msgid ""
+"Keep the surviving value's entry when two values or two blocks collapse into "
+"one. Record the discarded declarations against the same program point so "
+"both source names remain inspectable."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:317
+msgid ""
+"``CommonSubexpressionEliminator``, ``ExpressionJoiner``, "
+"``ExpressionSimplifier``, ``ControlFlowSimplifier``, "
+"``StructuralSimplifier``, ``BlockFlattener``, "
+"``EquivalentFunctionCombiner``, ``LoadResolver``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:318
+msgid "``Remap``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:319
+msgid ""
+"Rewrite the pointer when the pass renames or physically moves a materialized "
+"value. Renaming passes rewrite the Yul names a pointer reads; because a "
+"statically addressed pointer holds no Yul name, renaming cannot affect it. "
+"Spilling passes move where the value is found, so the pointer changes from a "
+"stack to a memory region; the data itself is not relocated by the debug info."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:322
+msgid ""
+"``Disambiguator``, ``NameSimplifier``, ``VarNameCleaner``, ``SSATransform``, "
+"``SSAReverser``, ``ExpressionSplitter``, ``LoopInvariantCodeMotion``, "
+"``StackToMemoryMover``, ``StackCompressor``, ``StackLimitEvader``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:323
+msgid "``Recompute``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:324
+msgid ""
+"Change the phase to ``computed`` from the affected program point and remove "
+"the stale materialized pointer."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:325
+msgid "``LiteralRematerialiser``, ``Rematerialiser``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:326
+msgid "``Clone``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:327
+msgid ""
+"Duplicate the debug entry for each generated copy and give each copy its own "
+"instance discriminator. Without the instance discriminator the copies "
+"overwrite each other in the table."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:329
+msgid "``FullInliner``, ``FunctionSpecializer``, ``ExpressionInliner``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:330
+msgid "``Drop``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:331
+msgid ""
+"Set the phase to ``optimized-out`` and remove the pointer. The declaration, "
+"type, and source range are retained so the variable is still reported as "
+"belonging to the scope."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:333
+msgid ""
+"``DeadCodeEliminator``, ``UnusedPruner``, ``UnusedAssignEliminator``, "
+"``UnusedStoreEliminator``, ``EqualStoreEliminator``, "
+"``CircularReferencesPruner``, ``UnusedFunctionParameterPruner``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:335
+msgid ""
+"``SSATransform`` and ``Rematerialiser`` cannot be expressed as whole-scope "
+"updates, because the pointer or phase changes between program points. They "
+"must emit variable updates instead - see `Variable Updates`_. Substituting a "
+"variable use by its defining expression can leave the variable itself unused "
+"and later pruned. The value is then still recoverable by evaluating that "
+"expression, so its phase becomes ``computed`` rather than ``optimized-out``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:340
+msgid ""
+"A pass that cannot meet its obligation for a particular value falls back to "
+"``Drop`` for that value alone, not for the whole scope. Marking a value "
+"unavailable is always sound, while keeping a pointer that no longer "
+"describes the value is not."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:344
+msgid "Identity and Optimizer Cloning"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:346
+msgid ""
+"``astID`` records the source-language origin. Specialization and cloning can "
+"produce several Yul scopes with the same origin but different variable "
+"phases or pointers."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:349
+msgid "The table therefore uses ``(astID, instance)`` as its key:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:351
+msgid ""
+"``astID`` is a signed 64-bit integer that identifies the source-language "
+"node and is preserved by ``@ast-id``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:352
+msgid ""
+"``instance`` is a signed 64-bit integer in the range ``0`` through ``2**63 - "
+"1`` that distinguishes generated Yul scope instances sharing the same source "
+"origin. It defaults to ``0``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:355
+msgid ""
+"An entry that has not been cloned uses instance ``0``. In Yul text, the "
+"instance is carried by a dedicated ``@ast-id-instance`` annotation emitted "
+"next to ``@ast-id`` and present only when the instance is not ``0``. The "
+"``@ast-id`` annotation itself is unchanged, so uncloned code keeps its "
+"current form and existing consumers are unaffected. An ``@ast-id-instance`` "
+"annotation without an accompanying ``@ast-id`` on the same node is malformed "
+"and is ignored. Optimizer passes that clone or specialize functions assign "
+"fresh instance values and emit the annotation on each clone."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:362
+msgid "Serialization"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:364
+msgid ""
+"One shared component provides both serialization and deserialization, so the "
+"writer and the reader cannot drift apart. Serialization includes the "
+"resource tables, pointer expressions, variable updates, and scope records "
+"that have no Yul attachment. All integer fields are native JSON numbers; the "
+"reader decodes the full 64-bit ranges exactly. String-encoded numbers occur "
+"only inside pointer expressions, where the ethdebug expression grammar "
+"governs them. Declaration and type-definition ranges use the ethdebug "
+"`source range <https://github.com/ethdebug/format/blob/main/schemas/"
+"materials/source-range.schema.yaml>`_ shape. Source IDs are opaque to the "
+"Yul stage. The producer uses the same source IDs in the sidecar as in the "
+"accompanying ``ethdebug.compilation`` record, and the Yul stage transports "
+"them unchanged. Each source record in ``ethdebug.compilation`` maps its ID "
+"to the source path and contents, so a path is not used as an ID."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:373
+msgid "Top-level JSON object"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:380
+msgid "``format``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:381
+msgid "string"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:382
+msgid "``solidity-ethdebug-semantic-data``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:383
+msgid "``version``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:384
+msgid "unsigned 32-bit integer"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:385
+msgid "Format version in the range ``0`` to ``2**32 - 1``, currently ``1``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:386
+msgid "``contractName``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:388
+msgid ""
+"Source-language contract name used by the public ethdebug program object "
+"when the generated Yul object has a different name."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:389
+msgid "``resources``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:390
+msgid "optional object"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:391
+msgid ""
+"The ``types`` and ``pointers`` members of the `ethdebug resource tables "
+"<https://github.com/ethdebug/format/blob/main/schemas/info/"
+"resources.schema.yaml>`_, keyed by producer-defined IDs. Variables refer to "
+"type entries through ``typeID`` and to pointer templates through "
+"``template`` references. Public emission copies both tables into "
+"``ethdebug.resources``."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:394
+msgid "``scopes``"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:395
+msgid "object"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:396
+msgid ""
+"Two-level map from the decimal string form of ``astID`` to the decimal "
+"string form of ``instance`` to a ``SemanticDebugScope``. Instance ``0`` is "
+"written explicitly."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:399
+msgid ""
+"Readers reject an unknown format, an unsupported version, malformed sidecar "
+"fields, and keys that do not parse as decimal integers in the documented "
+"ranges. Writers emit deterministic output by ordering both key levels in "
+"ascending numeric order."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:403
+msgid "Compiler Interfaces"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:405
+msgid "Standard JSON uses these fields:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:407
+msgid ""
+"Solidity output ``contracts[<source>][<contract>].ir`` contains the Yul text."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:408
+msgid ""
+"Solidity output ``contracts[<source>][<contract>].irEthdebug`` contains its "
+"semantic sidecar."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:409
+msgid ""
+"Yul input ``auxiliaryInput.ethdebug`` supplies the sidecar for the Yul "
+"source."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:410
+msgid "Yul output ``irEthdebug`` emits the updated sidecar again."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:412
+msgid "The command-line interface uses these options:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:414
+msgid "``--ir`` and ``--ir-ethdebug`` emit the Yul text and sidecar."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:415
+msgid ""
+"``--strict-assembly <source.yul> --ethdebug-input <sidecar.json>`` supplies "
+"the sidecar for the Yul input. Assembler modes accept exactly one input "
+"file, so no syntax pairing sidecars with multiple inputs is defined."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:418
+msgid ""
+"The sidecar is both compiler input and compiler output, allowing the same "
+"debug info to cross a textual Yul boundary."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:422
+msgid ""
+"For implementation testing, ``EthdebugTest`` will add ``Contract.semantic`` "
+"as a direct view of the serialized sidecar."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:425
+msgid "Required Variable Coverage"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:427
+msgid ""
+"Semantic debug info must cover every binding visible to source-level "
+"debugging:"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:429
+msgid ""
+"Named and unnamed function parameters and return parameters are included."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:430
+msgid ""
+"Modifier parameters and local variables in ordinary blocks are included."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:431
+msgid ""
+"Variables introduced by ``for``, ``if``, ``try``, success, ``catch``, error, "
+"and panic clauses are included in the precise scope where they become "
+"visible."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:432
+msgid "State variables in persistent and transient storage are included."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:433
+msgid "File-level constants are included."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:434
+msgid ""
+"Every visible import alias is a separate binding with its alias identifier "
+"but shares the declaration identity and value description of the imported "
+"constant."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:435
+msgid ""
+"Synthetic language bindings such as ``this``, ``super``, and ``msg`` are "
+"included even when there is no ``VariableDeclaration`` AST node."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:436
+msgid ""
+"Values in memory, calldata, returndata, code, and computed form are included "
+"when they are observable."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:438
+msgid ""
+"ethdebug variable identifiers are optional. An unnamed Solidity return "
+"parameter is therefore emitted with declaration, type, and pointer "
+"information but without ``identifier``. Its declaration order and AST "
+"identity still map it to the corresponding Solidity return slot and "
+"generated ``IRVariable`` stack slots."
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:1
+msgid "ethdebug"
+msgstr ""
+
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:1
+msgid "internal debug info"
+msgstr ""
