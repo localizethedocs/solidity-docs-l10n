@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 16:55+0000\n"
+"POT-Creation-Date: 2026-10-26 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,8 +154,8 @@ msgstr ""
 #: ../../../units-and-global-variables.rst:82
 msgid ""
 "``block.blobbasefee`` (``uint``): current block's blob base fee (`EIP-7516 "
-"<https://eips.ethereum.org/EIPS/eip-7516>`_ and `EIP-4844 <https://eips."
-"ethereum.org/EIPS/eip-4844>`_)"
+"<https://eips.ethereum.org/EIPS/eip-7516>`_ and `EIP-4844 <https://"
+"eips.ethereum.org/EIPS/eip-4844>`_)"
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:83
@@ -169,8 +169,8 @@ msgstr ""
 #: ../../../units-and-global-variables.rst:85
 msgid ""
 "``block.difficulty`` (``uint``): current block difficulty (``EVM < Paris``). "
-"For other EVM versions it behaves as a deprecated alias for ``block."
-"prevrandao`` (`EIP-4399 <https://eips.ethereum.org/EIPS/eip-4399>`_ )"
+"For other EVM versions it behaves as a deprecated alias for "
+"``block.prevrandao`` (`EIP-4399 <https://eips.ethereum.org/EIPS/eip-4399>`_ )"
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:86
@@ -232,9 +232,9 @@ msgstr ""
 
 #: ../../../units-and-global-variables.rst:100
 msgid ""
-"The values of all members of ``msg``, including ``msg.sender`` and ``msg."
-"value`` can change for every **external** function call. This includes calls "
-"to library functions."
+"The values of all members of ``msg``, including ``msg.sender`` and "
+"``msg.value`` can change for every **external** function call. This includes "
+"calls to library functions."
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:105
@@ -325,8 +325,8 @@ msgstr ""
 #: ../../../units-and-global-variables.rst:147
 msgid ""
 "``abi.encodeWithSignature(string memory signature, ...) returns (bytes "
-"memory)``: Equivalent to ``abi."
-"encodeWithSelector(bytes4(keccak256(bytes(signature))), ...)``"
+"memory)``: Equivalent to "
+"``abi.encodeWithSelector(bytes4(keccak256(bytes(signature))), ...)``"
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:148
@@ -513,9 +513,9 @@ msgstr ""
 
 #: ../../../units-and-global-variables.rst:231
 msgid ""
-"``ecrecover`` returns an ``address``, and not an ``address payable``. See :"
-"ref:`address payable<address>` for conversion, in case you need to transfer "
-"funds to the recovered address."
+"``ecrecover`` returns an ``address``, and not an ``address payable``. "
+"See :ref:`address payable<address>` for conversion, in case you need to "
+"transfer funds to the recovered address."
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:234
@@ -693,8 +693,8 @@ msgstr ""
 #: ../../../units-and-global-variables.rst:313
 msgid ""
 "The low-level calls which operate on addresses rather than contract "
-"instances (i.e. ``.call()``, ``.delegatecall()``, ``.staticcall()``, ``."
-"send()`` and ``.transfer()``) **do not** include this check, which makes "
+"instances (i.e. ``.call()``, ``.delegatecall()``, ``.staticcall()``, "
+"``.send()`` and ``.transfer()``) **do not** include this check, which makes "
 "them cheaper in terms of gas but also less safe."
 msgstr ""
 
@@ -929,9 +929,9 @@ msgstr ""
 #: ../../../units-and-global-variables.rst:445
 msgid ""
 "There are also names which will be considered Yul reserved identifiers in "
-"the future: ``basefee``, ``blobbasefee``, ``blobhash``, ``clz``, "
-"``memoryguard``, ``mcopy``, ``prevrandao``, ``slotnum``, ``tload``, "
-"``tstore``."
+"the future: ``basefee``, ``blobbasefee``, ``blobhash``, ``clz``, ``dupn``, "
+"``exchange``, ``memoryguard``, ``mcopy``, ``prevrandao``, ``slotnum``, "
+"``swapn``, ``tload``, ``tstore``."
 msgstr ""
 
 #: ../../../units-and-global-variables.rst:1

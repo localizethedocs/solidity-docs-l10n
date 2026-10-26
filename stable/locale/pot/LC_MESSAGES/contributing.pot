@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:08+0000\n"
+"POT-Creation-Date: 2026-10-26 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,16 +55,16 @@ msgstr ""
 
 #: ../../../contributing.rst:16
 msgid ""
-"Responding to questions from other users on `StackExchange <https://ethereum."
-"stackexchange.com>`_ and the `Solidity Gitter Chat <https://gitter.im/"
-"ethereum/solidity>`_."
+"Responding to questions from other users on `StackExchange <https://"
+"ethereum.stackexchange.com>`_ and the `Solidity Matrix Chat <https://"
+"matrix.to/#/#ethereum\\_solidity:gitter.im>`_."
 msgstr ""
 
 #: ../../../contributing.rst:19
 msgid ""
 "Getting involved in the language design process by proposing language "
-"changes or new features in the `Solidity forum <https://forum.soliditylang."
-"org/>`_ and providing feedback."
+"changes or new features in the `Solidity forum <https://"
+"forum.soliditylang.org/>`_ and providing feedback."
 msgstr ""
 
 #: ../../../contributing.rst:21
@@ -80,7 +80,7 @@ msgid ""
 "Please note that this project is released with a `Contributor Code of "
 "Conduct <https://raw.githubusercontent.com/ethereum/solidity/develop/"
 "CODE_OF_CONDUCT.md>`_. By participating in this project — in the issues, "
-"pull requests, or Gitter channels — you agree to abide by its terms."
+"pull requests, or Matrix channels — you agree to abide by its terms."
 msgstr ""
 
 #: ../../../contributing.rst:28
@@ -115,9 +115,9 @@ msgstr ""
 
 #: ../../../contributing.rst:43
 msgid ""
-"To report an issue, please use the `GitHub issues tracker <https://github."
-"com/argotorg/solidity/issues>`_. When reporting issues, please mention the "
-"following details:"
+"To report an issue, please use the `GitHub issues tracker <https://"
+"github.com/argotorg/solidity/issues>`_. When reporting issues, please "
+"mention the following details:"
 msgstr ""
 
 #: ../../../contributing.rst:47
@@ -149,8 +149,8 @@ msgstr ""
 #: ../../../contributing.rst:56
 msgid ""
 "For technical discussions about language design, a post in the `Solidity "
-"forum <https://forum.soliditylang.org/>`_ is the correct place (see :ref:"
-"`solidity_language_design`)."
+"forum <https://forum.soliditylang.org/>`_ is the correct place "
+"(see :ref:`solidity_language_design`)."
 msgstr ""
 
 #: ../../../contributing.rst:60
@@ -181,9 +181,10 @@ msgstr ""
 #: ../../../contributing.rst:74
 msgid ""
 "However, if you are making a larger change, please consult with the "
-"`Solidity Development Gitter channel <https://gitter.im/ethereum/solidity-"
-"dev>`_ (different from the one mentioned above — this one is focused on "
-"compiler and language development instead of language usage) first."
+"`Solidity Development Matrix channel <https://matrix.to/#/"
+"#ethereum\\_solidity-dev:gitter.im>`_ (different from the one mentioned "
+"above — this one is focused on compiler and language development instead of "
+"language usage) first."
 msgstr ""
 
 #: ../../../contributing.rst:78
@@ -252,7 +253,7 @@ msgid ""
 "For running all compiler tests you may want to optionally install a few "
 "dependencies (`evmone <https://github.com/ipsilon/evmone/releases>`_, `z3 "
 "<https://github.com/Z3Prover/z3>`_, `Eldarica <https://github.com/"
-"uuverifiers/eldarica/>`_, `cvc5 <https://github.com/cvc5/cvc5>`)."
+"uuverifiers/eldarica/>`_, `cvc5 <https://github.com/cvc5/cvc5>`_)."
 msgstr ""
 
 #: ../../../contributing.rst:116
@@ -268,8 +269,8 @@ msgid ""
 "otherwise several tests may fail. Administrators should have that privilege, "
 "but you may also `grant it to other users <https://learn.microsoft.com/en-us/"
 "windows/security/threat-protection/security-policy-settings/create-symbolic-"
-"links#policy-management>`_ or `enable Developer Mode <https://learn."
-"microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-"
+"links#policy-management>`_ or `enable Developer Mode <https://"
+"learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-"
 "development>`_."
 msgstr ""
 
@@ -596,10 +597,10 @@ msgstr ""
 #: ../../../contributing.rst:300
 msgid ""
 "By default the script runs all available tests. You can also provide one or "
-"more `file name patterns <https://www.gnu.org/software/bash/manual/bash."
-"html#Filename-Expansion>`_, in which case only the tests matching at least "
-"one pattern will be executed. It is also possible to exclude files matching "
-"a specific pattern by prefixing it with ``--exclude``."
+"more `file name patterns <https://www.gnu.org/software/bash/manual/"
+"bash.html#Filename-Expansion>`_, in which case only the tests matching at "
+"least one pattern will be executed. It is also possible to exclude files "
+"matching a specific pattern by prefixing it with ``--exclude``."
 msgstr ""
 
 #: ../../../contributing.rst:305
@@ -627,8 +628,8 @@ msgid ""
 "have ``_yul_`` somewhere in the name, but no test whose name starts with "
 "``standard_yul_`` will be executed. It will also assume that the file "
 "``solidity/build/solc/solc`` inside your home directory is the compiler "
-"binary (unless you are on Windows -- then ``solidity/build/solc/Release/solc."
-"exe``)."
+"binary (unless you are on Windows -- then ``solidity/build/solc/Release/"
+"solc.exe``)."
 msgstr ""
 
 #: ../../../contributing.rst:323
@@ -657,8 +658,8 @@ msgstr ""
 
 #: ../../../contributing.rst:332
 msgid ""
-"*CLI test*: contains at least an ``input.*`` file (other than ``input."
-"json``). In general may contain:"
+"*CLI test*: contains at least an ``input.*`` file (other than "
+"``input.json``). In general may contain:"
 msgstr ""
 
 #: ../../../contributing.rst:335
