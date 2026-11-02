@@ -1690,8 +1690,9 @@ msgstr ""
 
 #: ../../../style-guide.rst:1343
 msgid ""
-"It is recommended that Solidity contracts are fully annotated using :ref:"
-"`NatSpec <natspec>` for all public interfaces (everything in the ABI)."
+"It is recommended that Solidity contracts are fully annotated "
+"using :ref:`NatSpec <natspec>` for all public interfaces (everything in the "
+"ABI)."
 msgstr ""
 
 #: ../../../style-guide.rst:1345

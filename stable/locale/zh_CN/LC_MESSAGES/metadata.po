@@ -44,8 +44,8 @@ msgid ""
 "contract, so that, if published, you can retrieve the file in an "
 "authenticated way without having to resort to a centralized data provider. "
 "The other available options are the Swarm hash and not appending the "
-"metadata hash to the bytecode. These can be configured via the :ref:"
-"`Standard JSON Interface<compiler-api>`."
+"metadata hash to the bytecode. These can be configured via "
+"the :ref:`Standard JSON Interface<compiler-api>`."
 msgstr ""
 
 #: ../../../metadata.rst:23

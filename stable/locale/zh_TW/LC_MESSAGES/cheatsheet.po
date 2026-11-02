@@ -310,8 +310,8 @@ msgstr ""
 msgid ""
 "``abi.decode(bytes memory encodedData, (...)) returns (...)``: :ref:`ABI "
 "<ABI>`-decodes the provided data. The types are given in parentheses as "
-"second argument. Example: ``(uint a, uint[2] memory b, bytes memory c) = abi."
-"decode(data, (uint, uint[2], bytes))``"
+"second argument. Example: ``(uint a, uint[2] memory b, bytes memory c) = "
+"abi.decode(data, (uint, uint[2], bytes))``"
 msgstr ""
 
 #: ../../../cheatsheet.rst:20
@@ -329,9 +329,9 @@ msgstr ""
 
 #: ../../../cheatsheet.rst:23
 msgid ""
-"``abi.encodeWithSelector(bytes4 selector, ...) returns (bytes memory)``: :"
-"ref:`ABI <ABI>`-encodes the given arguments starting from the second and "
-"prepends the given four-byte selector"
+"``abi.encodeWithSelector(bytes4 selector, ...) returns (bytes "
+"memory)``: :ref:`ABI <ABI>`-encodes the given arguments starting from the "
+"second and prepends the given four-byte selector"
 msgstr ""
 
 #: ../../../cheatsheet.rst:25
@@ -339,15 +339,15 @@ msgid ""
 "``abi.encodeCall(function functionPointer, (...)) returns (bytes memory)``: "
 "ABI-encodes a call to ``functionPointer`` with the arguments found in the "
 "tuple. Performs a full type-check, ensuring the types match the function "
-"signature. Result equals ``abi.encodeWithSelector(functionPointer."
-"selector, ...)``"
+"signature. Result equals "
+"``abi.encodeWithSelector(functionPointer.selector, ...)``"
 msgstr ""
 
 #: ../../../cheatsheet.rst:27
 msgid ""
 "``abi.encodeWithSignature(string memory signature, ...) returns (bytes "
-"memory)``: Equivalent to ``abi."
-"encodeWithSelector(bytes4(keccak256(bytes(signature))), ...)``"
+"memory)``: Equivalent to "
+"``abi.encodeWithSelector(bytes4(keccak256(bytes(signature))), ...)``"
 msgstr ""
 
 #: ../../../cheatsheet.rst:33
@@ -415,8 +415,8 @@ msgstr ""
 
 #: ../../../cheatsheet.rst:57
 msgid ""
-"``<address payable>.transfer(uint256 amount)``: send given amount of Wei to :"
-"ref:`address`, throws on failure (deprecated)"
+"``<address payable>.transfer(uint256 amount)``: send given amount of Wei "
+"to :ref:`address`, throws on failure (deprecated)"
 msgstr ""
 
 #: ../../../cheatsheet.rst:63
@@ -449,8 +449,8 @@ msgstr ""
 #: ../../../cheatsheet.rst:71
 msgid ""
 "``block.blobbasefee`` (``uint``): current block's blob base fee (`EIP-7516 "
-"<https://eips.ethereum.org/EIPS/eip-7516>`_ and `EIP-4844 <https://eips."
-"ethereum.org/EIPS/eip-4844>`_)"
+"<https://eips.ethereum.org/EIPS/eip-7516>`_ and `EIP-4844 <https://"
+"eips.ethereum.org/EIPS/eip-4844>`_)"
 msgstr ""
 
 #: ../../../cheatsheet.rst:72
@@ -464,8 +464,8 @@ msgstr ""
 #: ../../../cheatsheet.rst:74
 msgid ""
 "``block.difficulty`` (``uint``): current block difficulty (``EVM < Paris``). "
-"For other EVM versions it behaves as a deprecated alias for ``block."
-"prevrandao`` that will be removed in the next breaking release"
+"For other EVM versions it behaves as a deprecated alias for "
+"``block.prevrandao`` that will be removed in the next breaking release"
 msgstr ""
 
 #: ../../../cheatsheet.rst:75
