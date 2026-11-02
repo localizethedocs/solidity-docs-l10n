@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-10-05 18:24:57 +0200",
-      "hash" : "f5dccafd79b72a956dde9149394485ecd3075f26",
-      "title" : "Docs: Fix link to cvc5 (#17082)"
+      "date" : "2026-10-29 14:54:16 +0100",
+      "hash" : "765afa060216e348392261f5fa7d60188b3d1410",
+      "title" : "Amsterdam: EIP-7954 code size warning implementation. (#17118)"
     }
   },
   "type" : "branch",
