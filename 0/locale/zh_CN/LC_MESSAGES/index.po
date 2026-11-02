@@ -67,10 +67,11 @@ msgid ""
 "been inspired by in the :doc:`language influences <language-influences>` "
 "section."
 msgstr ""
-"Solidity是一种面向以太坊虚拟机（EVM）的带花括号的语言<https://en.wikipedia."
-"org/wiki/List_of_programming_languages_by_type#Curly_bracket_languages>。它受"
-"到了C++, Python, 和 JavaScript的影响。你可以在:doc:`语言影响`<language-"
-"influences>部分中找到更多有关 Solidity 受哪些语言启发的细节。"
+"Solidity是一种面向以太坊虚拟机（EVM）的带花括号的语言<https://"
+"en.wikipedia.org/wiki/"
+"List_of_programming_languages_by_type#Curly_bracket_languages>。它受到了C++, "
+"Python, 和 JavaScript的影响。你可以在:doc:`语言影响`<language-influences>部分"
+"中找到更多有关 Solidity 受哪些语言启发的细节。"
 
 #: ../../../index.rst:11
 msgid ""
@@ -157,9 +158,9 @@ msgstr ""
 
 #: ../../../index.rst:48
 msgid ""
-"Once you are accustomed to the basics, we recommend you read the :doc:"
-"`\"Solidity by Example\" <solidity-by-example>` and “Language Description” "
-"sections to understand the core concepts of the language."
+"Once you are accustomed to the basics, we recommend you read "
+"the :doc:`\"Solidity by Example\" <solidity-by-example>` and “Language "
+"Description” sections to understand the core concepts of the language."
 msgstr ""
 
 #: ../../../index.rst:51

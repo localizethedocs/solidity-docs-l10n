@@ -98,10 +98,10 @@ msgstr ""
 #: ../../../internals/optimizer.rst:49
 msgid ""
 "An empty optimizer sequence, i.e ``:``, is accepted even without ``--"
-"optimize`` in order to fully disable the user-supplied portion of the Yul :"
-"ref:`optimizer sequence <selecting-optimizations>`, as by default, even when "
-"the optimizer is not turned on, the :ref:`unused pruner <unused-pruner>` "
-"step will be run."
+"optimize`` in order to fully disable the user-supplied portion of the "
+"Yul :ref:`optimizer sequence <selecting-optimizations>`, as by default, even "
+"when the optimizer is not turned on, the :ref:`unused pruner <unused-"
+"pruner>` step will be run."
 msgstr ""
 
 #: ../../../internals/optimizer.rst:53
@@ -1573,8 +1573,8 @@ msgstr ""
 
 #: ../../../internals/optimizer.rst:910
 msgid ""
-"after ``if`` statement with terminating control-flow, insert ``<condition> :"
-"= 0``"
+"after ``if`` statement with terminating control-flow, insert "
+"``<condition> := 0``"
 msgstr ""
 
 #: ../../../internals/optimizer.rst:912

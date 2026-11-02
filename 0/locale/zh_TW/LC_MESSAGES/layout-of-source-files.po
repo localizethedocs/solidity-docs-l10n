@@ -24,10 +24,10 @@ msgstr "Solidity 來源檔的配置"
 #: ../../../layout-of-source-files.rst:5
 msgid ""
 "Source files can contain an arbitrary number of :ref:`contract "
-"definitions<contract_structure>`, import_ , :ref:`pragma<pragma>` and :ref:"
-"`using for<using-for>` directives and :ref:`struct<structs>`, :ref:"
-"`enum<enums>`, :ref:`function<functions>`, :ref:`error<errors>` and :ref:"
-"`constant variable<constants>` definitions."
+"definitions<contract_structure>`, import_ , :ref:`pragma<pragma>` "
+"and :ref:`using for<using-for>` directives "
+"and :ref:`struct<structs>`, :ref:`enum<enums>`, :ref:`function<functions>`, :ref:`error<errors>` "
+"and :ref:`constant variable<constants>` definitions."
 msgstr ""
 
 #: ../../../layout-of-source-files.rst:14
@@ -224,11 +224,11 @@ msgstr ""
 
 #: ../../../layout-of-source-files.rst:160
 msgid ""
-"If you use ``pragma experimental SMTChecker;``, then you get additional :ref:"
-"`safety warnings<formal_verification>` which are obtained by querying an SMT "
-"solver. The component does not yet support all features of the Solidity "
-"language and likely outputs many warnings. In case it reports unsupported "
-"features, the analysis may not be fully sound."
+"If you use ``pragma experimental SMTChecker;``, then you get "
+"additional :ref:`safety warnings<formal_verification>` which are obtained by "
+"querying an SMT solver. The component does not yet support all features of "
+"the Solidity language and likely outputs many warnings. In case it reports "
+"unsupported features, the analysis may not be fully sound."
 msgstr ""
 
 #: ../../../layout-of-source-files.rst:169
@@ -250,8 +250,9 @@ msgstr ""
 msgid ""
 "Solidity supports import statements to help modularise your code that are "
 "similar to those available in JavaScript (from ES6 on). However, Solidity "
-"does not support the concept of a `default export <https://developer.mozilla."
-"org/en-US/docs/web/javascript/reference/statements/export#description>`_."
+"does not support the concept of a `default export <https://"
+"developer.mozilla.org/en-US/docs/web/javascript/reference/statements/"
+"export#description>`_."
 msgstr ""
 
 #: ../../../layout-of-source-files.rst:187
@@ -342,10 +343,10 @@ msgid ""
 "them. When using the command-line compiler the default import callback "
 "supports only loading source code from the host filesystem, which means that "
 "your source unit names must be paths. Some environments provide custom "
-"callbacks that are more versatile. For example the `Remix IDE <https://remix."
-"ethereum.org/>`_ provides one that lets you `import files from HTTP, IPFS "
-"and Swarm URLs or refer directly to packages in NPM registry <https://remix-"
-"ide.readthedocs.io/en/latest/import.html>`_."
+"callbacks that are more versatile. For example the `Remix IDE <https://"
+"remix.ethereum.org/>`_ provides one that lets you `import files from HTTP, "
+"IPFS and Swarm URLs or refer directly to packages in NPM registry <https://"
+"remix-ide.readthedocs.io/en/latest/import.html>`_."
 msgstr ""
 
 #: ../../../layout-of-source-files.rst:252

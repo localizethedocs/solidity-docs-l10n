@@ -270,8 +270,8 @@ msgstr ""
 
 #: ../../../yul.rst:160
 msgid ""
-"blocks where local variables are scoped inside, e.g. ``{ let x := 3 { let y :"
-"= add(x, 1) } }``"
+"blocks where local variables are scoped inside, e.g. ``{ let x := 3 { let "
+"y := add(x, 1) } }``"
 msgstr ""
 
 #: ../../../yul.rst:161
@@ -771,9 +771,9 @@ msgstr ""
 msgid ""
 "Switches must have at least one case (including the default case). All case "
 "values need to have the same type and distinct values. If all possible "
-"values of the expression type are covered, a default case is not allowed (i."
-"e. a switch with a ``bool`` expression that has both a true and a false case "
-"do not allow a default case)."
+"values of the expression type are covered, a default case is not allowed "
+"(i.e. a switch with a ``bool`` expression that has both a true and a false "
+"case do not allow a default case)."
 msgstr ""
 
 #: ../../../yul.rst:523
@@ -1662,8 +1662,8 @@ msgstr ""
 
 #: ../../../yul.rst:897
 msgid ""
-"identical to ``callcode`` but also keep ``caller`` and ``callvalue`` :ref:"
-"`See more <yul-call-return-area>`"
+"identical to ``callcode`` but also keep ``caller`` and "
+"``callvalue`` :ref:`See more <yul-call-return-area>`"
 msgstr ""
 
 #: ../../../yul.rst:901
@@ -1893,10 +1893,10 @@ msgid ""
 "previously called ``difficulty`` have been changed and the instruction was "
 "renamed to ``prevrandao``. It can now return arbitrary values in the full "
 "256-bit range, whereas the highest recorded difficulty value within Ethash "
-"was ~54 bits. This change is described in `EIP-4399 <https://eips.ethereum."
-"org/EIPS/eip-4399>`_. Please note that irrelevant to which EVM version is "
-"selected in the compiler, the semantics of instructions depend on the final "
-"chain of deployment."
+"was ~54 bits. This change is described in `EIP-4399 <https://"
+"eips.ethereum.org/EIPS/eip-4399>`_. Please note that irrelevant to which EVM "
+"version is selected in the compiler, the semantics of instructions depend on "
+"the final chain of deployment."
 msgstr ""
 
 #: ../../../yul.rst:976
@@ -1979,8 +1979,8 @@ msgstr ""
 
 #: ../../../yul.rst:1026
 msgid ""
-"when the linker is invoked with ``--libraries \"file.sol:"
-"Math=0x1234567890123456789012345678901234567890`` option."
+"when the linker is invoked with ``--libraries "
+"\"file.sol:Math=0x1234567890123456789012345678901234567890`` option."
 msgstr ""
 
 #: ../../../yul.rst:1029

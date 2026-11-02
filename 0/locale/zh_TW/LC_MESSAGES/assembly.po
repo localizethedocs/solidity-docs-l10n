@@ -188,8 +188,8 @@ msgid ""
 "Local variables that refer to memory evaluate to the address of the variable "
 "in memory, not the value itself. Such variables can also be assigned to, but "
 "note that an assignment will only change the pointer and not the data and "
-"that it is your responsibility to respect Solidity's memory management. See :"
-"ref:`Conventions in Solidity <conventions-in-solidity>`."
+"that it is your responsibility to respect Solidity's memory management. "
+"See :ref:`Conventions in Solidity <conventions-in-solidity>`."
 msgstr ""
 
 #: ../../../assembly.rst:136

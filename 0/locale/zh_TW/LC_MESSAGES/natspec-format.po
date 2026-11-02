@@ -85,8 +85,8 @@ msgstr ""
 #: ../../../natspec-format.rst:47
 msgid ""
 "For Vyper, use ``\"\"\"`` indented to the inner contents with bare comments. "
-"See the `Vyper documentation <https://docs.vyperlang.org/en/latest/natspec."
-"html>`__."
+"See the `Vyper documentation <https://docs.vyperlang.org/en/latest/"
+"natspec.html>`__."
 msgstr ""
 
 #: ../../../natspec-format.rst:51

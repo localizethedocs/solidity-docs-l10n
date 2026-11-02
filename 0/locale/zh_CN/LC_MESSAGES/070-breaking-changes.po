@@ -110,8 +110,8 @@ msgstr ""
 
 #: ../../../070-breaking-changes.rst:60
 msgid ""
-"Slot and offset of storage pointer variable ``x`` are accessed via ``x."
-"slot`` and ``x.offset`` instead of ``x_slot`` and ``x_offset``."
+"Slot and offset of storage pointer variable ``x`` are accessed via "
+"``x.slot`` and ``x.offset`` instead of ``x_slot`` and ``x_offset``."
 msgstr ""
 
 #: ../../../070-breaking-changes.rst:64
@@ -222,9 +222,9 @@ msgstr ""
 
 #: ../../../070-breaking-changes.rst:125
 msgid ""
-"Change ``x.f.value(...)()`` to ``x.f{value: ...}()``. Similarly ``(new C)."
-"value(...)()`` to ``new C{value: ...}()`` and ``x.f.gas(...).value(...)()`` "
-"to ``x.f{gas: ..., value: ...}()``."
+"Change ``x.f.value(...)()`` to ``x.f{value: ...}()``. Similarly ``(new "
+"C).value(...)()`` to ``new C{value: ...}()`` and ``x.f.gas(...).value(...)"
+"()`` to ``x.f{gas: ..., value: ...}()``."
 msgstr ""
 
 #: ../../../070-breaking-changes.rst:127

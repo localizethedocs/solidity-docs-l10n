@@ -24,11 +24,11 @@ msgstr "合約結構"
 #: ../../../structure-of-a-contract.rst:9
 msgid ""
 "Contracts in Solidity are similar to classes in object-oriented languages. "
-"Each contract can contain declarations of :ref:`structure-state-variables`, :"
-"ref:`structure-functions`, :ref:`structure-function-modifiers`, :ref:"
-"`structure-events`, :ref:`structure-errors`, :ref:`structure-struct-types` "
-"and :ref:`structure-enum-types`. Furthermore, contracts can inherit from "
-"other contracts."
+"Each contract can contain declarations of :ref:`structure-state-"
+"variables`, :ref:`structure-functions`, :ref:`structure-function-"
+"modifiers`, :ref:`structure-events`, :ref:`structure-"
+"errors`, :ref:`structure-struct-types` and :ref:`structure-enum-types`. "
+"Furthermore, contracts can inherit from other contracts."
 msgstr ""
 
 #: ../../../structure-of-a-contract.rst:14
@@ -68,8 +68,8 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:39
 msgid ""
-"See the :ref:`types` section for valid state variable types and :ref:"
-"`visibility-and-getters` for possible choices for visibility."
+"See the :ref:`types` section for valid state variable types "
+"and :ref:`visibility-and-getters` for possible choices for visibility."
 msgstr ""
 
 #: ../../../structure-of-a-contract.rst:46
@@ -227,8 +227,8 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:170
 msgid ""
-"Structs are custom defined types that can group several variables (see :ref:"
-"`structs` in types section)."
+"Structs are custom defined types that can group several variables "
+"(see :ref:`structs` in types section)."
 msgstr ""
 
 #: ../../../structure-of-a-contract.rst:173

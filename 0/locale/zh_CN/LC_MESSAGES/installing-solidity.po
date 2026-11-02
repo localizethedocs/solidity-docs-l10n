@@ -85,10 +85,10 @@ msgstr ""
 msgid ""
 "Use ``npm`` for a convenient and portable way to install ``solcjs``, a "
 "Solidity compiler. The ``solcjs`` program has fewer features than the ways "
-"to access the compiler described further down this page. The :ref:"
-"`commandline-compiler` documentation assumes you are using the full-featured "
-"compiler, ``solc``. The usage of ``solcjs`` is documented inside its own "
-"`repository <https://github.com/argotorg/solc-js>`_."
+"to access the compiler described further down this page. "
+"The :ref:`commandline-compiler` documentation assumes you are using the full-"
+"featured compiler, ``solc``. The usage of ``solcjs`` is documented inside "
+"its own `repository <https://github.com/argotorg/solc-js>`_."
 msgstr ""
 
 #: ../../../installing-solidity.rst:54
@@ -404,8 +404,8 @@ msgstr ""
 msgid ""
 "The ``solc-bin`` repository contains several top-level directories, each "
 "representing a single platform. Each one includes a ``list.json`` file "
-"listing the available binaries. For example in ``emscripten-wasm32/list."
-"json`` you will find the following information about version 0.7.4:"
+"listing the available binaries. For example in ``emscripten-wasm32/"
+"list.json`` you will find the following information about version 0.7.4:"
 msgstr ""
 
 #: ../../../installing-solidity.rst:239
@@ -601,8 +601,8 @@ msgid ""
 "not mean that a build using a different version is faulty. If you pass ``-"
 "DSTRICT_Z3_VERSION=OFF`` option to CMake, you can build with any version "
 "that satisfies the requirement given in the table above. If you do this, "
-"however, please remember to pass the ``--no-smt`` option to ``scripts/tests."
-"sh`` to skip the SMT tests."
+"however, please remember to pass the ``--no-smt`` option to ``scripts/"
+"tests.sh`` to skip the SMT tests."
 msgstr ""
 
 #: ../../../installing-solidity.rst:359
@@ -786,8 +786,8 @@ msgstr ""
 
 #: ../../../installing-solidity.rst:467
 msgid ""
-"https://github.com/argotorg/solidity/releases/download/v0.X.Y/solidity_0.X.Y."
-"tar.gz"
+"https://github.com/argotorg/solidity/releases/download/v0.X.Y/"
+"solidity_0.X.Y.tar.gz"
 msgstr ""
 
 #: ../../../installing-solidity.rst:469
