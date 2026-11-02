@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ethdebug Internal Debug Info &mdash; Solidity 0.8.37-develop 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/syntax-diagrams.css?v=207cc276" />
+      <link rel="stylesheet" type="text/css" href="../_static/syntax-diagrams-ext.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css?v=da6ff50d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b8c9b802" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom-dark.css?v=1f23c23e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments.css?v=85fccb41" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/toggle.css?v=ff7d3256" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://projects.localizethedocs.org/solidity-docs-l10n/internals/ethdebug_internal_debug_info.html" />
+    <script>
+        window.NAV_LINKS = {
+            blog: "博客",
+            documentation: "文档",
+            use_cases: "用例",
+            contribute: "贡献",
+            about: "关于我们",
+            forum: "论坛"
+        };
+    </script>
+    
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=21c4852a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+      <script src="../_static/js/constants.js?v=6647bbdb"></script>
+      <script src="../_static/js/initialize.js?v=a99c897d"></script>
+      <script src="../_static/js/toggle.js?v=a5a9aacd"></script>
+    <script src="../_static/js/theme.js"></script>
+
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+ 
+<script type="text/javascript" src="../ltd-provenance.js"></script>
+<script type="text/javascript" src="../ltd-current.js"></script>
+<script type="text/javascript" src="../../../ltd-config.js"></script>
+<script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+    
+              <p class="caption" role="heading"><span class="caption-text">基础介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-solidity.html">Installing the Solidity Compiler</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">语言描述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../layout-of-source-files.html">Layout of a Solidity Source File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control-structures.html">Expressions and Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly.html">Inline Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheatsheet.html">Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar.html">Language Grammar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">编译器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-the-compiler.html">Using the Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysing-compilation-output.html">Analysing the Compiler Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ir-breaking-changes.html">Solidity IR-based Codegen Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">内部说明</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layout_in_storage.html">Layout of State Variables in Storage and Transient Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout_in_memory.html">Layout in Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout_in_calldata.html">Layout of Call Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variable_cleanup.html">Cleaning Up Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source_mappings.html">Source Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">The Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata.html">Contract Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../abi-spec.html">Contract ABI Specification</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">推荐内容</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">List of Known Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050-breaking-changes.html">Solidity v0.5.0 Breaking Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060-breaking-changes.html">Solidity v0.6.0 Breaking Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../070-breaking-changes.html">Solidity v0.7.0 Breaking Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../080-breaking-changes.html">Solidity v0.8.0 Breaking Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">补充材料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../natspec-format.html">NatSpec Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../smtchecker.html">SMTChecker and Formal Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yul.html">Yul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../path-resolution.html">Import Path Resolution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">资源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">资源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language-influences.html">Language Influences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../brand-guide.html">Solidity Brand Guide</a></li>
+</ul>
+
+    <ul>
+        <li>
+            <a href="../genindex.html">Keyword Index</a>
+        </li>
+    </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Solidity</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ethdebug Internal Debug Info</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/internals/ethdebug_internal_debug_info.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethdebug-internal-debug-info">
+<span id="index-0"></span><h1>ethdebug Internal Debug Info<a class="headerlink" href="#ethdebug-internal-debug-info" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>ethdebug support and the interchange format described here are experimental.
+They may change before ethdebug output is stabilized.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This page is an initial draft and is deliberately kept out of the documentation TOC.
+It still mixes user-facing material with compiler internals; the two will later be split into separate documents.</p>
+</div>
+<p>The compiler emits public debug info using the
+<a class="reference external" href="https://github.com/ethdebug/format">ethdebug format</a>.
+This page describes the internal debug info passed from the Solidity frontend through Yul before the public resources and contexts are emitted.
+At a textual compiler boundary, the debug info is a JSON sidecar paired with the Yul source.</p>
+<section id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Link to this heading"></a></h2>
+<p>Several established terms are ambiguous in this context, so this page pairs each with a more specific replacement.</p>
+<ul class="simple">
+<li><p><em>Metadata</em> elsewhere means the contract metadata embedded in bytecode.
+Data intended for debuggers is therefore called <em>debug info</em> on this page, never metadata.</p></li>
+<li><p><em>Location</em> elsewhere names both positions in source text and the data locations of the Solidity language such as storage, memory, and calldata.
+This page uses <em>source range</em> for bytes in Solidity or Yul source text and a pointer's <em>region location</em> for EVM data in stack, storage, transient storage, memory, calldata, returndata, or code; the two are unrelated.</p></li>
+<li><p><em>Pointer</em> elsewhere often means a Solidity storage or memory reference.
+Unless qualified that way, <em>pointer</em> on this page means an <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/pointer.schema.yaml">ethdebug pointer</a>.</p></li>
+</ul>
+<p>Fields introduced by this format follow these terms, for example <code class="docutils literal notranslate"><span class="pre">declarationSourceRange</span></code>.
+Existing compiler structures keep their established names, for example <code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code> and the <code class="docutils literal notranslate"><span class="pre">nativeLocation</span></code> and <code class="docutils literal notranslate"><span class="pre">originLocation</span></code> fields of <code class="docutils literal notranslate"><span class="pre">DebugData</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The first implementation stage is intentionally narrower than the format specified here.
+It will leave variable updates empty, emit public variable contexts only for storage-backed variables, and not yet cover immutable, constant, or other variables whose materialized representation is not storage-backed.
+Yul optimization with ethdebug is also deferred.
+These are implementation staging limits, not sidecar-format constraints.</p>
+</div>
+</section>
+<section id="design-requirements">
+<h2>Design Requirements<a class="headerlink" href="#design-requirements" title="Link to this heading"></a></h2>
+<p>The sidecar is designed so that:</p>
+<ul class="simple">
+<li><p>A two-stage Solidity-to-Yul and Yul-to-bytecode compilation can produce the same bytecode and debug info as a one-stage compilation.</p></li>
+<li><p>A language frontend that targets Yul can supply semantic debug info independently of Solidity frontend objects.</p></li>
+<li><p>Source-language declaration identity and generated-Yul instance identity remain separate.</p></li>
+<li><p>Pointer region locations and variable phases describe EVM machine state and remain language-independent.</p></li>
+</ul>
+<p>The Yul text carries <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code> comments that identify source-language origins.
+The sidecar carries the semantic records associated with those origins.
+Both artifacts are required at a compiler-to-compiler text boundary.</p>
+</section>
+<section id="pipeline">
+<h2>Pipeline<a class="headerlink" href="#pipeline" title="Link to this heading"></a></h2>
+<p>The Solidity pipeline is designed to perform the following steps:</p>
+<ol class="arabic simple">
+<li><p>Solidity parsing assigns AST IDs, and analysis populates the existing type annotations on declarations.</p></li>
+<li><p>When ethdebug debug info is requested, the frontend builds type and pointer resources and semantic records from type annotations, storage layout, and the <code class="docutils literal notranslate"><span class="pre">IRVariable</span></code> naming rules.
+This step uses analysis results and does not require IR or bytecode generation, so <code class="docutils literal notranslate"><span class="pre">ethdebug.resources</span></code> remains available after analysis.</p></li>
+<li><p>IR generation emits Yul and, when requested, <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code> comments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompilerStack</span></code> attaches the table after parsing generated Yul into a <code class="docutils literal notranslate"><span class="pre">YulStack</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YulStack</span></code> carries semantic records on Yul <code class="docutils literal notranslate"><span class="pre">DebugData</span></code> objects and retains unattached records in its side table.</p></li>
+<li><p>When Yul is reparsed, the stack collects attached records into the table and reattaches them after parsing the printed Yul.</p></li>
+<li><p>The output layer builds public type and pointer resources and program contexts from the table.</p></li>
+</ol>
+</section>
+<section id="debug-info-dependency">
+<h2>Debug-Info Dependency<a class="headerlink" href="#debug-info-dependency" title="Link to this heading"></a></h2>
+<p>Semantic debug-info transfer depends on <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code> comments.
+Accordingly, <code class="docutils literal notranslate"><span class="pre">ethdebug</span></code> depends on the <code class="docutils literal notranslate"><span class="pre">ast-id</span></code> <code class="docutils literal notranslate"><span class="pre">--debug-info</span></code> component.
+CLI and Standard JSON input reject a debug-info selection containing <code class="docutils literal notranslate"><span class="pre">ethdebug</span></code> without <code class="docutils literal notranslate"><span class="pre">ast-id</span></code>.
+Selecting an ethdebug output does not modify the debug-info selection, just as <code class="docutils literal notranslate"><span class="pre">--ir-optimized</span></code> does not imply <code class="docutils literal notranslate"><span class="pre">--optimize</span></code>.
+Requesting an ethdebug output without <code class="docutils literal notranslate"><span class="pre">ethdebug</span></code> in the debug-info selection is an error.</p>
+</section>
+<section id="core-structures">
+<h2>Core Structures<a class="headerlink" href="#core-structures" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Of the types named below, only <code class="docutils literal notranslate"><span class="pre">langutil::DebugData</span></code> exists in the compiler today.
+The <code class="docutils literal notranslate"><span class="pre">SemanticDebugScope</span></code> family and the <code class="docutils literal notranslate"><span class="pre">semanticDebugScope</span></code> field on <code class="docutils literal notranslate"><span class="pre">DebugData</span></code> are planned additions and will arrive with the implementation pull requests.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">langutil::DebugData</span></code> is the debug payload carried by Yul AST nodes.
+The sidecar envelope and variable records are compiler-specific.
+Type documents and pointer documents follow the public <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/type.schema.yaml">type</a> and <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/pointer.schema.yaml">pointer</a> schemas, with one internal pointer expression for unresolved Yul locals.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">DebugData</span></code> fields relevant to ethdebug</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 24.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nativeLocation</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code></p></td>
+<td><p>Source range in the current Yul text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">originLocation</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code></p></td>
+<td><p>Source range in the source language.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">astID</span></code></p></td>
+<td><p>optional signed 64-bit integer</p></td>
+<td><p>Source-language AST origin copied from <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">semanticDebugScope</span></code></p></td>
+<td><p>optional <code class="docutils literal notranslate"><span class="pre">SemanticDebugScope</span></code> pointer</p></td>
+<td><p>Semantic variable payload attached to this Yul node.</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">langutil::SemanticDebugScope</span></code> describes the source node represented by an attached Yul node.
+On a node that introduces a source scope it defines the scope's variables; on a finer-grained node it carries only variable updates.
+The AST ID of the table entry identifies that source node.
+Variables are recorded at their defining scope rather than at each use because a debugger needs every binding visible at a program point, including variables that the corresponding expression does not read.
+The set of bindings visible at a program point follows from the chain of enclosing scope records, so nested scopes do not duplicate enclosing variables.
+Use sites are also unstable under inlining, common-subexpression elimination, and dead-code removal.
+The scope record therefore carries declaration identity, type, and initial recovery information once; <code class="docutils literal notranslate"><span class="pre">variableUpdates</span></code> supplies sparse, statement-level changes only when a variable's phase or pointer changes within that scope.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">SemanticDebugScope</span></code></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 24.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">variableDefinitions</span></code></p></td>
+<td><p>array of <code class="docutils literal notranslate"><span class="pre">SemanticDebugVariable</span></code></p></td>
+<td><p>Bindings introduced by the scope, in source order.
+A variable appears in exactly one scope record; nested records do not repeat enclosing bindings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">variableUpdates</span></code></p></td>
+<td><p>array of <code class="docutils literal notranslate"><span class="pre">SemanticDebugVariableUpdate</span></code></p></td>
+<td><p>Phase or pointer changes taking effect at the attached node - see Variable Updates.</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">SemanticDebugVariable</span></code> stores a source binding together with its type, recovery phase, and pointer when materialized.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">SemanticDebugVariable</span></code></span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 27.0%" />
+<col style="width: 25.0%" />
+<col style="width: 48.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">identifier</span></code></p></td>
+<td><p>optional string</p></td>
+<td><p>Source-language identifier.
+It is absent for unnamed variables such as unnamed Solidity return parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">declarationASTID</span></code></p></td>
+<td><p>optional signed 64-bit integer</p></td>
+<td><p>Identity of the source-language declaration.
+Synthetic bindings may omit it.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">declarationSourceRange</span></code></p></td>
+<td><p>optional <code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code></p></td>
+<td><p>Source range of the declaration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">typeID</span></code></p></td>
+<td><p>optional string</p></td>
+<td><p>Key of the variable's document in <code class="docutils literal notranslate"><span class="pre">ethdebug.resources.types</span></code>.
+The sidecar carries the same table in its top-level <code class="docutils literal notranslate"><span class="pre">resources</span></code> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phase</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SemanticDebugVariablePhase</span></code></p></td>
+<td><p>Whether the value is materialized, computable, or unavailable - see Variable Phases and Pointers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pointer</span></code></p></td>
+<td><p>optional <code class="docutils literal notranslate"><span class="pre">SemanticDebugPointer</span></code></p></td>
+<td><p>Pointer expression resolving a materialized value.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Field names are identical in the JSON form and the compiler structures.
+Every AST ID field accepts values from <code class="docutils literal notranslate"><span class="pre">-2**63</span></code> through <code class="docutils literal notranslate"><span class="pre">2**63</span> <span class="pre">-</span> <span class="pre">1</span></code>, matching <code class="docutils literal notranslate"><span class="pre">int64_t</span></code>.</p>
+<p>Pointers for persistent and transient state-variable declarations are derived from the storage layout after analysis.
+They contain literal slots and offsets or expressions over template parameters such as mapping keys.
+Producing the public type and pointer resource tables therefore does not require code generation.</p>
+<p>Local storage references are different: their base slot is a runtime value.
+For example, after <code class="docutils literal notranslate"><span class="pre">uint[]</span> <span class="pre">storage</span> <span class="pre">ref</span> <span class="pre">=</span> <span class="pre">condition</span> <span class="pre">?</span> <span class="pre">a</span> <span class="pre">:</span> <span class="pre">b</span></code>, the pointer for <code class="docutils literal notranslate"><span class="pre">ref</span></code> starts at the generated Yul local holding the selected slot rather than at a statically known slot.
+Stack values, memory references, and such storage references can use the internal <code class="docutils literal notranslate"><span class="pre">$$yulLocal</span></code> expression described below until Yul-to-EVM code generation assigns their concrete representation.
+The expression must be resolved or removed before public emission.</p>
+<section id="scope-attachment">
+<h3>Scope Attachment<a class="headerlink" href="#scope-attachment" title="Link to this heading"></a></h3>
+<p>Semantic scope data belongs to the Yul node that introduces the corresponding scope.</p>
+<ul class="simple">
+<li><p>Function and modifier records attach to the generated Yul <code class="docutils literal notranslate"><span class="pre">FunctionDefinition</span></code>.</p></li>
+<li><p>A source block lowered to a distinct Yul block attaches to that <code class="docutils literal notranslate"><span class="pre">Block</span></code>.</p></li>
+<li><p>A conditional, loop clause, or catch clause that introduces a source scope attaches its payload to the generated block representing that scope.</p></li>
+<li><p>Variables visible at contract and file level are collected in the record attached to the generated object's top-level Yul <code class="docutils literal notranslate"><span class="pre">Block</span></code>.
+They do not remain side-table-only merely because their declarations have no distinct Yul node.</p></li>
+</ul>
+<p>Every Yul AST node kind carries <code class="docutils literal notranslate"><span class="pre">DebugData</span></code>, including names in parameter and return lists, so a scope payload can attach to any node.
+The producer is responsible for selecting the node that semantically owns a scope.
+The side table retains records while they are detached during parsing or transformation and any record for which no surviving attachment exists.</p>
+</section>
+</section>
+<section id="variable-phases-and-pointers">
+<h2>Variable Phases and Pointers<a class="headerlink" href="#variable-phases-and-pointers" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SemanticDebugVariablePhase</span></code> describes whether a value can be recovered at a program point.
+It does not duplicate the physical location already present in an ethdebug pointer.</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Variable phases</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Phase</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">materialized</span></code></p></td>
+<td><p>The value has a concrete representation described by <code class="docutils literal notranslate"><span class="pre">pointer</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">computed</span></code></p></td>
+<td><p>The value has no region because the program recomputes it where it is used.
+The format carries no recovery recipe, so a debugger reports the value as unavailable; the phase records that recomputation would be possible in principle, unlike <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">optimized-out</span></code></p></td>
+<td><p>No recoverable representation is available at this program point.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Describing computed values with value expressions, similar to DWARF expression locations, would require an ethdebug schema extension: pointers currently describe regions of EVM data and cannot yield a value directly.</p>
+</div>
+<p>A materialized variable has a pointer; a computed or optimized-out variable does not.
+For a materialized value, the pointer schema's <code class="docutils literal notranslate"><span class="pre">location</span></code> field says whether each region is on the stack or in storage, transient storage, memory, calldata, returndata, or code.
+Solidity immutables use a memory pointer while creation code initializes them and a code pointer when read from deployed code.
+A constant folded to an immediate may be described by code bytes, while a constant expression that must execute has the <code class="docutils literal notranslate"><span class="pre">computed</span></code> phase.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SemanticDebugPointer</span></code> serializes to an <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/pointer.schema.yaml">ethdebug pointer</a> document.
+Regions, groups, lists, conditionals, scopes, and template references use the corresponding structural forms from that schema.
+The pointer schema's <code class="docutils literal notranslate"><span class="pre">define</span></code>/<code class="docutils literal notranslate"><span class="pre">in</span></code> form binds intermediate expressions used by the pointer itself, for example an array length or the start of its data.
+If one such binding depends on another, the producer nests <code class="docutils literal notranslate"><span class="pre">define</span></code>/<code class="docutils literal notranslate"><span class="pre">in</span></code> objects in dependency order.
+These expression bindings are unrelated to Yul lexical scopes and to <code class="docutils literal notranslate"><span class="pre">SemanticDebugScope</span></code> records.
+A root pointer with externally bound parameters, such as mapping keys, uses the schema's template form <code class="docutils literal notranslate"><span class="pre">{&quot;expect&quot;:</span> <span class="pre">[...],</span> <span class="pre">&quot;for&quot;:</span> <span class="pre">...}</span></code>.</p>
+<p>Expressions use the <a class="reference external" href="https://ethdebug.github.io/format/docs/core-schemas/pointers/expressions/">ethdebug pointer-expression grammar</a>.
+Literals are non-negative JSON numbers or <code class="docutils literal notranslate"><span class="pre">0x</span></code>-prefixed strings; bound variables are identifier strings.
+The remaining forms are <code class="docutils literal notranslate"><span class="pre">&quot;$wordsize&quot;</span></code> and the schema's single-key objects for lookups, reads, arithmetic, hashing, concatenation, and resizing.</p>
+<p>Expressions internal to the compiler use a <code class="docutils literal notranslate"><span class="pre">$$</span></code> prefix, which cannot clash with the schema's own <code class="docutils literal notranslate"><span class="pre">$</span></code> forms.
+The internal expression <code class="docutils literal notranslate"><span class="pre">{&quot;$$yulLocal&quot;:</span> <span class="pre">...}</span></code> names a generated Yul local whose stack depth has not yet been assigned.
+It has no public schema form and must be resolved or removed before emission; emission rejects any expression still carrying the <code class="docutils literal notranslate"><span class="pre">$$</span></code> prefix.</p>
+<p>Reusable pointers are published as resource templates.
+The sidecar carries them in the <code class="docutils literal notranslate"><span class="pre">pointers</span></code> table of its <code class="docutils literal notranslate"><span class="pre">resources</span></code> object, keyed by producer-defined name identifier and mirroring <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/info/resources.schema.yaml">ethdebug.resources.pointers</a>.
+A variable whose location is described by a template carries the pointer schema's <code class="docutils literal notranslate"><span class="pre">template</span></code> reference to the table entry, so pointer templates are referenced the same way as types.
+Both resource tables are derived from analysis results; producing them does not wait for Yul-to-EVM code generation.
+Public emission copies the tables into <code class="docutils literal notranslate"><span class="pre">ethdebug.resources</span></code> unchanged.
+A closed template can also be instantiated in a program context; a template with external parameters, such as mapping keys, remains a resource until the consumer supplies those parameters.
+A <code class="docutils literal notranslate"><span class="pre">template</span></code> reference must resolve against a <a class="reference external" href="https://ethdebug.github.io/format/spec/pointer/collection/templates">local templates block</a> in the same pointer document or against the sidecar's <code class="docutils literal notranslate"><span class="pre">resources.pointers</span></code> table; deserialization rejects a reference to any other name.</p>
+<section id="phase-changes">
+<h3>Phase Changes<a class="headerlink" href="#phase-changes" title="Link to this heading"></a></h3>
+<p>After attachment or reparse, the producer checks all free Yul variable names used by a pointer.
+If any required name is absent from the current Yul object, the phase becomes <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code> and the pointer is removed.
+The check excludes names bound by pointer <code class="docutils literal notranslate"><span class="pre">define</span></code> objects, list indices, and template parameters.</p>
+<p>Transformations that preserve a value must rewrite its pointer expressions to the new Yul names or machine regions.
+Transformations that clone or specialize code must clone the scope-instance debug info as well.
+If a pass cannot describe a surviving value soundly, it must use <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code> rather than retain a stale pointer.</p>
+<section id="variable-updates">
+<h4>Variable Updates<a class="headerlink" href="#variable-updates" title="Link to this heading"></a></h4>
+<p>A single per-scope phase and pointer cannot describe a value throughout its lifetime.
+<code class="docutils literal notranslate"><span class="pre">SSATransform</span></code> gives one source variable a different generated name at each assignment, while <code class="docutils literal notranslate"><span class="pre">Rematerialiser</span></code> replaces a materialized value with recomputation at individual uses.
+For these, an entry carries <code class="docutils literal notranslate"><span class="pre">variableUpdates</span></code> - the analogue of an <code class="docutils literal notranslate"><span class="pre">llvm.dbg.value</span></code> intrinsic:</p>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">SemanticDebugVariableUpdate</span></code> fields</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 24.0%" />
+<col style="width: 48.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">variableASTID</span></code></p></td>
+<td><p>signed 64-bit integer</p></td>
+<td><p>Declaration AST ID of the variable being updated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phase</span></code></p></td>
+<td><p>optional <code class="docutils literal notranslate"><span class="pre">SemanticDebugVariablePhase</span></code></p></td>
+<td><p>Replacement phase valid from the carrying node onward.
+It is omitted when only the pointer changes.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pointer</span></code></p></td>
+<td><p>optional <code class="docutils literal notranslate"><span class="pre">SemanticDebugPointer</span></code></p></td>
+<td><p>Replacement pointer for a materialized value.
+A change to <code class="docutils literal notranslate"><span class="pre">computed</span></code> or <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code> clears the previous pointer.</p></td>
+</tr>
+</tbody>
+</table>
+<p>An update takes effect at the Yul node its payload is attached to and holds until the next update for the same variable within the scope, or the scope's end.
+Scope records define variables; statement-level records update them.
+A <code class="docutils literal notranslate"><span class="pre">Drop</span></code> changes the phase to <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code>.
+Only passes whose effect the scope's initial phase and pointer cannot express need to produce updates.</p>
+<p>Deleting a Yul node that carries updates does not merely lose detail: the variable's previous binding would incorrectly appear current for the rest of the scope.
+A pass that removes such a node must reattach the updates to the node that takes its place or emit a <code class="docutils literal notranslate"><span class="pre">Drop</span></code> update for the affected variables at that program point.</p>
+<p>Most optimizer changes are pointer rewrites or phase changes rather than physical relocation.
+An SSA rename keeps the value <code class="docutils literal notranslate"><span class="pre">materialized</span></code> but changes the Yul local named by its pointer; rematerialization changes the phase to <code class="docutils literal notranslate"><span class="pre">computed</span></code>.
+<code class="docutils literal notranslate"><span class="pre">StackToMemoryMover</span></code>, including its use by <code class="docutils literal notranslate"><span class="pre">StackLimitEvader</span></code>, is an actual pointer-region change: its pointer changes from stack to memory while its phase remains <code class="docutils literal notranslate"><span class="pre">materialized</span></code>.
+By contrast, <code class="docutils literal notranslate"><span class="pre">LoadResolver</span></code> creates or reuses a stack copy of a loaded value but does not move the source variable out of storage, so the source variable's storage pointer does not change.</p>
+</section>
+</section>
+<section id="optimizer-update-rules">
+<h3>Optimizer Update Rules<a class="headerlink" href="#optimizer-update-rules" title="Link to this heading"></a></h3>
+<p>Every transformation that rewrites Yul with ethdebug enabled must declare how it maintains the semantic side table.
+The pass itself must determine whether a value survived unchanged, moved, merged with another value, became computable, or disappeared; a generic pass driver cannot infer that reliably.
+A pass with no declared strategy is treated as <code class="docutils literal notranslate"><span class="pre">Drop</span></code>, so an undeclared pass degrades debug info instead of producing stale pointers.</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Debug-info update strategies</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 48.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Strategy</p></th>
+<th class="head"><p>Obligation</p></th>
+<th class="head"><p>Passes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Preserve</span></code></p></td>
+<td><p>Copy the debug entry unchanged.
+Valid only when the pass changes neither the phase nor the names or regions read by a pointer.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ForLoopInitRewriter</span></code>, <code class="docutils literal notranslate"><span class="pre">ForLoopConditionIntoBody</span></code>, <code class="docutils literal notranslate"><span class="pre">ForLoopConditionOutOfBody</span></code>, <code class="docutils literal notranslate"><span class="pre">VarDeclInitializer</span></code>, <code class="docutils literal notranslate"><span class="pre">FunctionHoister</span></code>, <code class="docutils literal notranslate"><span class="pre">FunctionGrouper</span></code>, <code class="docutils literal notranslate"><span class="pre">ConditionalUnsimplifier</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Merge</span></code></p></td>
+<td><p>Keep the surviving value's entry when two values or two blocks collapse into one.
+Record the discarded declarations against the same program point so both source names remain inspectable.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CommonSubexpressionEliminator</span></code>, <code class="docutils literal notranslate"><span class="pre">ExpressionJoiner</span></code>, <code class="docutils literal notranslate"><span class="pre">ExpressionSimplifier</span></code>, <code class="docutils literal notranslate"><span class="pre">ControlFlowSimplifier</span></code>, <code class="docutils literal notranslate"><span class="pre">StructuralSimplifier</span></code>, <code class="docutils literal notranslate"><span class="pre">BlockFlattener</span></code>, <code class="docutils literal notranslate"><span class="pre">EquivalentFunctionCombiner</span></code>, <code class="docutils literal notranslate"><span class="pre">LoadResolver</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Remap</span></code></p></td>
+<td><p>Rewrite the pointer when the pass renames or physically moves a materialized value.
+Renaming passes rewrite the Yul names a pointer reads; because a statically addressed pointer holds no Yul name, renaming cannot affect it.
+Spilling passes move where the value is found, so the pointer changes from a stack to a memory region; the data itself is not relocated by the debug info.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Disambiguator</span></code>, <code class="docutils literal notranslate"><span class="pre">NameSimplifier</span></code>, <code class="docutils literal notranslate"><span class="pre">VarNameCleaner</span></code>, <code class="docutils literal notranslate"><span class="pre">SSATransform</span></code>, <code class="docutils literal notranslate"><span class="pre">SSAReverser</span></code>, <code class="docutils literal notranslate"><span class="pre">ExpressionSplitter</span></code>, <code class="docutils literal notranslate"><span class="pre">LoopInvariantCodeMotion</span></code>, <code class="docutils literal notranslate"><span class="pre">StackToMemoryMover</span></code>, <code class="docutils literal notranslate"><span class="pre">StackCompressor</span></code>, <code class="docutils literal notranslate"><span class="pre">StackLimitEvader</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Recompute</span></code></p></td>
+<td><p>Change the phase to <code class="docutils literal notranslate"><span class="pre">computed</span></code> from the affected program point and remove the stale materialized pointer.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LiteralRematerialiser</span></code>, <code class="docutils literal notranslate"><span class="pre">Rematerialiser</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Clone</span></code></p></td>
+<td><p>Duplicate the debug entry for each generated copy and give each copy its own instance discriminator.
+Without the instance discriminator the copies overwrite each other in the table.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FullInliner</span></code>, <code class="docutils literal notranslate"><span class="pre">FunctionSpecializer</span></code>, <code class="docutils literal notranslate"><span class="pre">ExpressionInliner</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Drop</span></code></p></td>
+<td><p>Set the phase to <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code> and remove the pointer.
+The declaration, type, and source range are retained so the variable is still reported as belonging to the scope.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DeadCodeEliminator</span></code>, <code class="docutils literal notranslate"><span class="pre">UnusedPruner</span></code>, <code class="docutils literal notranslate"><span class="pre">UnusedAssignEliminator</span></code>, <code class="docutils literal notranslate"><span class="pre">UnusedStoreEliminator</span></code>, <code class="docutils literal notranslate"><span class="pre">EqualStoreEliminator</span></code>, <code class="docutils literal notranslate"><span class="pre">CircularReferencesPruner</span></code>, <code class="docutils literal notranslate"><span class="pre">UnusedFunctionParameterPruner</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">SSATransform</span></code> and <code class="docutils literal notranslate"><span class="pre">Rematerialiser</span></code> cannot be expressed as whole-scope updates, because the pointer or phase changes between program points.
+They must emit variable updates instead - see <a class="reference internal" href="#variable-updates">Variable Updates</a>.
+Substituting a variable use by its defining expression can leave the variable itself unused and later pruned.
+The value is then still recoverable by evaluating that expression, so its phase becomes <code class="docutils literal notranslate"><span class="pre">computed</span></code> rather than <code class="docutils literal notranslate"><span class="pre">optimized-out</span></code>.</p>
+<p>A pass that cannot meet its obligation for a particular value falls back to <code class="docutils literal notranslate"><span class="pre">Drop</span></code> for that value alone, not for the whole scope.
+Marking a value unavailable is always sound, while keeping a pointer that no longer describes the value is not.</p>
+</section>
+</section>
+<section id="identity-and-optimizer-cloning">
+<h2>Identity and Optimizer Cloning<a class="headerlink" href="#identity-and-optimizer-cloning" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">astID</span></code> records the source-language origin.
+Specialization and cloning can produce several Yul scopes with the same origin but different variable phases or pointers.</p>
+<p>The table therefore uses <code class="docutils literal notranslate"><span class="pre">(astID,</span> <span class="pre">instance)</span></code> as its key:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">astID</span></code> is a signed 64-bit integer that identifies the source-language node and is preserved by <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">instance</span></code> is a signed 64-bit integer in the range <code class="docutils literal notranslate"><span class="pre">0</span></code> through <code class="docutils literal notranslate"><span class="pre">2**63</span> <span class="pre">-</span> <span class="pre">1</span></code> that distinguishes generated Yul scope instances sharing the same source origin.
+It defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+<p>An entry that has not been cloned uses instance <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+In Yul text, the instance is carried by a dedicated <code class="docutils literal notranslate"><span class="pre">&#64;ast-id-instance</span></code> annotation emitted next to <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code> and present only when the instance is not <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code> annotation itself is unchanged, so uncloned code keeps its current form and existing consumers are unaffected.
+An <code class="docutils literal notranslate"><span class="pre">&#64;ast-id-instance</span></code> annotation without an accompanying <code class="docutils literal notranslate"><span class="pre">&#64;ast-id</span></code> on the same node is malformed and is ignored.
+Optimizer passes that clone or specialize functions assign fresh instance values and emit the annotation on each clone.</p>
+</section>
+<section id="serialization">
+<h2>Serialization<a class="headerlink" href="#serialization" title="Link to this heading"></a></h2>
+<p>One shared component provides both serialization and deserialization, so the writer and the reader cannot drift apart.
+Serialization includes the resource tables, pointer expressions, variable updates, and scope records that have no Yul attachment.
+All integer fields are native JSON numbers; the reader decodes the full 64-bit ranges exactly.
+String-encoded numbers occur only inside pointer expressions, where the ethdebug expression grammar governs them.
+Declaration and type-definition ranges use the ethdebug <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/materials/source-range.schema.yaml">source range</a> shape.
+Source IDs are opaque to the Yul stage.
+The producer uses the same source IDs in the sidecar as in the accompanying <code class="docutils literal notranslate"><span class="pre">ethdebug.compilation</span></code> record, and the Yul stage transports them unchanged.
+Each source record in <code class="docutils literal notranslate"><span class="pre">ethdebug.compilation</span></code> maps its ID to the source path and contents, so a path is not used as an ID.</p>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Top-level JSON object</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 22.0%" />
+<col style="width: 56.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">format</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">solidity-ethdebug-semantic-data</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p>unsigned 32-bit integer</p></td>
+<td><p>Format version in the range <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">2**32</span> <span class="pre">-</span> <span class="pre">1</span></code>, currently <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">contractName</span></code></p></td>
+<td><p>optional string</p></td>
+<td><p>Source-language contract name used by the public ethdebug program object when the generated Yul object has a different name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resources</span></code></p></td>
+<td><p>optional object</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">types</span></code> and <code class="docutils literal notranslate"><span class="pre">pointers</span></code> members of the <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/info/resources.schema.yaml">ethdebug resource tables</a>, keyed by producer-defined IDs.
+Variables refer to type entries through <code class="docutils literal notranslate"><span class="pre">typeID</span></code> and to pointer templates through <code class="docutils literal notranslate"><span class="pre">template</span></code> references.
+Public emission copies both tables into <code class="docutils literal notranslate"><span class="pre">ethdebug.resources</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scopes</span></code></p></td>
+<td><p>object</p></td>
+<td><p>Two-level map from the decimal string form of <code class="docutils literal notranslate"><span class="pre">astID</span></code> to the decimal string form of <code class="docutils literal notranslate"><span class="pre">instance</span></code> to a <code class="docutils literal notranslate"><span class="pre">SemanticDebugScope</span></code>.
+Instance <code class="docutils literal notranslate"><span class="pre">0</span></code> is written explicitly.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Readers reject an unknown format, an unsupported version, malformed sidecar fields, and keys that do not parse as decimal integers in the documented ranges.
+Writers emit deterministic output by ordering both key levels in ascending numeric order.</p>
+<section id="compiler-interfaces">
+<h3>Compiler Interfaces<a class="headerlink" href="#compiler-interfaces" title="Link to this heading"></a></h3>
+<p>Standard JSON uses these fields:</p>
+<ul class="simple">
+<li><p>Solidity output <code class="docutils literal notranslate"><span class="pre">contracts[&lt;source&gt;][&lt;contract&gt;].ir</span></code> contains the Yul text.</p></li>
+<li><p>Solidity output <code class="docutils literal notranslate"><span class="pre">contracts[&lt;source&gt;][&lt;contract&gt;].irEthdebug</span></code> contains its semantic sidecar.</p></li>
+<li><p>Yul input <code class="docutils literal notranslate"><span class="pre">auxiliaryInput.ethdebug</span></code> supplies the sidecar for the Yul source.</p></li>
+<li><p>Yul output <code class="docutils literal notranslate"><span class="pre">irEthdebug</span></code> emits the updated sidecar again.</p></li>
+</ul>
+<p>The command-line interface uses these options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--ir</span></code> and <code class="docutils literal notranslate"><span class="pre">--ir-ethdebug</span></code> emit the Yul text and sidecar.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--strict-assembly</span> <span class="pre">&lt;source.yul&gt;</span> <span class="pre">--ethdebug-input</span> <span class="pre">&lt;sidecar.json&gt;</span></code> supplies the sidecar for the Yul input.
+Assembler modes accept exactly one input file, so no syntax pairing sidecars with multiple inputs is defined.</p></li>
+</ul>
+<p>The sidecar is both compiler input and compiler output, allowing the same debug info to cross a textual Yul boundary.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For implementation testing, <code class="docutils literal notranslate"><span class="pre">EthdebugTest</span></code> will add <code class="docutils literal notranslate"><span class="pre">Contract.semantic</span></code> as a direct view of the serialized sidecar.</p>
+</div>
+</section>
+</section>
+<section id="required-variable-coverage">
+<h2>Required Variable Coverage<a class="headerlink" href="#required-variable-coverage" title="Link to this heading"></a></h2>
+<p>Semantic debug info must cover every binding visible to source-level debugging:</p>
+<ul class="simple">
+<li><p>Named and unnamed function parameters and return parameters are included.</p></li>
+<li><p>Modifier parameters and local variables in ordinary blocks are included.</p></li>
+<li><p>Variables introduced by <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">try</span></code>, success, <code class="docutils literal notranslate"><span class="pre">catch</span></code>, error, and panic clauses are included in the precise scope where they become visible.</p></li>
+<li><p>State variables in persistent and transient storage are included.</p></li>
+<li><p>File-level constants are included.</p></li>
+<li><p>Every visible import alias is a separate binding with its alias identifier but shares the declaration identity and value description of the imported constant.</p></li>
+<li><p>Synthetic language bindings such as <code class="docutils literal notranslate"><span class="pre">this</span></code>, <code class="docutils literal notranslate"><span class="pre">super</span></code>, and <code class="docutils literal notranslate"><span class="pre">msg</span></code> are included even when there is no <code class="docutils literal notranslate"><span class="pre">VariableDeclaration</span></code> AST node.</p></li>
+<li><p>Values in memory, calldata, returndata, code, and computed form are included when they are observable.</p></li>
+</ul>
+<p>ethdebug variable identifiers are optional.
+An unnamed Solidity return parameter is therefore emitted with declaration, type, and pointer information but without <code class="docutils literal notranslate"><span class="pre">identifier</span></code>.
+Its declaration order and AST identity still map it to the corresponding Solidity return slot and generated <code class="docutils literal notranslate"><span class="pre">IRVariable</span></code> stack slots.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2016-2025, The Solidity Authors。</p>
+  </div>
+
+  
+    <p>
+        <a href="../credits-and-attribution.html">Credits and attribution</a>.
+    </p>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
