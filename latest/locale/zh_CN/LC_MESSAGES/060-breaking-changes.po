@@ -189,9 +189,9 @@ msgstr ""
 
 #: ../../../060-breaking-changes.rst:96
 msgid ""
-"Array slices can be used for calldata arrays, for example ``abi.decode(msg."
-"data[4:], (uint, uint))`` is a low-level way to decode the function call "
-"payload."
+"Array slices can be used for calldata arrays, for example "
+"``abi.decode(msg.data[4:], (uint, uint))`` is a low-level way to decode the "
+"function call payload."
 msgstr ""
 
 #: ../../../060-breaking-changes.rst:98

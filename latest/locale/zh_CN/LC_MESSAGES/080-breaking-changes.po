@@ -270,8 +270,8 @@ msgstr ""
 msgid ""
 "The global variables ``tx.origin`` and ``msg.sender`` have the type "
 "``address`` instead of ``address payable``. One can convert them into "
-"``address payable`` by using an explicit conversion, i.e., ``payable(tx."
-"origin)`` or ``payable(msg.sender)``."
+"``address payable`` by using an explicit conversion, i.e., "
+"``payable(tx.origin)`` or ``payable(msg.sender)``."
 msgstr ""
 
 #: ../../../080-breaking-changes.rst:126

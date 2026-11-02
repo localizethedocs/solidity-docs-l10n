@@ -39,9 +39,9 @@ msgstr ""
 msgid ""
 "The compiler maintains an internal database (*virtual filesystem* or *VFS* "
 "for short) where each source unit is assigned a unique *source unit name* "
-"which is an opaque and unstructured identifier. When you use the :ref:"
-"`import statement <import>`, you specify an *import path* that references a "
-"source unit name."
+"which is an opaque and unstructured identifier. When you use "
+"the :ref:`import statement <import>`, you specify an *import path* that "
+"references a source unit name."
 msgstr ""
 
 #: ../../../path-resolution.rst:28
@@ -66,14 +66,15 @@ msgid ""
 "By default, the command-line compiler provides the *Host Filesystem Loader* "
 "- a rudimentary callback that interprets a source unit name as a path in the "
 "local filesystem. This callback can be disabled using the ``--no-import-"
-"callback`` command-line option. The `JavaScript interface <https://github."
-"com/argotorg/solc-js>`_ does not provide any by default, but one can be "
-"provided by the user. This mechanism can be used to obtain source code from "
-"locations other than the local filesystem (which may not even be accessible, "
-"e.g. when the compiler is running in a browser). For example the `Remix IDE "
-"<https://remix.ethereum.org/>`_ provides a versatile callback that lets you "
-"`import files from HTTP, IPFS and Swarm URLs or refer directly to packages "
-"in NPM registry <https://remix-ide.readthedocs.io/en/latest/import.html>`_."
+"callback`` command-line option. The `JavaScript interface <https://"
+"github.com/argotorg/solc-js>`_ does not provide any by default, but one can "
+"be provided by the user. This mechanism can be used to obtain source code "
+"from locations other than the local filesystem (which may not even be "
+"accessible, e.g. when the compiler is running in a browser). For example the "
+"`Remix IDE <https://remix.ethereum.org/>`_ provides a versatile callback "
+"that lets you `import files from HTTP, IPFS and Swarm URLs or refer directly "
+"to packages in NPM registry <https://remix-ide.readthedocs.io/en/latest/"
+"import.html>`_."
 msgstr ""
 
 #: ../../../path-resolution.rst:52
@@ -355,8 +356,8 @@ msgstr ""
 
 #: ../../../path-resolution.rst:228
 msgid ""
-"import \"./util.sol\" as util;    // source unit name: /project/lib/util."
-"sol\n"
+"import \"./util.sol\" as util;    // source unit name: /project/lib/"
+"util.sol\n"
 "import \"../token.sol\" as token; // source unit name: /project/token.sol"
 msgstr ""
 
@@ -372,10 +373,10 @@ msgstr ""
 
 #: ../../../path-resolution.rst:242
 msgid ""
-"Relative imports **always** start with ``./`` or ``../`` so ``import \"util."
-"sol\"``, unlike ``import \"./util.sol\"``, is a direct import. While both "
-"paths would be considered relative in the host filesystem, ``util.sol`` is "
-"actually absolute in the VFS."
+"Relative imports **always** start with ``./`` or ``../`` so ``import "
+"\"util.sol\"``, unlike ``import \"./util.sol\"``, is a direct import. While "
+"both paths would be considered relative in the host filesystem, ``util.sol`` "
+"is actually absolute in the VFS."
 msgstr ""
 
 #: ../../../path-resolution.rst:247
@@ -587,8 +588,8 @@ msgstr ""
 #: ../../../path-resolution.rst:363
 msgid ""
 "Sequences of multiple consecutive path separators are squashed into a single "
-"separator (unless they are the leading slashes of an `UNC path <https://en."
-"wikipedia.org/wiki/Path_(computing)#UNC>`_)."
+"separator (unless they are the leading slashes of an `UNC path <https://"
+"en.wikipedia.org/wiki/Path_(computing)#UNC>`_)."
 msgstr ""
 
 #: ../../../path-resolution.rst:365
@@ -644,8 +645,8 @@ msgstr ""
 msgid ""
 "The relative path produced by stripping must remain unique within the base "
 "path and include paths. For example the compiler will issue an error for the "
-"following command if both ``/project/contract.sol`` and ``/lib/contract."
-"sol`` exist:"
+"following command if both ``/project/contract.sol`` and ``/lib/"
+"contract.sol`` exist:"
 msgstr ""
 
 #: ../../../path-resolution.rst:403
@@ -838,8 +839,8 @@ msgstr ""
 
 #: ../../../path-resolution.rst:517
 msgid ""
-"The compiler will look for the file in the VFS under ``dapp-bin/library/math."
-"sol``. If the file is not available there, the source unit name will be "
+"The compiler will look for the file in the VFS under ``dapp-bin/library/"
+"math.sol``. If the file is not available there, the source unit name will be "
 "passed to the Host Filesystem Loader, which will then look in ``/project/"
 "dapp-bin/library/math.sol``."
 msgstr ""
@@ -908,8 +909,8 @@ msgstr ""
 #: ../../../path-resolution.rst:559
 msgid ""
 "Source unit names added to the VFS in any other way cannot be remapped. For "
-"example the paths you specify on the command-line and the ones in ``sources."
-"urls`` in Standard JSON are not affected."
+"example the paths you specify on the command-line and the ones in "
+"``sources.urls`` in Standard JSON are not affected."
 msgstr ""
 
 #: ../../../path-resolution.rst:563
@@ -992,8 +993,8 @@ msgstr ""
 #: ../../../path-resolution.rst:608
 msgid ""
 "Remapping targets are not normalized so ``@root/=./a/b//`` will remap "
-"``@root/contract.sol`` to ``./a/b//contract.sol`` and not ``a/b/contract."
-"sol``."
+"``@root/contract.sol`` to ``./a/b//contract.sol`` and not ``a/b/"
+"contract.sol``."
 msgstr ""
 
 #: ../../../path-resolution.rst:611

@@ -49,8 +49,8 @@ msgstr ""
 
 #: ../../../resources.rst:13
 msgid ""
-"`Solidity language users chat <https://matrix.to/#/#ethereum_solidity:gitter."
-"im>`_"
+"`Solidity language users chat <https://matrix.to/#/"
+"#ethereum_solidity:gitter.im>`_"
 msgstr ""
 
 #: ../../../resources.rst:14
@@ -194,8 +194,8 @@ msgstr ""
 
 #: ../../../resources.rst:65
 msgid ""
-"`Package for SublimeText - Solidity language syntax <https://packagecontrol."
-"io/packages/Ethereum/>`_"
+"`Package for SublimeText - Solidity language syntax <https://"
+"packagecontrol.io/packages/Ethereum/>`_"
 msgstr ""
 
 #: ../../../resources.rst:66
@@ -262,8 +262,8 @@ msgstr ""
 
 #: ../../../resources.rst:88
 msgid ""
-"`Solidity Visual Studio Code extension, by Juan Blanco <https://juan.blanco."
-"ws/solidity-contracts-in-visual-studio-code/>`_"
+"`Solidity Visual Studio Code extension, by Juan Blanco <https://"
+"juan.blanco.ws/solidity-contracts-in-visual-studio-code/>`_"
 msgstr ""
 
 #: ../../../resources.rst:89
@@ -318,8 +318,8 @@ msgstr ""
 
 #: ../../../resources.rst:106
 msgid ""
-"`ABI to Solidity interface converter <https://gist.github.com/"
-"chriseth/8f533d133fa0c15b0d6eaf3ec502c82b>`_"
+"`ABI to Solidity interface converter <https://gist.github.com/chriseth/"
+"8f533d133fa0c15b0d6eaf3ec502c82b>`_"
 msgstr ""
 
 #: ../../../resources.rst:107

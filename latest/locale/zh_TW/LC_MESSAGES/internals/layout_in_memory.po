@@ -86,8 +86,8 @@ msgstr ""
 
 #: ../../../internals/layout_in_memory.rst:43
 msgid ""
-"As described above the layout in memory is different from the layout in :ref:"
-"`storage<storage-inplace-encoding>`. Below there are some examples."
+"As described above the layout in memory is different from the layout "
+"in :ref:`storage<storage-inplace-encoding>`. Below there are some examples."
 msgstr ""
 
 #: ../../../internals/layout_in_memory.rst:47

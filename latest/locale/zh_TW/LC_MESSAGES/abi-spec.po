@@ -66,9 +66,9 @@ msgstr ""
 
 #: ../../../abi-spec.rst:35
 msgid ""
-"The return type of a function is not part of this signature. In :ref:"
-"`Solidity's function overloading <overload-function>` return types are not "
-"considered. The reason is to keep function call resolution context-"
+"The return type of a function is not part of this signature. "
+"In :ref:`Solidity's function overloading <overload-function>` return types "
+"are not considered. The reason is to keep function call resolution context-"
 "independent. The :ref:`JSON description of the ABI<abi_json>` however "
 "contains both inputs and outputs."
 msgstr ""
@@ -706,15 +706,15 @@ msgstr ""
 
 #: ../../../abi-spec.rst:313
 msgid ""
-"A call to a function with the signature ``f(uint256,uint32[],bytes10,"
-"bytes)`` with values ``(0x123, [0x456, 0x789], \"1234567890\", \"Hello, "
-"world!\")`` is encoded in the following way:"
+"A call to a function with the signature "
+"``f(uint256,uint32[],bytes10,bytes)`` with values ``(0x123, [0x456, 0x789], "
+"\"1234567890\", \"Hello, world!\")`` is encoded in the following way:"
 msgstr ""
 
 #: ../../../abi-spec.rst:316
 msgid ""
-"We take the first four bytes of ``keccak(\"f(uint256,uint32[],bytes10,"
-"bytes)\")``, i.e. ``0x8be65246``. Then we encode the head parts of all four "
+"We take the first four bytes of ``keccak(\"f(uint256,uint32[],bytes10,bytes)"
+"\")``, i.e. ``0x8be65246``. Then we encode the head parts of all four "
 "arguments. For the static types ``uint256`` and ``bytes10``, these are "
 "directly the values we want to pass, whereas for the dynamic types "
 "``uint32[]`` and ``bytes``, we use the offset in bytes to the start of their "
@@ -1123,11 +1123,12 @@ msgstr ""
 
 #: ../../../abi-spec.rst:483
 msgid ""
-"``topics[0]``: ``keccak(EVENT_NAME+\"(\"+EVENT_ARGS.map(canonical_type_of)."
-"join(\",\")+\")\")`` (``canonical_type_of`` is a function that simply "
-"returns the canonical type of a given argument, e.g. for ``uint indexed "
-"foo``, it would return ``uint256``). This value is only present in "
-"``topics[0]`` if the event is not declared as ``anonymous``;"
+"``topics[0]``: ``keccak(EVENT_NAME+"
+"\"(\"+EVENT_ARGS.map(canonical_type_of).join(\",\")+\")\")`` "
+"(``canonical_type_of`` is a function that simply returns the canonical type "
+"of a given argument, e.g. for ``uint indexed foo``, it would return "
+"``uint256``). This value is only present in ``topics[0]`` if the event is "
+"not declared as ``anonymous``;"
 msgstr ""
 
 #: ../../../abi-spec.rst:486
@@ -1233,9 +1234,9 @@ msgstr ""
 
 #: ../../../abi-spec.rst:555
 msgid ""
-"``type``: ``\"function\"``, ``\"constructor\"``, ``\"receive\"`` (the :ref:"
-"`\"receive Ether\" function <receive-ether-function>`) or ``\"fallback\"`` "
-"(the :ref:`\"default\" function <fallback-function>`);"
+"``type``: ``\"function\"``, ``\"constructor\"``, ``\"receive\"`` "
+"(the :ref:`\"receive Ether\" function <receive-ether-function>`) or "
+"``\"fallback\"`` (the :ref:`\"default\" function <fallback-function>`);"
 msgstr ""
 
 #: ../../../abi-spec.rst:556
@@ -1268,9 +1269,9 @@ msgstr ""
 
 #: ../../../abi-spec.rst:564
 msgid ""
-"``stateMutability``: a string with one of the following values: ``pure`` (:"
-"ref:`specified to not read blockchain state <pure-functions>`), ``view`` (:"
-"ref:`specified to not modify the blockchain state <view-functions>`), "
+"``stateMutability``: a string with one of the following values: ``pure`` "
+"(:ref:`specified to not read blockchain state <pure-functions>`), ``view`` "
+"(:ref:`specified to not modify the blockchain state <view-functions>`), "
 "``nonpayable`` (function does not accept Ether - the default) and "
 "``payable`` (function accepts Ether)."
 msgstr ""
@@ -1592,8 +1593,8 @@ msgstr ""
 
 #: ../../../abi-spec.rst:789
 msgid ""
-"If padding is needed, explicit type conversions can be used: ``abi."
-"encodePacked(uint16(0x12)) == hex\"0012\"``."
+"If padding is needed, explicit type conversions can be used: "
+"``abi.encodePacked(uint16(0x12)) == hex\"0012\"``."
 msgstr ""
 
 #: ../../../abi-spec.rst:791
@@ -1607,12 +1608,12 @@ msgstr ""
 msgid ""
 "If you use ``keccak256(abi.encodePacked(a, b))`` and both ``a`` and ``b`` "
 "are dynamic types, it is easy to craft collisions in the hash value by "
-"moving parts of ``a`` into ``b`` and vice-versa. More specifically, ``abi."
-"encodePacked(\"a\", \"bc\") == abi.encodePacked(\"ab\", \"c\")``. If you use "
-"``abi.encodePacked`` for signatures, authentication or data integrity, make "
-"sure to always use the same types and check that at most one of them is "
-"dynamic. Unless there is a compelling reason, ``abi.encode`` should be "
-"preferred."
+"moving parts of ``a`` into ``b`` and vice-versa. More specifically, "
+"``abi.encodePacked(\"a\", \"bc\") == abi.encodePacked(\"ab\", \"c\")``. If "
+"you use ``abi.encodePacked`` for signatures, authentication or data "
+"integrity, make sure to always use the same types and check that at most one "
+"of them is dynamic. Unless there is a compelling reason, ``abi.encode`` "
+"should be preferred."
 msgstr ""
 
 #: ../../../abi-spec.rst:807

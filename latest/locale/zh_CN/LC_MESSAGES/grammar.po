@@ -71,8 +71,8 @@ msgstr ""
 #: non-default cases followed by default-case.:-1 ../../../paths containing
 #: dots declarations outside
 msgid ""
-".. syntax:autogrammar:: SolidityParser.g4    :root-rule: SolidityParser."
-"sourceUnit    :undocumented:    :cc-to-dash:"
+".. syntax:autogrammar:: SolidityParser.g4    :root-rule: "
+"SolidityParser.sourceUnit    :undocumented:    :cc-to-dash:"
 msgstr ""
 
 #: ../../../Import directives import identifiers from different files.:33
@@ -451,8 +451,8 @@ msgstr ""
 #: ../../../uint uint256.:-1 ../../../unescaped double-quotes single-quotes,
 #: respectively.:-1
 msgid ""
-".. syntax:autogrammar:: SolidityLexer.g4    :root-rule: SolidityParser."
-"sourceUnit    :fragments:    :cc-to-dash:"
+".. syntax:autogrammar:: SolidityLexer.g4    :root-rule: "
+"SolidityParser.sourceUnit    :fragments:    :cc-to-dash:"
 msgstr ""
 
 #: ../../../Unit denomination for numbers.:66
