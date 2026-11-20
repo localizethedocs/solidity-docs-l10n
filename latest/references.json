@@ -16,9 +16,9 @@
       "branch" : "develop",
       "commit" : 
       {
-        "date" : "2026-10-05 18:24:57 +0200",
-        "hash" : "f5dccafd79b72a956dde9149394485ecd3075f26",
-        "title" : "Docs: Fix link to cvc5 (#17082)"
+        "date" : "2026-11-16 13:44:53 +0100",
+        "hash" : "41d9e65bb809a1605b506507678e4987ff495926",
+        "title" : "Merge pull request #17224 from walnuthq/fix/json-integer-range-checks"
       }
     },
     "zh_TW" : 
@@ -26,9 +26,9 @@
       "branch" : "develop",
       "commit" : 
       {
-        "date" : "2026-10-05 18:24:57 +0200",
-        "hash" : "f5dccafd79b72a956dde9149394485ecd3075f26",
-        "title" : "Docs: Fix link to cvc5 (#17082)"
+        "date" : "2026-11-16 13:44:53 +0100",
+        "hash" : "41d9e65bb809a1605b506507678e4987ff495926",
+        "title" : "Merge pull request #17224 from walnuthq/fix/json-integer-range-checks"
       }
     }
   },
