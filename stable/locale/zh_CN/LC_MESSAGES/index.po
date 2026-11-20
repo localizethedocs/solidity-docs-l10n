@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 11:08+0000\n"
+"POT-Creation-Date: 2026-11-16 17:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,11 +37,11 @@ msgstr "内部说明"
 msgid "Advisory content"
 msgstr "推荐内容"
 
-#: ../../../index.rst:167
+#: ../../../index.rst:168
 msgid "Additional Material"
 msgstr "补充材料"
 
-#: ../../../index.rst:176
+#: ../../../index.rst:177
 msgid "Resources"
 msgstr "资源"
 
@@ -103,12 +103,9 @@ msgstr ""
 
 #: ../../../index.rst:23
 msgid ""
-"Solidity recently released the 0.8.x version that introduced a lot of "
-"breaking changes. Make sure you read :doc:`the full list <080-breaking-"
-"changes>`."
+"The Solidity 0.8.x release introduced a lot of breaking changes. Make sure "
+"you read :doc:`the full list <080-breaking-changes>`."
 msgstr ""
-"Solidity最近发布了0.8.x版本，该版本引入了许多重大更新。请务必阅读:doc:`完整列"
-"表`<080-breaking-changes>。"
 
 #: ../../../index.rst:26
 msgid ""
@@ -210,7 +207,7 @@ msgstr ""
 msgid ""
 "If you have any questions, you can try searching for answers or asking on "
 "the `Ethereum StackExchange <https://ethereum.stackexchange.com/>`_, or our "
-"`Gitter channel <https://gitter.im/ethereum/solidity>`_."
+"`Matrix channel <https://matrix.to/#/#ethereum\\_solidity:gitter.im>`_."
 msgstr ""
 
 #: ../../../index.rst:83
@@ -281,3 +278,11 @@ msgstr ""
 #: ../../../index.rst:111
 msgid ":ref:`Keyword Index <genindex>`, :ref:`Search Page <search>`"
 msgstr ""
+
+#~ msgid ""
+#~ "Solidity recently released the 0.8.x version that introduced a lot of "
+#~ "breaking changes. Make sure you read :doc:`the full list <080-breaking-"
+#~ "changes>`."
+#~ msgstr ""
+#~ "Solidity最近发布了0.8.x版本，该版本引入了许多重大更新。请务必阅读:doc:`完"
+#~ "整列表`<080-breaking-changes>。"
