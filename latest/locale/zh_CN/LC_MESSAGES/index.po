@@ -278,11 +278,3 @@ msgstr ""
 #: ../../../index.rst:111
 msgid ":ref:`Keyword Index <genindex>`, :ref:`Search Page <search>`"
 msgstr ""
-
-#~ msgid ""
-#~ "Solidity recently released the 0.8.x version that introduced a lot of "
-#~ "breaking changes. Make sure you read :doc:`the full list <080-breaking-"
-#~ "changes>`."
-#~ msgstr ""
-#~ "Solidity最近发布了0.8.x版本，该版本引入了许多重大更新。请务必阅读:doc:`完"
-#~ "整列表`<080-breaking-changes>。"
