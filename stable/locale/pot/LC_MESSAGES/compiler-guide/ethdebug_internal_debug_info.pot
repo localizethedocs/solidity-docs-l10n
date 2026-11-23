@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 17:52+0000\n"
+"POT-Creation-Date: 2026-11-23 20:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,16 +229,16 @@ msgstr ""
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:97
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:125
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:142
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:268
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:377
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:269
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:378
 msgid "Field"
 msgstr ""
 
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:98
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:126
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:143
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:269
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:378
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:270
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:379
 msgid "Type"
 msgstr ""
 
@@ -245,8 +246,8 @@ msgstr ""
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:127
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:144
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:205
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:270
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:379
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:271
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:380
 msgid "Meaning"
 msgstr ""
 
@@ -362,7 +363,7 @@ msgstr ""
 
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:146
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:157
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:387
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:388
 msgid "optional string"
 msgstr ""
 
@@ -404,7 +405,7 @@ msgid ""
 msgstr ""
 
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:160
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:274
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:275
 msgid "``phase``"
 msgstr ""
 
@@ -419,12 +420,12 @@ msgid ""
 msgstr ""
 
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:163
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:278
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:279
 msgid "``pointer``"
 msgstr ""
 
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:164
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:279
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:280
 msgid "optional ``SemanticDebugPointer``"
 msgstr ""
 
@@ -454,7 +455,7 @@ msgid ""
 "For example, after ``uint[] storage ref = condition ? a : b``, the pointer "
 "for ``ref`` starts at the generated Yul local holding the selected slot "
 "rather than at a statically known slot. Stack values, memory references, and "
-"such storage references can use the internal ``$$yulLocal`` expression "
+"such storage references can use the internal ``~~yulLocal`` expression "
 "described below until Yul-to-EVM code generation assigns their concrete "
 "representation. The expression must be resolved or removed before public "
 "emission."
@@ -589,22 +590,22 @@ msgid ""
 "Expressions use the `ethdebug pointer-expression grammar <https://"
 "ethdebug.github.io/format/docs/core-schemas/pointers/expressions/>`_. "
 "Literals are non-negative JSON numbers or ``0x``-prefixed strings; bound "
-"variables are identifier strings. The remaining forms are ``\"$wordsize\"`` "
+"variables are identifier strings. The remaining forms are ``\"~wordsize\"`` "
 "and the schema's single-key objects for lookups, reads, arithmetic, hashing, "
 "concatenation, and resizing."
 msgstr ""
 
 #: ../../../compiler-guide/ethdebug_internal_debug_info.rst:234
 msgid ""
-"Expressions internal to the compiler use a ``$$`` prefix, which cannot clash "
-"with the schema's own ``$`` forms. The internal expression ``{\"$"
-"$yulLocal\": ...}`` names a generated Yul local whose stack depth has not "
-"yet been assigned. It has no public schema form and must be resolved or "
-"removed before emission; emission rejects any expression still carrying the "
-"``$$`` prefix."
+"Expressions internal to the compiler are single-key objects whose key starts "
+"with ``~~``. This prefix cannot appear in a Solidity identifier and is not "
+"used by the public schema. The internal expression ``{\"~~yulLocal\": ...}`` "
+"names a generated Yul local whose stack depth has not yet been assigned. It "
+"has no public schema form and must be resolved or removed before emission; "
+"emission rejects any expression still carrying the ``~~`` prefix."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:238
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:239
 msgid ""
 "Reusable pointers are published as resource templates. The sidecar carries "
 "them in the ``pointers`` table of its ``resources`` object, keyed by "
@@ -624,11 +625,11 @@ msgid ""
 "table; deserialization rejects a reference to any other name."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:247
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:248
 msgid "Phase Changes"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:249
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:250
 msgid ""
 "After attachment or reparse, the producer checks all free Yul variable names "
 "used by a pointer. If any required name is absent from the current Yul "
@@ -637,7 +638,7 @@ msgid ""
 "template parameters."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:253
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:254
 msgid ""
 "Transformations that preserve a value must rewrite its pointer expressions "
 "to the new Yul names or machine regions. Transformations that clone or "
@@ -646,11 +647,11 @@ msgid ""
 "rather than retain a stale pointer."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:258
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:259
 msgid "Variable Updates"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:260
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:261
 msgid ""
 "A single per-scope phase and pointer cannot describe a value throughout its "
 "lifetime. ``SSATransform`` gives one source variable a different generated "
@@ -659,39 +660,39 @@ msgid ""
 "``variableUpdates`` - the analogue of an ``llvm.dbg.value`` intrinsic:"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:264
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:265
 msgid "``SemanticDebugVariableUpdate`` fields"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:271
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:272
 msgid "``variableASTID``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:272
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:273
 msgid "signed 64-bit integer"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:273
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:274
 msgid "Declaration AST ID of the variable being updated."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:275
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:276
 msgid "optional ``SemanticDebugVariablePhase``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:276
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:277
 msgid ""
 "Replacement phase valid from the carrying node onward. It is omitted when "
 "only the pointer changes."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:280
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:281
 msgid ""
 "Replacement pointer for a materialized value. A change to ``computed`` or "
 "``optimized-out`` clears the previous pointer."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:283
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:284
 msgid ""
 "An update takes effect at the Yul node its payload is attached to and holds "
 "until the next update for the same variable within the scope, or the scope's "
@@ -700,7 +701,7 @@ msgid ""
 "the scope's initial phase and pointer cannot express need to produce updates."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:288
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:289
 msgid ""
 "Deleting a Yul node that carries updates does not merely lose detail: the "
 "variable's previous binding would incorrectly appear current for the rest of "
@@ -709,7 +710,7 @@ msgid ""
 "variables at that program point."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:291
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:292
 msgid ""
 "Most optimizer changes are pointer rewrites or phase changes rather than "
 "physical relocation. An SSA rename keeps the value ``materialized`` but "
@@ -722,11 +723,11 @@ msgid ""
 "variable's storage pointer does not change."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:297
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:298
 msgid "Optimizer Update Rules"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:299
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:300
 msgid ""
 "Every transformation that rewrites Yul with ethdebug enabled must declare "
 "how it maintains the semantic side table. The pass itself must determine "
@@ -736,51 +737,51 @@ msgid ""
 "undeclared pass degrades debug info instead of producing stale pointers."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:303
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:304
 msgid "Debug-info update strategies"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:307
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:308
 msgid "Strategy"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:308
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:309
 msgid "Obligation"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:309
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:310
 msgid "Passes"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:310
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:311
 msgid "``Preserve``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:311
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:312
 msgid ""
 "Copy the debug entry unchanged. Valid only when the pass changes neither the "
 "phase nor the names or regions read by a pointer."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:313
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:314
 msgid ""
 "``ForLoopInitRewriter``, ``ForLoopConditionIntoBody``, "
 "``ForLoopConditionOutOfBody``, ``VarDeclInitializer``, ``FunctionHoister``, "
 "``FunctionGrouper``, ``ConditionalUnsimplifier``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:314
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:315
 msgid "``Merge``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:315
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:316
 msgid ""
 "Keep the surviving value's entry when two values or two blocks collapse into "
 "one. Record the discarded declarations against the same program point so "
 "both source names remain inspectable."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:317
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:318
 msgid ""
 "``CommonSubexpressionEliminator``, ``ExpressionJoiner``, "
 "``ExpressionSimplifier``, ``ControlFlowSimplifier``, "
@@ -788,11 +789,11 @@ msgid ""
 "``EquivalentFunctionCombiner``, ``LoadResolver``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:318
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:319
 msgid "``Remap``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:319
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:320
 msgid ""
 "Rewrite the pointer when the pass renames or physically moves a materialized "
 "value. Renaming passes rewrite the Yul names a pointer reads; because a "
@@ -801,61 +802,61 @@ msgid ""
 "stack to a memory region; the data itself is not relocated by the debug info."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:322
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:323
 msgid ""
 "``Disambiguator``, ``NameSimplifier``, ``VarNameCleaner``, ``SSATransform``, "
 "``SSAReverser``, ``ExpressionSplitter``, ``LoopInvariantCodeMotion``, "
 "``StackToMemoryMover``, ``StackCompressor``, ``StackLimitEvader``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:323
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:324
 msgid "``Recompute``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:324
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:325
 msgid ""
 "Change the phase to ``computed`` from the affected program point and remove "
 "the stale materialized pointer."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:325
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:326
 msgid "``LiteralRematerialiser``, ``Rematerialiser``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:326
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:327
 msgid "``Clone``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:327
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:328
 msgid ""
 "Duplicate the debug entry for each generated copy and give each copy its own "
 "instance discriminator. Without the instance discriminator the copies "
 "overwrite each other in the table."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:329
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:330
 msgid "``FullInliner``, ``FunctionSpecializer``, ``ExpressionInliner``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:330
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:331
 msgid "``Drop``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:331
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:332
 msgid ""
 "Set the phase to ``optimized-out`` and remove the pointer. The declaration, "
 "type, and source range are retained so the variable is still reported as "
 "belonging to the scope."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:333
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:334
 msgid ""
 "``DeadCodeEliminator``, ``UnusedPruner``, ``UnusedAssignEliminator``, "
 "``UnusedStoreEliminator``, ``EqualStoreEliminator``, "
 "``CircularReferencesPruner``, ``UnusedFunctionParameterPruner``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:335
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:336
 msgid ""
 "``SSATransform`` and ``Rematerialiser`` cannot be expressed as whole-scope "
 "updates, because the pointer or phase changes between program points. They "
@@ -865,7 +866,7 @@ msgid ""
 "expression, so its phase becomes ``computed`` rather than ``optimized-out``."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:340
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:341
 msgid ""
 "A pass that cannot meet its obligation for a particular value falls back to "
 "``Drop`` for that value alone, not for the whole scope. Marking a value "
@@ -873,35 +874,35 @@ msgid ""
 "describes the value is not."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:344
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:345
 msgid "Identity and Optimizer Cloning"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:346
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:347
 msgid ""
 "``astID`` records the source-language origin. Specialization and cloning can "
 "produce several Yul scopes with the same origin but different variable "
 "phases or pointers."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:349
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:350
 msgid "The table therefore uses ``(astID, instance)`` as its key:"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:351
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:352
 msgid ""
 "``astID`` is a signed 64-bit integer that identifies the source-language "
 "node and is preserved by ``@ast-id``."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:352
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:353
 msgid ""
 "``instance`` is a signed 64-bit integer in the range ``0`` through ``2**63 - "
 "1`` that distinguishes generated Yul scope instances sharing the same source "
 "origin. It defaults to ``0``."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:355
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:356
 msgid ""
 "An entry that has not been cloned uses instance ``0``. In Yul text, the "
 "instance is carried by a dedicated ``@ast-id-instance`` annotation emitted "
@@ -913,11 +914,11 @@ msgid ""
 "fresh instance values and emit the annotation on each clone."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:362
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:363
 msgid "Serialization"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:364
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:365
 msgid ""
 "One shared component provides both serialization and deserialization, so the "
 "writer and the reader cannot drift apart. Serialization includes the "
@@ -927,60 +928,60 @@ msgid ""
 "only inside pointer expressions, where the ethdebug expression grammar "
 "governs them. Declaration and type-definition ranges use the ethdebug "
 "`source range <https://github.com/ethdebug/format/blob/main/schemas/"
-"materials/source-range.schema.yaml>`_ shape. Source IDs are opaque to the "
+"materials/source-range.schema.yaml>`_ schema. Source IDs are opaque to the "
 "Yul stage. The producer uses the same source IDs in the sidecar as in the "
 "accompanying ``ethdebug.compilation`` record, and the Yul stage transports "
 "them unchanged. Each source record in ``ethdebug.compilation`` maps its ID "
 "to the source path and contents, so a path is not used as an ID."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:373
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:374
 msgid "Top-level JSON object"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:380
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:381
 msgid "``format``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:381
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:382
 msgid "string"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:382
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:383
 msgid "``solidity-ethdebug-semantic-data``."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:383
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:384
 msgid "``version``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:384
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:385
 msgid "unsigned 32-bit integer"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:385
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:386
 msgid "Format version in the range ``0`` to ``2**32 - 1``, currently ``1``."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:386
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:387
 msgid "``contractName``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:388
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:389
 msgid ""
 "Source-language contract name used by the public ethdebug program object "
 "when the generated Yul object has a different name."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:389
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:390
 msgid "``resources``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:390
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:391
 msgid "optional object"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:391
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:392
 msgid ""
 "The ``types`` and ``pointers`` members of the `ethdebug resource tables "
 "<https://github.com/ethdebug/format/blob/main/schemas/info/"
@@ -990,22 +991,22 @@ msgid ""
 "``ethdebug.resources``."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:394
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:395
 msgid "``scopes``"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:395
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:396
 msgid "object"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:396
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:397
 msgid ""
 "Two-level map from the decimal string form of ``astID`` to the decimal "
 "string form of ``instance`` to a ``SemanticDebugScope``. Instance ``0`` is "
 "written explicitly."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:399
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:400
 msgid ""
 "Readers reject an unknown format, an unsupported version, malformed sidecar "
 "fields, and keys that do not parse as decimal integers in the documented "
@@ -1013,117 +1014,117 @@ msgid ""
 "ascending numeric order."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:403
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:404
 msgid "Compiler Interfaces"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:405
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:406
 msgid "Standard JSON uses these fields:"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:407
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:408
 msgid ""
 "Solidity output ``contracts[<source>][<contract>].ir`` contains the Yul text."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:408
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:409
 msgid ""
 "Solidity output ``contracts[<source>][<contract>].irEthdebug`` contains its "
 "semantic sidecar."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:409
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:410
 msgid ""
 "Yul input ``auxiliaryInput.ethdebug`` supplies the sidecar for the Yul "
 "source."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:410
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:411
 msgid "Yul output ``irEthdebug`` emits the updated sidecar again."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:412
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:413
 msgid "The command-line interface uses these options:"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:414
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:415
 msgid "``--ir`` and ``--ir-ethdebug`` emit the Yul text and sidecar."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:415
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:416
 msgid ""
 "``--strict-assembly <source.yul> --ethdebug-input <sidecar.json>`` supplies "
 "the sidecar for the Yul input. Assembler modes accept exactly one input "
 "file, so no syntax pairing sidecars with multiple inputs is defined."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:418
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:419
 msgid ""
 "The sidecar is both compiler input and compiler output, allowing the same "
 "debug info to cross a textual Yul boundary."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:422
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:423
 msgid ""
 "For implementation testing, ``EthdebugTest`` will add ``Contract.semantic`` "
 "as a direct view of the serialized sidecar."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:425
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:426
 msgid "Required Variable Coverage"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:427
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:428
 msgid ""
 "Semantic debug info must cover every binding visible to source-level "
 "debugging:"
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:429
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:430
 msgid ""
 "Named and unnamed function parameters and return parameters are included."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:430
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:431
 msgid ""
 "Modifier parameters and local variables in ordinary blocks are included."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:431
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:432
 msgid ""
 "Variables introduced by ``for``, ``if``, ``try``, success, ``catch``, error, "
 "and panic clauses are included in the precise scope where they become "
 "visible."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:432
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:433
 msgid "State variables in persistent and transient storage are included."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:433
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:434
 msgid "File-level constants are included."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:434
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:435
 msgid ""
 "Every visible import alias is a separate binding with its alias identifier "
 "but shares the declaration identity and value description of the imported "
 "constant."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:435
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:436
 msgid ""
 "Synthetic language bindings such as ``this``, ``super``, and ``msg`` are "
 "included even when there is no ``VariableDeclaration`` AST node."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:436
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:437
 msgid ""
 "Values in memory, calldata, returndata, code, and computed form are included "
 "when they are observable."
 msgstr ""
 
-#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:438
+#: ../../../compiler-guide/ethdebug_internal_debug_info.rst:439
 msgid ""
 "ethdebug variable identifiers are optional. An unnamed Solidity return "
 "parameter is therefore emitted with declaration, type, and pointer "

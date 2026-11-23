@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 17:52+0000\n"
+"POT-Creation-Date: 2026-11-23 20:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -737,16 +737,16 @@ msgid ""
 "by `@src`.\n"
 "      //     The snippet is quoted and follows the corresponding `@src` "
 "annotation.\n"
-"      //     Depends on `location`; selecting `snippet` without it is an "
+"      //     Depends on `location`. Selecting `snippet` without it is an "
 "error.\n"
 "      // - `ast-id`: Annotations of the form `@ast-id <id>` over elements "
 "that can be mapped back to a definition in the original Solidity file.\n"
 "      //   `<id>` is a node ID in the Solidity AST ('ast' output).\n"
 "      // - `ethdebug`: Ethdebug annotations (experimental). Depends on `ast-"
-"id`; selecting\n"
+"id`. Selecting\n"
 "      //   `ethdebug` without `ast-id` is an error. Requesting an ethdebug "
 "output does not\n"
-"      //   change this selection; without `ethdebug` in it the "
+"      //   change this selection. Without `ethdebug` in it the "
 "`evm.bytecode.ethdebug` and\n"
 "      //   `evm.deployedBytecode.ethdebug` outputs carry none of the "
 "semantic debug info\n"
@@ -829,14 +829,16 @@ msgid ""
 "    //   evm.assembly - New assembly format\n"
 "    //   evm.legacyAssembly - Old-style assembly format in JSON\n"
 "    //   evm.bytecode.ethdebug - Debug information in ethdebug format "
-"(ethdebug/format/program schema for creation bytecode). Can only be "
-"requested when compiling via IR. Carries semantic debug info only when the "
-"`ethdebug` component is present in `settings.debug.debugInfo`. "
+"(ethdebug/format/program schema for creation bytecode), stamped with the "
+"schema and the version of the ethdebug/format specification it follows. Can "
+"only be requested when compiling via IR. Carries semantic debug info only "
+"when the `ethdebug` component is present in `settings.debug.debugInfo`. "
 "(experimental)\n"
 "    //   evm.deployedBytecode.ethdebug - Debug information in ethdebug "
-"format (ethdebug/format/program schema for deployed bytecode). Can only be "
-"requested when compiling via IR. Carries semantic debug info only when the "
-"`ethdebug` component is present in `settings.debug.debugInfo`. "
+"format (ethdebug/format/program schema for deployed bytecode), stamped with "
+"the schema and the version of the ethdebug/format specification it follows. "
+"Can only be requested when compiling via IR. Carries semantic debug info "
+"only when the `ethdebug` component is present in `settings.debug.debugInfo`. "
 "(experimental)\n"
 "    //   evm.bytecode.functionDebugData - Debugging information at function "
 "level\n"
@@ -853,11 +855,10 @@ msgid ""
 "    //   evm.gasEstimates - Function gas estimates\n"
 "    //\n"
 "    // Global level (needs \"*\" as file name and \"*\" as contract name):\n"
-"    //   ethdebug.resources - Global ethdebug output (ethdebug/format/info/"
-"resources schema) containing source list and compiler info (experimental)\n"
-"    //   ethdebug.compilation - Global ethdebug compilation output (the "
-"'compilation' key from ethdebug/format/info/resources schema) "
-"(experimental)\n"
+"    //   ethdebug.resources - Global ethdebug type and pointer tables "
+"(ethdebug/format/info/resources schema) (experimental)\n"
+"    //   ethdebug.compilation - Compiler information and source list "
+"(ethdebug/format/materials/compilation schema) (experimental)\n"
 "    //\n"
 "    // Note that using `evm`, `evm.bytecode`, etc. will select every\n"
 "    // target part of that output. Additionally, `*` can be used as a "
@@ -1122,111 +1123,111 @@ msgid ""
 "  },\n"
 "  // Global Ethdebug output (experimental)\n"
 "  \"ethdebug\": {\n"
-"    // Requested via ethdebug.resources output selection\n"
+"    // Type and pointer tables, requested via ethdebug.resources\n"
 "    \"resources\": {/* ... */},\n"
-"    // Requested via ethdebug.compilation output selection\n"
+"    // Compiler information and sources, requested via ethdebug.compilation\n"
 "    \"compilation\": {/* ... */}\n"
 "  }\n"
 "}"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:716
+#: ../../../using-the-compiler.rst:715
 msgid "Error Types"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:718
+#: ../../../using-the-compiler.rst:717
 msgid ""
 "``JSONError``: JSON input doesn't conform to the required format, e.g. input "
 "is not a JSON object, the language is not supported, etc."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:719
+#: ../../../using-the-compiler.rst:718
 msgid ""
 "``IOError``: IO and import processing errors, such as unresolvable URL or "
 "hash mismatch in supplied sources."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:720
+#: ../../../using-the-compiler.rst:719
 msgid "``ParserError``: Source code doesn't conform to the language rules."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:721
+#: ../../../using-the-compiler.rst:720
 msgid ""
 "``DocstringParsingError``: The NatSpec tags in the comment block cannot be "
 "parsed."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:722
+#: ../../../using-the-compiler.rst:721
 msgid ""
 "``SyntaxError``: Syntactical error, such as ``continue`` is used outside of "
 "a ``for`` loop."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:723
+#: ../../../using-the-compiler.rst:722
 msgid ""
 "``DeclarationError``: Invalid, unresolvable or clashing identifier names. "
 "e.g. ``Identifier not found``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:724
+#: ../../../using-the-compiler.rst:723
 msgid ""
 "``TypeError``: Error within the type system, such as invalid type "
 "conversions, invalid assignments, etc."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:725
+#: ../../../using-the-compiler.rst:724
 msgid ""
 "``UnimplementedFeatureError``: Feature is not supported by the compiler, but "
 "is expected to be supported in future versions."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:726
+#: ../../../using-the-compiler.rst:725
 msgid ""
 "``InternalCompilerError``: Internal bug triggered in the compiler - this "
 "should be reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:727
+#: ../../../using-the-compiler.rst:726
 msgid ""
 "``Exception``: Unknown failure during compilation - this should be reported "
 "as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:728
+#: ../../../using-the-compiler.rst:727
 msgid ""
 "``CompilerError``: Invalid use of the compiler stack - this should be "
 "reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:729
+#: ../../../using-the-compiler.rst:728
 msgid ""
 "``FatalError``: Fatal error not processed correctly - this should be "
 "reported as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:730
+#: ../../../using-the-compiler.rst:729
 msgid ""
 "``YulException``: Error during Yul code generation - this should be reported "
 "as an issue."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:731
+#: ../../../using-the-compiler.rst:730
 msgid ""
 "``Warning``: A warning, which didn't stop the compilation, but should be "
 "addressed if possible."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:732
+#: ../../../using-the-compiler.rst:731
 msgid ""
 "``Info``: Information that the compiler thinks the user might find useful, "
 "but is not dangerous and does not necessarily need to be addressed."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:738
+#: ../../../using-the-compiler.rst:737
 msgid "Experimental Mode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:740
+#: ../../../using-the-compiler.rst:739
 msgid ""
 "Some language and compiler features included in stable releases are not "
 "themselves considered stable. They are sparsely documented, if at all, often "
@@ -1238,33 +1239,33 @@ msgid ""
 "be only accessed by enabling the experimental mode."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:746
+#: ../../../using-the-compiler.rst:745
 msgid ""
 "There are no backwards compatibility guarantees for experimental features. "
 "They are subject to change in breaking ways in non-breaking releases of the "
 "compiler. Only major changes affecting them are recorded in the changelog."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:750
+#: ../../../using-the-compiler.rst:749
 msgid ""
 "To enable the experimental mode, use the ``--experimental`` flag on the "
 "command line, or the analogous ``settings.experimental`` boolean setting in "
 "the Standard JSON input."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:753
+#: ../../../using-the-compiler.rst:752
 msgid "Note that the use of this mode is recorded in the metadata:"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:755
+#: ../../../using-the-compiler.rst:754
 msgid "``experimental`` flag in CBOR metadata is set to ``true``,"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:756
+#: ../../../using-the-compiler.rst:755
 msgid "``settings.experimental`` in JSON metadata is set to ``true``,"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:759
+#: ../../../using-the-compiler.rst:758
 msgid ""
 "Prior to version 0.8.35, most of the experimental features were usable "
 "without any extra safeguards. Some were gated behind ``pragma "
@@ -1275,106 +1276,106 @@ msgid ""
 "ready."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:764
+#: ../../../using-the-compiler.rst:763
 msgid "The table below details all currently available experimental features."
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:766
 msgid "Feature"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:766
 msgid "ID"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:766
 msgid "Affects bytecode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:767
+#: ../../../using-the-compiler.rst:766
 msgid "Flag/pragma"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:768
 msgid "AST import"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:768
 msgid "``ast-import``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769 ../../../using-the-compiler.rst:771
-#: ../../../using-the-compiler.rst:775 ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:768 ../../../using-the-compiler.rst:770
+#: ../../../using-the-compiler.rst:774 ../../../using-the-compiler.rst:778
 msgid "yes"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:769
+#: ../../../using-the-compiler.rst:768
 msgid "``--import-ast``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:770
 msgid "EVM Assembly import"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:770
 msgid "``evmasm-import``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:771
+#: ../../../using-the-compiler.rst:770
 msgid "``--import-asm-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:772
 msgid "IR AST"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:772
 msgid "``ir-ast``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773 ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:772 ../../../using-the-compiler.rst:776
 msgid "no"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:773
+#: ../../../using-the-compiler.rst:772
 msgid "``--ir-ast-json``, ``--ir-optimized-ast-json``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:774
 msgid "Non-mainnet EVMs"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:774
 msgid "``evm``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:775
+#: ../../../using-the-compiler.rst:774
 msgid "``--evm-version <version name>``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:776
 msgid "Ethdebug"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:776
 msgid "``ethdebug``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:777
+#: ../../../using-the-compiler.rst:776
 msgid ""
 "``--ethdebug-resources``, ``--ethdebug-compilation``, ``--ethdebug-"
 "program``, ``--ethdebug-program-runtime``, ``--debug-info ethdebug``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:778
 msgid "SSA CFG"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:778
 msgid "``ssa-cfg``"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:779
+#: ../../../using-the-compiler.rst:778
 msgid "``--via-ssa-cfg``"
 msgstr ""
 
@@ -1446,10 +1447,10 @@ msgstr ""
 msgid "standard JSON"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:734
+#: ../../../using-the-compiler.rst:733
 msgid "Experimental mode"
 msgstr ""
 
-#: ../../../using-the-compiler.rst:734
+#: ../../../using-the-compiler.rst:733
 msgid "--experimental"
 msgstr ""
