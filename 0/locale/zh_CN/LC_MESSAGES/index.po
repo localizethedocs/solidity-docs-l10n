@@ -107,8 +107,6 @@ msgid ""
 "breaking changes. Make sure you read :doc:`the full list <080-breaking-"
 "changes>`."
 msgstr ""
-"Solidity最近发布了0.8.x版本，该版本引入了许多重大更新。请务必阅读:doc:`完整列"
-"表`<080-breaking-changes>。"
 
 #: ../../../index.rst:26
 msgid ""

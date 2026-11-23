@@ -109,8 +109,6 @@ msgid ""
 "breaking changes. Make sure you read :doc:`the full list <080-breaking-"
 "changes>`."
 msgstr ""
-"Solidity 最近發布了 0.8.x 版本，其中引入了許多重大變更。\n"
-"請務必閱讀\\ :doc:`完整清單 <080-breaking-changes>`\\ 。"
 
 #: ../../../index.rst:26
 msgid ""
@@ -241,10 +239,6 @@ msgid ""
 "the `Ethereum StackExchange <https://ethereum.stackexchange.com/>`_, or our "
 "`Gitter channel <https://gitter.im/ethereum/solidity>`_."
 msgstr ""
-"如果您有任何問題，可以嘗試在\\ `Ethereum StackExchange <https://"
-"ethereum.stackexchange.com/>`_\\ 上搜尋答案或提問，\n"
-"或是在我們的\\ `Gitter 頻道 <https://gitter.im/ethereum/solidity>`_\\ 上發"
-"問。"
 
 #: ../../../index.rst:83
 msgid "Translations"
