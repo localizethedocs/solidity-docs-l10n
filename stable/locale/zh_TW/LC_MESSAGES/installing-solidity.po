@@ -1195,6 +1195,3 @@ msgstr "此行為與\\ :ref:`版本 pragma <version_pragma>` 搭配良好。"
 #: ../../../installing-solidity.rst:1
 msgid "installing"
 msgstr "安裝"
-
-#~ msgid "`Clang <https://clang.llvm.org/>`_, version 18.1.3+"
-#~ msgstr "`Clang <https://clang.llvm.org/>`_\\ ，版本 18.1.3+"
