@@ -37,9 +37,9 @@
     "branch" : "develop",
     "commit" : 
     {
-      "date" : "2026-11-16 13:44:53 +0100",
-      "hash" : "41d9e65bb809a1605b506507678e4987ff495926",
-      "title" : "Merge pull request #17224 from walnuthq/fix/json-integer-range-checks"
+      "date" : "2026-11-23 11:14:24 +0100",
+      "hash" : "56e349d8fe52612c406e21b1af9e4a50eda50943",
+      "title" : "Merge pull request #17203 from walnuthq/fix/ethdebug-yul-global-outputs"
     }
   },
   "type" : "branch",

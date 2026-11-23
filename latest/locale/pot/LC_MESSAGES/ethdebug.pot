@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 17:56+0000\n"
+"POT-Creation-Date: 2026-11-23 20:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,11 +152,12 @@ msgstr ""
 msgid ""
 "The resources document carries its ``ethdebug`` stamp and two tables that "
 "the programs refer to: ``types`` and ``pointers``. Compiler information and "
-"sources are provided separately by ``ethdebug.compilation``. Both tables "
+"sources are provided separately by ``ethdebug.compilation``. The resources "
+"and compilation outputs are only available for Solidity input. Both tables "
 "cover all contracts of the compilation."
 msgstr ""
 
-#: ../../../ethdebug.rst:58
+#: ../../../ethdebug.rst:59
 msgid ""
 "{\n"
 "    \"ethdebug\": {\n"
@@ -185,11 +187,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../ethdebug.rst:88
+#: ../../../ethdebug.rst:89
 msgid "Type Documents"
 msgstr ""
 
-#: ../../../ethdebug.rst:90
+#: ../../../ethdebug.rst:91
 msgid ""
 "The ``types`` table maps type identifiers to type documents (schema "
 "``ethdebug/format/type``). The compiler currently uses the identifiers "
@@ -203,26 +205,26 @@ msgid ""
 "definition."
 msgstr ""
 
-#: ../../../ethdebug.rst:96
+#: ../../../ethdebug.rst:97
 msgid "The table contains documents for the types of:"
 msgstr ""
 
-#: ../../../ethdebug.rst:98
+#: ../../../ethdebug.rst:99
 msgid ""
 "all state variables, including inherited variables, constants and immutables,"
 msgstr ""
 
-#: ../../../ethdebug.rst:99
+#: ../../../ethdebug.rst:100
 msgid "all file-level constants in the analyzed sources,"
 msgstr ""
 
-#: ../../../ethdebug.rst:100
+#: ../../../ethdebug.rst:101
 msgid ""
 "parameters, return variables and local variables of functions and modifiers "
 "in each contract's creation and deployed call graphs."
 msgstr ""
 
-#: ../../../ethdebug.rst:102
+#: ../../../ethdebug.rst:103
 msgid ""
 "The last group includes constructors, public and external functions, "
 "fallback and receive functions, their modifiers, and the internal functions "
@@ -238,7 +240,7 @@ msgid ""
 "of ``try``/``catch`` clauses."
 msgstr ""
 
-#: ../../../ethdebug.rst:109
+#: ../../../ethdebug.rst:110
 msgid ""
 "The tables are merged across all analyzed contracts and sources, not just "
 "the contracts selected for bytecode output. A selective import therefore "
@@ -249,7 +251,7 @@ msgid ""
 "merged table."
 msgstr ""
 
-#: ../../../ethdebug.rst:113
+#: ../../../ethdebug.rst:114
 msgid ""
 "Event and error parameters do not independently contribute types. Neither do "
 "unused type definitions or types mentioned only in expressions, such as "
@@ -271,131 +273,131 @@ msgid ""
 "type document is emitted."
 msgstr ""
 
-#: ../../../ethdebug.rst:129
+#: ../../../ethdebug.rst:130
 msgid "Solidity type"
 msgstr ""
 
-#: ../../../ethdebug.rst:130
+#: ../../../ethdebug.rst:131
 msgid "ethdebug representation"
 msgstr ""
 
-#: ../../../ethdebug.rst:131
+#: ../../../ethdebug.rst:132
 msgid "``uintN``, ``intN``"
 msgstr ""
 
-#: ../../../ethdebug.rst:132
+#: ../../../ethdebug.rst:133
 msgid "``uint``, ``int`` with ``bits`` equal to ``N``"
 msgstr ""
 
-#: ../../../ethdebug.rst:133 ../../../ethdebug.rst:134
+#: ../../../ethdebug.rst:134 ../../../ethdebug.rst:135
 msgid "``bool``"
 msgstr ""
 
-#: ../../../ethdebug.rst:135
+#: ../../../ethdebug.rst:136
 msgid "``address``, ``address payable``"
 msgstr ""
 
-#: ../../../ethdebug.rst:136
+#: ../../../ethdebug.rst:137
 msgid "``address`` with ``payable`` set to ``false`` or ``true``"
 msgstr ""
 
-#: ../../../ethdebug.rst:137
+#: ../../../ethdebug.rst:138
 msgid "``bytesN``, ``bytes``"
 msgstr ""
 
-#: ../../../ethdebug.rst:138
+#: ../../../ethdebug.rst:139
 msgid ""
 "``bytes`` with ``size`` equal to ``N`` for fixed-size byte arrays and absent "
 "for dynamic ones"
 msgstr ""
 
-#: ../../../ethdebug.rst:139 ../../../ethdebug.rst:140
+#: ../../../ethdebug.rst:140 ../../../ethdebug.rst:141
 msgid "``string``"
 msgstr ""
 
-#: ../../../ethdebug.rst:141
+#: ../../../ethdebug.rst:142
 msgid "``fixedMxN``, ``ufixedMxN``"
 msgstr ""
 
-#: ../../../ethdebug.rst:142
+#: ../../../ethdebug.rst:143
 msgid ""
 "``fixed``, ``ufixed`` with ``bits`` equal to ``M`` and ``places`` equal to "
 "``N``"
 msgstr ""
 
-#: ../../../ethdebug.rst:143
+#: ../../../ethdebug.rst:144
 msgid "contract, interface"
 msgstr ""
 
-#: ../../../ethdebug.rst:144
+#: ../../../ethdebug.rst:145
 msgid ""
 "``contract`` with ``payable`` and, for an interface, ``interface: true``"
 msgstr ""
 
-#: ../../../ethdebug.rst:145
+#: ../../../ethdebug.rst:146
 msgid "enum"
 msgstr ""
 
-#: ../../../ethdebug.rst:146
+#: ../../../ethdebug.rst:147
 msgid "``enum`` with ``values`` in declaration order"
 msgstr ""
 
-#: ../../../ethdebug.rst:147
+#: ../../../ethdebug.rst:148
 msgid "user-defined value type ``type U is V``"
 msgstr ""
 
-#: ../../../ethdebug.rst:148
+#: ../../../ethdebug.rst:149
 msgid "``alias`` with ``contains`` referencing ``V``"
 msgstr ""
 
-#: ../../../ethdebug.rst:149
+#: ../../../ethdebug.rst:150
 msgid "``T[N]``, ``T[]``"
 msgstr ""
 
-#: ../../../ethdebug.rst:150
+#: ../../../ethdebug.rst:151
 msgid ""
 "``array`` with ``contains`` referencing ``T`` and ``count`` equal to ``N`` "
 "for a static array, absent for a dynamic one"
 msgstr ""
 
-#: ../../../ethdebug.rst:151
+#: ../../../ethdebug.rst:152
 msgid "``mapping(K => V)``"
 msgstr ""
 
-#: ../../../ethdebug.rst:152
+#: ../../../ethdebug.rst:153
 msgid ""
 "``mapping`` with ``contains.key`` and ``contains.value`` referencing ``K`` "
 "and ``V``"
 msgstr ""
 
-#: ../../../ethdebug.rst:153
+#: ../../../ethdebug.rst:154
 msgid "struct"
 msgstr ""
 
-#: ../../../ethdebug.rst:154
+#: ../../../ethdebug.rst:155
 msgid "``struct`` with ``contains`` listing the members by ``name`` and type"
 msgstr ""
 
-#: ../../../ethdebug.rst:155
+#: ../../../ethdebug.rst:156
 msgid "parameter or return list"
 msgstr ""
 
-#: ../../../ethdebug.rst:156
+#: ../../../ethdebug.rst:157
 msgid "``tuple`` with ``contains`` listing the component types"
 msgstr ""
 
-#: ../../../ethdebug.rst:157
+#: ../../../ethdebug.rst:158
 msgid "internal or external function type"
 msgstr ""
 
-#: ../../../ethdebug.rst:158
+#: ../../../ethdebug.rst:159
 msgid ""
 "``function`` with ``internal: true`` or ``external: true``, "
 "``contains.parameters`` referencing a tuple and ``contains.returns`` "
 "referencing a tuple when there are return values"
 msgstr ""
 
-#: ../../../ethdebug.rst:160
+#: ../../../ethdebug.rst:161
 msgid ""
 "Composite types reference their components by identifier, so that the table "
 "is closed: an array, a mapping or a user-defined value type refers to its "
@@ -413,7 +415,7 @@ msgid ""
 "Neither the parameter nor return types are inlined."
 msgstr ""
 
-#: ../../../ethdebug.rst:172
+#: ../../../ethdebug.rst:173
 msgid ""
 "Structs, enums, contracts and user-defined value types carry a "
 "``definition`` with the ``name`` of the definition and its ``location`` in "
@@ -425,7 +427,7 @@ msgid ""
 "and the length count bytes of the UTF-8 encoded source, not characters."
 msgstr ""
 
-#: ../../../ethdebug.rst:176
+#: ../../../ethdebug.rst:177
 msgid ""
 "A type document does not depend on where a value is stored. That is what the "
 "pointer describes. The variants of a reference type in different data "
@@ -435,11 +437,11 @@ msgid ""
 "change the name in its ``definition``."
 msgstr ""
 
-#: ../../../ethdebug.rst:183
+#: ../../../ethdebug.rst:184
 msgid "Pointer Templates"
 msgstr ""
 
-#: ../../../ethdebug.rst:185
+#: ../../../ethdebug.rst:186
 msgid ""
 "The ``pointers`` table contains pointer templates (schema ``ethdebug/format/"
 "pointer/template``) describing how values are laid out in storage, transient "
@@ -458,7 +460,7 @@ msgid ""
 "``t_uint16``. Pointer IDs and type IDs are not interchangeable."
 msgstr ""
 
-#: ../../../ethdebug.rst:196
+#: ../../../ethdebug.rst:197
 msgid ""
 "Storage and transient-storage templates expect ``slot`` as a parameter: the "
 "base slot of the value they describe. Value-type templates additionally "
@@ -473,7 +475,7 @@ msgid ""
 "containing the relative offset."
 msgstr ""
 
-#: ../../../ethdebug.rst:204
+#: ../../../ethdebug.rst:205
 msgid ""
 "Memory templates follow the absolute pointers stored in reference-type "
 "members and array elements. Calldata templates follow ABI-relative offsets, "
@@ -483,7 +485,7 @@ msgid ""
 "occupy the high-order bytes. The templates describe these regions explicitly."
 msgstr ""
 
-#: ../../../ethdebug.rst:209
+#: ../../../ethdebug.rst:210
 msgid ""
 "Templates describe layouts, not the location or lifetime of individual "
 "variables. A consumer must obtain the base address or slot, and any little-"
@@ -491,7 +493,7 @@ msgid ""
 "instantiating a template."
 msgstr ""
 
-#: ../../../ethdebug.rst:212
+#: ../../../ethdebug.rst:213
 msgid ""
 "The template of a mapping also expects ``key`` as a parameter: the key of "
 "the entry it locates. The value of a mapping is not at a fixed place, and a "
@@ -510,50 +512,50 @@ msgid ""
 "reaches: one element per list entry, one key per mapping level."
 msgstr ""
 
-#: ../../../ethdebug.rst:220
+#: ../../../ethdebug.rst:221
 msgid ""
 "The choice of region names and pointer expressions can change between "
 "compiler versions. Consumers should read them from the templates. The "
 "compiler currently names regions relative to the value a template describes:"
 msgstr ""
 
-#: ../../../ethdebug.rst:224
+#: ../../../ethdebug.rst:225
 msgid "the members of a struct: their names,"
 msgstr ""
 
-#: ../../../ethdebug.rst:225
+#: ../../../ethdebug.rst:226
 msgid ""
 "the elements of an array: ``item``, with ``index`` being the variable the "
 "list iterates over,"
 msgstr ""
 
-#: ../../../ethdebug.rst:226
+#: ../../../ethdebug.rst:227
 msgid "the length of a dynamic array: ``length``,"
 msgstr ""
 
-#: ../../../ethdebug.rst:227
+#: ../../../ethdebug.rst:228
 msgid "a standalone value type: ``value``,"
 msgstr ""
 
-#: ../../../ethdebug.rst:228
+#: ../../../ethdebug.rst:229
 msgid ""
 "the parts of a storage ``bytes`` or ``string``: ``length-flag``, ``long-"
 "length`` and ``data``,"
 msgstr ""
 
-#: ../../../ethdebug.rst:229
+#: ../../../ethdebug.rst:230
 msgid ""
 "the parts of a memory or calldata ``bytes`` or ``string``: ``length`` and "
 "``data``,"
 msgstr ""
 
-#: ../../../ethdebug.rst:230
+#: ../../../ethdebug.rst:231
 msgid ""
 "the pointer or relative-offset word of a nested reference value: ``<member>-"
 "address`` or ``item-address``."
 msgstr ""
 
-#: ../../../ethdebug.rst:232
+#: ../../../ethdebug.rst:233
 msgid ""
 "For non-recursive references, a template referencing the template of a "
 "member's or element's type prefixes the names that one produces with the "
@@ -561,7 +563,7 @@ msgid ""
 "``Line`` is ``from-x`` and that of an element of a ``Point[]`` is ``item-x``."
 msgstr ""
 
-#: ../../../ethdebug.rst:234
+#: ../../../ethdebug.rst:235
 msgid ""
 "// SPDX-License-Identifier: GPL-3.0\n"
 "pragma solidity >=0.6.0 <0.9.0;\n"
@@ -577,7 +579,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../ethdebug.rst:249
+#: ../../../ethdebug.rst:250
 msgid ""
 "The following entries describe ``total``, ``origin``, entries of "
 "``balances`` and ``line`` in storage. The storage layout puts ``total`` at "
@@ -591,7 +593,7 @@ msgid ""
 "maps distinguish ``from-x`` and ``from-y`` from ``to-x`` and ``to-y``."
 msgstr ""
 
-#: ../../../ethdebug.rst:257
+#: ../../../ethdebug.rst:258
 msgid ""
 "{\n"
 "    \"storage-t_uint256\": {\n"
@@ -692,7 +694,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../ethdebug.rst:358
+#: ../../../ethdebug.rst:359
 msgid ""
 "A region's ``offset`` is a big-endian offset, counted from the most "
 "significant byte of the slot. The ``offset`` in Solidity's :ref:`storage "
@@ -702,7 +704,7 @@ msgid ""
 "*n*."
 msgstr ""
 
-#: ../../../ethdebug.rst:362
+#: ../../../ethdebug.rst:363
 msgid ""
 "Solidity's offsets follow the order in which values are packed, starting at "
 "the low-order end. Either direction works within a single slot, but "
@@ -713,11 +715,11 @@ msgid ""
 "most significant byte of slot ``p + 1``."
 msgstr ""
 
-#: ../../../ethdebug.rst:367
+#: ../../../ethdebug.rst:368
 msgid "The Programs"
 msgstr ""
 
-#: ../../../ethdebug.rst:369
+#: ../../../ethdebug.rst:370
 msgid ""
 "A program (schema ``ethdebug/format/program``) describes bytecode of one "
 "contract: either its creation bytecode or its deployed bytecode. It names "
