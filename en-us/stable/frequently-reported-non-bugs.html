@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en-US" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Reported Non-Bugs &mdash; Solidity 0.8.38-develop documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams.css?v=207cc276" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams-ext.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/fonts.css?v=da6ff50d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b8c9b802" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom-dark.css?v=1f23c23e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/pygments.css?v=85fccb41" />
+      <link rel="stylesheet" type="text/css" href="_static/css/toggle.css?v=ff7d3256" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="canonical" href="https://projects.localizethedocs.org/solidity-docs-l10n/frequently-reported-non-bugs.html" />
+    <script>
+        window.NAV_LINKS = {
+            blog: "Blog",
+            documentation: "Documentation",
+            use_cases: "Use cases",
+            contribute: "Contribute",
+            about: "About",
+            forum: "Forum"
+        };
+    </script>
+    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=42e21571"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/js/constants.js?v=6647bbdb"></script>
+      <script src="_static/js/initialize.js?v=a99c897d"></script>
+      <script src="_static/js/toggle.js?v=a5a9aacd"></script>
+    <script src="_static/js/theme.js"></script>
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solidity v0.5.0 Breaking Changes" href="050-breaking-changes.html" />
+    <link rel="prev" title="List of Known Bugs" href="bugs.html" />
+ 
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing-solidity.html">Installing the Solidity Compiler</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layout-of-source-files.html">Layout of a Solidity Source File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Expressions and Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Inline Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">Language Grammar</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using-the-compiler.html">Using the Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysing-compilation-output.html">Analysing the Compiler Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ir-breaking-changes.html">Solidity IR-based Codegen Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_storage.html">Layout of State Variables in Storage and Transient Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_memory.html">Layout in Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_calldata.html">Layout of Call Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/variable_cleanup.html">Cleaning Up Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/source_mappings.html">Source Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/optimizer.html">The Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Contract Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-spec.html">Contract ABI Specification</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advisory content</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">List of Known Bugs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Reported Non-Bugs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#non-canonical-abi-encoded-calldata-is-accepted">Non-canonical ABI-encoded calldata is accepted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#different-results-between-the-evmasm-and-the-ir-pipeline">Different results between the evmasm and the IR pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#order-of-evaluation">Order of evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stale-references-into-storage">Stale references into storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="050-breaking-changes.html">Solidity v0.5.0 Breaking Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="060-breaking-changes.html">Solidity v0.6.0 Breaking Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="070-breaking-changes.html">Solidity v0.7.0 Breaking Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="080-breaking-changes.html">Solidity v0.8.0 Breaking Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="natspec-format.html">NatSpec Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smtchecker.html">SMTChecker and Formal Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yul.html">Yul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="path-resolution.html">Import Path Resolution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language-influences.html">Language Influences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="brand-guide.html">Solidity Brand Guide</a></li>
+</ul>
+
+    <ul>
+        <li>
+            <a href="genindex.html">Keyword Index</a>
+        </li>
+    </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Solidity</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Frequently Reported Non-Bugs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/frequently-reported-non-bugs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="frequently-reported-non-bugs">
+<span id="id1"></span><h1>Frequently Reported Non-Bugs<a class="headerlink" href="#frequently-reported-non-bugs" title="Link to this heading"></a></h1>
+<p>The behaviors listed below are reported as compiler bugs on a regular basis,
+but are either intentional, documented, or explicitly not guaranteed by the language.</p>
+<p>The list of actual bugs is tracked in the <a class="reference internal" href="bugs.html#known-bugs"><span class="std std-ref">list of known bugs</span></a>.</p>
+<section id="non-canonical-abi-encoded-calldata-is-accepted">
+<h2>Non-canonical ABI-encoded calldata is accepted<a class="headerlink" href="#non-canonical-abi-encoded-calldata-is-accepted" title="Link to this heading"></a></h2>
+<p>Offsets that point backwards, overlap, or leave gaps are not necessarily rejected,
+and trailing data past the encoded arguments is ignored.
+The Solidity decoder does not enforce <a class="reference internal" href="abi-spec.html#abi-packed-mode"><span class="std std-ref">strict encoding mode</span></a>;
+the invariant we uphold is that decoding must not read beyond <code class="docutils literal notranslate"><span class="pre">calldatasize()</span></code>.</p>
+</section>
+<section id="different-results-between-the-evmasm-and-the-ir-pipeline">
+<h2>Different results between the evmasm and the IR pipeline<a class="headerlink" href="#different-results-between-the-evmasm-and-the-ir-pipeline" title="Link to this heading"></a></h2>
+<p>The two pipelines have some semantic differences.
+Known and intentional divergences are listed in <a class="reference internal" href="ir-breaking-changes.html#ir-breaking-changes"><span class="std std-ref">Solidity IR-based Codegen Changes</span></a>,
+in particular <a class="reference internal" href="ir-breaking-changes.html#ir-cleanup"><span class="std std-ref">cleanup behavior</span></a> differs.</p>
+</section>
+<section id="order-of-evaluation">
+<h2>Order of evaluation<a class="headerlink" href="#order-of-evaluation" title="Link to this heading"></a></h2>
+<p>The <a class="reference internal" href="control-structures.html#order-of-evaluation"><span class="std std-ref">evaluation order of expressions is unspecified</span></a> and this includes the components
+of tuple assignments and returns (see also <a class="reference internal" href="control-structures.html#destructuring-assignments"><span class="std std-ref">Tuples are not proper types</span></a>).
+Only statement order and short-circuiting of boolean operators are guaranteed.
+Note that <a class="reference internal" href="types.html#data-location-assignment"><span class="std std-ref">assignments involving reference types</span></a> copy or alias depending on
+data location, which is documented behavior and not an aliasing bug by itself.</p>
+</section>
+<section id="stale-references-into-storage">
+<h2>Stale references into storage<a class="headerlink" href="#stale-references-into-storage" title="Link to this heading"></a></h2>
+<p>A reference to a storage array element can be left dangling by anything that resizes or relocates the
+containing array, for example a <code class="docutils literal notranslate"><span class="pre">.pop()</span></code>, a <code class="docutils literal notranslate"><span class="pre">.push()</span></code> that switches a <code class="docutils literal notranslate"><span class="pre">bytes</span></code> array
+<a class="reference internal" href="internals/layout_in_storage.html#bytes-and-string"><span class="std std-ref">from short to long layout</span></a>, or an assignment to the array itself as in <code class="docutils literal notranslate"><span class="pre">(s[0],</span> <span class="pre">s)</span> <span class="pre">=</span> <span class="pre">(x,</span> <span class="pre">y)</span></code>.
+Writing through such a reference is not rejected and may write outside the data area of the array.</p>
+<p>This is <a class="reference internal" href="types.html#dangling-storage-references"><span class="std std-ref">documented behavior</span></a>, and code containing dangling
+references is explicitly considered to have <em>undefined behavior</em>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bugs.html" class="btn btn-neutral float-left" title="List of Known Bugs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="050-breaking-changes.html" class="btn btn-neutral float-right" title="Solidity v0.5.0 Breaking Changes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, The Solidity Authors.</p>
+  </div>
+
+  
+    <p>
+        <a href="credits-and-attribution.html">Credits and attribution</a>.
+    </p>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

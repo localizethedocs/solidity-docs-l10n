@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-TW" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ethdebug Implementation &mdash; Solidity 0.8.39-develop 說明文件</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/syntax-diagrams.css?v=207cc276" />
+      <link rel="stylesheet" type="text/css" href="../_static/syntax-diagrams-ext.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css?v=da6ff50d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b8c9b802" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom-dark.css?v=1f23c23e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments.css?v=85fccb41" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/toggle.css?v=ff7d3256" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://projects.localizethedocs.org/solidity-docs-l10n/compiler-guide/ethdebug.html" />
+    <script>
+        window.NAV_LINKS = {
+            blog: "網誌",
+            documentation: "文件",
+            use_cases: "使用案例",
+            contribute: "貢獻",
+            about: "關於",
+            forum: "論壇"
+        };
+    </script>
+    
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=dc83ac0b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cbf116e0"></script>
+      <script src="../_static/js/constants.js?v=6647bbdb"></script>
+      <script src="../_static/js/initialize.js?v=a99c897d"></script>
+      <script src="../_static/js/toggle.js?v=a5a9aacd"></script>
+    <script src="../_static/js/theme.js"></script>
+
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+ 
+<script type="text/javascript" src="../ltd-provenance.js"></script>
+<script type="text/javascript" src="../ltd-current.js"></script>
+<script type="text/javascript" src="../../../ltd-config.js"></script>
+<script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">基礎知識</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-solidity.html">安裝 Solidity 編譯器</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../layout-of-source-files.html">Solidity 來源檔的配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control-structures.html">表達式與控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly.html">Inline Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheatsheet.html">速查表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar.html">語言文法</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-the-compiler.html">使用編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysing-compilation-output.html">分析編譯器輸出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ir-breaking-changes.html">Solidity IR-based Codegen Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">內部原理</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internals/layout_in_storage.html">Layout of State Variables in Storage and Transient Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/layout_in_memory.html">Layout in Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/layout_in_calldata.html">Layout of Call Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/variable_cleanup.html">Cleaning Up Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/source_mappings.html">Source Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/optimizer.html">The Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata.html">Contract Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../abi-spec.html">Contract ABI Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ethdebug.html">ethdebug Output</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">建議內容</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">已知臭蟲列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frequently-reported-non-bugs.html">Frequently Reported Non-Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050-breaking-changes.html">Solidity v0.5.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060-breaking-changes.html">Solidity v0.6.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../070-breaking-changes.html">Solidity v0.7.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../080-breaking-changes.html">Solidity v0.8.0 重大變更</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附加材料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../natspec-format.html">NatSpec Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../smtchecker.html">SMTChecker and Formal Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yul.html">Yul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../path-resolution.html">Import Path Resolution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language-influences.html">語言的影響</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../brand-guide.html">Solidity 品牌名稱</a></li>
+</ul>
+
+    <ul>
+        <li>
+            <a href="../genindex.html">關鍵字索引</a>
+        </li>
+    </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Solidity</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ethdebug Implementation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/compiler-guide/ethdebug.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethdebug-implementation">
+<span id="ethdebug-internals"></span><span id="index-0"></span><h1>ethdebug Implementation<a class="headerlink" href="#ethdebug-implementation" title="連結到這個標頭"></a></h1>
+<p>This page assumes familiarity with the <a class="reference internal" href="../ethdebug.html#ethdebug"><span class="std std-ref">ethdebug output</span></a>.
+It follows the construction of resource tables from frontend analysis through schema serialization.
+Traversal order and the expression trees built by the compiler are implementation details and may change.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The debug info that is passed from the Solidity frontend through Yul is specified in <a class="reference internal" href="ethdebug_internal_debug_info.html"><span class="doc">ethdebug Internal Debug Info</span></a>.</p>
+</div>
+<section id="resource-collection">
+<h2>Resource Collection<a class="headerlink" href="#resource-collection" title="連結到這個標頭"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">CompilerStack::ethdebug()</span></code> calls <code class="docutils literal notranslate"><span class="pre">frontend::ethdebug::resources()</span></code> in <code class="docutils literal notranslate"><span class="pre">libsolidity/interface/Ethdebug.cpp</span></code> for each analyzed contract and merges the returned tables.
+The merged tables are passed to <code class="docutils literal notranslate"><span class="pre">evmasm::ethdebug::resources()</span></code>, which adds the schema stamp.
+<code class="docutils literal notranslate"><span class="pre">liblangutil/EthdebugSchema.h</span></code> models the public schemas.
+The <code class="docutils literal notranslate"><span class="pre">to_json()</span></code> overloads in <code class="docutils literal notranslate"><span class="pre">EthdebugSchema.cpp</span></code> serialize those structures.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CompilerStack::ethdebug()</span></code> registers file-level variable declarations from the analyzed source units.
+<code class="docutils literal notranslate"><span class="pre">frontend::ethdebug::resources()</span></code> reads state-variable declarations from <code class="docutils literal notranslate"><span class="pre">ContractDefinitionAnnotation::linearizedBaseContracts</span></code> for type collection, including constants and immutables.
+Pointer collection uses <code class="docutils literal notranslate"><span class="pre">ContractType::linearizedStateVariables()</span></code> to register storage and transient-storage layouts, excluding constants and immutables.</p>
+<p>For callable declarations, it walks the edges of <code class="docutils literal notranslate"><span class="pre">ContractDefinitionAnnotation::creationCallGraph</span></code> and <code class="docutils literal notranslate"><span class="pre">deployedCallGraph</span></code>.
+Both callers and callees that are <code class="docutils literal notranslate"><span class="pre">CallableDeclaration</span></code> nodes are collected in a set ordered by AST ID.
+<code class="docutils literal notranslate"><span class="pre">TypeRegistry::registerVariableTypes()</span></code> registers the annotated type of every <code class="docutils literal notranslate"><span class="pre">VariableDeclaration</span></code> in each selected declaration's AST subtree.
+<code class="docutils literal notranslate"><span class="pre">TypeRegistry::registerCallableTypes()</span></code> additionally constructs tuple types from the callable's parameter list and non-empty return list using <code class="docutils literal notranslate"><span class="pre">TypeProvider::tuple()</span></code>.
+These go through the same registration path as the tuples used by function-type documents.
+This includes parameters and return variables as well as body declarations and <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">catch</span></code> parameters without a separate traversal for each kind of statement.
+The visitor stops at variable declarations: their component types are registered by <code class="docutils literal notranslate"><span class="pre">TypeRegistry</span></code>, and their initializer expressions cannot contain further variable declarations.
+It does not follow references to event, error or external-function declarations.</p>
+</section>
+<section id="type-registration">
+<h2>Type Registration<a class="headerlink" href="#type-registration" title="連結到這個標頭"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">TypeRegistry::registerTypeDecomposition()</span></code> in <code class="docutils literal notranslate"><span class="pre">libsolidity/interface/EthdebugTypeRegistry.cpp</span></code> canonicalizes a type with <code class="docutils literal notranslate"><span class="pre">TypeProvider::withLocationIfReference(DataLocation::Storage,</span> <span class="pre">...)</span></code> before looking up its <code class="docutils literal notranslate"><span class="pre">Type::identifier()</span></code>.
+This makes the registry reuse an entry when it encounters the same reference type in another data location.</p>
+<p>A lookup for an existing identifier returns immediately.
+For a new identifier, the registry inserts a placeholder before visiting the component types and replaces it with the completed document afterwards.
+A recursive component can therefore refer to the entry being built without restarting its construction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">buildTypeDocument()</span></code> dispatches on <code class="docutils literal notranslate"><span class="pre">Type::Category</span></code> and constructs the corresponding schema variant.
+<code class="docutils literal notranslate"><span class="pre">registerAndWrapType()</span></code> recursively registers a component's decomposition before creating its reference.
+For function types, the parameter and return lists are first turned into tuple types with <code class="docutils literal notranslate"><span class="pre">TypeProvider::tuple()</span></code> and registered through the same path.
+Struct members come from <code class="docutils literal notranslate"><span class="pre">StructType::members(nullptr)</span></code>, which gives each member the type it has in the struct's data location.</p>
+<p>For definition locations, <code class="docutils literal notranslate"><span class="pre">buildSourceRange()</span></code> resolves the source unit name through the source-index map supplied by <code class="docutils literal notranslate"><span class="pre">CompilerStack</span></code> and copies the range from <code class="docutils literal notranslate"><span class="pre">SourceLocation</span></code>.</p>
+</section>
+<section id="pointer-template-construction">
+<h2>Pointer Template Construction<a class="headerlink" href="#pointer-template-construction" title="連結到這個標頭"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">PointerTemplateRegistry</span></code> in <code class="docutils literal notranslate"><span class="pre">libsolidity/interface/EthdebugPointerTemplateRegistry.cpp</span></code> collects reachable template types in <code class="docutils literal notranslate"><span class="pre">m_pendingTemplateTypes</span></code> before building them.
+Its keys combine the layout with <code class="docutils literal notranslate"><span class="pre">TypeRegistry::canonicalizeType()</span></code>'s type identifier.
+<code class="docutils literal notranslate"><span class="pre">registerVariableTypes()</span></code> skips declarations without an implementation and registers reference and mapping variables in their annotated locations.
+Scalar declarations in callable bodies are skipped because their type annotations do not specify a data location.
+<code class="docutils literal notranslate"><span class="pre">collectTemplateTypes()</span></code> follows component types in the same location as their enclosing type.
+It does not add layouts for other locations.
+<code class="docutils literal notranslate"><span class="pre">registerType()</span></code> always selects the next pending layout by pointer ID, including in recursive calls.
+This keeps recursive templates independent of the order in which a contract's state variables register their types.</p>
+<p><code class="docutils literal notranslate"><span class="pre">m_templateIDsBeingBuilt</span></code> records the IDs of templates under construction.
+A reference to one of these uses its identifier without descending into it again.
+Completed drafts are stored in <code class="docutils literal notranslate"><span class="pre">m_templateDrafts</span></code> and record their region names in <code class="docutils literal notranslate"><span class="pre">TemplateDraft::producedRegions</span></code>.
+<code class="docutils literal notranslate"><span class="pre">buildTemplateReference()</span></code> uses those names to construct the <code class="docutils literal notranslate"><span class="pre">yields</span></code> map of a template reference.
+For a reference to a template still being built, the names are not known yet and no <code class="docutils literal notranslate"><span class="pre">yields</span></code> map is added.</p>
+<p><code class="docutils literal notranslate"><span class="pre">buildStructTemplate()</span></code> obtains each member's slot offset and little-endian byte offset from <code class="docutils literal notranslate"><span class="pre">StructType::storageOffsetsOfMember()</span></code> and passes the member to <code class="docutils literal notranslate"><span class="pre">buildStorageComponentPointer()</span></code>.
+<code class="docutils literal notranslate"><span class="pre">buildStorageComponentPointer()</span></code> chooses between a value region and a template reference, binding the member's slot when needed.
+Its mapping branch stops at a base-slot region.
+Entry expansion is handled by <code class="docutils literal notranslate"><span class="pre">buildMappingTemplate()</span></code>, which passes the mapping's value type back to <code class="docutils literal notranslate"><span class="pre">buildStorageComponentPointer()</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">buildArrayTemplate()</span></code> dispatches to <code class="docutils literal notranslate"><span class="pre">buildBytesOrStringPointer()</span></code> for the short and long byte-array encodings and otherwise to the static or dynamic array builders.
+Both array builders use <code class="docutils literal notranslate"><span class="pre">buildArrayElementListPointer()</span></code> for the element pointer.
+It selects the packed-value case using <code class="docutils literal notranslate"><span class="pre">Type::storageBytes()</span></code> and obtains the stride of other elements from <code class="docutils literal notranslate"><span class="pre">Type::storageSize()</span></code>.
+<code class="docutils literal notranslate"><span class="pre">buildBytesOrStringPointer()</span></code> constructs a conditional pointer and scopes the intermediate length and data-location expressions to the branch that uses them.</p>
+<p><code class="docutils literal notranslate"><span class="pre">buildByteAddressedTemplate()</span></code> handles memory and calldata.
+It obtains struct offsets from <code class="docutils literal notranslate"><span class="pre">memoryOffsetOfMember()</span></code> or <code class="docutils literal notranslate"><span class="pre">calldataOffsetOfMember()</span></code> and array strides from <code class="docutils literal notranslate"><span class="pre">memoryStride()</span></code> or <code class="docutils literal notranslate"><span class="pre">calldataStride()</span></code>.
+<code class="docutils literal notranslate"><span class="pre">buildByteAddressedComponentPointer()</span></code> emits value regions using <code class="docutils literal notranslate"><span class="pre">storageBytes()</span></code> and <code class="docutils literal notranslate"><span class="pre">leftAligned()</span></code>.
+For reference-type components it reads the head word before binding the nested template's <code class="docutils literal notranslate"><span class="pre">offset</span></code>: memory uses the word as an absolute address, whereas dynamically encoded calldata components add it to the enclosing tuple or array's element base.
+Statically encoded calldata components bind their inline address directly.</p>
+<p>The helpers in the <code class="docutils literal notranslate"><span class="pre">pointer</span></code> namespace construct schema expressions and pointers rather than Yul or assembly instructions.
+<code class="docutils literal notranslate"><span class="pre">pointer::addLiteralOffset()</span></code> folds additions to literal slots or byte addresses.
+<code class="docutils literal notranslate"><span class="pre">pointer::buildValueRegion()</span></code> converts little-endian byte offsets to big-endian byte offsets and omits redundant zero offsets and whole-word lengths.</p>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="連結到這個標頭"></a></h2>
+<p>The fixtures under <code class="docutils literal notranslate"><span class="pre">test/libsolidity/ethdebugTests/resources/</span></code> pin the serialized type documents and pointer templates.
+<code class="docutils literal notranslate"><span class="pre">test/ethdebugSchemaTests.py</span></code> compiles the same fixtures and checks schema conformance, type references, template bindings and region names.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, The Solidity Authors.</p>
+  </div>
+
+  
+    <p>
+        <a href="../credits-and-attribution.html">Credits and attribution</a>.
+    </p>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

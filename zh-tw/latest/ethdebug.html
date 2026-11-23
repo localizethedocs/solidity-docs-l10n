@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-TW" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ethdebug Output &mdash; Solidity 0.8.39-develop 說明文件</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams.css?v=207cc276" />
+      <link rel="stylesheet" type="text/css" href="_static/syntax-diagrams-ext.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/fonts.css?v=da6ff50d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b8c9b802" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom-dark.css?v=1f23c23e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/pygments.css?v=85fccb41" />
+      <link rel="stylesheet" type="text/css" href="_static/css/toggle.css?v=ff7d3256" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="canonical" href="https://projects.localizethedocs.org/solidity-docs-l10n/ethdebug.html" />
+    <script>
+        window.NAV_LINKS = {
+            blog: "網誌",
+            documentation: "文件",
+            use_cases: "使用案例",
+            contribute: "貢獻",
+            about: "關於",
+            forum: "論壇"
+        };
+    </script>
+    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=dc83ac0b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cbf116e0"></script>
+      <script src="_static/js/constants.js?v=6647bbdb"></script>
+      <script src="_static/js/initialize.js?v=a99c897d"></script>
+      <script src="_static/js/toggle.js?v=a5a9aacd"></script>
+    <script src="_static/js/theme.js"></script>
+
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜尋" href="search.html" />
+    <link rel="next" title="Security Considerations" href="security-considerations.html" />
+    <link rel="prev" title="Contract ABI Specification" href="abi-spec.html" />
+ 
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">基礎知識</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing-solidity.html">安裝 Solidity 編譯器</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layout-of-source-files.html">Solidity 來源檔的配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">表達式與控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Inline Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">速查表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">語言文法</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using-the-compiler.html">使用編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysing-compilation-output.html">分析編譯器輸出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ir-breaking-changes.html">Solidity IR-based Codegen Changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">內部原理</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_storage.html">Layout of State Variables in Storage and Transient Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_memory.html">Layout in Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/layout_in_calldata.html">Layout of Call Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/variable_cleanup.html">Cleaning Up Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/source_mappings.html">Source Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/optimizer.html">The Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Contract Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abi-spec.html">Contract ABI Specification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ethdebug Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-compilation">The Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-resources">The Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#type-documents">Type Documents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pointer-templates">Pointer Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-programs">The Programs</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">建議內容</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">已知臭蟲列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequently-reported-non-bugs.html">Frequently Reported Non-Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="050-breaking-changes.html">Solidity v0.5.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="060-breaking-changes.html">Solidity v0.6.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="070-breaking-changes.html">Solidity v0.7.0 重大變更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="080-breaking-changes.html">Solidity v0.8.0 重大變更</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附加材料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="natspec-format.html">NatSpec Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smtchecker.html">SMTChecker and Formal Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yul.html">Yul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="path-resolution.html">Import Path Resolution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language-influences.html">語言的影響</a></li>
+<li class="toctree-l1"><a class="reference internal" href="brand-guide.html">Solidity 品牌名稱</a></li>
+</ul>
+
+    <ul>
+        <li>
+            <a href="genindex.html">關鍵字索引</a>
+        </li>
+    </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Solidity</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ethdebug Output</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ethdebug.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethdebug-output">
+<span id="ethdebug"></span><span id="index-0"></span><h1>ethdebug Output<a class="headerlink" href="#ethdebug-output" title="連結到這個標頭"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>ethdebug support is <a class="reference internal" href="using-the-compiler.html#experimental-mode"><span class="std std-ref">experimental</span></a>.</p>
+</div>
+<p>The compiler can describe its output in the <a class="reference external" href="https://ethdebug.github.io/format/">ethdebug format</a>, a JSON format for debugging information shared between compilers and debuggers.
+The compiler targets version <a class="reference external" href="https://github.com/ethdebug/format/tree/&#64;ethdebug/format&#64;0.1.0-draft.2">0.1.0-draft.2</a> of the format, which is still in development, and names it in the <code class="docutils literal notranslate"><span class="pre">ethdebug</span></code> stamp of the program and resources outputs.
+The format defines a <a class="reference external" href="https://github.com/ethdebug/format/tree/&#64;ethdebug/format&#64;0.1.0-draft.2/schemas">schema</a> for each kind of document.
+This page describes the compiler outputs and how to resolve their type and pointer references.
+The options to request the outputs are documented in <a class="reference internal" href="using-the-compiler.html#compiler-api"><span class="std std-ref">Compiler Input and Output JSON Description</span></a> and <a class="reference internal" href="using-the-compiler.html#commandline-compiler"><span class="std std-ref">使用命令行編譯器</span></a>.</p>
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="連結到這個標頭"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Document</p></th>
+<th class="head"><p>Standard JSON output</p></th>
+<th class="head"><p>Command line</p></th>
+<th class="head"><p>Schema</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>compilation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ethdebug.compilation</span></code> (global)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ethdebug-compilation</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/ethdebug/format/blob/&#64;ethdebug/format&#64;0.1.0-draft.2/schemas/materials/compilation.schema.yaml">ethdebug/format/materials/compilation</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>resources</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ethdebug.resources</span></code> (global)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ethdebug-resources</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/ethdebug/format/blob/&#64;ethdebug/format&#64;0.1.0-draft.2/schemas/info/resources.schema.yaml">ethdebug/format/info/resources</a></p></td>
+</tr>
+<tr class="row-even"><td><p>creation program</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evm.bytecode.ethdebug</span></code> (per contract)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ethdebug-program</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/ethdebug/format/blob/&#64;ethdebug/format&#64;0.1.0-draft.2/schemas/program.schema.yaml">ethdebug/format/program</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>deployed program</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evm.deployedBytecode.ethdebug</span></code>
+(per contract)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ethdebug-program-runtime</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/ethdebug/format/blob/&#64;ethdebug/format&#64;0.1.0-draft.2/schemas/program.schema.yaml">ethdebug/format/program</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>The compilation needs nothing but the sources.
+The resources are derived from the analysis of the sources and the programs describe bytecode, so the latter can only be produced when compiling via IR.</p>
+</section>
+<section id="the-compilation">
+<h2>The Compilation<a class="headerlink" href="#the-compilation" title="連結到這個標頭"></a></h2>
+<p>The compilation document identifies one run of the compiler and has an <code class="docutils literal notranslate"><span class="pre">id</span></code> derived from the sources, the <code class="docutils literal notranslate"><span class="pre">compiler</span></code> name and version and the list of <code class="docutils literal notranslate"><span class="pre">sources</span></code>.
+Every source carries its <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">contents</span></code> and <code class="docutils literal notranslate"><span class="pre">language</span></code>.
+A source <code class="docutils literal notranslate"><span class="pre">id</span></code> is a number unique within the compilation, and all source references in the other documents refer to sources by it.
+Source references include their type explicitly, for example <code class="docutils literal notranslate"><span class="pre">{&quot;id&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;source&quot;}</span></code>.
+The compiler currently uses the same number as the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the source in the Standard JSON output and in <a class="reference internal" href="internals/source_mappings.html"><span class="doc">source mappings</span></a>.</p>
+</section>
+<section id="the-resources">
+<h2>The Resources<a class="headerlink" href="#the-resources" title="連結到這個標頭"></a></h2>
+<p>The resources document carries its <code class="docutils literal notranslate"><span class="pre">ethdebug</span></code> stamp and two tables that the programs refer to: <code class="docutils literal notranslate"><span class="pre">types</span></code> and <code class="docutils literal notranslate"><span class="pre">pointers</span></code>.
+Compiler information and sources are provided separately by <code class="docutils literal notranslate"><span class="pre">ethdebug.compilation</span></code>.
+Both tables cover all contracts of the compilation.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ethdebug"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethdebug/format/info/resources"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1.0-draft.2"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"t_uint256"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uint"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"..."</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"pointers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"storage-t_struct$_Point_$6_storage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"expect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"slot"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">"for"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">"..."</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"..."</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="type-documents">
+<h3>Type Documents<a class="headerlink" href="#type-documents" title="連結到這個標頭"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">types</span></code> table maps type identifiers to type documents (schema <code class="docutils literal notranslate"><span class="pre">ethdebug/format/type</span></code>).
+The compiler currently uses the identifiers its <a class="reference internal" href="internals/layout_in_storage.html#storage-layout-top-level"><span class="std std-ref">storage layout</span></a> output uses as well, such as <code class="docutils literal notranslate"><span class="pre">t_uint256</span></code>, <code class="docutils literal notranslate"><span class="pre">t_array$_t_uint8_$dyn_storage</span></code> or <code class="docutils literal notranslate"><span class="pre">t_struct$_Point_$6_storage</span></code>.
+The only guarantee about the identifier is that it is a string that is unique within the table.
+Its exact form is an implementation detail, but it is generally based on the name used in type definition.
+When that name is not unique within the compilation, it may be disambiguated with additional information, such as the AST ID of the definition.</p>
+<p>The table contains documents for the types of:</p>
+<ul class="simple">
+<li><p>all state variables, including inherited variables, constants and immutables,</p></li>
+<li><p>all file-level constants in the analyzed sources,</p></li>
+<li><p>parameters, return variables and local variables of functions and modifiers in each contract's creation and deployed call graphs.</p></li>
+</ul>
+<p>The last group includes constructors, public and external functions, fallback and receive functions, their modifiers, and the internal functions they call, including free and library functions.
+An internal function also contributes its variable types if it is assigned to a function variable (<code class="docutils literal notranslate"><span class="pre">callback</span> <span class="pre">=</span> <span class="pre">f</span></code>) or merely evaluated (<code class="docutils literal notranslate"><span class="pre">f;</span></code>), even without a call.
+Internal functions called or evaluated in state-variable initializers are included as well.
+Collection happens before optimization, so it also includes declarations in code that is later removed.
+Parameters and return variables of interface functions and other unimplemented functions are included even though those declarations have no bytecode.
+Locals include variables in nested blocks and loops and the success and failure parameters of <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses.</p>
+<p>The tables are merged across all analyzed contracts and sources, not just the contracts selected for bytecode output.
+A selective import therefore does not exclude types contributed by other contracts or file-level constants in the imported source.
+Taking an external function's <code class="docutils literal notranslate"><span class="pre">selector</span></code> or <code class="docutils literal notranslate"><span class="pre">address</span></code> does not add its variable types to the caller's table, but the function's own contract or interface still contributes them to the merged table.</p>
+<p>Event and error parameters do not independently contribute types.
+Neither do unused type definitions or types mentioned only in expressions, such as conversions, <code class="docutils literal notranslate"><span class="pre">new</span></code>, struct constructors, builtins like <code class="docutils literal notranslate"><span class="pre">bytes.concat()</span></code> or parameters of <code class="docutils literal notranslate"><span class="pre">abi.decode()</span></code>.
+A <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">for</span></code> directive alone does not contribute types.
+Its internal functions contribute variable types when called or evaluated as function values, not merely because the directive names them.
+Every collected type also brings in its component types, recursively.
+The parameter lists and non-empty return lists of included functions and modifiers also have tuple documents, using the same representation as the lists in function types.
+Each parameter and return variable still has its own type.
+The tuple describes the list, not an extra variable.
+Including a type does not imply that a variable's runtime location or value is available in the program output.
+Unnameable types have no document.
+These include literal types, array slice types, types of types, modifier types, magic types (such as those of <code class="docutils literal notranslate"><span class="pre">msg</span></code> and <code class="docutils literal notranslate"><span class="pre">abi</span></code>), module types, inaccessible dynamic types and function types other than internal and external ones.
+Library names cannot be used as variable types, so no library type document is emitted.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Solidity type</p></th>
+<th class="head"><p>ethdebug representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uintN</span></code>, <code class="docutils literal notranslate"><span class="pre">intN</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> with <code class="docutils literal notranslate"><span class="pre">bits</span></code> equal to <code class="docutils literal notranslate"><span class="pre">N</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">payable</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">address</span></code> with <code class="docutils literal notranslate"><span class="pre">payable</span></code> set to <code class="docutils literal notranslate"><span class="pre">false</span></code> or <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bytesN</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code> with <code class="docutils literal notranslate"><span class="pre">size</span></code> equal to <code class="docutils literal notranslate"><span class="pre">N</span></code> for fixed-size byte arrays and absent for dynamic ones</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fixedMxN</span></code>, <code class="docutils literal notranslate"><span class="pre">ufixedMxN</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fixed</span></code>, <code class="docutils literal notranslate"><span class="pre">ufixed</span></code> with <code class="docutils literal notranslate"><span class="pre">bits</span></code> equal to <code class="docutils literal notranslate"><span class="pre">M</span></code> and <code class="docutils literal notranslate"><span class="pre">places</span></code> equal to <code class="docutils literal notranslate"><span class="pre">N</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>contract, interface</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">contract</span></code> with <code class="docutils literal notranslate"><span class="pre">payable</span></code> and, for an interface, <code class="docutils literal notranslate"><span class="pre">interface:</span> <span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">enum</span></code> with <code class="docutils literal notranslate"><span class="pre">values</span></code> in declaration order</p></td>
+</tr>
+<tr class="row-even"><td><p>user-defined value type <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">U</span> <span class="pre">is</span> <span class="pre">V</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">alias</span></code> with <code class="docutils literal notranslate"><span class="pre">contains</span></code> referencing <code class="docutils literal notranslate"><span class="pre">V</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T[N]</span></code>, <code class="docutils literal notranslate"><span class="pre">T[]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">array</span></code> with <code class="docutils literal notranslate"><span class="pre">contains</span></code> referencing <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span></code> equal to <code class="docutils literal notranslate"><span class="pre">N</span></code> for a static array, absent for a dynamic one</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mapping(K</span> <span class="pre">=&gt;</span> <span class="pre">V)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mapping</span></code> with <code class="docutils literal notranslate"><span class="pre">contains.key</span></code> and <code class="docutils literal notranslate"><span class="pre">contains.value</span></code> referencing <code class="docutils literal notranslate"><span class="pre">K</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>struct</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">struct</span></code> with <code class="docutils literal notranslate"><span class="pre">contains</span></code> listing the members by <code class="docutils literal notranslate"><span class="pre">name</span></code> and type</p></td>
+</tr>
+<tr class="row-even"><td><p>parameter or return list</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> with <code class="docutils literal notranslate"><span class="pre">contains</span></code> listing the component types</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal or external function type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">function</span></code> with <code class="docutils literal notranslate"><span class="pre">internal:</span> <span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">external:</span> <span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">contains.parameters</span></code> referencing a tuple and <code class="docutils literal notranslate"><span class="pre">contains.returns</span></code> referencing a tuple when there are return values</p></td>
+</tr>
+</tbody>
+</table>
+<p>Composite types reference their components by identifier, so that the table is closed:
+an array, a mapping or a user-defined value type refers to its element, key, value or underlying type as <code class="docutils literal notranslate"><span class="pre">{&quot;type&quot;:</span> <span class="pre">{&quot;id&quot;:</span> <span class="pre">&quot;&lt;id&gt;&quot;}}</span></code> and a struct lists its members with their <code class="docutils literal notranslate"><span class="pre">name</span></code> and such a reference.
+In a function type, <code class="docutils literal notranslate"><span class="pre">contains.parameters</span></code> always references the tuple of parameter types in declaration order.
+No parameters means an empty tuple.
+One parameter means a one-element tuple, not the parameter's type on its own.
+<code class="docutils literal notranslate"><span class="pre">contains.returns</span></code> follows the same convention for return types, but is omitted when there are no return values.
+The outer tuple groups the list.
+Classic Solidity does not support tuple-valued parameters or return variables.
+Such a parameter or return variable would occupy one element referencing another tuple rather than being flattened into the list.
+The tuple documents themselves also reference their components by identifier.
+Neither the parameter nor return types are inlined.</p>
+<p>Structs, enums, contracts and user-defined value types carry a <code class="docutils literal notranslate"><span class="pre">definition</span></code> with the <code class="docutils literal notranslate"><span class="pre">name</span></code> of the definition and its <code class="docutils literal notranslate"><span class="pre">location</span></code> in the source: the source <code class="docutils literal notranslate"><span class="pre">id</span></code> and the <code class="docutils literal notranslate"><span class="pre">offset</span></code> and <code class="docutils literal notranslate"><span class="pre">length</span></code> of the definition.
+Function types in the table are types of variables, such as <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">(uint256)</span> <span class="pre">external</span> <span class="pre">returns</span> <span class="pre">(bool)</span> <span class="pre">f</span></code>, and are not associated with a fixed function definition, so they have no <code class="docutils literal notranslate"><span class="pre">definition</span></code>.
+Like in source mappings, and as the schema of source ranges specifies, the offset and the length count bytes of the UTF-8 encoded source, not characters.</p>
+<p>A type document does not depend on where a value is stored.
+That is what the pointer describes.
+The variants of a reference type in different data locations therefore share one document: a <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">memory</span></code> parameter and a <code class="docutils literal notranslate"><span class="pre">string</span></code> state variable both refer to the same entry.
+An import alias also refers to the original type document.
+It does not introduce another type or change the name in its <code class="docutils literal notranslate"><span class="pre">definition</span></code>.</p>
+</section>
+<section id="pointer-templates">
+<h3>Pointer Templates<a class="headerlink" href="#pointer-templates" title="連結到這個標頭"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pointers</span></code> table contains pointer templates (schema <code class="docutils literal notranslate"><span class="pre">ethdebug/format/pointer/template</span></code>) describing how values are laid out in storage, transient storage, memory and calldata.
+Mutable state variables contribute their storage or transient-storage layouts.
+Reference and mapping variables in implemented functions and modifiers contribute the layouts specified by their declarations.
+The component types of arrays, structs and mappings also have templates in the enclosing value's location.
+Other layouts of the same type are not included unless another declaration needs them.
+Scalar parameters, return variables and locals do not add data-layout templates.
+Constants, immutables and function or modifier declarations without a body contribute type information but no pointer templates.
+The compiler currently prefixes the canonical type identifier with the layout, for example <code class="docutils literal notranslate"><span class="pre">storage-t_uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">memory-t_uint16</span></code> and <code class="docutils literal notranslate"><span class="pre">calldata-t_uint16</span></code>.
+These are distinct pointer IDs referring to layouts of the same type document, <code class="docutils literal notranslate"><span class="pre">t_uint16</span></code>.
+Pointer IDs and type IDs are not interchangeable.</p>
+<p>Storage and transient-storage templates expect <code class="docutils literal notranslate"><span class="pre">slot</span></code> as a parameter: the base slot of the value they describe.
+Value-type templates additionally expect <code class="docutils literal notranslate"><span class="pre">offset</span></code> as a parameter: the <em>little-endian offset</em>, counted in bytes from the least significant byte, as in Solidity's storage layout.
+For an <em>n</em>-byte value, this offset must be between 0 and <code class="docutils literal notranslate"><span class="pre">32</span> <span class="pre">-</span> <span class="pre">n</span></code>.
+Memory and calldata templates instead expect <code class="docutils literal notranslate"><span class="pre">offset</span></code> as a parameter: the byte address at which the value begins.
+For a dynamic array, <code class="docutils literal notranslate"><span class="pre">bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code>, this includes the length word.
+For a static array or struct it is the start of the first element or member.
+For an ABI-encoded dynamic value, bind the address of its tail, not the address of the head word containing the relative offset.</p>
+<p>Memory templates follow the absolute pointers stored in reference-type members and array elements.
+Calldata templates follow ABI-relative offsets, and keep statically encoded structs and arrays inline.
+Values narrower than a word are padded in memory and calldata rather than packed: numeric values occupy the low-order bytes, while <code class="docutils literal notranslate"><span class="pre">bytesN</span></code> and external function values occupy the high-order bytes.
+The templates describe these regions explicitly.</p>
+<p>Templates describe layouts, not the location or lifetime of individual variables.
+A consumer must obtain the base address or slot, and any little-endian offset, from a variable pointer or another location record before instantiating a template.</p>
+<p>The template of a mapping also expects <code class="docutils literal notranslate"><span class="pre">key</span></code> as a parameter: the key of the entry it locates.
+The value of a mapping is not at a fixed place, and a mapping nested in another type is represented by the region of its base slot, from which the mapping's template locates an entry once a key is bound.
+A key of value type is bound to the word it is hashed as, which is the word Solidity holds it in on the stack: a signed integer sign-extended, a <code class="docutils literal notranslate"><span class="pre">bytesN</span></code> in the high-order bytes followed by zeros, and any other value type in the low-order bytes.
+The template widens a shorter value with zeros on the left, which is correct for low-order-aligned keys that need zero padding.
+A <code class="docutils literal notranslate"><span class="pre">bytes4</span></code> key needs padding on the right and a negative <code class="docutils literal notranslate"><span class="pre">int8</span></code> key needs sign extension, so bind these as whole words.
+A <code class="docutils literal notranslate"><span class="pre">bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code> key is bound to its bytes, which are hashed as they are.
+A recursive type (one nested in itself, through an array or through a mapping) references its own template, which a debugger follows as far as the data reaches: one element per list entry, one key per mapping level.</p>
+<p>The choice of region names and pointer expressions can change between compiler versions.
+Consumers should read them from the templates.
+The compiler currently names regions relative to the value a template describes:</p>
+<ul class="simple">
+<li><p>the members of a struct: their names,</p></li>
+<li><p>the elements of an array: <code class="docutils literal notranslate"><span class="pre">item</span></code>, with <code class="docutils literal notranslate"><span class="pre">index</span></code> being the variable the list iterates over,</p></li>
+<li><p>the length of a dynamic array: <code class="docutils literal notranslate"><span class="pre">length</span></code>,</p></li>
+<li><p>a standalone value type: <code class="docutils literal notranslate"><span class="pre">value</span></code>,</p></li>
+<li><p>the parts of a storage <code class="docutils literal notranslate"><span class="pre">bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code>: <code class="docutils literal notranslate"><span class="pre">length-flag</span></code>, <code class="docutils literal notranslate"><span class="pre">long-length</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>,</p></li>
+<li><p>the parts of a memory or calldata <code class="docutils literal notranslate"><span class="pre">bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code>: <code class="docutils literal notranslate"><span class="pre">length</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>,</p></li>
+<li><p>the pointer or relative-offset word of a nested reference value: <code class="docutils literal notranslate"><span class="pre">&lt;member&gt;-address</span></code> or <code class="docutils literal notranslate"><span class="pre">item-address</span></code>.</p></li>
+</ul>
+<p>For non-recursive references, a template referencing the template of a member's or element's type prefixes the names that one produces with the member's name or <code class="docutils literal notranslate"><span class="pre">item</span></code>, so that the <code class="docutils literal notranslate"><span class="pre">x</span></code> of the <code class="docutils literal notranslate"><span class="pre">from</span></code> member of a <code class="docutils literal notranslate"><span class="pre">Line</span></code> is <code class="docutils literal notranslate"><span class="pre">from-x</span></code> and that of an element of a <code class="docutils literal notranslate"><span class="pre">Point[]</span></code> is <code class="docutils literal notranslate"><span class="pre">item-x</span></code>.</p>
+<p class="remix-link-container"><a class="remix-link reference external" href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.39&amp;code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0zLjAKcHJhZ21hIHNvbGlkaXR5ID49MC42LjAgPDAuOS4wOwoKc3RydWN0IFBvaW50IHsgdWludDggeDsgdWludDggeTsgfQpzdHJ1Y3QgTGluZSB7IFBvaW50IGZyb207IFBvaW50IHRvOyB9Cgpjb250cmFjdCBDIHsKICAgIHVpbnQyNTYgdG90YWw7CiAgICBQb2ludCBvcmlnaW47CiAgICBtYXBwaW5nKGFkZHJlc3MgPT4gdWludDI1NikgYmFsYW5jZXM7CiAgICBMaW5lIGxpbmU7Cn0=" target="_blank">open in Remix</a></p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="c1">// SPDX-License-Identifier: GPL-3.0</span>
+<span class="k">pragma solidity</span><span class="w"> </span><span class="o">&gt;=</span><span class="k">0.6.0</span><span class="w"> </span><span class="o">&lt;</span><span class="k">0.9.0</span><span class="p">;</span>
+
+<span class="kt">struct</span><span class="w"> </span><span class="nv">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">uint8</span><span class="w"> </span><span class="nv">x</span><span class="p">;</span><span class="w"> </span><span class="kt">uint8</span><span class="w"> </span><span class="nv">y</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">struct</span><span class="w"> </span><span class="nv">Line</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>Point<span class="w"> </span>from<span class="p">;</span><span class="w"> </span>Point<span class="w"> </span>to<span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">C</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">total</span><span class="p">;</span>
+<span class="w">    </span>Point<span class="w"> </span>origin<span class="p">;</span>
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span>balances<span class="p">;</span>
+<span class="w">    </span>Line<span class="w"> </span>line<span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following entries describe <code class="docutils literal notranslate"><span class="pre">total</span></code>, <code class="docutils literal notranslate"><span class="pre">origin</span></code>, entries of <code class="docutils literal notranslate"><span class="pre">balances</span></code> and <code class="docutils literal notranslate"><span class="pre">line</span></code> in storage.
+The storage layout puts <code class="docutils literal notranslate"><span class="pre">total</span></code> at slot 0, with little-endian offset 0.
+A region's <code class="docutils literal notranslate"><span class="pre">offset</span></code> is a <em>big-endian offset</em>, counted from the most significant byte of its slot.
+The two members of <code class="docutils literal notranslate"><span class="pre">Point</span></code> share a slot, with <code class="docutils literal notranslate"><span class="pre">x</span></code> at big-endian offset 31 and <code class="docutils literal notranslate"><span class="pre">y</span></code> at 30.
+A debugger instantiates the <code class="docutils literal notranslate"><span class="pre">Point</span></code> template with <code class="docutils literal notranslate"><span class="pre">slot</span></code> bound to 1, where the layout puts <code class="docutils literal notranslate"><span class="pre">origin</span></code>, and the mapping's template with <code class="docutils literal notranslate"><span class="pre">slot</span></code> bound to 2 and <code class="docutils literal notranslate"><span class="pre">key</span></code> to the address of the entry it wants to see.
+The <code class="docutils literal notranslate"><span class="pre">Line</span></code> template is instantiated with <code class="docutils literal notranslate"><span class="pre">slot</span></code> bound to 3.
+Its <code class="docutils literal notranslate"><span class="pre">yields</span></code> maps distinguish <code class="docutils literal notranslate"><span class="pre">from-x</span></code> and <code class="docutils literal notranslate"><span class="pre">from-y</span></code> from <code class="docutils literal notranslate"><span class="pre">to-x</span></code> and <code class="docutils literal notranslate"><span class="pre">to-y</span></code>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"storage-t_uint256"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"expect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"slot"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"offset"</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"for"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"slot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slot"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"~difference"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">"0x00"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"offset"</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x20"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"storage-t_struct$_Point_$6_storage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"expect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"slot"</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"for"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"slot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slot"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1f"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x01"</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"y"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"slot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slot"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1e"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x01"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"storage-t_mapping$_t_address_$_t_uint256_$"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"expect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"slot"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"key"</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"for"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"slot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"~keccak256"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"~wordsized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key"</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"~wordsized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slot"</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"storage-t_struct$_Line_$13_storage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"expect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"slot"</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"for"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage-t_struct$_Point_$6_storage"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"yields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from-x"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="s2">"from-y"</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"define"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"slot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"~sum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                                </span><span class="s2">"slot"</span><span class="p">,</span>
+<span class="w">                                </span><span class="s2">"0x01"</span>
+<span class="w">                            </span><span class="p">]</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="nt">"in"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage-t_struct$_Point_$6_storage"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"yields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to-x"</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to-y"</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>A region's <code class="docutils literal notranslate"><span class="pre">offset</span></code> is a big-endian offset, counted from the most significant byte of the slot.
+The <code class="docutils literal notranslate"><span class="pre">offset</span></code> in Solidity's <a class="reference internal" href="internals/layout_in_storage.html#storage-layout-top-level"><span class="std std-ref">storage layout</span></a> is a little-endian offset, counted from the least significant byte.
+For a value of <em>n</em> bytes contained in a single slot, little-endian offset <em>o</em> corresponds to big-endian offset 32 - <em>o</em> - <em>n</em>.</p>
+<p>Solidity's offsets follow the order in which values are packed, starting at the low-order end.
+Either direction works within a single slot, but ETHDebug's <a class="reference external" href="https://github.com/ethdebug/format/blob/main/schemas/pointer/scheme/segment.schema.yaml">segment addressing scheme</a> also allows a region to span consecutive slots.
+It treats each slot as a big-endian byte sequence, continuing from the least significant byte of slot <code class="docutils literal notranslate"><span class="pre">p</span></code> to the most significant byte of slot <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="the-programs">
+<h2>The Programs<a class="headerlink" href="#the-programs" title="連結到這個標頭"></a></h2>
+<p>A program (schema <code class="docutils literal notranslate"><span class="pre">ethdebug/format/program</span></code>) describes bytecode of one contract: either its creation bytecode or its deployed bytecode.
+It names the <code class="docutils literal notranslate"><span class="pre">contract</span></code> and the source range of its definition, states the <code class="docutils literal notranslate"><span class="pre">environment</span></code> the bytecode runs in, <code class="docutils literal notranslate"><span class="pre">create</span></code> or <code class="docutils literal notranslate"><span class="pre">call</span></code>, and lists its <code class="docutils literal notranslate"><span class="pre">instructions</span></code>.
+Every instruction carries its byte <code class="docutils literal notranslate"><span class="pre">offset</span></code> in the bytecode, the <code class="docutils literal notranslate"><span class="pre">operation</span></code> with the <code class="docutils literal notranslate"><span class="pre">mnemonic</span></code> of the opcode and the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> of a push, and, where the compiler knows it, a <code class="docutils literal notranslate"><span class="pre">context</span></code> with the source range of the code the instruction was generated from.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="abi-spec.html" class="btn btn-neutral float-left" title="Contract ABI Specification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="security-considerations.html" class="btn btn-neutral float-right" title="Security Considerations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, The Solidity Authors.</p>
+  </div>
+
+  
+    <p>
+        <a href="credits-and-attribution.html">Credits and attribution</a>.
+    </p>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
