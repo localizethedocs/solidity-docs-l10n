@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Solidity stable\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 17:52+0000\n"
+"POT-Creation-Date: 2026-11-23 20:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,15 +33,15 @@ msgstr ""
 msgid "Internals"
 msgstr ""
 
-#: ../../../index.rst:156
+#: ../../../index.rst:157
 msgid "Advisory content"
 msgstr ""
 
-#: ../../../index.rst:168
+#: ../../../index.rst:169
 msgid "Additional Material"
 msgstr ""
 
-#: ../../../index.rst:177
+#: ../../../index.rst:178
 msgid "Resources"
 msgstr ""
 
